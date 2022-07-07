@@ -1,0 +1,77 @@
+#UserPages .user_container .top_container .images img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+#UserPages .user_container .bottom_container, #UserPages .user_container .top_container, #UserPages .user_container {
+  height: 100%;
+  width: 100%;
+}
+
+#UserPages .user_container .top_container .images, #UserPages .user_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#UserPages {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+#UserPages .user_container {
+  border-radius: 20px;
+  flex-direction: column;
+  gap: 20px;
+}
+#UserPages .user_container .bottom_container, #UserPages .user_container .top_container {
+  border-radius: 20px;
+}
+#UserPages .user_container .top_container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 20px;
+  background: #fff;
+}
+#UserPages .user_container .top_container .images {
+  height: 140px;
+  width: 140px;
+  border-radius: 50%;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+}
+#UserPages .user_container .top_container .images img {
+  padding: 15px;
+}
+#UserPages .user_container .top_container .UserContent {
+  display: flex;
+  flex-direction: column;
+}
+#UserPages .user_container .top_container .UserContent #hr {
+  margin: 15px 0;
+}
+#UserPages .user_container .top_container .UserContent .details {
+  display: flex;
+  align-items: baseline;
+  gap: 15px;
+}
+#UserPages .user_container .top_container .UserContent .details h3 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+#UserPages .user_container .top_container .UserContent .details .numberDetails h3 {
+  padding-top: 0.3rem;
+}
+#UserPages .user_container .bottom_container .collapseSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#UserPages .user_container .bottom_container .collapseSection .collapse_container {
+  cursor: pointer;
+  transition: 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+}

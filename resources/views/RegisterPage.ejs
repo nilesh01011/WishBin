@@ -1,0 +1,214 @@
+<body>
+    <div id="registersPage">
+        <div class="wrapper">
+            <div class="logo">
+                <a href="/">WB</a>
+            </div>
+
+            <!-- Logo End -->
+
+            <div class="images">
+                <!-- images -->
+            </div>
+            <div class="bgImg">
+                <img src="../img/CircleSVG.svg" alt="circle-images">
+            </div>
+            <div class="buttons">
+                <a href="/">
+                    <i class="fas fa-long-arrow-alt-left"></i>
+                    Back to homepage
+                </a>
+            </div>
+
+            <div class="contents">
+                <h1>New Here<span>?</span></h1>
+                <p>
+                    Ready to get started?
+                    Join us today! click to <span>Sign Up</span> now
+                </p>
+                <div id="popupBtn">
+                    <button>Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlayPopup"></div>
+
+    <!-- Poppus -->
+
+    <div class="popup_signIn_Up">
+        <div class="container">
+            <div class="popup">
+                <div class="CrossPopup">
+                    <i class="fas fa-times"></i>
+                </div>
+                <div class="signUp_form">
+                    <h1 class="title">Create your account</h1>
+                    <div class="progress_bar">
+                        <div class="step check_add">
+                            <p>Account Setup</p>
+                            <div class="bullet active">
+                                <span>1</span>
+                            </div>
+                            <div class="check fas fa-check"></div>
+                        </div>
+                        <div class="step">
+                            <p>Personal Details</p>
+                            <div class="bullet per_deta_add">
+                                <span>2</span>
+                            </div>
+                            <div class="check fas fa-check"></div>
+                        </div>
+                    </div>
+
+                    <!-- error messages -->
+                    <% if(messages.error) { %>
+
+                        <div class="error">
+                            <span>
+                                <%= messages.error %>
+                            </span>
+                        </div>
+
+                        <% } %>
+
+                            <!-- forms -->
+                            <div class="form_outer">
+                                <form action="/register" method="POST">
+                                    <div class="page_ acc_deta">
+                                        <div class="field">
+                                            <input type="email" value="<%= messages.email %>" name="email"
+                                                placeholder="Email" autocomplete="off">
+                                        </div>
+                                        <div class="field">
+                                            <input class="input" value="<%= messages.password %>" name="password"
+                                                type="password" placeholder="Password" autocomplete="off">
+                                            <i id="eye_lock" class="far fa-eye-slash"></i>
+                                        </div>
+                                        <div class="field">
+                                            <input class="input" value="<%= messages.Cpassword %>" name="Cpassword"
+                                                type="password" placeholder="Confirm Password" autocomplete="off">
+                                            <i id="eye_lock" class="far fa-eye-slash"></i>
+                                        </div>
+                                        <div class="btns">
+                                            <button class="next" type="button" role="button">Next</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="page_ pers_deta">
+                                        <div class="field">
+                                            <input type="text" name="name" value="<%= messages.name %>"
+                                                placeholder="Your Name" autocomplete="off">
+                                        </div>
+                                        <div class="field">
+                                            <input type="phone" name="phone" maxlength="10"
+                                                value="<%= messages.phone %>" placeholder="Phone Number"
+                                                autocomplete="off">
+                                        </div>
+                                        <div class="field">
+                                            <textarea name="address" placeholder="Your Address"></textarea>
+                                        </div>
+                                        <div class="btns">
+                                            <button class="prev" type="button" role="button">Previous</button>
+                                            <button type="submit" id="signUp_Submit" role="button">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="signInBtn">
+                                <h1>One of us!</h1>
+                                <button id="signIn" type="button">Sign In</button>
+                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================= -->
+    <!-- ===========================JS Script========================= -->
+
+    <script>
+        let SignInPage = document.querySelector('.popup_signIn_Up'),
+            UserSecret = document.querySelector('#left .shop i'),
+            container = document.querySelector('.popup_signIn_Up .popup'),
+            container_add = document.querySelector('.popup_signIn_Up .container'),
+            body = document.querySelector('body'),
+            Overlay = document.querySelector('#overlayPopup'),
+            signIn = document.querySelector('#signIn'),
+            CrossPopup = document.querySelector('.popup_signIn_Up .popup .CrossPopup i'),
+            check = document.querySelector(
+                '.popup_signIn_Up .popup .progress_bar .check_add .check'
+            ),
+            check_number = document.querySelector(
+                '.popup_signIn_Up .popup .progress_bar .check_add .bullet.active span'
+            ),
+            progressBar = document.querySelector(
+                '.popup_signIn_Up .popup .progress_bar .step .per_deta_add'
+            ),
+            nextStep = document.querySelector(
+                '.popup_signIn_Up .popup .form_outer .page_ .next'
+            ),
+            prevStep = document.querySelector(
+                '.popup_signIn_Up .popup .form_outer .page_ .prev'
+            ),
+            eye_lock = document.querySelectorAll('#eye_lock'),
+            input = document.querySelectorAll('form .field input.input'),
+            Login_submit = document.querySelector('#submit'),
+            SignUp_submit = document.querySelector('#signUp_Submit'),
+            SignUpBUTTONS = document.querySelector('#popupBtn');
+
+        for (let i = 0; i < eye_lock.length; i++) {
+            eye_lock[i].addEventListener('click', () => {
+                if (input[i].type === 'password') {
+                    input[i].type = 'text';
+                    eye_lock[i].classList.add('fa-eye');
+                    eye_lock[i].classList.remove('fa-eye-slash');
+                } else {
+                    input[i].type = 'password';
+                    eye_lock[i].classList.remove('fa-eye');
+                    eye_lock[i].classList.add('fa-eye-slash');
+                }
+            });
+        }
+
+        SignUpBUTTONS.addEventListener('click', () => {
+            SignInPage.classList.add('active');
+            container.style.visibility = 'visible';
+            Overlay.classList.add('active');
+            body.classList.add('overflow-hidden');
+        });
+
+        CrossPopup.addEventListener('click', Cross_Overlay, false);
+
+        Overlay.addEventListener('click', Cross_Overlay, false);
+
+        function Cross_Overlay() {
+            container.style.visibility = 'hidden';
+            SignInPage.classList.remove('active');
+            Overlay.classList.remove('active')
+            body.classList.remove('overflow-hidden');
+        }
+
+        nextStep.addEventListener('click', () => {
+            container.classList.add('nextStep');
+            progressBar.classList.add('active');
+            check.style.display = 'block';
+            check_number.style.display = 'none';
+        });
+
+        prevStep.addEventListener('click', () => {
+            container.classList.remove('nextStep');
+            progressBar.classList.remove('active');
+            check.style.display = 'none';
+            check_number.style.display = 'block';
+        });
+
+        signIn.addEventListener("click", () => {
+            window.location = "./login"
+        })
+
+    </script>
+</body>
+
+</html>

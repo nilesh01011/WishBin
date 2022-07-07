@@ -1,0 +1,339 @@
+<div id="Container">
+    <nav class="navbar">
+        <div id="left">
+            <div class="navbar-brand">
+                <div class="logo">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <% if(user) { %>
+
+                <div id="userData" class="shop">
+                    <a href="./userprofile">
+                        <i class="fas fa-user-secret"></i>
+                    </a>
+                </div>
+
+                <% } else { %>
+
+                    <div id="userRegisters" class="shop">
+                        <a href="./register">
+                            <i class="fas fa-user-secret"></i>
+                        </a>
+                    </div>
+
+                    <% } %>
+        </div>
+        <!-- ===========Left Section End============ -->
+        <div id="logo" class="middle">WB</div>
+        <!-- ===============Logo End================ -->
+
+        <div class="right">
+            <% if(wishlist && wishlist.length !=0){ %>
+                <a href="/wishlistpage" id="wish_btn" class="one active">
+                    <div class="count">
+                        <%= wishlist.length %>
+                    </div>
+                    <i class="far fa-heart"></i>
+                    <small>Wishlist</small>
+                </a>
+                <% }else { %>
+                    <a href="/wishlistpage" id="wish_btn" class="one">
+                        <div class="count">0</div>
+                        <i class="far fa-heart"></i>
+                        <small>Wishlist</small>
+                    </a>
+                    <% } %>
+
+                        <a href="/orderpage" id="OrderBtn" class="two active">
+                            <div class="count">
+                                <%= orders ? orders.length : '0' %>
+                            </div>
+                            <i class="fas fa-shipping-fast"></i>
+                            <small>Orders</small>
+                        </a>
+
+                        <% if(cart && cart.totalQTY !=0) { %>
+                            <a href="/cartpage" class="three active" id="CartBtn">
+                                <div class="count">
+                                    <!-- if cartSession is there then put a value init-->
+                                    <%= cart.totalQTY %>
+                                </div>
+                                <i class="far fa-shopping-cart"></i>
+                                <small>Cart</small>
+                            </a>
+                            <% } else { %>
+                                <a href="/cartpage" class="three" id="CartBtn">
+                                    <div class="count">
+                                        0
+                                    </div>
+                                    <i class="far fa-shopping-cart"></i>
+                                    <small>Cart</small>
+                                </a>
+                                <% } %>
+        </div>
+    </nav>
+
+    <!-- ==================Top-header-End================= -->
+    <header id="header">
+        <div id="HeaderSwiper" class="swiper">
+            <div id="tabs" class="swiper-wrapper">
+                <a class="swiper-slide btn" href="/">
+                    <div>
+                        <i class="fas fa-home"></i> All product
+                    </div>
+                </a>
+                <a class="btn swiper-slide" id="electronic_btn" href="./electronicproduct">
+                    <i class="fas fa-desktop"></i>
+                    Electronics
+                </a>
+                <a href="./toysproducts" id="toys_btn" class="btn swiper-slide">
+                    <i class="fab fa-evernote"></i>
+                    Toys
+                </a>
+                <a href="./clothproducts" id="cloths_btn" class="btn swiper-slide">
+                    <i class="fas fa-tshirt"></i> Cloths
+                </a>
+
+                <a href="./babyclothproducts" id="baby_btn" class="btn swiper-slide">
+                    <i class="fas fa-baby"></i> Baby Cloths
+                </a>
+                <a href="./mobileproducts" id="mobile_btn" class="btn swiper-slide">
+                    <i class="fas fa-mobile-alt"></i> Mobile
+                </a>
+                <a href="./furnitureproducts" id="furniture_btn" class="btn swiper-slide">
+                    <i class="fas fa-couch"></i> Furniture
+                </a>
+                <a href="./groceriesproducts" id="groceries_btn" class="btn swiper-slide">
+                    <i class="fas fa-mortar-pestle"></i>
+                    Groceries
+                </a>
+                <a href="./gameproducts" id="game_btn" class="btn swiper-slide">
+                    <i class="fab fa-playstation"></i> Games
+                </a>
+                <a href="./computerproducts" id="computer_btn" class="btn swiper-slide">
+                    <i class="fas fa-laptop"></i> Computer
+                </a>
+            </div>
+        </div>
+
+        <div class="search">
+            <input class="search_input" id="searchInput" type="text" placeholder="Search for products">
+            <i class="fas fa-search"></i>
+        </div>
+    </header>
+
+    <div class="overlay"></div>
+
+    <!-- ==================Bottom-header-End============== -->
+
+    <div id="orderTrackerContainer">
+        <div class="order_contents">
+            <div class="orderTrack_heading">
+                <h1>Track delivery status</h1>
+                <span>
+                    #<%= Items._id %>
+                </span>
+            </div>
+
+            <div class="mainContainer">
+                <div class="left">
+                    <div id="currentArriving" class="heading">
+                        <h3>
+                            Arriving: <span></span>
+                        </h3>
+                    </div>
+                    <input id="hiddenInput" type="hidden" value="<%= JSON.stringify(Items) %>">
+                    <div id="adminhr"></div>
+                    <ul id="trackLine">
+                        <li data-status="placed">
+                            <div class="icons">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <span></span>
+                            <h6>Order placed</h6>
+
+                        </li>
+                        <li data-status="confirmed">
+                            <div class="icons">
+                                <i class="fal fa-check-circle"></i>
+                            </div>
+                            <span></span>
+                            <h6>Order confirmation</h6>
+                        </li>
+                        <li data-status="prepared">
+                            <div class="icons">
+                                <i class="fas fa-box-open"></i>
+                            </div>
+                            <span></span>
+                            <h6>Packing</h6>
+                        </li>
+
+                        <li data-status="delivered">
+                            <div class="icons">
+                                <i class="far fa-shipping-fast"></i>
+                            </div>
+                            <span></span>
+                            <h6>Out for delivery</h6>
+                        </li>
+
+                        <li data-status="compeleted">
+                            <div class="icons">
+                                <i class="fas fa-box-check"></i>
+                            </div>
+                            <span></span>
+                            <h6 class="removeLine">Completed</h6>
+                        </li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <div class="topInvoiceContent">
+                        <div class="heading">
+                            <div class="icons">
+                                <img src="../img/footerLogo.svg" alt="logo">
+                            </div>
+                            <div class="rightHeading">
+                                <div class="confirmOrder">
+                                    <h2>Your Order Confirmed!</h2>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div id="adminhr"></div>
+
+                    <div class="middleHeading">
+                        <div class="orderDate">
+                            <div class="head">
+                                <span>Order Date</span>
+                            </div>
+                            <div class="title">
+                                <span>
+                                    <%= moment(Items.createdAt).format('LL') %>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="orderNumber">
+                            <div class="head">
+                                <span>Order Number</span>
+                            </div>
+                            <div class="title">
+                                <span>
+                                    <%= Items._id %>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="paymentMode">
+                            <div class="head">
+                                <span>Phone no.</span>
+                            </div>
+                            <div class="title">
+                                <span>
+                                    +91 <%= Items.phone %>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="shippingAddress">
+                            <div class="head">
+                                <span>Shipping Address</span>
+                            </div>
+                            <div class="title">
+                                <span>
+                                    <%= Items.address %>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="adminhr"></div>
+
+                    <div class="orderProducts">
+                        <div class="items">
+                            <div class="orderLeft">
+                                <div class="image">
+                                    <img src=".<%= Items.items.item.image %>" alt="product-images">
+                                </div>
+                                <div class="content">
+                                    <div class="title">
+                                        <span>
+                                            <%= Items.items.item.title %>
+                                        </span>
+                                    </div>
+                                    <div class="qty">
+                                        <span>Quantity: <%= Items.items.qty %></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="orderRight">
+                                <div class="itemPrice">
+                                    <span>₹<%= new Intl.NumberFormat().format(Items.totalPrice) %></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="adminhr"></div>
+
+                    <div class="orderFooter">
+                        <div class="content">
+                            <div class="footerOrderLeft">
+                                <div class="PaymentMode">
+                                    <span>Payment Mode :</span>
+                                </div>
+                                <div class="subtotal">
+                                    <span>Subtotal :</span>
+                                </div>
+                                <div class="shipping">
+                                    <span>Shipping Fees :</span>
+                                </div>
+                            </div>
+                            <div class="footerOrderRight">
+                                <div class="PaymentMode">
+                                    <span>
+                                        <%= Items.paymentType %>
+                                    </span>
+                                </div>
+                                <div class="subtotal">
+                                    <span>₹<%= new Intl.NumberFormat().format(Items.totalPrice) %></span>
+                                </div>
+                                <div class="shipping">
+                                    <span>FREE</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="adminhr"></div>
+                        <div class="total">
+                            <span class="title">Total</span>
+                            <span class="price">₹<%= new Intl.NumberFormat().format(Items.totalPrice) %>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- =====================SideBar Sections================ -->
+<div id="overlay"></div>
+
+<%- include('./common/sidebar'); %>
+
+    <%- include('./common/footer'); %>
+
+        <!-- ===================================================== -->
+        <!-- ======================Script========================= -->
+
+        <!-- =======================Swiper JS===================== -->
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+        <script src="../JS/Home.js"></script>
+        <script src="../JS/main.js"></script>
+        <script src="../JS/Cart.js"></script>
+        <script src="../JS/WishList.js"></script>
+        <script src="../JS/trackorder.js"></script>

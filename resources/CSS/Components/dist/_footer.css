@@ -1,0 +1,184 @@
+.footer .footer_container .top_container .button a, .footer {
+  height: 100%;
+  width: 100%;
+}
+
+.footer .footer_container .top_container .button a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer .footer_container .top_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer {
+  position: relative;
+}
+.footer .footer_container {
+  background: #111;
+  position: relative;
+  padding-top: 4rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+.footer .footer_container .top_container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -10%;
+  border-radius: 20px;
+  margin: 0 3rem;
+  height: auto;
+  background: #fff;
+  padding: 3rem;
+  z-index: 2;
+  box-shadow: 0 0 1px #000;
+  transition: 0.5s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+.footer .footer_container .top_container .content {
+  display: flex;
+  flex-direction: column;
+}
+.footer .footer_container .top_container .content span {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.footer .footer_container .top_container .content span:nth-child(1) {
+  opacity: 0.8;
+}
+.footer .footer_container .top_container .button {
+  width: 160px;
+  height: 50px;
+}
+.footer .footer_container .top_container .button a {
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  background: #000;
+  color: #fcfdfd;
+  box-shadow: 0 0 2px #000;
+  transition: 0.5s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  font-size: 1rem;
+  cursor: pointer;
+}
+.footer .footer_container .top_container .button a i {
+  margin-right: 1rem;
+  transition: 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+.footer .footer_container .top_container .button a:hover {
+  background: transparent;
+  color: #000;
+}
+.footer .footer_container .bottom_container .hr, .footer .footer_container .main_hr {
+  width: 100%;
+  height: 0.1px;
+  background: rgba(150, 160, 165, 0.8);
+}
+.footer .footer_container .main_hr {
+  margin-top: 4.5rem;
+  margin-bottom: 2rem;
+}
+.footer .footer_container .footer_bg {
+  height: 300px;
+  position: relative;
+}
+.footer .footer_container .footer_ {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
+}
+.footer .footer_container .footer_ .bottom_container {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+.footer .footer_container .footer_ .bottom_container .hr {
+  display: none;
+  width: 100%;
+}
+.footer .footer_container .footer_ .bottom_container ul {
+  padding-left: 0;
+  line-height: 36px;
+  z-index: 3;
+}
+.footer .footer_container .footer_ .bottom_container ul h2 {
+  user-select: none;
+  margin-bottom: 1rem;
+  color: #fcfdfd;
+  font-size: 18px;
+}
+.footer .footer_container .footer_ .bottom_container ul li {
+  list-style: none;
+  font-size: 14px;
+  width: fit-content;
+}
+.footer .footer_container .footer_ .bottom_container ul li:hover {
+  color: #fcfdfd;
+}
+.footer .footer_container .footer_ .bottom_container ul li a {
+  width: fit-content;
+  color: #96a0a5;
+  cursor: pointer;
+  transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  user-select: none;
+}
+.footer .footer_container .footer_ .bottom_container ul li a i {
+  position: relative;
+  left: 0;
+  transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  color: #fcfdfd;
+}
+.footer .footer_container .footer_ .bottom_container ul li:hover a {
+  color: #fcfdfd;
+}
+.footer .footer_container .footer_ .bottom_container ul li:hover a i {
+  left: 105%;
+}
+.footer .footer_container .footer_ .footer_images {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.footer .footer_container .footer_ .footer_images h1 {
+  color: #fff;
+  font-size: 3rem;
+  text-decoration: underline #f16565;
+  user-select: none;
+}
+.footer .footer_container .footer_ .footer_images h1 span {
+  color: #96a0a5;
+}
+.footer .main_footer {
+  height: 40px;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  bottom: 0;
+  z-index: 10;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer .main_footer span {
+  color: #e7edef;
+  font-size: 11px;
+  user-select: none;
+}
+.footer .main_footer span .link {
+  color: #e7edef;
+  border-bottom: 2px solid #f16565;
+  border-radius: 3px;
+  font-weight: 550;
+  margin: 0 0.2rem;
+  cursor: pointer;
+}

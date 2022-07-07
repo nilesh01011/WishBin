@@ -1,0 +1,322 @@
+@import "./roots";
+
+#OrderPage {
+
+    @extend %WidthHeight;
+    padding-left: $padding;
+    padding-right: $padding;
+
+    & .Order_content {
+        @extend %WidthHeight;
+        background: $white;
+        border-radius: $border_radius;
+        padding: 1.5rem;
+
+
+        & .empty_order {
+            @extend %DisplayFlexCenter;
+            flex-direction: column;
+
+            & .fav_img {
+                height: 350px;
+
+                & img {
+                    @extend %AllImagesContain;
+                }
+            }
+
+            & .addOrder_content {
+                text-align: center;
+
+                & h1 {
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 2.5rem;
+                    font-weight: 500 !important;
+                    margin-top: 3rem;
+                }
+
+                & p {
+                    margin-bottom: 1.5rem;
+                    margin-top: 1rem;
+                    font-size: 1.25rem;
+                    font-weight: 300;
+                    text-align: center;
+                    color: $light_Grey;
+                }
+
+                & button {
+                    width: 100%;
+                    height: 40px !important;
+                    border-radius: 0.5rem;
+                    background: $background_color;
+                    color: $dark_color;
+                    box-shadow: $BoxShadow_01 $dark_color;
+                    padding: 0.5em 1rem;
+                    transition: $CardsTransition_03;
+                    cursor: pointer;
+                    @extend %DisplayFlexCenter;
+                    font-weight: 500;
+                    margin-bottom: 1.5rem;
+                    font-size: 14px;
+                    width: 100%;
+                    margin: 0 auto;
+
+                    & i {
+                        margin-right: 0.5rem;
+                    }
+
+                    &:hover {
+                        background: $dark_color;
+                        color: $background_color;
+                    }
+                }
+            }
+        }
+
+        & .order_wrapper {
+            @extend %WidthHeight;
+
+            & .top_head {
+                width: 100%;
+
+                & h1 {
+                    font-weight: 500;
+                    font-size: 1.8rem;
+                }
+            }
+
+            & hr {
+                margin: 1rem 0;
+            }
+
+            & .order_details {
+                @extend %WidthHeight;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                gap: 20px;
+
+                &:not(:last-child) {
+                    margin-bottom: 20px;
+                }
+
+
+                & .orders_list {
+                    width: 100%;
+                    height: 100%;
+
+                    & .order_list_head {
+                        width: 100%;
+                        padding: 0.9rem 1.1rem;
+                        background: #F0F2F2;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        border-radius: 8px 8px 0 0;
+                        outline: 1px #D5D9D9 solid;
+
+                        & span {
+                            font-size: 0.9rem;
+                            color: #565959;
+                        }
+
+                        & .order_head_left {
+                            width: 35%;
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+
+                            & .order_date,
+                            & .order_total,
+                            & .order_shiptoname {
+                                display: flex;
+                                align-items: flex-start;
+                                flex-direction: column;
+
+                                & span:nth-child(1) {
+                                    margin-bottom: 0.4rem;
+                                }
+                            }
+
+                            & .order_shiptoname {
+                                & span:nth-child(2) {
+                                    text-transform: capitalize;
+                                }
+                            }
+                        }
+
+                        & .order_head_right {
+                            width: 50%;
+                            text-align: right;
+
+                            & .orderID {
+                                display: flex;
+                                align-items: center;
+                                gap: 10px;
+                                width: 100%;
+                                justify-content: flex-end;
+
+                                & span {
+                                    margin-bottom: 0.4rem;
+                                    font-size: 14px;
+                                }
+                            }
+
+
+                            & .orderTrack {
+                                & a {
+                                    color: #565959;
+                                    font-size: 14px;
+
+                                    & i {
+                                        margin-left: 0.3rem;
+                                        color: $adminDanger;
+                                        transition: $CardsTransition_03;
+                                        animation: onOff 2s ease infinite;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    & .order_main_content {
+                        outline: 1px #D5D9D9 solid;
+                        border-radius: 0 0 8px 8px;
+                        @extend %WidthHeight;
+                        padding: 0.9rem 1.1rem;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+
+                        & .orders_items {
+                            @extend %WidthHeight;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            gap: 10px;
+
+                            &:not(:last-child) {
+                                border-bottom: 1px solid #D5D9D9;
+                                padding-bottom: 1.5rem;
+                            }
+
+                            & .left_content {
+                                width: 70%;
+                                height: 100%;
+                                display: flex;
+                                align-items: flex-start;
+                                gap: 20px;
+
+                                & .image {
+                                    width: 100%;
+                                    max-width: 150px;
+                                    height: 100px !important;
+
+                                    & img {
+                                        @extend %AllImagesContain;
+                                    }
+                                }
+
+                                & .description {
+                                    @extend %WidthHeight;
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 10px;
+
+                                    & span {
+                                        font-size: 0.9rem;
+                                        color: $dark_color;
+                                    }
+
+                                    & .price_QTY {
+                                        @extend %WidthHeight;
+                                    }
+                                }
+                            }
+
+                            & .right_content {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 20px;
+
+                                & .button {
+                                    width: 160px;
+                                    // height: 40px;
+                                    height: 100%;
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 20px;
+
+                                    & a {
+                                        padding: 0.5rem;
+                                        width: 100%;
+                                        height: 40px;
+                                        box-shadow: $BoxShadow_01 $dark_color;
+                                        border-radius: 6px;
+                                        cursor: pointer;
+                                        line-height: 23px;
+                                        display: block;
+                                        text-align: center;
+                                        font-size: 14px;
+                                        transition: $CardsTransition_03;
+
+                                        & i {
+                                            margin-right: 0.4rem;
+                                        }
+                                    }
+
+                                    & .viewProduct {
+                                        color: $dark_color;
+                                        background: transparent;
+                                        border: 1px solid $dark_color;
+
+                                        &:hover {
+                                            color: $white;
+                                            background: $dark_color;
+                                        }
+                                    }
+
+                                    & .cancleOrder {
+                                        color: $white;
+                                        background: $countingColor;
+                                        transition: $CardsTransition_03;
+                                        box-shadow: $BoxShadow_02 #e65252;
+
+
+                                        &:hover {
+                                            background: #e65252;
+                                        }
+
+                                        & i {
+                                            margin-right: 0.5rem;
+                                            position: relative;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes onOff {
+    0% {
+        color: #565959;
+    }
+
+    40% {
+        color: $countingColor;
+    }
+
+    80% {
+        color: #565959;
+    }
+
+    100% {
+        color: $countingColor;
+    }
+}

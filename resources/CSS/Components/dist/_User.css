@@ -1,0 +1,237 @@
+#UserPages .user_container .top_container .leftTopContainer .images img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+#UserPages .user_container .bottom_container .contents ul li .collapse_content, #UserPages .user_container .bottom_container, #UserPages .user_container .top_container, #UserPages .user_container {
+  height: 100%;
+  width: 100%;
+}
+
+#logout, #UserPages .user_container .top_container .leftTopContainer .images, #UserPages .user_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#UserPages .user_container .bottom_container .contents ul li .collapse_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#UserPages {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+#UserPages .user_container {
+  border-radius: 20px;
+  flex-direction: column;
+}
+#UserPages .user_container .bottom_container, #UserPages .user_container .top_container {
+  border-radius: 20px;
+}
+#UserPages .user_container .top_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background: #fff;
+}
+#UserPages .user_container .top_container .leftTopContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+#UserPages .user_container .top_container .leftTopContainer .images {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+  padding: 15px;
+}
+#UserPages .user_container .top_container .leftTopContainer .images img {
+  padding: 10px;
+}
+#UserPages .user_container .top_container .leftTopContainer .UserContent {
+  display: flex;
+  flex-direction: column;
+}
+#UserPages .user_container .top_container .leftTopContainer .UserContent #hr {
+  margin: 15px 0;
+}
+#UserPages .user_container .top_container .leftTopContainer .UserContent .UserName h1 {
+  text-transform: capitalize;
+}
+#UserPages .user_container .top_container .leftTopContainer .UserContent .details {
+  display: flex;
+  align-items: baseline;
+  gap: 15px;
+}
+#UserPages .user_container .top_container .leftTopContainer .UserContent .details h3 {
+  font-size: 1rem;
+}
+#UserPages .user_container .top_container .leftTopContainer .UserContent .details h3 span {
+  font-weight: 400;
+}
+#UserPages .user_container .top_container .leftTopContainer .UserContent .details .numberDetails h3 {
+  padding-top: 0.3rem;
+}
+#UserPages .user_container .top_container .rightTopContainer {
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+#UserPages .user_container .top_container .rightTopContainer .button {
+  width: 100%;
+  height: 100%;
+}
+#UserPages .user_container .top_container .rightTopContainer .button button {
+  width: 65px;
+  height: 35px;
+  background: #f16565;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  letter-spacing: 0.4px;
+}
+#UserPages .user_container .top_container .rightTopContainer .button button:active {
+  position: relative;
+  top: 2px;
+}
+#UserPages .user_container .bottom_container .contents ul li {
+  cursor: pointer;
+  transition: 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 20px;
+}
+#UserPages .user_container .bottom_container .contents ul li .collapse_content .content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+#UserPages .user_container .bottom_container .contents ul li .collapse_content .content i {
+  font-size: 1.2rem;
+  transition: 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  color: #96a0a5;
+}
+#UserPages .user_container .bottom_container .contents ul li .collapse_content .content .text {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+#UserPages .user_container .bottom_container .contents ul li .collapse_content .content .text span.title {
+  font-weight: 600;
+  color: #000;
+}
+#UserPages .user_container .bottom_container .contents ul li .collapse_content .content .text span.para {
+  font-weight: 400;
+  color: #94969F;
+  font-size: 12px;
+  padding-top: 0.3rem;
+}
+#UserPages .user_container .bottom_container .contents ul li .collapse_content i.arrow {
+  color: #96a0a5;
+  transform: rotate(89deg);
+  transition: 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+#UserPages .user_container .bottom_container .contents ul li:hover {
+  background: #F5F5F6;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+#UserPages .user_container .bottom_container .contents ul li:hover a i {
+  color: #000;
+}
+#UserPages .user_container .bottom_container .contents ul li .collapse {
+  margin-top: 1rem;
+  display: none;
+}
+#UserPages .user_container .bottom_container .contents ul li .collapse .order_details {
+  display: flex;
+  align-items: baseline;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+#UserPages .user_container .bottom_container .contents ul li .collapse .order_details h5 {
+  user-select: none;
+  font-weight: 500;
+}
+#UserPages .user_container .bottom_container .contents ul li .collapse .order_details h5 span {
+  font-weight: 800;
+  color: #f16565;
+}
+#UserPages .user_container .bottom_container .contents ul li .collapse .order_details .hr {
+  width: 1px;
+  height: 15px;
+  margin: auto 1rem;
+  background: #aaa;
+  display: inline-block;
+  vertical-align: middle;
+}
+#UserPages .user_container .bottom_container .contents ul li .collapse .order_details a {
+  font-size: 14px;
+  color: #000;
+  user-select: none;
+  position: relative;
+}
+#UserPages .user_container .bottom_container .contents ul li .collapse .order_details a span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 0;
+  height: 1px;
+  background: #000;
+  transition: all 0.6s ease-in-out;
+}
+#UserPages .user_container .bottom_container .contents ul li .collapse .order_details a:hover span {
+  width: 100%;
+}
+#UserPages .user_container .bottom_container .contents ul li.active {
+  background: #F5F5F6;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+#UserPages .user_container .bottom_container .contents ul li.active .collapse_content i.arrow {
+  transform: rotate(271deg);
+}
+#UserPages .user_container .bottom_container .contents ul li.active .collapse_content i {
+  color: #000;
+}
+#UserPages .user_container .bottom_container .contents ul li.active .collapse {
+  display: block;
+}
+
+#logout {
+  margin-top: 20px;
+  width: 100%;
+  height: 50px;
+}
+#logout button {
+  width: 250px;
+  height: 100%;
+  background: #f16565;
+  color: #fff;
+  border-radius: 20px;
+  padding: 1rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  text-transform: uppercase;
+}
+#logout button:hover {
+  background: #e65252;
+}
+#logout button:active {
+  position: relative;
+  top: 2px;
+}

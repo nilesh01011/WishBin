@@ -1,0 +1,81 @@
+<div class="adminHeader d-flex align-items-center">
+    <div class="container-fluid">
+        <div class="row d-flex align-items-center">
+            <div class="col-lg-5 col-md-5 col-4">
+                <div class="header-left">
+                    <button id="sidebarBtn" class="d-flex align-items-center fw-bold" type="button">
+                        <span class="material-icons">menu_open</span>
+                        <h2 class="ms-2 mb-0">Menu</h2>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ---------------Left Side End------------- -->
+
+            <div class="col-lg-7 col-md-7 col-8">
+                <div class="header-right d-flex justify-content-end">
+                    <div class="header-message-box ml-15 d-none d-md-flex">
+                        <button id="messageBox" data-bs-toggle="dropdown"
+                            class="dropdown-toggle d-flex align-items-center justify-content-center position-relative">
+                            <span class="material-icons">mail_outline</span>
+                            <span class="count">
+                                <%= allMsg.length %>
+                            </span>
+                        </button>
+
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="message">
+
+                            <% if(msg) { %>
+
+                                <% msg.forEach((ele)=> { %>
+                                    <li>
+                                        <a href="/api/adminPage/messages">
+                                            <div class="image">
+                                                <span class="material-icons">person_outline</span>
+                                            </div>
+                                            <div class="content">
+                                                <h6>
+                                                    <%= ele.name %>
+                                                </h6>
+                                                <p>
+                                                    <%= ele.message %>
+                                                </p>
+                                                <span>
+                                                    <%= moment(ele.createdAt).startOf('minutes').fromNow() %>
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <% }) %>
+
+                                        <% } %>
+
+                                            <div class="hr"></div>
+
+                                            <div class="buttons">
+                                                <a href="/api/adminPage/messages">See more...</a>
+                                            </div>
+
+                        </ul>
+                    </div>
+                    <!-- ----------------Header-messages End--------------- -->
+
+                    <div class="profile-box">
+                        <button id="adminUserProfile" class="bg-transparent">
+                            <div class="profile-info">
+                                <div class="info">
+                                    <h6 style="text-transform:capitalize;" class="mb-0">
+                                        <%= user.name %>
+                                    </h6>
+                                    <div class="image">
+                                        <span class="material-icons">person_outline</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

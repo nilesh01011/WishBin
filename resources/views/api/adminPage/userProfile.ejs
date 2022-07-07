@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="icon" href="../../../img/HeadIcons.png" type="image/jpg">
+    <!-- -----------------Jquery CDN Links------------------ -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- -----------------JVMAP CDN Links------------------ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.css">
+    <script src="https://cdn.jsdelivr.net/npm/jvectormap@2.0.4/jquery-jvectormap.min.js"></script>
+    <script src="../../../JS/jquery-jvectormap-world-mill-en.js"></script>
+    <!-- -----------------Material UI--------------- -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- -----------------Style Links--------------- -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <!-- ----------------Font Family---------------- -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            background: #161d31;
+            color: #d0d2d6;
+            font-family: 'Inter', sans-serif !important;
+            user-select: none;
+            max-width: 1366px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        body.sidebarActive {
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid px-0">
+        <%- include('../../common/adminHeader'); %>
+
+            <!-- ==================Header End================= -->
+
+            <main id="adminContainer" class="container-fluid">
+                <div class="heading">
+                    <h2 class="mb-0">User Profile</h2>
+                </div>
+                <div id="adminUserProfile">
+                    <div class="adminUserProfile">
+                        <div class="header">
+                            <div class="userName">
+                                <h3 style="text-transform: capitalize;">
+                                    <%= user.name %>
+                                </h3>
+                            </div>
+                            <div class="userImage">
+                                <div class="image">
+                                    <i class="far fa-user"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ====Header End===== -->
+
+                        <div class="bottom_container">
+                            <div class="contents">
+                                <div class="field userName">
+                                    <div class="icons">
+                                        <i class="far fa-user"></i>
+                                    </div>
+                                    <div class="name">
+                                        <span style="text-transform: capitalize;">
+                                            <%= user.name %>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="hr"></div>
+                                <div class="field userPhone">
+                                    <div class="icons">
+                                        <i class="fas fa-mobile"></i>
+                                    </div>
+                                    <div class="phone">
+                                        <span>+91 <%= user.phone %></span>
+                                    </div>
+                                </div>
+                                <div class="hr"></div>
+                                <div class="field userEmail">
+                                    <div class="icons">
+                                        <i class="far fa-envelope"></i>
+                                    </div>
+                                    <div class="email">
+                                        <span>
+                                            <%= user.email %>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="hr"></div>
+                                <div class="field userAddress">
+                                    <div class="icons">
+                                        <i class="fas fa-map-marked-alt"></i>
+                                    </div>
+                                    <div class="address">
+                                        <span>
+                                            <%= user.address %>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ====contents End==== -->
+                            <div class="buttons">
+                                <a href="/userdataupdate">
+                                    <i class="fas fa-user-edit"></i>
+                                    Edit Profile
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+    </div>
+
+
+    <%- include('../../common/adminFooter'); %>
+
+
+        <!-- ==================Footer End================= -->
+
+        <div id="adminSidebar">
+            <div class="navbar-logo d-flex align-items-center">
+                <a href="/api/adminPage/dashboard">
+                    <span class="logo">WB</span>
+                    WishBin
+                </a>
+                <div class="sidebar-dismiss">
+                    <div class="logo">
+                        <span class="material-icons">close</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- -----------navbar-logo and Dismiss End----------- -->
+
+            <nav class="sidebar-nav">
+                <div class="divider">
+                    <hr>
+                </div>
+                <ul>
+                    <li>
+                        <a href="/api/adminPage/dashboard" class="navLink">
+                            <div class="icon">
+                                <span class="material-icons">dashboard</span>
+                            </div>
+                            <div class="text">Dashboard</div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a id="expand_more" href="#" data-bs-toggle="collapse" data-bs-target="#page_menu"
+                            class="d-flex navLink collapsed">
+                            <div class="icon">
+                                <span class="material-icons">description</span>
+                            </div>
+                            <div class="text">
+                                Pages
+                                <span class="material-icons">expand_more</span>
+                            </div>
+                        </a>
+
+                        <ul id="page_menu" class="dropdown-nav collapse">
+                            <li>
+                                <a class="homePage" href="/" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">roofing</span>
+                                    </div>
+                                    <div class="text">Home Page</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/cartpage" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">shopping_cart</span>
+                                    </div>
+                                    <div class="text">Cart Page</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/orderpage" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">shopping_cart_checkout</span>
+                                    </div>
+                                    <div class="text">Order Page</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/wishlistpage" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">favorite</span>
+                                    </div>
+                                    <div class="text">
+                                        Wishlist Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/electronicproduct" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">dvr</span>
+                                    </div>
+                                    <div class="text">
+                                        Electronic Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/toysproducts" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">toys</span>
+                                    </div>
+                                    <div class="text">
+                                        Toys Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/mobileproducts" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">smartphone</span>
+                                    </div>
+                                    <div class="text">
+                                        Mobile Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/groceriesproducts" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">kitchen</span>
+                                    </div>
+                                    <div class="text">
+                                        Groceries Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/furnitureproducts" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">weekend</span>
+                                    </div>
+                                    <div class="text">
+                                        Furniture Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/gameproducts" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">smart_toy</span>
+                                    </div>
+                                    <div class="text">
+                                        Games Page
+                                    </div>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="/computerproducts" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">computer</span>
+                                    </div>
+                                    <div class="text">
+                                        Computer Page
+                                    </div>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="/clothproducts" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">checkroom</span>
+                                    </div>
+                                    <div class="text">
+                                        Cloth Page
+                                    </div>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="/babyclothproducts" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">child_care</span>
+                                    </div>
+                                    <div class="text">
+                                        Baby Cloths Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/Error" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">error</span>
+                                    </div>
+                                    <div class="text">
+                                        Error Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/searchresult" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">manage_search</span>
+                                    </div>
+                                    <div class="text">
+                                        Search Page
+                                    </div>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a id="expand_more" href="#" data-bs-toggle="collapse" data-bs-target="#auth_menu"
+                            class="d-flex navLink collapsed">
+                            <div class="icon">
+                                <span class="material-icons">switch_account</span>
+                            </div>
+                            <div class="text">
+                                Auth
+                                <span class="material-icons">expand_more</span>
+                            </div>
+                        </a>
+                        <ul id="auth_menu" class="dropdown-nav collapse">
+                            <li>
+                                <a href="/login" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">verified_user</span>
+                                    </div>
+                                    <div class="text">
+                                        Login Page
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/register" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">app_registration</span>
+                                    </div>
+                                    <div class="text">
+                                        Registers Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/forgetpassword" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">password</span>
+                                    </div>
+                                    <div class="text">
+                                        Forget Password Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <div class="icon">
+                                        <span class="material-icons">lock_reset</span>
+                                    </div>
+                                    <div class="text">
+                                        Reset Password Page
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/api/adminPage/customer" class="navLink">
+                            <div class="icon">
+                                <span class="material-icons">groups</span>
+                            </div>
+                            <div class="text">Customers</div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/api/adminPage/orders" class="navLink">
+                            <div class="icon">
+                                <span class="material-icons">receipt_long</span>
+                            </div>
+                            <div class="text">Orders</div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" id="expand_more" data-bs-toggle="collapse" data-bs-target="#product_menu"
+                            class="d-flex navLink collapsed">
+                            <div class="icon">
+                                <span class="material-icons">category</span>
+                            </div>
+                            <div class="text">
+                                Products
+                                <span class="material-icons">expand_more</span>
+                            </div>
+                        </a>
+
+                        <ul id="product_menu" class="dropdown-nav collapse">
+                            <li>
+                                <a href="/api/adminPage/preview">
+                                    <div class="icon">
+                                        <span class="material-icons">visibility</span>
+                                    </div>
+                                    <div class="text">All Product</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/api/adminPage/productdetails">
+                                    <div class="icon">
+                                        <span class="material-icons">preview</span>
+                                    </div>
+                                    <div class="text">
+                                        Product Details
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/api/adminPage/userprofile" class="navLink active">
+                            <div class="icon">
+                                <span class="material-icons">account_circle</span>
+                            </div>
+                            <div class="text">User Profile</div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/api/adminPage/messages" class="navLink">
+                            <div class="icon">
+                                <span class="material-icons">outgoing_mail</span>
+                            </div>
+                            <div class="text">Messages</div>
+                        </a>
+                    </li>
+
+                </ul>
+                <div class="divider">
+                    <hr>
+                </div>
+            </nav>
+
+            <form id="adminLogout" action="/logout" method="POST">
+                <button class="navLink" type="submit" onclick="document.getElementById('adminLogout')">
+                    <div class="icon">
+                        <span class="material-icons">logout</span>
+                    </div>
+                    <div class="text">Logout</div>
+                </button>
+            </form>
+
+        </div>
+
+        <div id="adminOverlay"></div>
+
+        <!-- ===========================Script JS======================= -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+        <script src="../../../JS/chart.js"></script>
+        <script src="../../../JS/mainAdmin.js"></script>
+        <script src="../../../JS/dashboardHome.js"></script>
+        <script src="../../../JS/TrackOrder.js"></script>
+</body>
+
+</html>

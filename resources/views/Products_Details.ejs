@@ -1,0 +1,166 @@
+<body>
+
+    <div id="Container">
+        <%- include('./common/navbar'); %>
+
+            <!-- ==================Top-header-End================= -->
+
+            <div id="products_details">
+                <div class="details_containes">
+                    <!-- products details data -->
+                    <div class="content">
+                        <div class="images">
+                            <!-- Product Images -->
+                            <!-- Products Titles -->
+                        </div>
+                        <div class="product_info">
+                            <h1>
+                                <!-- Product Head Details -->
+                            </h1>
+                            <div class="star__rating">
+                                <div class="star">
+                                    <!-- Rating Starts -->
+
+                                </div>
+                                <span class="line"></span>
+                                <div class="rating">
+                                    <span>
+                                        <!-- Rating Values -->
+
+                                    </span>
+                                </div>
+                            </div>
+                            <div id="hr"></div>
+                            <div class="products_prices">
+                                <div class="offer">
+                                    <span>
+                                        <!-- Products Offers -->
+
+                                    </span>
+                                </div>
+                                <div class="amount">
+                                    <span class="left">₹</span>
+                                    <span class="price_amt">
+                                        <!-- Products Price -->
+
+                                    </span>
+                                    <span class="right">.00</span>
+                                </div>
+                            </div>
+                            <div class="mrp_price">
+                                <span>M.R.P :
+                                    <span class="under_line">
+                                        <!-- Products MRP -->
+
+                                    </span>
+                                </span>
+                            </div>
+
+                            <div id="hr"></div>
+
+                            <table id="product_tabel">
+                                <!-- Table Fetchs -->
+
+                            </table>
+
+                            <div id="hr"></div>
+
+                            <div class="about_content_items">
+                                <h4>About this item</h4>
+                                <ul class="aboutList">
+                                    <!-- list fetch data -->
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buying_Content">
+                        <div class="social_media">
+                            <div class="share_content">
+                                <span>Share</span>
+                                <div class="social_icons">
+                                    <a href="https://mail.google.com/" target='_blank' rel='noreferrer'>
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                    <a href="https://www.facebook.com/" target='_blank' rel='noreferrer'>
+                                        <i class="fab fa-facebook"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/" target='_blank' rel='noreferrer'>
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="https://twitter.com/" target='_blank' rel='noreferrer'>
+                                        <i class="fab fa-twitter-square"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div id="hr"></div>
+                        </div>
+                        <div class="products_buying_sections">
+                            <div class="amount">
+                                <span class="left">₹</span>
+                                <span class="price_amt">
+                                    <!-- Products Price -->
+                                </span>
+                                <span class="right">.00</span>
+                            </div>
+
+                            <div class="product_status">
+                                <span>
+                                    <!-- Stock Status -->
+                                </span>
+                            </div>
+
+                            <div class="sold_by_us">
+                                <span>
+                                    Sold by <span class="SoldBy" style="color:#007185;">
+                                        <!-- Sold By name -->
+
+                                    </span> and <br> <span style="color:#007185;">Fulfilled by WB.</span>
+                                </span>
+                            </div>
+
+                            <div id="buyOrAtc" class="buttons_buying_addToCart">
+                                <!-- Add to Cart buttn -->
+
+                                <button class="addtoCart">Add to Cart</button>
+
+                                <!-- Buy now Button -->
+
+                                <button class="buyNow">Buy now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="descriptions">
+                    <h4>Product description</h4>
+                    <p>
+                        <span class="des_text">
+                            <!-- Products Descriptions -->
+                            <span>
+                                <!-- details fetch -->
+
+                            </span>
+                        </span>
+                    </p>
+                </div>
+            </div>
+    </div>
+
+    <!-- ==================Pages Container End================= -->
+
+    <!-- =====================SideBar Sections================ -->
+    <div id="overlay"></div>
+
+    <%- include('./common/sidebar'); %>
+
+        <%- include('./common/footer'); %>
+
+            <!-- ===================JS Script================== -->
+            <!-- ============================================== -->
+            <script src="../JS//ProductsDetails.js"></script>
+            <script src="../JS/main.js"></script>
+            <script src="../JS/Cart.js"></script>
+
+</body>
+
+</html>

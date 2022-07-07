@@ -1,0 +1,189 @@
+<body>
+    <div id="Container">
+        <nav class="navbar">
+            <div id="left">
+                <div class="navbar-brand">
+                    <div class="logo">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <% if(user) { %>
+
+                    <div id="userData" class="shop">
+                        <a href="./userprofile">
+                            <i class="fas fa-user-secret"></i>
+                        </a>
+                    </div>
+
+                    <% } else { %>
+
+                        <div id="userRegisters" class="shop">
+                            <a href="./register">
+                                <i class="fas fa-user-secret"></i>
+                            </a>
+                        </div>
+
+                        <% } %>
+            </div>
+            <!-- ===========Left Section End============ -->
+            <div id="logo" class="middle">WB</div>
+            <!-- ===============Logo End================ -->
+            <div class="right">
+                <a href="/wishlistpage" id="wish_btn" class="one active">
+                    <div class="count">
+                        <%= wishlist ? wishlist.length : '0' %>
+                    </div>
+                    <i class="fas fa-heart"></i>
+                    <small>Wishlist</small>
+                </a>
+
+
+                <% if(orders.length) { %>
+
+                    <a href="/orderpage" id="OrderBtn" class="two active">
+                        <div class="count">
+                            <%= orders.length %>
+                        </div>
+                        <i class="far fa-shipping-fast"></i>
+                        <small>Orders</small>
+                    </a>
+                    <% }else{ %>
+                        <a href="/orderpage" id="OrderBtn" class="two">
+                            <div class="count">0</div>
+                            <i class="far fa-shipping-fast"></i>
+                            <small>Orders</small>
+                        </a>
+                        <% } %>
+
+                            <% if(cart && cart.totalQTY !=0) { %>
+                                <a href="/cartpage" class="three active" id="CartBtn">
+                                    <div class="count">
+                                        <!-- if cartSession is there then put a value init-->
+                                        <%= cart.totalQTY %>
+                                    </div>
+                                    <i class="far fa-shopping-cart"></i>
+                                    <small>Cart</small>
+                                </a>
+                                <% } else { %>
+                                    <a href="/cartpage" class="three" id="CartBtn">
+                                        <div class="count">
+                                            0
+                                        </div>
+                                        <i class="far fa-shopping-cart"></i>
+                                        <small>Cart</small>
+                                    </a>
+                                    <% } %>
+            </div>
+        </nav>
+
+        <!-- ==================Top-header-End================= -->
+
+        <div id="WishList">
+            <div class="wishlist_content">
+                <div class="whishHead">
+                    <h1>My Wishlist <span>
+                            <%= wishlist ? wishlist.length : '0' %> item
+                        </span></h1>
+                </div>
+                <div class="hr"></div>
+
+                <div class="wishlist_container">
+                    <!-- WishList Empty OR Content -->
+
+                    <% if(wishlist.length && wishlist.length !=0) { %>
+                        <% wishlist.forEach((ele)=> { %>
+
+                            <div id="<%= ele.wishlistItems._id %>" class="wishList_card">
+                                <div data-deletewishlist="<%= ele._id %>" class="delete_icons">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <div class="images">
+                                    <img src="<%= ele.wishlistItems.image %>" alt="wishlist-cards">
+                                </div>
+                                <div class="content">
+                                    <div class="wish_title">
+                                        <p>
+                                            <%= ele.wishlistItems.title %>
+                                        </p>
+                                    </div>
+                                    <div class="price">
+                                        <span class="prices">
+                                            ₹<%= ele.wishlistItems.price %>
+                                                <s>₹<%= ele.wishlistItems.MRP %></s>
+                                        </span>
+
+                                        <div class="hr"></div>
+
+                                        <a href="./productdetails" target="_blank"
+                                            data-productid="<%= JSON.stringify(ele.wishlistItems) %>"><span
+                                                class="view_details">view details</span></a>
+                                    </div>
+                                    <div class="Move_bagBtn">
+                                        <button data-addtocart="<%= JSON.stringify(ele.wishlistItems) %>" type="button"
+                                            class="wish_btn">
+                                            <i class="fas fa-shopping-cart"></i>
+                                            ADD TO CART
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }) %>
+
+                                <% }else { %>
+
+                                    <div class="empty_list">
+                                        <div class="images">
+                                            <img src="../img/wishList.png" loading="lazy" decoding="async" alt="images">
+                                        </div>
+                                        <div class="content">
+                                            <h1>Your wishlist is empty!</h1>
+                                            <p>Explore more and shortlist some items</p>
+                                            <button id="Start_shop" type="button" role="button">
+                                                <i class="fas fa-plus"></i> Add WishList
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <% } %>
+
+                </div>
+            </div>
+        </div>
+        <!-- ====================WishList Page End==================== -->
+    </div>
+
+    <!-- ====================Container Page End==================== -->
+
+    <!-- =====================SideBar Sections================ -->
+    <div id="overlay"></div>
+
+    <%- include('./common/sidebar'); %>
+
+        <%- include('./common/footer'); %>
+
+            <!-- ===================================================== -->
+            <!-- ======================Script========================= -->
+            <!-- =======================Main CDN====================== -->
+            <script src="../JS/main.js"></script>
+            <script src="../JS/Cart.js"></script>
+            <script src="../JS/WishList.js"></script>
+
+            <script>
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY >= 40) {
+                        document.querySelector('nav.navbar').style.boxShadow =
+                            ' 0 3px 6px rgba(0, 0, 0, 0.3)';
+                        document.querySelector('nav.navbar').style.position =
+                            'sticky';
+                        document.querySelector('nav.navbar').style.top =
+                            '0';
+                    } else {
+                        document.querySelector('nav.navbar').style.boxShadow = 'none';
+                        document.querySelector('nav.navbar').style.position =
+                            'none';
+                        document.querySelector('nav.navbar').style.top =
+                            '0';
+                    }
+                });
+            </script>

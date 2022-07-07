@@ -1,0 +1,89 @@
+@import "./roots";
+
+#header {
+    @extend %DisplayFlexSpaceBetween;
+    gap: 18px;
+    width: 100%;
+    height: auto;
+    padding: 0.5rem 3rem;
+    z-index: 85;
+
+    & .search {
+        min-width: 295px;
+        height: 100%;
+        @extend %DisplayFlexCenter;
+        justify-content: unset;
+        order: 2;
+        overflow: hidden;
+        background: $white;
+        border-radius: $border_radius;
+
+        & .search_input {
+            width: 100%;
+            outline: none;
+            border: none;
+            padding: 10px 0 10px 20px;
+            appearance: none;
+            transition: $CardsTransition_04;
+
+            &::placeholder {
+                color: $light_Grey;
+            }
+        }
+
+        & i {
+            padding: 12px 15px;
+            text-align: center;
+            cursor: pointer;
+            color: $light_Grey;
+            transition: $CardsTransition_06;
+        }
+    }
+}
+
+#Container .overlay {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 120px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 80;
+    background: $RGBA_06;
+    display: none;
+    transition: $CardsTransition_04;
+}
+
+#HeaderSwiper {
+    @extend %WidthHeight;
+    order: 1;
+
+    & .swiper-wrapper {
+        @extend %WidthHeight;
+
+        & .swiper-slide {
+            width: fit-content;
+            height: 100%;
+            padding: 0.6rem 1rem;
+            background: $white;
+            margin-right: 0;
+            color: $dark_color;
+            border-radius: $border_radius;
+            cursor: pointer;
+            font-weight: 400;
+            font-size: 14px;
+            user-select: none;
+
+            & i {
+                margin-right: 0.1rem;
+            }
+        }
+    }
+
+    #tabs .active,
+    & .swiper-slide:hover {
+        color: $white;
+        background: $dark_color;
+    }
+}

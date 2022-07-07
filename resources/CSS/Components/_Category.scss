@@ -1,0 +1,303 @@
+@import "./roots";
+
+.section {
+    @extend %WidthHeight;
+    padding-bottom: 25px;
+    padding-top: 20px;
+    padding-left: $padding;
+    padding-right: $padding;
+}
+
+#CardSwiper {
+    @extend %WidthHeight;
+
+    & .card_container {
+        @extend %WidthHeight;
+        @extend %DisplayFlexSpaceBetween;
+        row-gap: 60px;
+        flex-wrap: wrap;
+
+        & .card__ {
+            width: 250px;
+            position: relative;
+            cursor: pointer;
+            transition: $CardsTransition_06;
+
+            & .cards {
+                background: $white;
+                width: 100%;
+                height: auto;
+                border-radius: $border_radius;
+                position: relative;
+
+                &:hover {
+                    box-shadow: $BoxShadow_2_4 $Dark_Grey;
+                }
+
+                & .card_content {
+                    padding: $border_radius $border_radius 0 $border_radius;
+                    height: 165px;
+                }
+
+                & .image {
+                    width: 100%;
+                    height: 160px;
+                    position: relative;
+                    z-index: 10;
+                    display: flex;
+                    transition: $CardsTransition_04;
+
+                    & img {
+                        @extend %AllImagesContain;
+                        transition: $CardsTransition_03;
+                    }
+                }
+
+                & .card_view {
+                    position: absolute;
+                    right: 15px;
+                    bottom: -24px;
+                    width: 54px;
+                    height: 54px;
+                    background: #eee;
+                    box-shadow: 0 0 6px 0 #aaa;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    z-index: 5;
+                    @extend %DisplayFlexCenter;
+
+                    & .card_add_wrapp {
+                        @extend %DisplayFlexCenter;
+
+                        & span {
+                            @extend %DisplayFlexCenter;
+                            position: relative;
+                            left: 1px;
+                            text-align: center;
+
+                            & i {
+                                font-size: 21px;
+                                color: $dark_color;
+                                transition: $CardsTransition_05;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+
+                & .image img {
+                    margin-top: -30px;
+                    transform: scale(1.1);
+                }
+
+                & .overlay_typed .card_name_with_overlay {
+                    bottom: 0;
+                }
+
+                &:nth-child(1) .cards {
+                    background: #ff5f6d;
+                    background: -webkit-linear-gradient(to right, #ffc371, #ff5f6d);
+                    background: linear-gradient(to right, #ffc371, #ff5f6d);
+                }
+
+                &:nth-child(2) .cards {
+                    background: #9796f0;
+                    background: -webkit-linear-gradient(to right, #fbc7d4, #9796f0);
+                    background: linear-gradient(to right, #fbc7d4, #9796f0);
+                }
+
+                &:nth-child(3) .cards {
+                    background: #eecda3;
+                    background: -webkit-linear-gradient(to right, #ef629f, #eecda3);
+                    background: linear-gradient(to right, #ef629f, #eecda3);
+                }
+
+                &:nth-child(4) .cards {
+                    background: #2980b9;
+                    background: -webkit-linear-gradient(to right, #2980b9, #64b3f4);
+                    background: linear-gradient(to right, #2980b9, #64b3f4);
+                }
+
+                &:nth-child(5) .cards {
+                    background: #b24592;
+                    background: -webkit-linear-gradient(to right, #b24592, #f15f79);
+                    background: linear-gradient(to right, #b24592, #f15f79);
+                }
+
+                &:nth-child(6) .cards {
+                    background: #e35d5b;
+                    background: -webkit-linear-gradient(to left, #e35d5b, #e35d5b);
+                    background: linear-gradient(to left, #e35d5b, #e35d5b);
+                }
+
+                &:nth-child(7) .cards {
+                    background: #4ca1af;
+                    background: -webkit-linear-gradient(to right, #c4e0e5, #4ca1af);
+                    background: linear-gradient(to right, #c4e0e5, #4ca1af);
+                }
+
+                &:nth-child(8) .cards {
+                    background: #ee9ca7;
+                    background: -webkit-linear-gradient(to left, #ffdde1, #ee9ca7);
+                    background: linear-gradient(to left, #ffdde1, #ee9ca7);
+                }
+
+                &:nth-child(9) .cards {
+                    background: #ff512f;
+                    background: -webkit-linear-gradient(to right, #dd2476, #ff512f);
+                    background: linear-gradient(to right, #dd2476, #ff512f);
+                }
+
+                &:nth-child(10) .cards {
+                    background: #ff9966;
+                    background: -webkit-linear-gradient(to right, #ff5e62, #ff9966);
+                    background: linear-gradient(to right, #ff5e62, #ff9966);
+                }
+
+                &:nth-child(11) .cards {
+                    background-image: linear-gradient(-225deg,
+                            #ffe29f 0%,
+                            #ffa99f 48%,
+                            #ff719a 100%);
+
+                    -webkit-background-image: linear-gradient(-225deg,
+                            #ffe29f 0%,
+                            #ffa99f 48%,
+                            #ff719a 100%);
+                }
+
+                &:nth-child(12) .cards {
+                    background-image: linear-gradient(to top, #e6b980 0%, #eacda3 100%);
+                    background-image: -webkit-linear-gradient(to top, #e6b980 0%, #eacda3 100%);
+                }
+            }
+
+            & .overlay_typed {
+                width: 100%;
+                height: 90px;
+                border-radius: 0 0 $border_radius $border_radius;
+                position: relative;
+                overflow: hidden;
+                touch-action: pan-y none;
+            }
+
+            & .card_name_with_overlay {
+                height: 100%;
+                position: absolute;
+                bottom: -100%;
+                left: 0;
+                right: 0;
+                transition: $CardsTransition_03;
+                @extend %DisplayFlexCenter;
+                background: $white;
+                @include maskImage_Category;
+
+                & h4 {
+                    font-size: 24px;
+                    font-weight: 700;
+                    margin-bottom: 0;
+                }
+            }
+
+            &:nth-child(1) .card_name_with_overlay h4 {
+                background: -webkit-linear-gradient(to right, #ffc371, #ff5f6d);
+                background: linear-gradient(to right, #ffc371, #ff5f6d);
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                -webkit-background-clip: text;
+            }
+
+            &:nth-child(2) .card_name_with_overlay h4 {
+                background: -webkit-linear-gradient(to right, #fbc7d4, #9796f0);
+                background: linear-gradient(to right, #fbc7d4, #9796f0);
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                -webkit-background-clip: text;
+            }
+
+            &:nth-child(3) .card_name_with_overlay h4 {
+                background: -webkit-linear-gradient(to right, #ef629f, #eecda3);
+                background: linear-gradient(to right, #ef629f, #eecda3);
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                -webkit-background-clip: text;
+            }
+
+            &:nth-child(4) .card_name_with_overlay h4 {
+                background: -webkit-linear-gradient(to right, #2980b9, #64b3f4);
+                background: linear-gradient(to right, #2980b9, #64b3f4);
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                -webkit-background-clip: text;
+            }
+
+            &:nth-child(5) .card_name_with_overlay h4 {
+                background: -webkit-linear-gradient(to right, #b24592, #f15f79);
+                background: linear-gradient(to right, #b24592, #f15f79);
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                -webkit-background-clip: text;
+            }
+
+            &:nth-child(6) .card_name_with_overlay h4 {
+                background: -webkit-linear-gradient(to left, #e35d5b, #e35d5b);
+                background: linear-gradient(to left, #e35d5b, #e35d5b);
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                -webkit-background-clip: text;
+            }
+
+            &:nth-child(7) .card_name_with_overlay h4 {
+                background: -webkit-linear-gradient(to right, #c4e0e5, #4ca1af);
+                background: linear-gradient(to right, #c4e0e5, #4ca1af);
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                -webkit-background-clip: text;
+            }
+
+            &:nth-child(8) .card_name_with_overlay h4 {
+                background: -webkit-linear-gradient(to left, #ffdde1, #ee9ca7);
+                background: linear-gradient(to left, #ffdde1, #ee9ca7);
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                -webkit-background-clip: text;
+            }
+
+            &:nth-child(9) .card_name_with_overlay h4 {
+                background: -webkit-linear-gradient(to right, #dd2476, #ff512f);
+                background: linear-gradient(to right, #dd2476, #ff512f);
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                -webkit-background-clip: text;
+            }
+
+            &:nth-child(10) .card_name_with_overlay h4 {
+                background: -webkit-linear-gradient(to right, #ff5e62, #ff9966);
+                background: linear-gradient(to right, #ff5e62, #ff9966);
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                -webkit-background-clip: text;
+            }
+
+            &:nth-child(11) .card_name_with_overlay h4 {
+                background-image: linear-gradient(-225deg,
+                        #ffe29f 0%,
+                        #ffa99f 48%,
+                        #ff719a 100%);
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                -webkit-background-clip: text;
+            }
+
+            &:nth-child(12) .card_name_with_overlay h4 {
+                background-image: linear-gradient(to top, #e6b980 0%, #eacda3 100%);
+                background-image: -webkit-linear-gradient(to top, #e6b980 0%, #eacda3 100%);
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                -webkit-background-clip: text;
+            }
+        }
+    }
+}

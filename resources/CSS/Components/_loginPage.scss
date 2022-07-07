@@ -1,0 +1,277 @@
+@import "./roots";
+
+@keyframes animate {
+    0% {
+        transform: scaleX(0);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes animateBack {
+    0% {
+        transform: scaleX(1);
+    }
+
+    100% {
+        transform: scaleX(0);
+    }
+}
+
+.popup_signIn_Up {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    visibility: hidden;
+    transition: $CardsTransition_04;
+
+    & .container {
+        @extend %DisplayFlexCenter;
+        @extend %WidthHeight;
+        position: relative;
+    }
+
+    & .popup {
+        width: 400px;
+        height: max-content;
+        padding: 2rem 1.5rem;
+        background: $white;
+        border-radius: $border_radius;
+        box-sizing: border-box;
+        z-index: 80;
+        position: absolute;
+        top: -100%;
+        left: -50%;
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+        transition: opacity $CardsTransition_03, top 1s ease-in-out,
+            transform 1s ease-in-out;
+        box-shadow: 0 2px 5px 0 $RGBA_04;
+
+        & .CrossPopup {
+            width: 100%;
+            text-align: right;
+
+            & i {
+                color: $dark_color;
+                font-weight: 100;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+        }
+
+        & h1.title {
+            font-size: 2rem;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        & .form_outer {
+            width: 100%;
+            overflow: hidden;
+
+            & form {
+                width: 100%;
+
+                & .page_ {
+                    transition: $CardsTransition_1;
+                }
+
+                & .pers_deta {
+                    transform: translateX(-1000px);
+                }
+
+                & .field {
+                    height: 40px;
+                    width: 352px;
+                    margin-bottom: 20px;
+                    transition: 1.1s $CardsTransition_04;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+
+                    &.errorMessages {
+                        margin-bottom: 30px;
+
+                        & .inputContent input {
+                            border-color: $adminDanger;
+                        }
+                    }
+
+                    & .inputContent {
+                        display: flex;
+                        align-items: center;
+                        flex-direction: column;
+                        position: relative;
+                        width: 100%;
+                        margin-bottom: 0.3rem;
+
+                        & input {
+                            width: 100%;
+                            height: 40px;
+                            padding: 8px 10px;
+                            outline: none;
+                            border: 1px solid lightgray;
+                            border-radius: 6px;
+                            font-size: 0.8rem;
+                            margin: 0;
+                            transition: 0.1s $CubicBerier;
+                        }
+
+                        & input:focus {
+                            border-color: $dark_color;
+                        }
+
+                        & input::placeholder {
+                            color: $light_Grey;
+                            font-weight: 500;
+                        }
+
+                        & i {
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                            bottom: 0;
+                            padding: 0.8rem;
+                            cursor: pointer;
+                        }
+                    }
+
+                    & .forgetPassword {
+                        margin-top: 0.3rem;
+                        width: 100%;
+
+                        & a {
+                            font-size: 13px;
+                            color: #047edf;
+                            transition: $CardsTransition_03;
+                            font-weight: 500;
+
+                            &:hover {
+                                color: $adminDanger;
+                                text-decoration: underline 2px solid;
+                            }
+                        }
+                    }
+                }
+
+                & .btns {
+                    display: flex;
+                    width: 100%;
+
+                    & button {
+                        width: 100%;
+                        height: 40px;
+                        letter-spacing: 1px;
+                        background: $dark_color;
+                        color: $white;
+                        cursor: pointer;
+                        border-radius: $border_radius;
+                        margin-top: 30px;
+
+                        &.prev {
+                            margin-right: 10px;
+                            background: none;
+                            border: 2px solid $dark_color;
+                            color: $dark_color;
+                        }
+
+                        &:active {
+                            position: relative;
+                            top: 1px;
+                        }
+                    }
+                }
+            }
+        }
+
+        & .signIn_form {
+            @extend %WidthHeight;
+            z-index: 6;
+            transform: translateX(0px);
+            transition: 1.1s 0.4s $CubicBerier;
+            opacity: 1;
+
+            & .title {
+                margin-bottom: 15px;
+            }
+
+            & .error {
+                width: 100%;
+                height: auto;
+                margin: 0.7rem 0;
+
+                & span {
+                    font-size: 14px;
+                    color: $countingColor;
+                    font-weight: 400;
+                }
+            }
+        }
+
+        & .signIn_form .signUpBtn {
+            @extend %WidthHeight;
+            @extend %DisplayFlexCenter;
+            flex-direction: column;
+            margin-top: 15px;
+            overflow: hidden;
+
+            & h1 {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+                position: relative;
+
+                &::after {
+                    left: 115%;
+                }
+
+                &::before {
+                    right: 115%;
+                }
+
+                &::before,
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    width: 100%;
+                    height: 1px;
+                    background: $dark_color;
+                    border-radius: 5px;
+                }
+            }
+
+            & button {
+                width: 100%;
+                height: 40px;
+                color: $dark_color;
+                cursor: pointer;
+                border-radius: $border_radius;
+                border: 2px solid $dark_color;
+                letter-spacing: 1px;
+                background: none;
+                font-weight: 900;
+
+                &:active {
+                    position: relative;
+                    top: 1px;
+                }
+            }
+        }
+    }
+
+    &.active {
+        & .popup {
+            opacity: 1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+        }
+    }
+}

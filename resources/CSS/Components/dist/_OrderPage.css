@@ -1,0 +1,256 @@
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content .orders_items .left_content .image img, #OrderPage .Order_content .empty_order .fav_img img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content .orders_items .left_content .description .price_QTY, #OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content .orders_items .left_content .description, #OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content .orders_items, #OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content, #OrderPage .Order_content .order_wrapper .order_details, #OrderPage .Order_content .order_wrapper, #OrderPage .Order_content, #OrderPage {
+  height: 100%;
+  width: 100%;
+}
+
+#OrderPage .Order_content .empty_order .addOrder_content button, #OrderPage .Order_content .empty_order {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#OrderPage {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+#OrderPage .Order_content {
+  background: #fff;
+  border-radius: 20px;
+  padding: 1.5rem;
+}
+#OrderPage .Order_content .empty_order {
+  flex-direction: column;
+}
+#OrderPage .Order_content .empty_order .fav_img {
+  height: 350px;
+}
+#OrderPage .Order_content .empty_order .addOrder_content {
+  text-align: center;
+}
+#OrderPage .Order_content .empty_order .addOrder_content h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 500 !important;
+  margin-top: 3rem;
+}
+#OrderPage .Order_content .empty_order .addOrder_content p {
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  font-weight: 300;
+  text-align: center;
+  color: #96a0a5;
+}
+#OrderPage .Order_content .empty_order .addOrder_content button {
+  width: 100%;
+  height: 40px !important;
+  border-radius: 0.5rem;
+  background: #e7edef;
+  color: #000;
+  box-shadow: 0 0 1px #000;
+  padding: 0.5em 1rem;
+  transition: 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  cursor: pointer;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  font-size: 14px;
+  width: 100%;
+  margin: 0 auto;
+}
+#OrderPage .Order_content .empty_order .addOrder_content button i {
+  margin-right: 0.5rem;
+}
+#OrderPage .Order_content .empty_order .addOrder_content button:hover {
+  background: #000;
+  color: #e7edef;
+}
+#OrderPage .Order_content .order_wrapper .top_head {
+  width: 100%;
+}
+#OrderPage .Order_content .order_wrapper .top_head h1 {
+  font-weight: 500;
+  font-size: 1.8rem;
+}
+#OrderPage .Order_content .order_wrapper hr {
+  margin: 1rem 0;
+}
+#OrderPage .Order_content .order_wrapper .order_details {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+#OrderPage .Order_content .order_wrapper .order_details:not(:last-child) {
+  margin-bottom: 20px;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list {
+  width: 100%;
+  height: 100%;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_list_head {
+  width: 100%;
+  padding: 0.9rem 1.1rem;
+  background: #F0F2F2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px 8px 0 0;
+  outline: 1px #D5D9D9 solid;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_list_head span {
+  font-size: 0.9rem;
+  color: #565959;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_list_head .order_head_left {
+  width: 35%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_list_head .order_head_left .order_date, #OrderPage .Order_content .order_wrapper .order_details .orders_list .order_list_head .order_head_left .order_total, #OrderPage .Order_content .order_wrapper .order_details .orders_list .order_list_head .order_head_left .order_shiptoname {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_list_head .order_head_left .order_date span:nth-child(1), #OrderPage .Order_content .order_wrapper .order_details .orders_list .order_list_head .order_head_left .order_total span:nth-child(1), #OrderPage .Order_content .order_wrapper .order_details .orders_list .order_list_head .order_head_left .order_shiptoname span:nth-child(1) {
+  margin-bottom: 0.4rem;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_list_head .order_head_left .order_shiptoname span:nth-child(2) {
+  text-transform: capitalize;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_list_head .order_head_right {
+  width: 50%;
+  text-align: right;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_list_head .order_head_right .orderID {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  justify-content: flex-end;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_list_head .order_head_right .orderID span {
+  margin-bottom: 0.4rem;
+  font-size: 14px;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_list_head .order_head_right .orderTrack a {
+  color: #565959;
+  font-size: 14px;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_list_head .order_head_right .orderTrack a i {
+  margin-left: 0.3rem;
+  color: #ea5455;
+  transition: 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  animation: onOff 2s ease infinite;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content {
+  outline: 1px #D5D9D9 solid;
+  border-radius: 0 0 8px 8px;
+  padding: 0.9rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content .orders_items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content .orders_items:not(:last-child) {
+  border-bottom: 1px solid #D5D9D9;
+  padding-bottom: 1.5rem;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content .orders_items .left_content {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content .orders_items .left_content .image {
+  width: 100%;
+  max-width: 150px;
+  height: 100px !important;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content .orders_items .left_content .description {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content .orders_items .left_content .description span {
+  font-size: 0.9rem;
+  color: #000;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content .orders_items .right_content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content .orders_items .right_content .button {
+  width: 160px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content .orders_items .right_content .button a {
+  padding: 0.5rem;
+  width: 100%;
+  height: 40px;
+  box-shadow: 0 0 1px #000;
+  border-radius: 6px;
+  cursor: pointer;
+  line-height: 23px;
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  transition: 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content .orders_items .right_content .button a i {
+  margin-right: 0.4rem;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content .orders_items .right_content .button .viewProduct {
+  color: #000;
+  background: transparent;
+  border: 1px solid #000;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content .orders_items .right_content .button .viewProduct:hover {
+  color: #fff;
+  background: #000;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content .orders_items .right_content .button .cancleOrder {
+  color: #fff;
+  background: #f16565;
+  transition: 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  box-shadow: 0 0 2px #e65252;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content .orders_items .right_content .button .cancleOrder:hover {
+  background: #e65252;
+}
+#OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content .orders_items .right_content .button .cancleOrder i {
+  margin-right: 0.5rem;
+  position: relative;
+}
+
+@keyframes onOff {
+  0% {
+    color: #565959;
+  }
+  40% {
+    color: #f16565;
+  }
+  80% {
+    color: #565959;
+  }
+  100% {
+    color: #f16565;
+  }
+}

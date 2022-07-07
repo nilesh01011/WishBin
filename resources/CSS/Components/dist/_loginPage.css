@@ -1,0 +1,237 @@
+.popup_signIn_Up .popup .signIn_form .signUpBtn, .popup_signIn_Up .popup .signIn_form, .popup_signIn_Up .container {
+  height: 100%;
+  width: 100%;
+}
+
+.popup_signIn_Up .popup .signIn_form .signUpBtn, .popup_signIn_Up .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes animate {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+@keyframes animateBack {
+  0% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+.popup_signIn_Up {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  visibility: hidden;
+  transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+.popup_signIn_Up .container {
+  position: relative;
+}
+.popup_signIn_Up .popup {
+  width: 400px;
+  height: max-content;
+  padding: 2rem 1.5rem;
+  background: #fff;
+  border-radius: 20px;
+  box-sizing: border-box;
+  z-index: 80;
+  position: absolute;
+  top: -100%;
+  left: -50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96), top 1s ease-in-out, transform 1s ease-in-out;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.4);
+}
+.popup_signIn_Up .popup .CrossPopup {
+  width: 100%;
+  text-align: right;
+}
+.popup_signIn_Up .popup .CrossPopup i {
+  color: #000;
+  font-weight: 100;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.popup_signIn_Up .popup h1.title {
+  font-size: 2rem;
+  letter-spacing: 1px;
+  text-align: center;
+}
+.popup_signIn_Up .popup .form_outer {
+  width: 100%;
+  overflow: hidden;
+}
+.popup_signIn_Up .popup .form_outer form {
+  width: 100%;
+}
+.popup_signIn_Up .popup .form_outer form .page_ {
+  transition: 1s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+.popup_signIn_Up .popup .form_outer form .pers_deta {
+  transform: translateX(-1000px);
+}
+.popup_signIn_Up .popup .form_outer form .field {
+  height: 40px;
+  width: 352px;
+  margin-bottom: 20px;
+  transition: 1.1s 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.popup_signIn_Up .popup .form_outer form .field.errorMessages {
+  margin-bottom: 30px;
+}
+.popup_signIn_Up .popup .form_outer form .field.errorMessages .inputContent input {
+  border-color: #ea5455;
+}
+.popup_signIn_Up .popup .form_outer form .field .inputContent {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  margin-bottom: 0.3rem;
+}
+.popup_signIn_Up .popup .form_outer form .field .inputContent input {
+  width: 100%;
+  height: 40px;
+  padding: 8px 10px;
+  outline: none;
+  border: 1px solid lightgray;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  margin: 0;
+  transition: 0.1s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+.popup_signIn_Up .popup .form_outer form .field .inputContent input:focus {
+  border-color: #000;
+}
+.popup_signIn_Up .popup .form_outer form .field .inputContent input::placeholder {
+  color: #96a0a5;
+  font-weight: 500;
+}
+.popup_signIn_Up .popup .form_outer form .field .inputContent i {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 0.8rem;
+  cursor: pointer;
+}
+.popup_signIn_Up .popup .form_outer form .field .forgetPassword {
+  margin-top: 0.3rem;
+  width: 100%;
+}
+.popup_signIn_Up .popup .form_outer form .field .forgetPassword a {
+  font-size: 13px;
+  color: #047edf;
+  transition: 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  font-weight: 500;
+}
+.popup_signIn_Up .popup .form_outer form .field .forgetPassword a:hover {
+  color: #ea5455;
+  text-decoration: underline 2px solid;
+}
+.popup_signIn_Up .popup .form_outer form .btns {
+  display: flex;
+  width: 100%;
+}
+.popup_signIn_Up .popup .form_outer form .btns button {
+  width: 100%;
+  height: 40px;
+  letter-spacing: 1px;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+.popup_signIn_Up .popup .form_outer form .btns button.prev {
+  margin-right: 10px;
+  background: none;
+  border: 2px solid #000;
+  color: #000;
+}
+.popup_signIn_Up .popup .form_outer form .btns button:active {
+  position: relative;
+  top: 1px;
+}
+.popup_signIn_Up .popup .signIn_form {
+  z-index: 6;
+  transform: translateX(0px);
+  transition: 1.1s 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  opacity: 1;
+}
+.popup_signIn_Up .popup .signIn_form .title {
+  margin-bottom: 15px;
+}
+.popup_signIn_Up .popup .signIn_form .error {
+  width: 100%;
+  height: auto;
+  margin: 0.7rem 0;
+}
+.popup_signIn_Up .popup .signIn_form .error span {
+  font-size: 14px;
+  color: #f16565;
+  font-weight: 400;
+}
+.popup_signIn_Up .popup .signIn_form .signUpBtn {
+  flex-direction: column;
+  margin-top: 15px;
+  overflow: hidden;
+}
+.popup_signIn_Up .popup .signIn_form .signUpBtn h1 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  position: relative;
+}
+.popup_signIn_Up .popup .signIn_form .signUpBtn h1::after {
+  left: 115%;
+}
+.popup_signIn_Up .popup .signIn_form .signUpBtn h1::before {
+  right: 115%;
+}
+.popup_signIn_Up .popup .signIn_form .signUpBtn h1::before, .popup_signIn_Up .popup .signIn_form .signUpBtn h1::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background: #000;
+  border-radius: 5px;
+}
+.popup_signIn_Up .popup .signIn_form .signUpBtn button {
+  width: 100%;
+  height: 40px;
+  color: #000;
+  cursor: pointer;
+  border-radius: 20px;
+  border: 2px solid #000;
+  letter-spacing: 1px;
+  background: none;
+  font-weight: 900;
+}
+.popup_signIn_Up .popup .signIn_form .signUpBtn button:active {
+  position: relative;
+  top: 1px;
+}
+.popup_signIn_Up.active .popup {
+  opacity: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+}

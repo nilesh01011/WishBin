@@ -1,0 +1,95 @@
+<div id="SideBar">
+    <div class="sideBar_content">
+        <div class="sidebar_Cross">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="contents">
+            <ul style="padding-left:0;">
+                <h5 style="color:#000;">Deals of the Day</h5>
+                <li><a id="scrollToSection" href="/">Best Sellers</a></li>
+                <li>
+                    <a id="scrollToSection" href="/">New Releases</a>
+                </li>
+                <li>
+                    <a id="scrollToCategory" href="/">Categories to Bag</a>
+                </li>
+            </ul>
+            <div id="hr"></div>
+            <ul style="padding-left:0;">
+                <h5 style="color:#000;">Digital Devices</h5>
+                <li>
+                    <a id="AddTVID" data-productid="<%= TV ? JSON.stringify(TV) : 'TV' %>" href="./productdetails"
+                        target="_blank">
+                        Fire TV<i class="fas fa-chevron-right"></i>
+                    </a>
+                </li>
+                <li><a href="./mobileproducts"> Mobiles <i class="fas fa-chevron-right"></i></a> </li>
+
+                <!-- Laptops Collapse -->
+
+                <li id="laptops">
+                    <a id="laptopBtn" href="#">
+                        Laptop <i class="fas fa-chevron-right"></i>
+                    </a>
+                    <ul id="lapContent" class="lapContent" style="padding-left:0;">
+
+                        <!-- Asus Laptops -->
+
+                        <li>
+                            <a id="asuslap" data-productid="<%= asuslap ? JSON.stringify(asuslap) : 'Asuslap' %>"
+                                href="./productdetails" target="_blank" class="list">
+                                ASUS Rog Laptop
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+
+                        <!-- Dell Laptops -->
+
+                        <li>
+                            <a id="dellap" data-productid="<%= dellap ? JSON.stringify(dellap) : 'Dellap' %>"
+                                href="./productdetails" target="_blank" class="list">
+                                Dell Alienware
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <!-- Laptops Collapse End -->
+                <li><a href="./computerproducts">Computers Accessories <i class="fas fa-chevron-right"></i></a>
+                </li>
+            </ul>
+            <div id="hr"></div>
+            <ul style="padding-left:0;">
+                <h5 style="color:#000;">Indian Wear</h5>
+                <li> <a href="./clothproducts">Men's Fashion<i class="fas fa-chevron-right"></i></a></li>
+                <li> <a href="./clothproducts">Women's Fashion <i class="fas fa-chevron-right"></i></a> </li>
+                <li> <a href="./babyclothproducts">Kid's Fashion <i class="fas fa-chevron-right"></i></a> </li>
+            </ul>
+            <div id="hr"></div>
+            <ul style="padding-left:0;">
+                <h5 style="color:#000;">Help & Support</h5>
+                <% if(user) { %>
+                    <li> <a href="/userprofile">Your Account<i class="fas fa-chevron-right"></i></a> </li>
+                    <% } else { %>
+                        <li> <a href="/register">Your Account<i class="fas fa-chevron-right"></i></a>
+                        </li>
+                        <% } %>
+
+                            <li> <a href="#">Customer Service<i class="fas fa-chevron-right"></i></a> </li>
+                            <li><a href="/login">Sign In <i class="fas fa-chevron-right"></i></a></li>
+                            <li><a href="/register">Sign Up <i class="fas fa-chevron-right"></i></a></li>
+            </ul>
+
+            <% if(admin==='admin' || admin==='super_admin' ) { %>
+                <div id="hr"></div>
+                <ul style="padding-left:0;">
+                    <h5 style="color:#000;">Dashboard</h5>
+                    <li> <a href="/api/adminPage/dashboard">Admin Dashboard<i class="fas fa-chevron-right"></i></a></li>
+                </ul>
+                <% } %>
+
+        </div>
+    </div>
+</div>
+<!-- ====================SideBar Sections End==================-->

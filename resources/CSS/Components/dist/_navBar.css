@@ -1,0 +1,135 @@
+#left .shop a, #left .logo, #left, nav.navbar .right .one .count, nav.navbar .right .two .count, nav.navbar .right .three .count, nav.navbar .right .one small, nav.navbar .right .two small, nav.navbar .right .three small, nav.navbar .right .one, nav.navbar .right .two, nav.navbar .right .three {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav.navbar .right, nav.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav.navbar {
+  width: 100%;
+  height: 65px;
+  z-index: 85;
+  padding: 0.7rem 3rem;
+  background: #e7edef;
+}
+nav.navbar .middle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  line-height: 40px;
+  text-align: center;
+  font-weight: 700;
+  color: #000;
+  cursor: pointer;
+  user-select: none;
+}
+nav.navbar .right {
+  width: auto;
+  height: 100%;
+  font-weight: 800;
+  gap: 20px;
+  padding-right: 0.6rem;
+  font-family: "Plus Jakarta Sans";
+  font-weight: 800;
+  color: #121212;
+}
+nav.navbar .right .one, nav.navbar .right .two, nav.navbar .right .three {
+  cursor: pointer;
+  position: relative;
+  justify-content: unset;
+  flex-direction: column;
+  transition: 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  color: #121212;
+}
+nav.navbar .right .one small, nav.navbar .right .two small, nav.navbar .right .three small {
+  font-size: 10px;
+  padding-top: 5px;
+  position: relative;
+  font-family: "Plus Jakarta Sans";
+  font-weight: 700;
+}
+nav.navbar .right .one small.active::after, nav.navbar .right .two small.active::after, nav.navbar .right .three small.active::after {
+  content: "";
+  width: 100%;
+  height: 3px;
+  border-radius: 10px;
+  background: #f16565;
+  position: absolute;
+  bottom: -5px;
+}
+nav.navbar .right .one .count, nav.navbar .right .two .count, nav.navbar .right .three .count {
+  position: absolute;
+  top: -4px;
+  background: #f16565;
+  color: #fff;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+  transform: scale(0);
+  transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+nav.navbar .right .one.active, nav.navbar .right .two.active, nav.navbar .right .three.active {
+  color: #000;
+}
+nav.navbar .right .one.active .count, nav.navbar .right .two.active .count, nav.navbar .right .three.active .count {
+  transform: scale(1);
+}
+nav.navbar .right .one .count {
+  left: 25px;
+}
+nav.navbar .right .two .count {
+  left: 22px;
+}
+nav.navbar .right .three .count {
+  left: 18px;
+}
+
+#left {
+  width: auto;
+  margin-right: 0;
+  color: #000;
+}
+#left .logo {
+  width: 28px;
+  height: 100%;
+  cursor: pointer;
+  flex-direction: column;
+}
+#left .logo span:nth-child(1), #left .logo span:nth-child(2), #left .logo span:nth-child(3) {
+  height: 4px;
+  width: 100%;
+  border-radius: 5px;
+  background: #000;
+  display: block;
+  position: relative;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+#left .logo span:nth-child(2) {
+  margin: 6px 0;
+}
+#left .shop {
+  width: 40px;
+  height: 40px;
+  margin-left: 0.5rem;
+}
+#left .shop a {
+  width: 100%;
+  height: 100%;
+  font-weight: 700;
+  flex-direction: column;
+  cursor: pointer;
+  color: #000;
+}
+#left .shop a i {
+  font-size: 26px;
+}

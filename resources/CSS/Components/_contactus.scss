@@ -1,0 +1,219 @@
+@import "./roots";
+
+
+#contactUs {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0 !important;
+    padding: 0 50px;
+
+    & .heading {
+        padding-bottom: 0 !important;
+    }
+
+    & .container {
+
+        & .hr {
+            width: 100%;
+            height: 1px;
+            background: $light_Grey;
+            margin: 1rem 0;
+        }
+
+        & .wrapper {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+
+            & .wrapper_container {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                padding: 20px;
+
+                & .left {
+                    width: 100%;
+                    max-width: 500px;
+                    height: 100%;
+                    padding: 20px;
+                    background: $white;
+                    z-index: 10;
+                    border-radius: 3px;
+                    box-shadow: $BoxShadow_02 $RGBA_03;
+
+                    & form {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        gap: 20px;
+                        flex-direction: column;
+
+                        & .input_wrapper {
+                            display: flex;
+                            flex-direction: column;
+
+                            & label {
+                                font-size: 14px;
+                                font-weight: 600;
+                                margin-bottom: 10px;
+                            }
+
+                            & input {
+                                height: 45px;
+                            }
+
+                            & textarea,
+                            & input {
+                                width: 100%;
+                                padding: 8px 10px;
+                                outline: none;
+                                border: 1px solid #d3d3d3;
+                                border-radius: 4px;
+                                font-size: 0.8rem;
+                                margin: 0;
+                                transition: 0.1s $CubicBerier;
+
+                                &:focus {
+                                    border-color: $dark_color;
+                                }
+                            }
+
+                            & textarea {
+                                resize: none;
+                            }
+                        }
+
+                        & .buttons {
+                            width: 100%;
+
+                            & button {
+                                width: 100%;
+                                height: 45px;
+                                text-transform: uppercase;
+                                background: #000;
+                                color: #fff;
+                                padding: 1rem 1.5rem;
+                                border-radius: 5px;
+                                display: flex;
+                                align-items: center;
+                                font-weight: 600;
+                                justify-content: center;
+                                font-size: 14px;
+                                letter-spacing: 0.5px;
+                                cursor: pointer;
+
+                                & i {
+                                    margin-right: 0.5rem;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                & .right {
+                    width: 100%;
+                    height: 100%;
+                    z-index: 10;
+
+                    & .images {
+                        height: 350px;
+
+                        & img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: contain;
+                        }
+                    }
+                }
+            }
+
+
+            & .mainContent {
+
+                height: 200px;
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                display: block;
+                z-index: 2;
+
+                & .wave {
+                    position: absolute;
+                    top: 0;
+                    width: 6400px;
+                    height: 200px;
+                    animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+                    transform: translate3d(0, 0, 0);
+                }
+
+                & .wave:nth-of-type(2) {
+                    top: 0;
+                    animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+                    opacity: 1;
+                }
+
+            }
+
+        }
+    }
+
+}
+
+#messages {
+    width: 100%;
+    height: 45px;
+    padding: 1rem 1.5rem;
+    background: $adminSuccess;
+    color: $white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & i {
+            margin-right: 0.6rem;
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #messages {
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        & span {
+            font-size: 14px;
+        }
+    }
+}
+
+
+@keyframes wave {
+    0% {
+        margin-left: 0;
+    }
+
+    100% {
+        margin-left: -1600px;
+    }
+}
+
+@keyframes swell {
+
+    0%,
+    100% {
+        transform: translate3d(0, -25px, 0);
+    }
+
+    50% {
+        transform: translate3d(0, 5px, 0);
+    }
+}

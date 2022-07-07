@@ -1,0 +1,372 @@
+@import "./roots";
+
+#card_section {
+    width: 100%;
+    height: fit-content;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: $padding;
+    padding-right: $padding;
+
+    & .card_container {
+        @extend %WidthHeight;
+        @extend %DisplayFlexSpaceBetween;
+        flex-wrap: wrap;
+        gap: 40px;
+
+        & .cards {
+            width: 250px;
+            background: $white;
+            padding: 20px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            border-radius: $border_radius;
+            transition: $CardsTransition_05;
+            user-select: none;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                @extend %WidthHeight;
+                border-radius: $border_radius;
+                transition: $CardsTransition_04;
+                opacity: 0;
+                clip-path: circle(7.4% at 100% 100%);
+                -webkit-clip-path: circle(7.4% at 100% 100%);
+            }
+
+            &:hover::after {
+                opacity: 1;
+                transition: all 1000ms linear;
+                clip-path: circle(200% at 100% 100%);
+                -webkit-clip-path: circle(200% at 100% 100%);
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                @extend %WidthHeight;
+                background: #d0e4e4;
+                border-radius: $border_radius;
+                z-index: 1;
+                clip-path: circle(7.4% at 100% 100%);
+                -webkit-clip-path: circle(7.4% at 100% 100%);
+                transition: $CardsTransition_06;
+                box-shadow: $BoxShadow_2_4 $RGBA_02;
+            }
+
+            &:hover::before {
+                clip-path: circle(103% at 100% 100%);
+                -webkit-clip-path: circle(103% at 100% 100%);
+            }
+
+            & .card_head {
+                margin-left: auto;
+                z-index: 8;
+                width: 30px;
+                height: 30px;
+                background: none;
+                border-radius: 50%;
+                transition: all $CardsTransition_05;
+                box-shadow: none;
+
+                text-align: center;
+
+                & i {
+                    cursor: pointer;
+                    line-height: 30px;
+                }
+            }
+
+            &:hover {
+                & .card_head {
+                    background: $background_color;
+                    box-shadow: 0 0 1px #000;
+                }
+
+                & .card_head i {
+                    color: #fd5555;
+                }
+
+                & .card_image {
+                    margin-top: -60px;
+                    margin-bottom: 60px;
+                }
+
+                & a .card_add {
+                    animation: pulse_01 2s ease infinite;
+                }
+            }
+
+            & .card_image {
+                width: 100%;
+                height: 150px;
+                z-index: 5;
+                transition: $CardsTransition_04;
+
+                & img {
+                    @extend %AllImagesContain;
+                }
+            }
+
+            & .card_heading {
+                z-index: 7;
+
+                & .card_price,
+                & h5 {
+                    font-size: 18px;
+                    transition: $CardsTransition_05;
+                }
+
+                & h5 {
+                    font-weight: 700;
+                    padding-top: 6px;
+                }
+
+                & .card_price {
+                    color: #6c7878;
+                    transition: $CardsTransition_05;
+                    opacity: 1;
+                    font-weight: 500;
+                    padding: 4px 0;
+
+                    & span {
+                        font-size: 1rem;
+                    }
+
+                    & span:nth-child(1) {
+                        text-decoration: line-through;
+                        padding-right: 10px;
+                    }
+
+                    & span:nth-child(2) {
+                        color: #B12704;
+                        font-weight: 550;
+                    }
+                }
+
+                & .card_star i {
+                    font-size: 1rem;
+                    color: #ffa41c;
+                }
+            }
+        }
+
+        & .cards_addit {
+            position: absolute;
+            bottom: -30px;
+            right: -40px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: $background_color;
+            @extend %DisplayFlexCenter;
+            z-index: 20;
+
+            & a {
+                background: none;
+                text-decoration: none;
+
+                & .card_add {
+                    width: 55px;
+                    height: 55px;
+                    border-radius: 50%;
+                    background: $white;
+                    @extend %DisplayFlexCenter;
+                    cursor: pointer;
+                    box-shadow: $BoxShadow_2_4 $RGBA_03;
+
+
+                    & i {
+                        font-size: 1rem;
+                        color: $dark_color;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+@keyframes pulse_01 {
+    0% {
+        transform: scale(0.94);
+        box-shadow: 0 0 0 0 rgba(161, 158, 159, 0.7);
+        -webkit-box-shadow: 0 0 0 0 rgba(161, 158, 159, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 12px rgba(224, 201, 207, 0);
+        -webkit-box-shadow: 0 0 0 12px rgba(224, 201, 207, 0);
+    }
+
+    100% {
+        transform: scale(0.94);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+        -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+#far {
+    position: relative;
+    height: auto;
+    background: none;
+
+    & i.fas {
+        color: #fd5555;
+
+        &:active {
+            transform: scale(1.4);
+        }
+    }
+
+    & i.far {
+        color: #6c7878;
+
+        &:active {
+            transform: scale(1.4);
+        }
+    }
+
+    & i {
+        font-size: 18px;
+        transform: scale(1);
+        transition: transform 50ms $CubicBerier;
+    }
+
+    & span {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        display: block;
+        background: red;
+        transition: all 5ms ease-in-out;
+        overflow: hidden;
+        z-index: 2;
+        opacity: 0;
+
+        &.four {
+            left: 5px;
+            top: 2px;
+        }
+
+        &:nth-child(2) {
+            right: 5px;
+            top: 2px;
+            background: coral;
+        }
+
+        &:nth-child(3) {
+            right: 0;
+            bottom: 4px;
+            background: #4cd137;
+        }
+
+        &:nth-child(4) {
+            bottom: 4px;
+            left: 0;
+            background: blueviolet;
+        }
+
+        &:nth-child(5) {
+            top: 2px;
+            left: 40%;
+        }
+
+        &:nth-child(6) {
+            bottom: 0;
+            left: 40%;
+            background: #48dbfb;
+        }
+    }
+
+    &:active {
+        & span {
+            opacity: 1;
+            transform: scale(0.6);
+
+            &:nth-child(2),
+            &:nth-child(3) {
+                right: -3px;
+            }
+
+            &.four {
+                left: -4px;
+            }
+
+            &:nth-child(4) {
+                left: -3px;
+            }
+
+            &:nth-child(5) {
+                top: -3px;
+            }
+
+            &:nth-child(6) {
+                bottom: -4px;
+            }
+        }
+    }
+}
+
+#card_pricing_btn {
+    display: flex;
+    font-size: 16px;
+    position: relative;
+
+    & button {
+        opacity: 0;
+        cursor: pointer;
+        box-shadow: $BoxShadow_2_4 $RGBA_03;
+
+        &.one_btn {
+            width: 100%;
+            height: 40px;
+            border-radius: 5px;
+            @extend %DisplayFlexCenter;
+            z-index: 10;
+            position: absolute;
+            bottom: -10px;
+            transition: all $CardsTransition_03;
+            letter-spacing: 1px;
+            background: rgb(253, 85, 85);
+            transform: scale(1);
+
+            &:active {
+                transform: scale(0.9);
+            }
+        }
+
+        & span {
+            color: $white;
+            font-weight: 700;
+            width: fit-content;
+            display: flex;
+            align-items: center;
+
+            & i {
+                margin-right: 0.3rem;
+            }
+        }
+    }
+}
+
+#card_section {
+    & .card_container {
+        & .cards:hover #card_pricing_btn button {
+            bottom: 85px;
+            opacity: 1;
+        }
+    }
+}

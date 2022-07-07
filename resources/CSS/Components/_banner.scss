@@ -1,0 +1,142 @@
+@import "./roots";
+
+.banner_container {
+    @extend %DisplayFlexCenter;
+    width: 100%;
+    height: 280px;
+    gap: 18px;
+    padding-left: $padding;
+    padding-right: $padding;
+
+    & .banner_box {
+        width: 400px;
+        height: 241px;
+        @extend %DisplayFlexSpaceBetween;
+        margin-top: 15px;
+        border-radius: $border_radius;
+        position: relative;
+        box-shadow: $BoxShadow_03 $RGBA_03;
+
+        & video {
+            display: block;
+            @extend %AllImagesCover;
+            @extend %WidthHeight;
+            border-radius: $border_radius;
+        }
+
+        & img {
+            @extend %AllImagesCover;
+            display: none;
+            border-radius: $border_radius;
+        }
+
+        &:hover {
+            & video {
+                display: none;
+            }
+
+            & img {
+                display: block;
+            }
+        }
+
+        & .box_content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: fit-content;
+            border-radius: 0 0 $border_radius $border_radius;
+            padding: $border_radius $border_radius 15px $border_radius;
+            background: $light_dark_color;
+            color: $white;
+            @include maskImage_box_content;
+
+            & h4 {
+                margin-bottom: 0.5rem;
+            }
+
+            & p {
+                font-size: 12px;
+                margin-bottom: 0;
+                color: $light_Grey;
+            }
+        }
+    }
+}
+
+#mySwiper {
+    @extend %AllImagesContain;
+    transition: $CardsTransition_05;
+    display: block;
+    box-sizing: border-box;
+
+    & .swiper-wrapper {
+        align-items: center;
+        height: 100%;
+    }
+
+    & .swiper-slide {
+        width: 100%;
+        height: fit-content;
+
+        & img {
+            cursor: pointer;
+            @extend %AllImagesContain;
+        }
+    }
+}
+
+#Right,
+#Left {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: $RGBA_06;
+    box-shadow: $BoxShadow_5_10 $RGBA_01;
+}
+
+#Right {
+    top: 80%;
+    right: 40px;
+}
+
+#Left {
+    top: 80%;
+    right: 100px;
+    left: auto;
+}
+
+#Right::after,
+#Left::after {
+    content: '';
+}
+
+#mySwiper2 {
+    @extend %WidthHeight;
+    display: none;
+
+    & .swiper-slide {
+        transition: $CardsTransition_05;
+
+        & img {
+            @extend %AllImagesContain;
+            cursor: pointer;
+            filter: blur(2px);
+            -webkit-filter: blur(2px);
+            -moz-filter: blur(2px);
+            -o-filter: blur(2px);
+            transform: scale(0.9);
+            transition: $CardsTransition_03;
+        }
+    }
+
+    & .swiper-slide-active img {
+        filter: blur(0);
+        -webkit-filter: blur(0);
+        -moz-filter: blur(0);
+        -o-filter: blur(0);
+        transform: scale(1);
+    }
+}

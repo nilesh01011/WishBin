@@ -1,0 +1,131 @@
+$background_color: #e7edef;
+$Dark_Grey: #aaa;
+$light_Grey: #96a0a5;
+$light_dark_color: #101719;
+$countingColor: #f16565;
+$white: #fff;
+$dark_color:#000;
+$light_dark_color:#111;
+$light_Grey_D5: #d5d5d5;
+$light_Grey_D6: #d6d6d6;
+$SideBarLiColor: #e3e6e7;
+$RGBA_06: rgba(0, 0, 0, 0.6);
+$RGBA_05: rgba(0, 0, 0, 0.5);
+$RGBA_04: rgba(0, 0, 0, 0.4);
+$RGBA_03: rgba(0, 0, 0, 0.3);
+$RGBA_02: rgba(0, 0, 0, 0.2);
+$RGBA_01: rgba(0, 0, 0, 0.1);
+$BoxShadow_5_10: 0 5px 10px;
+$BoxShadow_2_4: 0 2px 4px;
+$BoxShadow_2_6: 0 2px 6px;
+$BoxShadow_6_12: 0 6px 12px;
+$BoxShadow_04: 0 0 3px;
+$BoxShadow_03: 0 0 3px;
+$BoxShadow_02: 0 0 2px;
+$BoxShadow_01: 0 0 1px;
+$trasition_05:all 0.5s ease-in-out;
+$trasition_03:all 0.3s ease-in-out;
+$padding: 3rem;
+$border_radius: 20px;
+$CategoryCards: 0.5s 1s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+$CubicBerier: cubic-bezier(0.46, 0.03, 0.52, 0.96);
+$CardsTransition_1: 1s $CubicBerier;
+$CardsTransition_06: 0.6s $CubicBerier;
+$CardsTransition_05: 0.5s $CubicBerier;
+$CardsTransition_04: 0.4s $CubicBerier;
+$CardsTransition_03: 0.3s $CubicBerier;
+$CardsTransition_02: 0.2s $CubicBerier;
+$CardsTransition_01: 0.1s $CubicBerier;
+$margin_Top: 0.8rem;
+
+%AllImagesContain {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+%AllImagesCover {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+%WidthHeight {
+    height: 100%;
+    width: 100%;
+}
+
+@mixin maskImage_Category {
+    $maskImage: linear-gradient(to top,
+            rgba(0, 0, 0, 1.7),
+            rgba(0, 0, 0, 1.6),
+            rgba(0, 0, 0, 1.5),
+            rgba(0, 0, 0, 1.4),
+            rgba(0, 0, 0, 1.3),
+            rgba(0, 0, 0, 1.2),
+            rgba(0, 0, 0, 1.1),
+            rgba(0, 0, 0, 1),
+            rgba(0, 0, 0, 0.9),
+            rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.2),
+            rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0));
+    mask-image: $maskImage;
+    -webkit-mask-image: $maskImage;
+}
+
+@mixin maskImage_box_content {
+    mask-image: linear-gradient(to top,
+            rgba(0, 0, 0, 1),
+            rgba(0, 0, 0, 1),
+            rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0));
+
+    -webkit-mask-image: linear-gradient(to top,
+            rgba(0, 0, 0, 1),
+            rgba(0, 0, 0, 1),
+            rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0));
+}
+
+@mixin ButtonActive {
+    position: relative;
+    top: 2px;
+}
+
+%DisplayFlexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%DisplayFlexSpaceBetween {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+// -----------------------Admin CSS Root---------------------
+$adminPageBackground:#161d31;
+$adminCard:#283046;
+$adminText:#676d7d;
+$adminText-light:#b4b7bd;
+$adminPrimary:#7367f0;
+$adminPrimary-bg:rgba(115, 103, 240, .12);
+$adminWhite:#d0d2d6;
+$adminInfo:#00cfe8;
+$adminInfo-bg:rgba(0, 207, 232, .12);
+$adminDanger:#ea5455;
+$adminDanger-bg:rgba(234, 84, 85, .12);
+$adminSuccess:#28c76f;
+$adminSuccess-bg:rgba(40, 199, 111, .12);
+$adminWarning:#ff9f43;
+$adminWarning-bg:rgba(242, 153, 74, 0.1);
+$adminLine:#3b4253;
+$adminOverlay:rgba(34, 41, 47, .5);
+$sidebar-bg:$adminCard;

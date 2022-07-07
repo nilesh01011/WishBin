@@ -1,0 +1,562 @@
+<%- include('../../common/adminBodyHead'); %>
+
+    <div class="container-fluid px-0">
+        <%- include('../../common/adminHeader'); %>
+
+            <!-- ==================Header End================= -->
+
+            <main id="adminContainer" class="container-fluid">
+                <div class="heading">
+                    <h2 class="mb-0">Orders</h2>
+                </div>
+                <div class="orders container-fluid px-0">
+                    <div class="row">
+                        <div class="col">
+                            <div class="order_container">
+
+                                <div class="top_container d-flex align-items-center justify-content-between">
+                                    <div class="left">
+                                        <h6 class="fw-bold mb-0">All Orders</h6>
+                                    </div>
+                                </div>
+                                <!-- ---------------top_container End--------------- -->
+
+                                <div class="bottom_container">
+                                    <table id="order_table">
+                                        <thead>
+                                            <tr>
+                                                <td>
+                                                    <div class="title">
+                                                        <span>Id</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="title">
+                                                        <span>Name</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="title">
+                                                        <span>Product</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="title">
+                                                        <span>Price</span>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="title">
+                                                        <span>Price Status</span>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="title">
+                                                        <span>Status</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="title">
+                                                        <span>Placed at</span>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="title">
+                                                        <span>Action</span>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% if(orders) { %>
+                                                <% orders.forEach((list)=> { %>
+
+                                                    <tr>
+                                                        <td>
+                                                            <div class="userId">
+                                                                <span>
+                                                                    <%= list.customerId %>
+                                                                </span>
+                                                            </div>
+                                                        </td>
+
+                                                        <td>
+                                                            <div class="userName">
+                                                                <span style="text-transform: capitalize;">
+                                                                    <%= list.name %>
+                                                                </span>
+                                                            </div>
+                                                        </td>
+
+                                                        <td>
+
+                                                            <div id="dropDownProduct" class="dropdown">
+                                                                <div class="image">
+                                                                    <img src="../../.<%= list.items.item.image %>"
+                                                                        alt="product_image">
+                                                                </div>
+                                                                <div class="title">
+                                                                    <span>
+                                                                        <%= list.items.item.title %>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+
+                                                        </td>
+
+                                                        <td>
+                                                            <div class="totalprice">
+                                                                ₹<%= new Intl.NumberFormat().format( list.totalPrice )
+                                                                    %>
+                                                            </div>
+                                                        </td>
+
+                                                        <td>
+                                                            <div class="priceStatus">
+                                                                <span>COD</span>
+                                                            </div>
+                                                        </td>
+
+                                                        <td>
+                                                            <div class="status">
+
+                                                                <% if(list.status==='placed' ){ %>
+                                                                    <span class="pending_preparing">
+                                                                        Pending
+                                                                    </span>
+                                                                    <% }else if(list.status==='prepared' ) { %>
+                                                                        <span class="pending_preparing">
+                                                                            Preparation
+                                                                        </span>
+                                                                        <% }else if(list.status==='confirmed' ) { %>
+                                                                            <span class="confirmed">
+                                                                                Confirmed
+                                                                            </span>
+                                                                            <% } else if(list.status==='delivered' ) {
+                                                                                %>
+                                                                                <span class="delivered">
+                                                                                    Out for Delivered
+                                                                                </span>
+                                                                                <% } else if(list.status==='completed' )
+                                                                                    { %>
+                                                                                    <span class="completed">
+                                                                                        Completed
+                                                                                    </span>
+                                                                                    <% } %>
+                                                            </div>
+                                                        </td>
+
+                                                        <td class="placeAt">
+                                                            <span>
+                                                                <%= moment(list.createdAt).format('LL') %>
+                                                            </span>
+                                                        </td>
+
+                                                        <td>
+                                                            <div class="actions" id="custom_selected">
+                                                                <form action="/api/adminPage/orders" method="POST">
+                                                                    <input type="hidden" name="orderId"
+                                                                        value="<%= list._id %>">
+                                                                    <div class="selectBox">
+                                                                        <select onchange="this.form.submit()"
+                                                                            name="status" class="<%= list.status %>">
+                                                                            <!-- completed_delivered, preparing, pending_cancle -->
+
+                                                                            <option <%=list.status==='placed'
+                                                                                ? 'selected' : '' %> value="placed">
+                                                                                Placed</option>
+                                                                            <option <%=list.status==='confirmed'
+                                                                                ? 'selected' : '' %>
+                                                                                value="confirmed">
+                                                                                Confirmed</option>
+                                                                            <option <%=list.status==='prepared'
+                                                                                ? 'selected' : '' %>
+                                                                                value="prepared">
+                                                                                Prepared</option>
+                                                                            <option <%=list.status==='delivered'
+                                                                                ? 'selected' : '' %>
+                                                                                value="delivered">
+                                                                                Delivered
+                                                                            </option>
+                                                                            <option <%=list.status==='completed'
+                                                                                ? 'selected' : '' %>
+                                                                                value="completed">
+                                                                                Completed
+                                                                            </option>
+
+                                                                        </select>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </td>
+
+                                                    </tr>
+
+                                                    <% }) %>
+                                                        <% } %>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </main>
+    </div>
+
+    <%- include('../../common/adminFooter'); %>
+
+
+        <!-- ==================Footer End================= -->
+
+        <div id="adminSidebar">
+            <div class="navbar-logo d-flex align-items-center">
+                <a href="/api/adminPage/dashboard">
+                    <span class="logo">WB</span>
+                    WishBin
+                </a>
+                <div class="sidebar-dismiss">
+                    <div class="logo">
+                        <span class="material-icons">close</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- -----------navbar-logo and Dismiss End----------- -->
+
+            <nav class="sidebar-nav">
+                <div class="divider">
+                    <hr>
+                </div>
+                <ul>
+                    <li>
+                        <a href="/api/adminPage/dashboard" class="navLink">
+                            <div class="icon">
+                                <span class="material-icons">dashboard</span>
+                            </div>
+                            <div class="text">Dashboard</div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a id="expand_more" href="#" data-bs-toggle="collapse" data-bs-target="#page_menu"
+                            class="d-flex navLink collapsed">
+                            <div class="icon">
+                                <span class="material-icons">description</span>
+                            </div>
+                            <div class="text">
+                                Pages
+                                <span class="material-icons">expand_more</span>
+                            </div>
+                        </a>
+                        <ul id="page_menu" class="dropdown-nav collapse">
+                            <li>
+                                <a class="homePage" href="/" class="active">
+                                    <div class="icon">
+                                        <span class="material-icons">roofing</span>
+                                    </div>
+                                    <div class="text">Home Page</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/cartpage">
+                                    <div class="icon">
+                                        <span class="material-icons">shopping_cart</span>
+                                    </div>
+                                    <div class="text">Cart Page</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/orderpage">
+                                    <div class="icon">
+                                        <span class="material-icons">shopping_cart_checkout</span>
+                                    </div>
+                                    <div class="text">Order Page</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/wishlistpage">
+                                    <div class="icon">
+                                        <span class="material-icons">favorite</span>
+                                    </div>
+                                    <div class="text">
+                                        Wishlist Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/electronicproduct">
+                                    <div class="icon">
+                                        <span class="material-icons">dvr</span>
+                                    </div>
+                                    <div class="text">
+                                        Electronic Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/toysproducts">
+                                    <div class="icon">
+                                        <span class="material-icons">toys</span>
+                                    </div>
+                                    <div class="text">
+                                        Toys Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/mobileproducts">
+                                    <div class="icon">
+                                        <span class="material-icons">smartphone</span>
+                                    </div>
+                                    <div class="text">
+                                        Mobile Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/groceriesproducts">
+                                    <div class="icon">
+                                        <span class="material-icons">kitchen</span>
+                                    </div>
+                                    <div class="text">
+                                        Groceries Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/furnitureproducts">
+                                    <div class="icon">
+                                        <span class="material-icons">weekend</span>
+                                    </div>
+                                    <div class="text">
+                                        Furniture Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/gameproducts">
+                                    <div class="icon">
+                                        <span class="material-icons">smart_toy</span>
+                                    </div>
+                                    <div class="text">
+                                        Games Page
+                                    </div>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="/computerproducts">
+                                    <div class="icon">
+                                        <span class="material-icons">computer</span>
+                                    </div>
+                                    <div class="text">
+                                        Computer Page
+                                    </div>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="/clothproducts">
+                                    <div class="icon">
+                                        <span class="material-icons">checkroom</span>
+                                    </div>
+                                    <div class="text">
+                                        Cloth Page
+                                    </div>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="/babyclothproducts">
+                                    <div class="icon">
+                                        <span class="material-icons">child_care</span>
+                                    </div>
+                                    <div class="text">
+                                        Baby Cloths Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/Error">
+                                    <div class="icon">
+                                        <span class="material-icons">error</span>
+                                    </div>
+                                    <div class="text">
+                                        Error Page
+                                    </div>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a id="expand_more" href="#" data-bs-toggle="collapse" data-bs-target="#auth_menu"
+                            class="d-flex navLink collapsed">
+                            <div class="icon">
+                                <span class="material-icons">switch_account</span>
+                            </div>
+                            <div class="text">
+                                Auth
+                                <span class="material-icons">expand_more</span>
+                            </div>
+                        </a>
+                        <ul id="auth_menu" class="dropdown-nav collapse">
+                            <li>
+                                <a href="/login" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">verified_user</span>
+                                    </div>
+                                    <div class="text">
+                                        Login Page
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/register" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">app_registration</span>
+                                    </div>
+                                    <div class="text">
+                                        Registers Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/forgetpassword" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">password</span>
+                                    </div>
+                                    <div class="text">
+                                        Forget Password Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <div class="icon">
+                                        <span class="material-icons">lock_reset</span>
+                                    </div>
+                                    <div class="text">
+                                        Reset Password Page
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/api/adminPage/customer" class="navLink">
+                            <div class="icon">
+                                <span class="material-icons">groups</span>
+                            </div>
+                            <div class="text">Customers</div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/api/adminPage/orders" class="navLink active">
+                            <div class="icon">
+                                <span class="material-icons">receipt_long</span>
+                            </div>
+                            <div class="text">Orders</div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" id="expand_more" data-bs-toggle="collapse" data-bs-target="#product_menu"
+                            class="d-flex navLink collapsed">
+                            <div class="icon">
+                                <span class="material-icons">category</span>
+                            </div>
+                            <div class="text">
+                                Products
+                                <span class="material-icons">expand_more</span>
+                            </div>
+                        </a>
+
+                        <ul id="product_menu" class="dropdown-nav collapse">
+                            <li>
+                                <a href="/api/adminPage/preview">
+                                    <div class="icon">
+                                        <span class="material-icons">visibility</span>
+                                    </div>
+                                    <div class="text">Preview</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/api/adminPage/productdetails">
+                                    <div class="icon">
+                                        <span class="material-icons">preview</span>
+                                    </div>
+                                    <div class="text">
+                                        Product Details
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/api/adminPage/userprofile" class="navLink">
+                            <div class="icon">
+                                <span class="material-icons">account_circle</span>
+                            </div>
+                            <div class="text">User Profile</div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/api/adminPage/messages" class="navLink">
+                            <div class="icon">
+                                <span class="material-icons">outgoing_mail</span>
+                            </div>
+                            <div class="text">Messages</div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="divider">
+                    <hr>
+                </div>
+            </nav>
+
+
+            <form id="adminLogout" action="/logout" method="POST">
+                <button class="navLink" type="submit" onclick="document.getElementById('adminLogout')">
+                    <div class="icon">
+                        <span class="material-icons">logout</span>
+                    </div>
+                    <div class="text">Logout</div>
+                </button>
+            </form>
+        </div>
+
+        <div id="adminOverlay"></div>
+
+        <!-- ===========================Script JS======================= -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+        <script src="../../../JS/mainAdmin.js"></script>
+        <script src="../../../JS/TrackOrder.js"></script>
+        </body>
+
+        </html>

@@ -1,0 +1,687 @@
+@import "./Components/roots";
+
+// ==================Fonts=================
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;300;400;500;600&family=PT+Sans&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&display=swap');
+
+// ==================ScrollBars=================
+
+::-webkit-scrollbar {
+    width: 18px;
+}
+
+::-webkit-scrollbar-track {
+    background: $background_color;
+    box-shadow: inset $BoxShadow_03 $RGBA_03;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #fd5555;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Plus Jakarta Sans", 'Poppins', sans-serif;
+    font-weight: 500;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: $white;
+}
+
+body.overflow-hidden {
+    overflow: hidden;
+}
+
+button {
+    border: none;
+    outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Plus Jakarta Sans';
+    font-weight: 800;
+}
+
+ul li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body,
+footer,
+#Container {
+    width: 100%;
+    max-width: 1366px;
+    margin: 0 auto;
+}
+
+#Container {
+    background: $background_color;
+    padding-bottom: 5.9rem;
+}
+
+footer,
+#Container {
+    box-shadow: $BoxShadow_2_6 $RGBA_04;
+}
+
+@import "./Components/navBar";
+@import "./Components/header";
+@import "./Components/banner";
+@import "./Components/Category";
+@import "./Components/Cards";
+@import "./Components/sideBar";
+@import "./Components/offers_content";
+@import './Components/adminPage';
+
+#banner__ {
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 15px;
+    margin-top: 25px;
+
+    & img {
+        @extend %AllImagesContain;
+    }
+
+    & .deskTop {
+        display: block;
+    }
+
+    & .mobile {
+        display: none;
+    }
+}
+
+@keyframes load3 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+#SeeMore {
+    width: 100%;
+    height: 45px;
+    @extend %DisplayFlexCenter;
+
+    & button {
+        width: auto;
+        height: 100%;
+        padding: 0.5rem 1.5rem;
+        color: $background_color;
+        background: $dark_color;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1.2rem;
+        font-weight: 400;
+        box-shadow: $BoxShadow_03 $dark_color;
+        transition: $CardsTransition_03;
+        display: flex;
+        align-items: center;
+
+        & i {
+            transition: $CardsTransition_03;
+            font-size: 0.8rem;
+            transform: scale(1);
+            margin-left: 0.7rem;
+            font-weight: 600;
+            display: block;
+        }
+
+        &:hover {
+
+            & i {
+                transform: scale(1.3);
+            }
+        }
+
+        &:active {
+            position: relative;
+            top: 2px;
+        }
+
+        & .loader {
+            display: none;
+            margin-left: 0.7rem;
+            font-size: 10px;
+            text-indent: -9999em;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #ffffff;
+            background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+            position: relative;
+            animation: load3 1.4s infinite linear;
+            transform: translateZ(0);
+
+            &:before {
+                width: 50%;
+                height: 50%;
+                background: #ffffff;
+                border-radius: 100% 0 0 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: '';
+            }
+
+            &:after {
+                background: #000;
+                width: 75%;
+                height: 75%;
+                border-radius: 50%;
+                content: '';
+                margin: auto;
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+            }
+        }
+
+        &.is_active {
+            & .loader {
+                display: block;
+            }
+
+            & i {
+                display: none;
+            }
+        }
+    }
+}
+
+
+@import "./Components/WhishList";
+@import "./Components/CartPage";
+@import "./Components/ErrorPage";
+@import "./Components/OrderPage";
+@import "./Components/TrackOrder.scss";
+@import "./Components/products_details";
+@import "./Components/signUpPage";
+@import "./Components/loginPage";
+@import "./Components/forgetPassword";
+@import "./Components/resetPassword";
+@import "./Components/footer";
+@import "./Components/User";
+@import "./Components/PaymentPage";
+@import "./Components/contactus";
+
+@import "./Components/UserUpdateData";
+
+// ===================Media Queries Start====================
+
+@import "./Components/mediaQueries";
+
+#product_json {
+    display: none;
+}
+
+#electronic_page,
+#toys_page,
+#cloths_page,
+#baby_page,
+#mobile_page,
+#furniture_page,
+#groceries_page,
+#game_page,
+#computer_page {
+    & #banner__ {
+        margin: 15px 0;
+    }
+}
+
+// ===========================Registers and Login Pages===========================
+
+#registersPage {
+    background: linear-gradient(to right, #ffbf96, #fe7096);
+
+    & .wrapper {
+
+        & .contents {
+            left: 0;
+        }
+
+        & .bgImg {
+            right: 0;
+        }
+
+    }
+}
+
+
+#loginPage,
+#registersPage {
+    width: 100%;
+    height: 100vh;
+    padding: 2rem;
+    position: relative;
+
+    & .wrapper {
+        @extend %DisplayFlexCenter;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+
+        & .logo {
+            width: 45px;
+            height: 45px;
+            border: 2px solid $white;
+            border-radius: 50%;
+            cursor: pointer;
+            position: fixed;
+            top: 20px;
+            z-index: 10;
+            text-align: center;
+
+            & a {
+                width: 100%;
+                height: 100%;
+                line-height: 45px;
+                font-weight: 700;
+                color: $white;
+                user-select: none;
+                font-size: 1.1rem;
+            }
+        }
+
+        & .buttons {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+            gap: 12px;
+            z-index: 5;
+
+
+            & a {
+                padding: 0.5rem 1.3rem;
+                border-radius: 10px;
+                background: transparent;
+                color: $dark_color;
+                box-shadow: $BoxShadow_01 $dark_color;
+                transition: $CardsTransition_03;
+                width: 270px;
+                height: 42px;
+                cursor: pointer;
+                font-weight: 500;
+                font-size: 14px;
+                text-align: center;
+                line-height: 24px;
+                outline: 2px solid $dark_color;
+                letter-spacing: 0.2px;
+
+                & i {
+                    margin-right: 0.5rem;
+                }
+
+                &:hover {
+                    color: $background_color;
+                    background: $dark_color;
+                }
+            }
+        }
+
+        & .bgImg {
+            height: 100vh;
+            display: none;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+
+            & img {
+                @extend %AllImagesCover
+            }
+        }
+
+        & .contents {
+            position: absolute;
+            top: 15%;
+            width: 500px;
+            height: auto;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: $CardsTransition_03;
+            z-index: 5;
+
+            & h1 {
+                font-family: 'Poppins', sans-serif;
+                font-size: 2.5rem;
+                font-weight: 500 !important;
+                color: $white;
+                letter-spacing: 0.6px;
+                text-shadow: 1px 1px $dark_color;
+
+                & span {
+                    color: $dark_color;
+                }
+            }
+
+            & p {
+                margin-top: 1rem;
+                margin-bottom: 1.5rem;
+                font-size: 1.25rem;
+                font-weight: 300;
+                text-align: center;
+                line-height: 30px;
+                width: 70%;
+                color: rgba(255, 255, 255, 0.8);
+                letter-spacing: 0.2px;
+                user-select: none;
+
+                & span {
+                    color: $dark_color;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+
+}
+
+#loginpopupBtn,
+#popupBtn {
+    transition: $CardsTransition_03;
+
+    & button {
+        padding: 0.5rem 1.3rem;
+        border-radius: 10px;
+        color: $background_color;
+        background: $dark_color;
+        box-shadow: $BoxShadow_01 $dark_color;
+        transition: $CardsTransition_03;
+        width: 270px;
+        height: 42px;
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 14px;
+        text-align: center;
+        line-height: 24px;
+        outline: 2px solid $dark_color;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+
+        &:hover {
+            background: transparent;
+            color: $dark_color;
+        }
+
+        &:active {
+            position: relative;
+            top: 2px;
+        }
+    }
+}
+
+#overlayPopup {
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    right: 0;
+    top: 0;
+    position: fixed;
+    transform: translateX(100%);
+    z-index: 95;
+
+    &.active {
+        transform: translateX(0%);
+    }
+}
+
+@media screen and (max-width: 992px) {
+
+    #loginPage,
+    #registersPage {
+        overflow: hidden;
+
+        & .wrapper {
+
+            & .images {
+                display: none;
+                margin-right: 0;
+            }
+
+            & .buttons {
+                order: 2;
+            }
+
+            & .contents {
+                position: relative;
+                top: 7%;
+                order: 1;
+            }
+
+            & .bgImg {
+                display: block;
+                z-index: 1;
+            }
+        }
+    }
+}
+
+// =============================Login Pages==============================
+
+#loginPage {
+    background: linear-gradient(to left, #90caf9, #047edf 99%);
+
+    & .wrapper {
+        width: 100%;
+        height: 100%;
+
+        .contents {
+            right: 0;
+
+            & p,
+            & h1 {
+
+                & span {
+                    color: #343B73;
+                }
+            }
+        }
+
+        & .bgImg {
+            left: 0;
+        }
+    }
+}
+
+// ===============================================
+
+#searching {
+    @extend %WidthHeight;
+
+    & .searchHead {
+        width: 100%;
+        padding-left: 3rem;
+        padding-right: 3rem;
+        padding-top: 20px;
+
+        & h1 {
+            font-weight: 600;
+        }
+
+        & hr {
+            margin: 20px 0;
+        }
+    }
+
+    & #card_section {
+        & .card_container {
+            justify-content: unset;
+            column-gap: 55px;
+        }
+    }
+
+    & .emptySearch {
+        @extend %WidthHeight;
+        padding-left: 3rem;
+        padding-right: 3rem;
+
+        & .emptyContainer {
+            padding: 20px;
+            @extend %WidthHeight;
+            background: $white;
+            @extend %DisplayFlexCenter;
+            flex-direction: column;
+            border-radius: 20px;
+
+            & .images {
+                width: 100%;
+                height: 350px;
+
+                & img {
+                    @extend %AllImagesContain;
+                }
+            }
+
+            & .contents {
+                @extend %WidthHeight;
+
+                text-align: center;
+
+                & h1 {
+                    margin: 1rem 0;
+                    font-weight: 500;
+                }
+
+                & p {
+                    color: #aeaeb0;
+                    line-height: 25px;
+                }
+            }
+
+        }
+    }
+}
+
+@media screen and (max-width: 1038px) {
+    #searching {
+
+        & .emptySearch,
+        & .searchHead {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        & #card_section {
+            & .card_container {
+                justify-content: space-between;
+                column-gap: 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #searching {
+        & .searchHead {
+            & h1 {
+                font-size: 24px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #searching {
+
+        & .emptySearch,
+        & .searchHead {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        & .emptySearch {
+            & .emptyContainer {
+
+                & .images {
+                    height: 300px;
+                }
+
+                & .contents {
+
+                    & h1 {
+                        font-size: 24px;
+                    }
+
+                    & p {
+                        font-size: 0.9rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#addToCartPopup {
+    width: 320px;
+    height: auto;
+    z-index: 1000;
+    position: fixed;
+    top: 135px;
+    right: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    & .content {
+        width: fit-content;
+        height: 100%;
+        padding: 10px 20px;
+        border-radius: 20px;
+        background: #2ecc71;
+        border: 2px solid #27ae60;
+        transform: translateX(100%);
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+        visibility: hidden;
+
+        & span {
+            font-weight: 600;
+            color: #fff;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            & i {
+                margin-right: 0.5rem;
+            }
+        }
+    }
+
+    &.active {
+        & .content {
+            transform: translateX(0%);
+            visibility: visible;
+        }
+    }
+}

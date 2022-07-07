@@ -1,0 +1,71 @@
+@import "./roots";
+
+#ErrorPages {
+    @extend %WidthHeight;
+    padding-left: $padding;
+    padding-right: $padding;
+
+    & .error_content {
+        background: $white;
+        border-radius: $border_radius;
+        @extend %WidthHeight;
+        padding: 1.5rem;
+        flex-direction: column;
+        @extend %DisplayFlexCenter;
+
+        & .images {
+            height: 300px;
+
+            & img {
+                @extend %AllImagesContain;
+            }
+        }
+
+        & .content {
+            width: 100%;
+            height: auto;
+            @extend %DisplayFlexCenter;
+            flex-direction: column;
+
+            & h1 {
+                font-family: 'Poppins', sans-serif;
+                font-size: 2.5rem;
+                font-weight: 500 !important;
+                margin-top: 3rem;
+            }
+
+            & p {
+                margin: 1.5rem 0;
+                font-size: 1.25rem;
+                font-weight: 300;
+                text-align: center;
+                color: #96a0a5;
+            }
+
+            & a {
+                padding: 1rem 1.3rem;
+                border-radius: 10px;
+                background: $background_color;
+                color: $dark_color;
+                box-shadow: $BoxShadow_01 $dark_color;
+                transition: $CardsTransition_03;
+                width: 270px;
+                height: fit-content;
+                cursor: pointer;
+                font-weight: 500;
+                margin-bottom: 1.5rem;
+                font-size: 14px;
+                text-align: center;
+
+                & i {
+                    margin-right: 0.5rem;
+                }
+
+                &:hover {
+                    background: $dark_color;
+                    color: $background_color;
+                }
+            }
+        }
+    }
+}

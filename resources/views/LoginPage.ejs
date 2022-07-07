@@ -1,0 +1,155 @@
+<body>
+    <div id="loginPage">
+        <div class="wrapper">
+
+            <div class="logo">
+                <a href="/">WB</a>
+            </div>
+
+            <!-- Logo End -->
+
+            <div class="images">
+                <!-- images -->
+            </div>
+            <div class="bgImg">
+                <img src="./img/CircleSVG_1.svg" alt="circle-images">
+            </div>
+            <div class="buttons">
+                <a href="/">
+                    <i class="fas fa-long-arrow-alt-left"></i>
+                    Back to homepage
+                </a>
+            </div>
+
+            <div class="contents">
+                <h1>One of us<span>!</span></h1>
+                <p>
+                    Ready to get started?
+                    Join us today! click to <span>Sign In</span> now
+                </p>
+                <div id="loginpopupBtn">
+                    <button>Sign In</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlayPopup"></div>
+
+    <!-- Poppus -->
+
+    <div class="popup_signIn_Up">
+        <div class="container">
+            <div class="popup">
+                <div class="CrossPopup">
+                    <i class="fas fa-times"></i>
+                </div>
+                <div class="signIn_form">
+                    <h1 class="title">Sign In</h1>
+                    <!-- error messages -->
+                    <!-- forms -->
+                    <div class="form_outer">
+                        <form action="/login" method="POST">
+                            <div class="page_ login_deta">
+                                <div class="field <%= messages.error ? 'errorMessages' : '' %>">
+                                    <div class="inputContent">
+                                        <input type="email" name="email" placeholder="Email" autocomplete="off">
+                                    </div>
+                                    <% if(messages.error){ %>
+                                        <span style="font-size: 12px; color:#ea5455;">
+                                            <%= messages.error %>
+                                        </span>
+                                        <% } %>
+                                </div>
+                                <div class="field <%= messages.error ? 'errorMessages' : '' %>">
+                                    <div class="inputContent">
+                                        <input class="input" name="password" type="password" placeholder="Password"
+                                            autocomplete="off">
+                                        <i id="eye_lock" class="far fa-eye-slash"></i>
+                                    </div>
+                                    <% if(messages.error){ %>
+                                        <span style="font-size: 12px; color:#ea5455;">
+                                            <%= messages.error %>
+                                        </span>
+                                        <% } %>
+                                            <div class="forgetPassword">
+                                                <a href="/forgetpassword">Forget Password?</a>
+                                            </div>
+                                </div>
+                                <div class="btns">
+                                    <button id="submit" type="submit" role="button">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signUpBtn">
+                        <h1>New Here?</h1>
+                        <button id="signUp" type="button">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================================================== -->
+    <!-- =====================JS Script====================== -->
+
+    <script>
+        let SignInPage = document.querySelector('.popup_signIn_Up'),
+            UserSecret = document.querySelector('#left .shop i'),
+            container = document.querySelector('.popup_signIn_Up .popup'),
+            container_add = document.querySelector('.popup_signIn_Up .container'),
+            body = document.querySelector('body'),
+            signUp = document.querySelector('#signUp'),
+            Overlay = document.querySelector('#overlayPopup'),
+            CrossPopup = document.querySelector('.popup_signIn_Up .popup .CrossPopup i'),
+            eye_lock = document.querySelectorAll('#eye_lock'),
+            input = document.querySelectorAll('form .field input.input'),
+            Login_submit = document.querySelector('#submit'),
+            SignUp_submit = document.querySelector('#signUp_Submit'),
+            loginpopupBtn = document.querySelector('#loginpopupBtn');
+
+        for (let i = 0; i < eye_lock.length; i++) {
+            eye_lock[i].addEventListener('click', () => {
+                if (input[i].type === 'password') {
+                    input[i].type = 'text';
+                    eye_lock[i].classList.add('fa-eye');
+                    eye_lock[i].classList.remove('fa-eye-slash');
+                } else {
+                    input[i].type = 'password';
+                    eye_lock[i].classList.remove('fa-eye');
+                    eye_lock[i].classList.add('fa-eye-slash');
+                }
+            });
+        }
+
+        loginpopupBtn.addEventListener('click', () => {
+            container.classList.add('sign_up_mode');
+            container.classList.add('active');
+            container_add.classList.add('active');
+            SignInPage.classList.add('active');
+            Overlay.classList.add('active');
+            container.style.visibility = 'visible';
+            body.classList.add('overflow-hidden');
+        });
+
+        CrossPopup.addEventListener('click', Cross_Overlay, false);
+
+        Overlay.addEventListener('click', Cross_Overlay, false);
+
+        function Cross_Overlay() {
+            container.style.visibility = 'hidden';
+            SignInPage.classList.remove('active');
+            Overlay.classList.remove('active');
+            body.classList.remove('overflow-hidden');
+        }
+
+        signUp.addEventListener("click", () => {
+            window.location = "./register";
+
+        })
+
+    </script>
+</body>
+
+</html>

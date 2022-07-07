@@ -1,0 +1,213 @@
+<div id="Container">
+    <nav class="navbar">
+        <div id="left">
+            <div class="navbar-brand">
+                <div class="logo">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <% if(user) { %>
+
+                <div id="userData" class="shop">
+                    <a href="./userprofile">
+                        <i class="fas fa-user-secret"></i>
+                    </a>
+                </div>
+
+                <% } else { %>
+
+                    <div id="userRegisters" class="shop">
+                        <a href="./register">
+                            <i class="fas fa-user-secret"></i>
+                        </a>
+                    </div>
+
+                    <% } %>
+        </div>
+        <!-- ===========Left Section End============ -->
+        <div id="logo" class="middle">WB</div>
+        <!-- ===============Logo End================ -->
+        <div class="right">
+            <% if(wishlist && wishlist.length !=0){ %>
+                <a href="/wishlistpage" id="wish_btn" class="one active">
+                    <div class="count">
+                        <%= wishlist.length %>
+                    </div>
+                    <i class="far fa-heart"></i>
+                    <small>Wishlist</small>
+                </a>
+                <% }else { %>
+                    <a href="/wishlistpage" id="wish_btn" class="one">
+                        <div class="count">0</div>
+                        <i class="far fa-heart"></i>
+                        <small>Wishlist</small>
+                    </a>
+                    <% } %>
+                        <% if(orders && orders.length) { %>
+
+                            <a href="/orderpage" id="OrderBtn" class="two active">
+                                <div class="count">
+                                    <%= orders.length %>
+                                </div>
+                                <i class="far fa-shipping-fast"></i>
+                                <small>Orders</small>
+                            </a>
+                            <% }else{ %>
+                                <a href="/orderpage" id="OrderBtn" class="two">
+                                    <div class="count">0</div>
+                                    <i class="far fa-shipping-fast"></i>
+                                    <small>Orders</small>
+                                </a>
+                                <% } %>
+                                    <a href="/cartpage" class="three active" id="CartBtn">
+                                        <div class="count">
+                                            <!-- if session.cartSession is there then put a value init-->
+                                            <%= cart ? cart.totalQTY : '0' %>
+                                        </div>
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <small>Cart</small>
+                                    </a>
+        </div>
+    </nav>
+    <!-- ==================Top-header-End================= -->
+
+    <div id="CartPage">
+        <div class="cart_contents">
+            <div class="left_cart_content">
+                <span>Shopping Cart</span>
+                <hr>
+                <!-- =====Empty Cart===== -->
+                <div class="cart_wrapper">
+
+                    <% if(cart && cart.totalQTY !=0) { %>
+
+                        <!-- products are in string we use to convert it in to objects --of-- use -->
+                        <% for(let product of Object.values(cart.items)) { %>
+
+                            <div id="<%= product.item._id %>" class="products_contents">
+                                <div class="product_images">
+                                    <img src="<%= product.item.image %>" alt="product-images">
+                                </div>
+                                <div class="product_container">
+                                    <div class="product_des">
+                                        <p>
+                                            <%= product.item.descriptions %>
+                                        </p>
+                                    </div>
+                                    <div class="product_bottom_part">
+
+                                        <select id="QTY" data-updateqty="<%= product.item._id %>" class="Qty">
+                                            <% for(let i=1; i < product.item.QTY; i++ ) { %>
+                                                <option <%=i===product.qty ? 'selected' : '' %>
+                                                    value="<%= i %>">
+                                                        <%= i %>
+                                                </option>
+                                                <% } %>
+                                        </select>
+
+                                        <div class="hr"></div>
+                                        <div class="button">
+                                            <button data-deletecart="<%= product.item._id %>" id="DeleteFromCart"><i
+                                                    class="far fa-trash-alt"></i>
+                                                Remove</button>
+                                        </div>
+                                        <div class="hr"></div>
+                                        <div class="product_last_part">
+                                            <button data-wishlistItems="<%= JSON.stringify(product.item) %>"
+                                                type="button"><i class="far fa-heart"></i> Move
+                                                to
+                                                Wishlist</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="products_totalPrices">
+                                    <span>₹ <%= product.qty ? new Intl.NumberFormat().format(product.qty *
+                                            product.item.price) : '0' %></span>
+                                </div>
+                            </div>
+                            <% } %>
+
+                                <% } else { %>
+                                    <div class="empty_cartPage">
+                                        <div class="images">
+                                            <img src="../img/emptyCart.png" alt="empty-images">
+                                        </div>
+                                        <div class="content">
+                                            <h1>Your Cart is empty</h1>
+                                            <p>Buy some product as per your choice</p>
+                                            <button role="button" type="button" id="Start_shop">
+                                                <i class="fas fa-shopping-cart"></i> Continue shopping
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <% } %>
+                </div>
+            </div>
+            <div class="right_cart_content">
+                <div class="subtotal">
+                    <p>Subtotal (<span class="items">
+
+                            <%= cart ? cart.totalQTY : '0' %>
+                        </span> items) :
+
+                        <!-- =========================================== -->
+
+                        <span class="price">₹ <%= cart ? new Intl.NumberFormat().format( cart.totalPrice ) : '0' %>
+                        </span>
+
+                    </p>
+                </div>
+                <div class="buy_btn">
+                    <% if(user) { %>
+                        <button id="ProcessToBuy" role="button"
+                            class="<%= cart && cart.totalQTY != 0 ? '' : 'disabled' %>">Proceed to
+                            Buy</button>
+                        <% } else { %>
+                            <button id="ToCartPage" role="button"
+                                class="<%= cart && cart.totalQTY != 0 ? '' : 'disabled' %>">Proceed
+                                to
+                                Buy</button>
+                            <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ======================Cart Page End========================== -->
+</div>
+
+<!-- ==================Container End================= -->
+
+<!-- =====================SideBar Sections================ -->
+<div id="overlay"></div>
+
+<%- include('./common/sidebar'); %>
+
+    <%- include('./common/footer'); %>
+
+        <!-- ===================================================== -->
+        <!-- ======================Script========================= -->
+        <!-- =======================Main CDN====================== -->
+        <script src="../JS/main.js"></script>
+        <script src="../JS/Cart.js"></script>
+
+        <script>
+            window.addEventListener('scroll', () => {
+                if (window.scrollY >= 40) {
+                    document.querySelector('nav.navbar').style.boxShadow =
+                        ' 0 3px 6px rgba(0, 0, 0, 0.3)';
+                    document.querySelector('nav.navbar').style.position =
+                        'sticky';
+                    document.querySelector('nav.navbar').style.top =
+                        '0';
+                } else {
+                    document.querySelector('nav.navbar').style.boxShadow = 'none';
+                    document.querySelector('nav.navbar').style.position =
+                        'none';
+                    document.querySelector('nav.navbar').style.top =
+                        '0';
+                }
+            });
+        </script>

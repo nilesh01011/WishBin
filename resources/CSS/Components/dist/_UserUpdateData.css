@@ -1,0 +1,114 @@
+#updateUserData .buttons, #updateUserData .bottomDataDetails .input_content.pass .field .inputContent, #updateUserData .bottomDataDetails .input_content.pass .field, #updateUserData .bottomDataDetails, #updateUserData, #UserDataUpdate {
+  height: 100%;
+  width: 100%;
+}
+
+#UserDataUpdate .updateContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#UserDataUpdate {
+  padding-left: 3rem;
+  padding-right: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#UserDataUpdate .updateContainer {
+  border-radius: 20px;
+  width: 100%;
+  max-width: 750px;
+  height: 100%;
+  flex-direction: column;
+  background: #fff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  padding: 3rem;
+}
+
+#updateUserData .heading h3 {
+  font-weight: 600;
+}
+#updateUserData .hr {
+  margin: 0.8rem 0;
+}
+#updateUserData .bottomDataDetails .input_content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: 0.2s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+#updateUserData .bottomDataDetails .input_content.pass .field .inputContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+#updateUserData .bottomDataDetails .input_content.pass .field input {
+  width: 100%;
+}
+#updateUserData .bottomDataDetails .input_content.pass .field i {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 0.8rem;
+  cursor: pointer;
+}
+#updateUserData .bottomDataDetails .input_content label {
+  font-size: 0.8rem;
+  color: rgba(39, 43, 65, 0.7);
+}
+#updateUserData .bottomDataDetails .input_content:not(:last-child) {
+  margin-bottom: 20px;
+}
+#updateUserData .bottomDataDetails .input_content input {
+  height: 40px;
+  padding: 10px 15px;
+  border-color: #d4d5d9;
+  border-width: thin;
+  border-style: solid;
+}
+#updateUserData .bottomDataDetails .input_content input:focus {
+  outline-color: #f16565;
+}
+#updateUserData .hr_2, #updateUserData .hr {
+  width: 100%;
+  height: 1px;
+  background: #eaeaec;
+}
+#updateUserData .hr_2 {
+  margin: 1.4rem 0;
+}
+#updateUserData .buttons {
+  display: flex;
+  gap: 20px;
+  transition: 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+#updateUserData .buttons button {
+  width: 100%;
+  height: 45px;
+  cursor: pointer;
+  letter-spacing: 0.8px;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+#updateUserData .buttons .submit {
+  color: #fff;
+  background-color: #f16565;
+}
+#updateUserData .buttons .submit:hover {
+  background: #e65252;
+}
+#updateUserData .buttons .cancle {
+  background-color: transparent;
+  border: 1px solid #000;
+  color: #000;
+}
+#updateUserData .buttons .cancle:hover {
+  background: #000;
+  color: #fff;
+}

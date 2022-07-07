@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- ===============FontAwesome CDN============ -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!-- -----------------Material UI--------------- -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- =============Link Swiper's CSS============ -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- -----------------Style Links--------------- -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <!-- ----------------Font Family---------------- -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            background: #161d31;
+            color: #d0d2d6;
+            font-family: 'Inter', sans-serif !important;
+            user-select: none;
+        }
+
+        body.sidebarActive {
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid px-0">
+        <%- include('../../common/adminHeader'); %>
+
+            <!-- ==================Header End================= -->
+
+            <main id="adminContainer" class="container-fluid cardsContainer">
+                <div class="heading">
+                    <h2>Preview products</h2>
+                </div>
+
+                <header id="adminHeader">
+                    <div id="adminHeaderSwiper" class="swiper order-1">
+                        <div id="adminTabs" class="swiper-wrapper">
+                            <div class="swiper-slide btn active" onclick="filterSelection('main')">
+                                <i class="fas fa-home"></i> All product
+                            </div>
+                            <div id="electronic_btn" onclick="filterSelection('electronic')" class="btn swiper-slide">
+                                <i class="fas fa-desktop"></i>
+                                Electronics
+                            </div>
+                            <div id="toys_btn" class="btn swiper-slide" onclick="filterSelection('toys')">
+                                <i class="fab fa-evernote"></i>
+                                Toys
+                            </div>
+                            <div id="cloths_btn" class="btn swiper-slide" onclick="filterSelection('cloths')">
+                                <i class="fas fa-tshirt"></i> Cloths
+                            </div>
+
+                            <div id="baby_btn" class="btn swiper-slide" onclick="filterSelection('baby')">
+                                <i class="fas fa-baby"></i> Baby Cloths
+                            </div>
+
+                            <div id="mobile_btn" class="btn swiper-slide" onclick="filterSelection('mobile')">
+                                <i class="fas fa-mobile-alt"></i> Mobile
+                            </div>
+                            <div id="furniture_btn" class="btn swiper-slide" onclick="filterSelection('furniture')">
+                                <i class="fas fa-couch"></i> Furniture
+                            </div>
+                            <div id="groceries_btn" class="btn swiper-slide" onclick="filterSelection('groceries')">
+                                <i class="fas fa-mortar-pestle"></i>
+                                Groceries
+                            </div>
+                            <div id="game_btn" class="btn swiper-slide" onclick="filterSelection('game')">
+                                <i class="fab fa-playstation"></i> Games
+                            </div>
+                            <div id="computer_btn" class="btn swiper-slide" onclick="filterSelection('computer')">
+                                <i class="fas fa-laptop"></i> Computer
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <!-- --------------Swiper End------------- -->
+
+                <!-- ==================Bottom-header-End============== -->
+
+                <div id="adminPage" class="pages">
+                    <div class="page main is-page-active">
+                        <div id="adminCardContainer">
+                            <div class="row">
+                                <% if(data) { %>
+
+                                    <% data.forEach((ele)=> { %>
+
+                                        <div id="<%= ele.id %>" class="col-xl-3 col-auto cards <%= ele.category %>">
+                                            <div class="card_head">
+                                                <button role="button" data-wishlist="<%= JSON.stringify(ele) %>"
+                                                    id="far">
+                                                    <i class="far fa-heart"></i>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span class="four"></span>
+                                                </button>
+                                            </div>
+                                            <!-- ------------card wishlist head End--------- -->
+
+                                            <div class="card_image">
+                                                <img src="../../.<%= ele.image %>" loading="lazy" decoding="async"
+                                                    alt="cards_img">
+                                            </div>
+
+                                            <!-- --------------card Image End------------- -->
+
+                                            <div class="card_heading">
+                                                <h5 class="mb-0">
+                                                    <%= ele.title %>
+                                                </h5>
+                                                <div class="card_price">
+                                                    <span>₹<%= new Intl.NumberFormat().format(ele.MRP) %></span>
+                                                    <span class="pro_price">₹<%= new
+                                                            Intl.NumberFormat().format(ele.price) %>
+                                                    </span>
+                                                </div>
+                                                <div class="card_star">
+                                                    <i class="<%=
+                                            ele.rating >= 1
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 0.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 2
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 1.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 3
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 2.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 4
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 3.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                      "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 5
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 4.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+                                                </div>
+                                            </div>
+
+                                            <!-- ---------------card heading End------------ -->
+
+                                            <div class="addToCart">
+                                                <div class="cards_addit">
+                                                    <a href="/api/adminPage/productdetails" target="_blank">
+                                                        <div data-adminproductid="<%= JSON.stringify(ele) %>"
+                                                            class="card_add">
+                                                            <i class="fa fa-plus"></i>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <!-- -------------addToCart + icons End------------ -->
+
+                                            <div id="card_pricing_btn">
+                                                <button data-addtocart="<%= JSON.stringify(ele) %>" role="button"
+                                                    class="one_btn">
+                                                    <span>
+                                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                                    </span>
+                                                </button>
+                                            </div>
+
+                                            <!-- -------------card_pricing_btn End------------ -->
+
+                                        </div>
+
+                                        <% }) %>
+
+                                            <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page electronic">
+                        <div id="adminCardContainer">
+                            <div class="row">
+                                <% if(electronics) { %>
+
+                                    <% electronics.forEach((ele)=> { %>
+
+                                        <div id="<%= ele.id %>" class="col-xl-3 col-auto cards <%= ele.category %>">
+                                            <div class="card_head">
+                                                <button role="button" data-wishlist="<%= JSON.stringify(ele) %>"
+                                                    id="far">
+                                                    <i class="far fa-heart"></i>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span class="four"></span>
+                                                </button>
+                                            </div>
+                                            <!-- ------------card wishlist head End--------- -->
+
+                                            <div class="card_image">
+                                                <img src="../../.<%= ele.image %>" loading="lazy" decoding="async"
+                                                    alt="cards_img">
+                                            </div>
+
+                                            <!-- --------------card Image End------------- -->
+
+                                            <div class="card_heading">
+                                                <h5 class="mb-0">
+                                                    <%= ele.title %>
+                                                </h5>
+                                                <div class="card_price">
+                                                    <span>₹<%= new Intl.NumberFormat().format(ele.MRP) %></span>
+                                                    <span class="pro_price">₹<%= new
+                                                            Intl.NumberFormat().format(ele.price) %>
+                                                    </span>
+                                                </div>
+                                                <div class="card_star">
+                                                    <i class="<%=
+                                            ele.rating >= 1
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 0.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 2
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 1.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 3
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 2.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 4
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 3.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                      "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 5
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 4.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+                                                </div>
+                                            </div>
+
+                                            <!-- ---------------card heading End------------ -->
+
+                                            <div class="addToCart">
+                                                <div class="cards_addit">
+                                                    <a href="/api/adminPage/productdetails" target="_blank">
+                                                        <div data-adminproductid="<%= JSON.stringify(ele) %>"
+                                                            class="card_add">
+                                                            <i class="fa fa-plus"></i>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <!-- -------------addToCart + icons End------------ -->
+
+                                            <div id="card_pricing_btn">
+                                                <button data-addtocart="<%= JSON.stringify(ele) %>" role="button"
+                                                    class="one_btn">
+                                                    <span>
+                                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                                    </span>
+                                                </button>
+                                            </div>
+
+                                            <!-- -------------card_pricing_btn End------------ -->
+
+                                        </div>
+
+                                        <% }) %>
+
+                                            <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page toys">
+                        <div id="adminCardContainer">
+                            <div class="row">
+                                <% if(toys) { %>
+
+                                    <% toys.forEach((ele)=> { %>
+
+                                        <div id="<%= ele.id %>" class="col-xl-3 col-auto cards <%= ele.category %>">
+                                            <div class="card_head">
+                                                <button role="button" data-wishlist="<%= JSON.stringify(ele) %>"
+                                                    id="far">
+                                                    <i class="far fa-heart"></i>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span class="four"></span>
+                                                </button>
+                                            </div>
+                                            <!-- ------------card wishlist head End--------- -->
+
+                                            <div class="card_image">
+                                                <img src="../../.<%= ele.image %>" loading="lazy" decoding="async"
+                                                    alt="cards_img">
+                                            </div>
+
+                                            <!-- --------------card Image End------------- -->
+
+                                            <div class="card_heading">
+                                                <h5 class="mb-0">
+                                                    <%= ele.title %>
+                                                </h5>
+                                                <div class="card_price">
+                                                    <span>₹<%= new Intl.NumberFormat().format(ele.MRP) %></span>
+                                                    <span class="pro_price">₹<%= new
+                                                            Intl.NumberFormat().format(ele.price) %>
+                                                    </span>
+                                                </div>
+                                                <div class="card_star">
+                                                    <i class="<%=
+                                            ele.rating >= 1
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 0.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 2
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 1.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 3
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 2.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 4
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 3.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                      "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 5
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 4.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+                                                </div>
+                                            </div>
+
+                                            <!-- ---------------card heading End------------ -->
+
+                                            <div class="addToCart">
+                                                <div class="cards_addit">
+                                                    <a href="/api/adminPage/productdetails" target="_blank">
+                                                        <div data-adminproductid="<%= JSON.stringify(ele) %>"
+                                                            class="card_add">
+                                                            <i class="fa fa-plus"></i>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <!-- -------------addToCart + icons End------------ -->
+
+                                            <div id="card_pricing_btn">
+                                                <button data-addtocart="<%= JSON.stringify(ele) %>" role="button"
+                                                    class="one_btn">
+                                                    <span>
+                                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                                    </span>
+                                                </button>
+                                            </div>
+
+                                            <!-- -------------card_pricing_btn End------------ -->
+
+                                        </div>
+
+                                        <% }) %>
+
+                                            <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page cloths">
+                        <div id="adminCardContainer">
+                            <div class="row">
+                                <% if(cloths) { %>
+
+                                    <% cloths.forEach((ele)=> { %>
+
+                                        <div id="<%= ele.id %>" class="col-xl-3 col-auto cards <%= ele.category %>">
+                                            <div class="card_head">
+                                                <button role="button" data-wishlist="<%= JSON.stringify(ele) %>"
+                                                    id="far">
+                                                    <i class="far fa-heart"></i>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span class="four"></span>
+                                                </button>
+                                            </div>
+                                            <!-- ------------card wishlist head End--------- -->
+
+                                            <div class="card_image">
+                                                <img src="../../.<%= ele.image %>" loading="lazy" decoding="async"
+                                                    alt="cards_img">
+                                            </div>
+
+                                            <!-- --------------card Image End------------- -->
+
+                                            <div class="card_heading">
+                                                <h5 class="mb-0">
+                                                    <%= ele.title %>
+                                                </h5>
+                                                <div class="card_price">
+                                                    <span>₹<%= new Intl.NumberFormat().format(ele.MRP) %></span>
+                                                    <span class="pro_price">₹<%= new
+                                                            Intl.NumberFormat().format(ele.price) %>
+                                                    </span>
+                                                </div>
+                                                <div class="card_star">
+                                                    <i class="<%=
+                                            ele.rating >= 1
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 0.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 2
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 1.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 3
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 2.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 4
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 3.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                      "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 5
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 4.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+                                                </div>
+                                            </div>
+
+                                            <!-- ---------------card heading End------------ -->
+
+                                            <div class="addToCart">
+                                                <div class="cards_addit">
+                                                    <a href="/api/adminPage/productdetails" target="_blank">
+                                                        <div data-adminproductid="<%= JSON.stringify(ele) %>"
+                                                            class="card_add">
+                                                            <i class="fa fa-plus"></i>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <!-- -------------addToCart + icons End------------ -->
+
+                                            <div id="card_pricing_btn">
+                                                <button data-addtocart="<%= JSON.stringify(ele) %>" role="button"
+                                                    class="one_btn">
+                                                    <span>
+                                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                                    </span>
+                                                </button>
+                                            </div>
+
+                                            <!-- -------------card_pricing_btn End------------ -->
+
+                                        </div>
+
+                                        <% }) %>
+
+                                            <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page baby">
+                        <div id="adminCardContainer">
+                            <div class="row">
+                                <% if(babycloths) { %>
+
+                                    <% babycloths.forEach((ele)=> { %>
+
+                                        <div id="<%= ele.id %>" class="col-xl-3 col-auto cards <%= ele.category %>">
+                                            <div class="card_head">
+                                                <button role="button" data-wishlist="<%= JSON.stringify(ele) %>"
+                                                    id="far">
+                                                    <i class="far fa-heart"></i>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span class="four"></span>
+                                                </button>
+                                            </div>
+                                            <!-- ------------card wishlist head End--------- -->
+
+                                            <div class="card_image">
+                                                <img src="../../.<%= ele.image %>" loading="lazy" decoding="async"
+                                                    alt="cards_img">
+                                            </div>
+
+                                            <!-- --------------card Image End------------- -->
+
+                                            <div class="card_heading">
+                                                <h5 class="mb-0">
+                                                    <%= ele.title %>
+                                                </h5>
+                                                <div class="card_price">
+                                                    <span>₹<%= new Intl.NumberFormat().format(ele.MRP) %></span>
+                                                    <span class="pro_price">₹<%= new
+                                                            Intl.NumberFormat().format(ele.price) %>
+                                                    </span>
+                                                </div>
+                                                <div class="card_star">
+                                                    <i class="<%=
+                                            ele.rating >= 1
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 0.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 2
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 1.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 3
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 2.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 4
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 3.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                      "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 5
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 4.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+                                                </div>
+                                            </div>
+
+                                            <!-- ---------------card heading End------------ -->
+
+                                            <div class="addToCart">
+                                                <div class="cards_addit">
+                                                    <a href="/api/adminPage/productdetails" target="_blank">
+                                                        <div data-adminproductid="<%= JSON.stringify(ele) %>"
+                                                            class="card_add">
+                                                            <i class="fa fa-plus"></i>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <!-- -------------addToCart + icons End------------ -->
+
+                                            <div id="card_pricing_btn">
+                                                <button data-addtocart="<%= JSON.stringify(ele) %>" role="button"
+                                                    class="one_btn">
+                                                    <span>
+                                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                                    </span>
+                                                </button>
+                                            </div>
+
+                                            <!-- -------------card_pricing_btn End------------ -->
+
+                                        </div>
+
+                                        <% }) %>
+
+                                            <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page mobile">
+                        <div id="adminCardContainer">
+                            <div class="row">
+                                <% if(mobile) { %>
+
+                                    <% mobile.forEach((ele)=> { %>
+
+                                        <div id="<%= ele.id %>" class="col-xl-3 col-auto cards <%= ele.category %>">
+                                            <div class="card_head">
+                                                <button role="button" data-wishlist="<%= JSON.stringify(ele) %>"
+                                                    id="far">
+                                                    <i class="far fa-heart"></i>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span class="four"></span>
+                                                </button>
+                                            </div>
+                                            <!-- ------------card wishlist head End--------- -->
+
+                                            <div class="card_image">
+                                                <img src="../../.<%= ele.image %>" loading="lazy" decoding="async"
+                                                    alt="cards_img">
+                                            </div>
+
+                                            <!-- --------------card Image End------------- -->
+
+                                            <div class="card_heading">
+                                                <h5 class="mb-0">
+                                                    <%= ele.title %>
+                                                </h5>
+                                                <div class="card_price">
+                                                    <span>₹<%= new Intl.NumberFormat().format(ele.MRP) %></span>
+                                                    <span class="pro_price">₹<%= new
+                                                            Intl.NumberFormat().format(ele.price) %>
+                                                    </span>
+                                                </div>
+                                                <div class="card_star">
+                                                    <i class="<%=
+                                            ele.rating >= 1
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 0.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 2
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 1.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 3
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 2.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 4
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 3.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                      "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 5
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 4.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+                                                </div>
+                                            </div>
+
+                                            <!-- ---------------card heading End------------ -->
+
+                                            <div class="addToCart">
+                                                <div class="cards_addit">
+                                                    <a href="/api/adminPage/productdetails" target="_blank">
+                                                        <div data-adminproductid="<%= JSON.stringify(ele) %>"
+                                                            class="card_add">
+                                                            <i class="fa fa-plus"></i>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <!-- -------------addToCart + icons End------------ -->
+
+                                            <div id="card_pricing_btn">
+                                                <button data-addtocart="<%= JSON.stringify(ele) %>" role="button"
+                                                    class="one_btn">
+                                                    <span>
+                                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                                    </span>
+                                                </button>
+                                            </div>
+
+                                            <!-- -------------card_pricing_btn End------------ -->
+
+                                        </div>
+
+                                        <% }) %>
+
+                                            <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page furniture">
+                        <div id="adminCardContainer">
+                            <div class="row">
+                                <% if(furniture) { %>
+
+                                    <% furniture.forEach((ele)=> { %>
+
+                                        <div id="<%= ele.id %>" class="col-xl-3 col-auto cards <%= ele.category %>">
+                                            <div class="card_head">
+                                                <button role="button" data-wishlist="<%= JSON.stringify(ele) %>"
+                                                    id="far">
+                                                    <i class="far fa-heart"></i>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span class="four"></span>
+                                                </button>
+                                            </div>
+                                            <!-- ------------card wishlist head End--------- -->
+
+                                            <div class="card_image">
+                                                <img src="../../.<%= ele.image %>" loading="lazy" decoding="async"
+                                                    alt="cards_img">
+                                            </div>
+
+                                            <!-- --------------card Image End------------- -->
+
+                                            <div class="card_heading">
+                                                <h5 class="mb-0">
+                                                    <%= ele.title %>
+                                                </h5>
+                                                <div class="card_price">
+                                                    <span>₹<%= new Intl.NumberFormat().format(ele.MRP) %></span>
+                                                    <span class="pro_price">₹<%= new
+                                                            Intl.NumberFormat().format(ele.price) %>
+                                                    </span>
+                                                </div>
+                                                <div class="card_star">
+                                                    <i class="<%=
+                                            ele.rating >= 1
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 0.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 2
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 1.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 3
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 2.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 4
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 3.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                      "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 5
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 4.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+                                                </div>
+                                            </div>
+
+                                            <!-- ---------------card heading End------------ -->
+
+                                            <div class="addToCart">
+                                                <div class="cards_addit">
+                                                    <a href="/api/adminPage/productdetails" target="_blank">
+                                                        <div data-adminproductid="<%= JSON.stringify(ele) %>"
+                                                            class="card_add">
+                                                            <i class="fa fa-plus"></i>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <!-- -------------addToCart + icons End------------ -->
+
+                                            <div id="card_pricing_btn">
+                                                <button data-addtocart="<%= JSON.stringify(ele) %>" role="button"
+                                                    class="one_btn">
+                                                    <span>
+                                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                                    </span>
+                                                </button>
+                                            </div>
+
+                                            <!-- -------------card_pricing_btn End------------ -->
+
+                                        </div>
+
+                                        <% }) %>
+
+                                            <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page groceries">
+                        <div id="adminCardContainer">
+                            <div class="row">
+                                <% if(groceries) { %>
+
+                                    <% groceries.forEach((ele)=> { %>
+
+                                        <div id="<%= ele.id %>" class="col-xl-3 col-auto cards <%= ele.category %>">
+                                            <div class="card_head">
+                                                <button role="button" data-wishlist="<%= JSON.stringify(ele) %>"
+                                                    id="far">
+                                                    <i class="far fa-heart"></i>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span class="four"></span>
+                                                </button>
+                                            </div>
+                                            <!-- ------------card wishlist head End--------- -->
+
+                                            <div class="card_image">
+                                                <img src="../../.<%= ele.image %>" loading="lazy" decoding="async"
+                                                    alt="cards_img">
+                                            </div>
+
+                                            <!-- --------------card Image End------------- -->
+
+                                            <div class="card_heading">
+                                                <h5 class="mb-0">
+                                                    <%= ele.title %>
+                                                </h5>
+                                                <div class="card_price">
+                                                    <span>₹<%= new Intl.NumberFormat().format(ele.MRP) %></span>
+                                                    <span class="pro_price">₹<%= new
+                                                            Intl.NumberFormat().format(ele.price) %>
+                                                    </span>
+                                                </div>
+                                                <div class="card_star">
+                                                    <i class="<%=
+                                            ele.rating >= 1
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 0.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 2
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 1.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 3
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 2.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 4
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 3.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                      "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 5
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 4.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+                                                </div>
+                                            </div>
+
+                                            <!-- ---------------card heading End------------ -->
+
+                                            <div class="addToCart">
+                                                <div class="cards_addit">
+                                                    <a href="/api/adminPage/productdetails" target="_blank">
+                                                        <div data-adminproductid="<%= JSON.stringify(ele) %>"
+                                                            class="card_add">
+                                                            <i class="fa fa-plus"></i>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <!-- -------------addToCart + icons End------------ -->
+
+                                            <div id="card_pricing_btn">
+                                                <button data-addtocart="<%= JSON.stringify(ele) %>" role="button"
+                                                    class="one_btn">
+                                                    <span>
+                                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                                    </span>
+                                                </button>
+                                            </div>
+
+                                            <!-- -------------card_pricing_btn End------------ -->
+
+                                        </div>
+
+                                        <% }) %>
+
+                                            <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page game">
+                        <div id="adminCardContainer">
+                            <div class="row">
+                                <% if(games) { %>
+
+                                    <% games.forEach((ele)=> { %>
+
+                                        <div id="<%= ele.id %>" class="col-xl-3 col-auto cards <%= ele.category %>">
+                                            <div class="card_head">
+                                                <button role="button" data-wishlist="<%= JSON.stringify(ele) %>"
+                                                    id="far">
+                                                    <i class="far fa-heart"></i>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span class="four"></span>
+                                                </button>
+                                            </div>
+                                            <!-- ------------card wishlist head End--------- -->
+
+                                            <div class="card_image">
+                                                <img src="../../.<%= ele.image %>" loading="lazy" decoding="async"
+                                                    alt="cards_img">
+                                            </div>
+
+                                            <!-- --------------card Image End------------- -->
+
+                                            <div class="card_heading">
+                                                <h5 class="mb-0">
+                                                    <%= ele.title %>
+                                                </h5>
+                                                <div class="card_price">
+                                                    <span>₹<%= new Intl.NumberFormat().format(ele.MRP) %></span>
+                                                    <span class="pro_price">₹<%= new
+                                                            Intl.NumberFormat().format(ele.price) %>
+                                                    </span>
+                                                </div>
+                                                <div class="card_star">
+                                                    <i class="<%=
+                                            ele.rating >= 1
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 0.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 2
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 1.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 3
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 2.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 4
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 3.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                      "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 5
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 4.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+                                                </div>
+                                            </div>
+
+                                            <!-- ---------------card heading End------------ -->
+
+                                            <div class="addToCart">
+                                                <div class="cards_addit">
+                                                    <a href="/api/adminPage/productdetails" target="_blank">
+                                                        <div data-adminproductid="<%= JSON.stringify(ele) %>"
+                                                            class="card_add">
+                                                            <i class="fa fa-plus"></i>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <!-- -------------addToCart + icons End------------ -->
+
+                                            <div id="card_pricing_btn">
+                                                <button data-addtocart="<%= JSON.stringify(ele) %>" role="button"
+                                                    class="one_btn">
+                                                    <span>
+                                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                                    </span>
+                                                </button>
+                                            </div>
+
+                                            <!-- -------------card_pricing_btn End------------ -->
+
+                                        </div>
+
+                                        <% }) %>
+
+                                            <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page computer">
+                        <div id="adminCardContainer">
+                            <div class="row">
+                                <% if(computer) { %>
+
+                                    <% computer.forEach((ele)=> { %>
+
+                                        <div id="<%= ele.id %>" class="col-xl-3 col-auto cards <%= ele.category %>">
+                                            <div class="card_head">
+                                                <button role="button" data-wishlist="<%= JSON.stringify(ele) %>"
+                                                    id="far">
+                                                    <i class="far fa-heart"></i>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span class="four"></span>
+                                                </button>
+                                            </div>
+                                            <!-- ------------card wishlist head End--------- -->
+
+                                            <div class="card_image">
+                                                <img src="../../.<%= ele.image %>" loading="lazy" decoding="async"
+                                                    alt="cards_img">
+                                            </div>
+
+                                            <!-- --------------card Image End------------- -->
+
+                                            <div class="card_heading">
+                                                <h5 class="mb-0">
+                                                    <%= ele.title %>
+                                                </h5>
+                                                <div class="card_price">
+                                                    <span>₹<%= new Intl.NumberFormat().format(ele.MRP) %></span>
+                                                    <span class="pro_price">₹<%= new
+                                                            Intl.NumberFormat().format(ele.price) %>
+                                                    </span>
+                                                </div>
+                                                <div class="card_star">
+                                                    <i class="<%=
+                                            ele.rating >= 1
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 0.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 2
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 1.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 3
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 2.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 4
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 3.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                      "></i>
+
+                                                    <i class="<%=
+                                            ele.rating >= 5
+                                        ? 'fas fa-star'
+                                        : ele.rating >= 4.5
+                                        ? 'fas fa-star-half-alt'
+                                        : 'far fa-star'
+                                    %>
+                                    "></i>
+                                                </div>
+                                            </div>
+
+                                            <!-- ---------------card heading End------------ -->
+
+                                            <div class="addToCart">
+                                                <div class="cards_addit">
+                                                    <a href="/api/adminPage/productdetails" target="_blank">
+                                                        <div data-adminproductid="<%= JSON.stringify(ele) %>"
+                                                            class="card_add">
+                                                            <i class="fa fa-plus"></i>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <!-- -------------addToCart + icons End------------ -->
+
+                                            <div id="card_pricing_btn">
+                                                <button data-addtocart="<%= JSON.stringify(ele) %>" role="button"
+                                                    class="one_btn">
+                                                    <span>
+                                                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                                                    </span>
+                                                </button>
+                                            </div>
+
+                                            <!-- -------------card_pricing_btn End------------ -->
+
+                                        </div>
+
+                                        <% }) %>
+
+                                            <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+    </div>
+
+    <%- include('../../common/adminFooter'); %>
+
+        <!-- ==================Footer End================= -->
+
+        <div id="adminSidebar">
+            <div class="navbar-logo d-flex align-items-center">
+                <a href="/api/adminPage/dashboard">
+                    <span class="logo">WB</span>
+                    WishBin
+                </a>
+                <div class="sidebar-dismiss">
+                    <div class="logo">
+                        <span class="material-icons">close</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- -----------navbar-logo and Dismiss End----------- -->
+
+            <nav class="sidebar-nav">
+                <div class="divider">
+                    <hr>
+                </div>
+                <ul>
+                    <li>
+                        <a href="/api/adminPage/dashboard" class="navLink">
+                            <div class="icon">
+                                <span class="material-icons">dashboard</span>
+                            </div>
+                            <div class="text">Dashboard</div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a id="expand_more" href="#" data-bs-toggle="collapse" data-bs-target="#page_menu"
+                            class="d-flex navLink collapsed">
+                            <div class="icon">
+                                <span class="material-icons">description</span>
+                            </div>
+                            <div class="text">
+                                Pages
+                                <span class="material-icons">expand_more</span>
+                            </div>
+                        </a>
+
+                        <ul id="page_menu" class="dropdown-nav collapse">
+                            <li>
+                                <a class="homePage" href="/" class="active">
+                                    <div class="icon">
+                                        <span class="material-icons">roofing</span>
+                                    </div>
+                                    <div class="text">Home Page</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/cartpage">
+                                    <div class="icon">
+                                        <span class="material-icons">shopping_cart</span>
+                                    </div>
+                                    <div class="text">Cart Page</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/orderpage">
+                                    <div class="icon">
+                                        <span class="material-icons">shopping_cart_checkout</span>
+                                    </div>
+                                    <div class="text">Order Page</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/wishlistpage">
+                                    <div class="icon">
+                                        <span class="material-icons">favorite</span>
+                                    </div>
+                                    <div class="text">
+                                        Wishlist Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/electronicproduct">
+                                    <div class="icon">
+                                        <span class="material-icons">dvr</span>
+                                    </div>
+                                    <div class="text">
+                                        Electronic Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/toysproducts">
+                                    <div class="icon">
+                                        <span class="material-icons">toys</span>
+                                    </div>
+                                    <div class="text">
+                                        Toys Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/mobileproducts">
+                                    <div class="icon">
+                                        <span class="material-icons">smartphone</span>
+                                    </div>
+                                    <div class="text">
+                                        Mobile Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/groceriesproducts">
+                                    <div class="icon">
+                                        <span class="material-icons">kitchen</span>
+                                    </div>
+                                    <div class="text">
+                                        Groceries Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/furnitureproducts">
+                                    <div class="icon">
+                                        <span class="material-icons">weekend</span>
+                                    </div>
+                                    <div class="text">
+                                        Furniture Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/gameproducts">
+                                    <div class="icon">
+                                        <span class="material-icons">smart_toy</span>
+                                    </div>
+                                    <div class="text">
+                                        Games Page
+                                    </div>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="/computerproducts">
+                                    <div class="icon">
+                                        <span class="material-icons">computer</span>
+                                    </div>
+                                    <div class="text">
+                                        Computer Page
+                                    </div>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="/clothproducts">
+                                    <div class="icon">
+                                        <span class="material-icons">checkroom</span>
+                                    </div>
+                                    <div class="text">
+                                        Cloth Page
+                                    </div>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="/babyclothproducts">
+                                    <div class="icon">
+                                        <span class="material-icons">child_care</span>
+                                    </div>
+                                    <div class="text">
+                                        Baby Cloths Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/Error">
+                                    <div class="icon">
+                                        <span class="material-icons">error</span>
+                                    </div>
+                                    <div class="text">
+                                        Error Page
+                                    </div>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a id="expand_more" href="#" data-bs-toggle="collapse" data-bs-target="#auth_menu"
+                            class="d-flex navLink collapsed">
+                            <div class="icon">
+                                <span class="material-icons">switch_account</span>
+                            </div>
+                            <div class="text">
+                                Auth
+                                <span class="material-icons">expand_more</span>
+                            </div>
+                        </a>
+                        <ul id="auth_menu" class="dropdown-nav collapse">
+                            <li>
+                                <a href="/login" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">verified_user</span>
+                                    </div>
+                                    <div class="text">
+                                        Login Page
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/register" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">app_registration</span>
+                                    </div>
+                                    <div class="text">
+                                        Registers Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/forgetpassword" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">password</span>
+                                    </div>
+                                    <div class="text">
+                                        Forget Password Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <div class="icon">
+                                        <span class="material-icons">lock_reset</span>
+                                    </div>
+                                    <div class="text">
+                                        Reset Password Page
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/api/adminPage/customer" class="navLink">
+                            <div class="icon">
+                                <span class="material-icons">groups</span>
+                            </div>
+                            <div class="text">Customers</div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/api/adminPage/orders" class="navLink">
+                            <div class="icon">
+                                <span class="material-icons">receipt_long</span>
+                            </div>
+                            <div class="text">Orders</div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" id="expand_more" data-bs-toggle="collapse" data-bs-target="#product_menu"
+                            class="d-flex navLink active collapsed">
+                            <div class="icon">
+                                <span class="material-icons">category</span>
+                            </div>
+                            <div class="text">
+                                Products
+                                <span class="material-icons">expand_more</span>
+                            </div>
+                        </a>
+
+                        <ul id="product_menu" class="dropdown-nav collapse show">
+
+                            <li>
+                                <a href="/api/adminPage/preview" class="is-active">
+                                    <div class="icon">
+                                        <span class="material-icons">visibility</span>
+                                    </div>
+                                    <div class="text">All Product</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/api/adminPage/productdetails">
+                                    <div class="icon">
+                                        <span class="material-icons">preview</span>
+                                    </div>
+                                    <div class="text">
+                                        Product Details
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/api/adminPage/userprofile" class="navLink">
+                            <div class="icon">
+                                <span class="material-icons">account_circle</span>
+                            </div>
+                            <div class="text">User Profile</div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/api/adminPage/messages" class="navLink">
+                            <div class="icon">
+                                <span class="material-icons">outgoing_mail</span>
+                            </div>
+                            <div class="text">Messages</div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="divider">
+                    <hr>
+                </div>
+            </nav>
+
+
+            <form id="adminLogout" action="/logout" method="POST">
+                <button class="navLink" type="submit" onclick="document.getElementById('adminLogout')">
+                    <div class="icon">
+                        <span class="material-icons">logout</span>
+                    </div>
+                    <div class="text">Logout</div>
+                </button>
+            </form>
+        </div>
+
+        <div id="adminOverlay"></div>
+
+        <!-- ===========================Script JS======================= -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+        <script src="../../../JS/mainAdmin.js"></script>
+        <script src="../../../JS/AdminProductsDetails.js"></script>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script>
+            var HeaderSwiper = new Swiper('#adminHeaderSwiper', {
+                slidesPerView: 'auto',
+                spaceBetween: 25,
+            });
+
+            filterSelection('main');
+            // c is value key
+            function filterSelection(c) {
+                var x, i;
+                x = document.getElementsByClassName('page'); // get the object with x variable
+                if (c == 'all') c = ''; // add nothings
+                for (i = 0; i < x.length; i++) {
+                    w3RemoveClass(x[i], 'is-page-active');
+                    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], 'is-page-active');
+                }
+            }
+
+            function w3AddClass(element, name) {
+                var i, arr1, arr2;
+                arr1 = element.className.split(' ');
+                arr2 = name.split(' ');
+                for (i = 0; i < arr2.length; i++) {
+                    if (arr1.indexOf(arr2[i]) == -1) {
+                        element.className += ' ' + arr2[i];
+                    }
+                }
+            }
+
+            function w3RemoveClass(element, name) {
+                var i, arr1, arr2;
+                arr1 = element.className.split(' ');
+                arr2 = name.split(' ');
+                for (i = 0; i < arr2.length; i++) {
+                    while (arr1.indexOf(arr2[i]) > -1) {
+                        arr1.splice(arr1.indexOf(arr2[i]), 1);
+                    }
+                }
+                element.className = arr1.join(' ');
+            }
+
+            // Add active class to the current button (highlight it)
+            let btns = document.querySelectorAll('#adminTabs .btn');
+
+            btns.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    let active = document.querySelector('#adminTabs .btn.active');
+
+                    if (active) {
+                        active.classList.remove('active');
+                    }
+
+                    if (btn) {
+                        btn.classList.add('active');
+                    }
+                });
+            });
+
+        </script>
+</body>
+
+</html>

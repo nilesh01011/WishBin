@@ -1,0 +1,305 @@
+@import "./roots";
+
+#UserPages {
+    padding-left: 3rem;
+    padding-right: 3rem;
+
+    & .user_container {
+        border-radius: 20px;
+        @extend %WidthHeight;
+        @extend %DisplayFlexCenter;
+        flex-direction: column;
+
+        & .bottom_container,
+        & .top_container {
+            border-radius: 20px;
+            @extend %WidthHeight;
+        }
+
+        & .top_container {
+            @extend %WidthHeight;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background: $white;
+
+            & .leftTopContainer {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                width: 100%;
+
+                & .images {
+                    height: 150px;
+                    width: 150px;
+                    border-radius: 50%;
+                    box-shadow: $BoxShadow_03 $RGBA_04;
+                    @extend %DisplayFlexCenter;
+                    padding: 15px;
+                    position: relative;
+
+                    & img {
+                        @extend %AllImagesContain;
+                        padding: 10px;
+                    }
+
+                    & .button {
+                        position: absolute;
+                        top: 10px;
+                        right: 0;
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        box-shadow: $BoxShadow_03 $RGBA_04;
+
+                        & button {
+                            @extend %WidthHeight;
+                            @extend %DisplayFlexCenter;
+                            color: $dark_color;
+                            background: #F5F5F6;
+                            transition: $CardsTransition_03;
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                & .UserContent {
+                    display: flex;
+                    flex-direction: column;
+
+                    & #hr {
+                        margin: 15px 0;
+                    }
+
+                    & .UserName {
+                        & h1 {
+                            text-transform: capitalize;
+                        }
+                    }
+
+                    & .details {
+                        display: flex;
+                        align-items: baseline;
+                        gap: 15px;
+
+                        & h3 {
+                            font-size: 1rem;
+
+                            & span {
+                                font-weight: 400;
+                            }
+                        }
+
+                        & .numberDetails {
+                            & h3 {
+                                padding-top: 0.3rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+            & .rightTopContainer {
+                width: fit-content;
+                height: 100%;
+                display: flex;
+                align-items: flex-start;
+                justify-content: flex-start;
+
+                & .button {
+                    width: 100%;
+                    height: 100%;
+
+                    & button {
+                        width: 65px;
+                        height: 35px;
+                        background: $countingColor;
+                        color: $white;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        letter-spacing: 0.4px;
+
+                        &:active {
+                            position: relative;
+                            top: 2px;
+                        }
+                    }
+                }
+            }
+        }
+
+        & .bottom_container {
+            & .contents {
+
+                & ul {
+
+                    & li {
+                        cursor: pointer;
+                        transition: $CardsTransition_03;
+                        background: $white;
+                        border-radius: 20px;
+                        padding: 20px;
+                        margin-top: 20px;
+
+                        & .collapse_content {
+                            @extend %DisplayFlexSpaceBetween;
+                            @extend %WidthHeight;
+
+                            & .content {
+                                display: flex;
+                                align-items: center;
+                                gap: 15px;
+
+                                & i {
+                                    font-size: 1.2rem;
+                                    transition: $CardsTransition_03;
+                                    color: #96a0a5;
+                                }
+
+                                & .text {
+                                    width: fit-content;
+                                    display: flex;
+                                    flex-direction: column;
+                                    user-select: none;
+
+                                    & span.title {
+                                        font-weight: 600;
+                                        color: $dark_color;
+
+                                    }
+
+                                    & span.para {
+                                        font-weight: 400;
+                                        color: #94969F;
+                                        font-size: 12px;
+                                        padding-top: 0.3rem;
+                                    }
+                                }
+                            }
+
+                            & i.arrow {
+                                color: #96a0a5;
+                                transform: rotate(89deg);
+                                transition: $CardsTransition_03;
+                            }
+                        }
+
+                        &:hover {
+                            background: #F5F5F6;
+                            box-shadow: $BoxShadow_03 $RGBA_02;
+
+                            & a i {
+                                color: $dark_color;
+                            }
+                        }
+
+                        & .collapse {
+                            margin-top: 1rem;
+                            display: none;
+
+                            & .order_details {
+                                display: flex;
+                                align-items: baseline;
+                                text-align: center;
+                                height: 100%;
+                                width: 100%;
+
+                                & h5 {
+                                    user-select: none;
+                                    font-weight: 500;
+
+                                    & span {
+                                        font-weight: 800;
+                                        color: #f16565;
+                                    }
+                                }
+
+                                & .hr {
+                                    width: 1px;
+                                    height: 15px;
+                                    margin: auto 1rem;
+                                    background: $Dark_Grey;
+                                    display: inline-block;
+                                    vertical-align: middle;
+                                }
+
+
+                                & a {
+                                    font-size: 14px;
+                                    color: $dark_color;
+                                    user-select: none;
+                                    position: relative;
+
+                                    & span {
+                                        position: absolute;
+                                        bottom: 0;
+                                        left: 0;
+                                        right: 0;
+                                        width: 0;
+                                        height: 1px;
+                                        background: #000;
+                                        transition: all 0.6s ease-in-out;
+                                    }
+
+                                    &:hover span {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+
+                        &.active {
+                            background: #F5F5F6;
+                            box-shadow: $BoxShadow_03 $RGBA_02;
+
+                            & .collapse_content {
+                                & i.arrow {
+                                    transform: rotate(271deg);
+                                }
+
+                                & i {
+                                    color: $dark_color;
+                                }
+                            }
+
+                            & .collapse {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#logout {
+    margin-top: 20px;
+    width: 100%;
+    height: 50px;
+
+    @extend %DisplayFlexCenter;
+
+    & button {
+        width: 250px;
+        height: 100%;
+        background: $countingColor;
+        color: $white;
+        border-radius: 20px;
+        padding: 1rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        cursor: pointer;
+        transition: $CardsTransition_03;
+        text-transform: uppercase;
+
+        &:hover {
+            background: #e65252;
+        }
+
+        &:active {
+            position: relative;
+            top: 2px;
+        }
+    }
+}

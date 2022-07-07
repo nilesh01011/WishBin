@@ -1,0 +1,176 @@
+#contactUs {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 0 !important;
+  padding: 0 50px;
+}
+#contactUs .heading {
+  padding-bottom: 0 !important;
+}
+#contactUs .container .hr {
+  width: 100%;
+  height: 1px;
+  background: #96a0a5;
+  margin: 1rem 0;
+}
+#contactUs .container .wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+#contactUs .container .wrapper .wrapper_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+#contactUs .container .wrapper .wrapper_container .left {
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  padding: 20px;
+  background: #fff;
+  z-index: 10;
+  border-radius: 3px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+#contactUs .container .wrapper .wrapper_container .left form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+#contactUs .container .wrapper .wrapper_container .left form .input_wrapper {
+  display: flex;
+  flex-direction: column;
+}
+#contactUs .container .wrapper .wrapper_container .left form .input_wrapper label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+#contactUs .container .wrapper .wrapper_container .left form .input_wrapper input {
+  height: 45px;
+}
+#contactUs .container .wrapper .wrapper_container .left form .input_wrapper textarea, #contactUs .container .wrapper .wrapper_container .left form .input_wrapper input {
+  width: 100%;
+  padding: 8px 10px;
+  outline: none;
+  border: 1px solid #d3d3d3;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin: 0;
+  transition: 0.1s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+#contactUs .container .wrapper .wrapper_container .left form .input_wrapper textarea:focus, #contactUs .container .wrapper .wrapper_container .left form .input_wrapper input:focus {
+  border-color: #000;
+}
+#contactUs .container .wrapper .wrapper_container .left form .input_wrapper textarea {
+  resize: none;
+}
+#contactUs .container .wrapper .wrapper_container .left form .buttons {
+  width: 100%;
+}
+#contactUs .container .wrapper .wrapper_container .left form .buttons button {
+  width: 100%;
+  height: 45px;
+  text-transform: uppercase;
+  background: #000;
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  justify-content: center;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+#contactUs .container .wrapper .wrapper_container .left form .buttons button i {
+  margin-right: 0.5rem;
+}
+#contactUs .container .wrapper .wrapper_container .right {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+#contactUs .container .wrapper .wrapper_container .right .images {
+  height: 350px;
+}
+#contactUs .container .wrapper .wrapper_container .right .images img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+#contactUs .container .wrapper .mainContent {
+  height: 200px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  z-index: 2;
+}
+#contactUs .container .wrapper .mainContent .wave {
+  position: absolute;
+  top: 0;
+  width: 6400px;
+  height: 200px;
+  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
+}
+#contactUs .container .wrapper .mainContent .wave:nth-of-type(2) {
+  top: 0;
+  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite, swell 7s ease -1.25s infinite;
+  opacity: 1;
+}
+
+#messages {
+  width: 100%;
+  height: 45px;
+  padding: 1rem 1.5rem;
+  background: #28c76f;
+  color: #fff;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#messages span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#messages span i {
+  margin-right: 0.6rem;
+}
+
+@media screen and (max-width: 576px) {
+  #messages {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  #messages span {
+    font-size: 14px;
+  }
+}
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -1600px;
+  }
+}
+@keyframes swell {
+  0%, 100% {
+    transform: translate3d(0, -25px, 0);
+  }
+  50% {
+    transform: translate3d(0, 5px, 0);
+  }
+}

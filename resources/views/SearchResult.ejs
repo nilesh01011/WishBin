@@ -1,0 +1,269 @@
+<div id="Container">
+    <%- include('./common/navbar'); %>
+        <!-- ==================Top-header-End================= -->
+        <header id="header">
+            <div id="HeaderSwiper" class="swiper">
+                <div id="tabs" class="swiper-wrapper">
+                    <a class="swiper-slide btn" href="/">
+                        <div>
+                            <i class="fas fa-home"></i> All product
+                        </div>
+                    </a>
+                    <a class="btn swiper-slide" href="./electronicproduct">
+                        <i class="fas fa-desktop"></i>
+                        Electronics
+                    </a>
+                    <a href="/toysproducts" class="btn swiper-slide">
+                        <i class="fab fa-evernote"></i>
+                        Toys
+                    </a>
+                    <a href="./clothproducts" class="btn swiper-slide">
+                        <i class="fas fa-tshirt"></i> Cloths
+                    </a>
+
+                    <a href="./babyclothproducts" class="btn swiper-slide">
+                        <i class="fas fa-baby"></i> Baby Cloths
+                    </a>
+                    <a href="./mobileproducts" class="btn swiper-slide">
+                        <i class="fas fa-mobile-alt"></i> Mobile
+                    </a>
+                    <a href="./furnitureproducts" class="btn swiper-slide">
+                        <i class="fas fa-couch"></i> Furniture
+                    </a>
+                    <a href="./groceriesproducts" class="btn swiper-slide">
+                        <i class="fas fa-mortar-pestle"></i>
+                        Groceries
+                    </a>
+                    <a href="./gameproducts" class="btn swiper-slide">
+                        <i class="fab fa-playstation"></i> Games
+                    </a>
+                    <a href="./computerproducts" class="btn swiper-slide">
+                        <i class="fas fa-laptop"></i> Computer
+                    </a>
+                </div>
+            </div>
+
+            <div class="search">
+                <input class="search_input" id="searchInput" type="text" placeholder="Search for products">
+                <i class="fas fa-search"></i>
+            </div>
+        </header>
+
+        <div class="overlay"></div>
+
+        <!-- ==================Bottom-header-End============== -->
+        <main class="pages">
+            <div class="page main" id="searching">
+
+                <div class="searchHead">
+                    <h1>Search result : "<%= search ? search : '' %>"
+                    </h1>
+                    <hr>
+                </div>
+
+                <!-- Search Heading End -->
+                <% if(searchItems !=0){ %>
+                    <div id="card_section">
+                        <div class="card_container">
+                            <!-- Products Cards -->
+                            <% searchItems.forEach((ele)=> { %>
+
+                                <div id="<%= ele._id %>" class="cards <%= ele.category %>">
+                                    <div class="card_head">
+                                        <button role="button" data-wishlist="<%= JSON.stringify(ele) %>" id="far">
+                                            <i class="far fa-heart"></i>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span class="four"></span>
+                                        </button>
+                                    </div>
+                                    <div class="card_image">
+                                        <img src="<%= ele.image %>" loading="lazy" decoding="async" alt="cards_img">
+                                    </div>
+                                    <div class="card_heading">
+                                        <h5 class="mb-0">
+                                            <%= ele.title %>
+                                        </h5>
+                                        <div class="card_price">
+                                            <span>₹<%= new Intl.NumberFormat().format(ele.MRP) %></span>
+                                            <span class="pro_price">₹<%= new Intl.NumberFormat().format(ele.price) %>
+                                            </span>
+                                        </div>
+                                        <div class="card_star">
+                                            <i class="<%=
+                        ele.rating >= 1
+                        ? 'fas fa-star'
+                        : ele.rating >= 0.5
+                        ? 'fas fa-star-half-alt'
+                        : 'far fa-star'
+                    %>
+                    "></i>
+
+                                            <i class="<%=
+                        ele.rating >= 2
+                        ? 'fas fa-star'
+                        : ele.rating >= 1.5
+                        ? 'fas fa-star-half-alt'
+                        : 'far fa-star'
+                    %>
+                    "></i>
+
+                                            <i class="<%=
+                        ele.rating >= 3
+                        ? 'fas fa-star'
+                        : ele.rating >= 2.5
+                        ? 'fas fa-star-half-alt'
+                        : 'far fa-star'
+                    %>
+                    "></i>
+
+                                            <i class="<%=
+                        ele.rating >= 4
+                        ? 'fas fa-star'
+                        : ele.rating >= 3.5
+                        ? 'fas fa-star-half-alt'
+                        : 'far fa-star'
+                    %>
+                      "></i>
+
+                                            <i class="<%=
+                        ele.rating >= 5
+                        ? 'fas fa-star'
+                        : ele.rating >= 4.5
+                        ? 'fas fa-star-half-alt'
+                        : 'far fa-star'
+                    %>
+                    "></i>
+                                        </div>
+                                    </div>
+                                    <div class="addToCart">
+                                        <div class="cards_addit">
+                                            <a href="./productdetails" target="_blank">
+                                                <div data-productid="<%= JSON.stringify(ele) %>" class="card_add">
+                                                    <i class="fa fa-plus"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div id="card_pricing_btn">
+                                        <button data-addtocart="<%= JSON.stringify(ele) %>" role="button"
+                                            class="one_btn">
+                                            <span>
+                                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <% }) %>
+
+                        </div>
+                    </div>
+
+                    <% }else{ %>
+
+                        <div class="emptySearch">
+                            <div class="emptyContainer">
+                                <div class="images">
+                                    <img src="../img/EmptySearching.png" height="500px" alt="not-found">
+                                </div>
+
+                                <div class="contents">
+                                    <h1>No Result Found</h1>
+                                    <p>Please try again with another <br> keywords or maybe use generic term</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <% } %>
+            </div>
+        </main>
+
+        <!-- ================================================= -->
+
+        <% if(user) { %>
+            <div id="offers_containers">
+                <div class="offers_button">
+                    <div class="icons"></div>
+                    <div class="titles">
+                        <p>FLAT ₹400 OFF</p>
+                    </div>
+                </div>
+                <div class="offers_contents">
+                    <div class="container">
+                        <div class="wrapper">
+                            <div class="content">
+                                <div class="header"><span>AVAIL FLAT</span></div>
+                                <div class="priceOff"><span>₹400 OFF</span></div>
+                                <div class="free_shipp"><span>+ FREE SHIPPING</span></div>
+                                <div class="bottom_offers">
+                                    <span class="couponCode">Coupon Code: <span class="couponOffer">
+                                            WISHBIN400</span></span>
+                                    <span class="avail">Applicable on your first order</span>
+                                </div>
+                            </div>
+                            <div class="images">
+                                <img src="../img/footerLogo.svg" alt="images">
+                            </div>
+                        </div>
+
+                        <div class="footerContent">
+                            <div class="left_side">
+                                <span><i style="color:#0984e3;" class="fas fa-tshirt"></i> Cloths</span>
+                                <span><i style="color:#E9C799;" class="fas fa-couch"></i> Furniture</span>
+                                <span><i class="fas fa-mobile-alt"></i>Smart Phones</span>
+                                <span><i style="color:#ff4757;" class="fab fa-playstation"></i> Games</span>
+                                <span>+ more</span>
+                            </div>
+
+                            <div class="right_side">
+                                <h2>Upcoming Offers</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+
+                <!-- ====================Upcoming Offers================== -->
+</div>
+
+<!-- ====================SideBar Sections End==================-->
+
+<div id="overlay"></div>
+
+<%- include('./common/sidebar'); %>
+
+    <%- include('./common/footer'); %>
+
+        <!-- ===================================================== -->
+        <!-- ======================Script========================= -->
+
+        <!-- =======================Swiper JS===================== -->
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+        <script src="../JS/Home.js"></script>
+        <script src="../JS/main.js"></script>
+        <script src="../JS/Cart.js"></script>
+        <script src="../JS/WishList.js"></script>
+
+        <script>
+            window.addEventListener('scroll', () => {
+                if (window.scrollY >= 40) {
+                    document.querySelector('nav.navbar').style.boxShadow =
+                        ' 0 3px 6px rgba(0, 0, 0, 0.3)';
+                    document.querySelector('nav.navbar').style.position =
+                        'sticky';
+                    document.querySelector('nav.navbar').style.top =
+                        '0';
+                } else {
+                    document.querySelector('nav.navbar').style.boxShadow = 'none';
+                    document.querySelector('nav.navbar').style.position =
+                        'none';
+                    document.querySelector('nav.navbar').style.top =
+                        '0';
+                }
+            });
+        </script>

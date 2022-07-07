@@ -1,0 +1,328 @@
+<div id="Container">
+    <%- include('./common/navbar'); %>
+
+        <!-- ==================Top-header-End================= -->
+        <header id="header">
+            <div id="HeaderSwiper" class="swiper">
+                <div id="tabs" class="swiper-wrapper">
+                    <a class="swiper-slide btn" href="/">
+                        <div>
+                            <i class="fas fa-home"></i> All product
+                        </div>
+                    </a>
+                    <a class="btn swiper-slide" id="electronic_btn" href="./electronicproduct">
+                        <i class="fas fa-desktop"></i>
+                        Electronics
+                    </a>
+                    <a href="./toysproducts" id="toys_btn" class="btn active swiper-slide">
+                        <i class="fab fa-evernote"></i>
+                        Toys
+                    </a>
+                    <a href="./clothproducts" id="cloths_btn" class="btn swiper-slide">
+                        <i class="fas fa-tshirt"></i> Cloths
+                    </a>
+
+                    <a href="./babyclothproducts" id="baby_btn" class="btn swiper-slide">
+                        <i class="fas fa-baby"></i> Baby Cloths
+                    </a>
+                    <a href="./mobileproducts" id="mobile_btn" class="btn swiper-slide">
+                        <i class="fas fa-mobile-alt"></i> Mobile
+                    </a>
+                    <a href="./furnitureproducts" id="furniture_btn" class="btn swiper-slide">
+                        <i class="fas fa-couch"></i> Furniture
+                    </a>
+                    <a href="./groceriesproducts" id="groceries_btn" class="btn swiper-slide">
+                        <i class="fas fa-mortar-pestle"></i>
+                        Groceries
+                    </a>
+                    <a href="./gameproducts" id="game_btn" class="btn swiper-slide">
+                        <i class="fab fa-playstation"></i> Games
+                    </a>
+                    <a href="./computerproducts" id="computer_btn" class="btn swiper-slide">
+                        <i class="fas fa-laptop"></i> Computer
+                    </a>
+                </div>
+            </div>
+
+            <div class="search">
+                <input class="search_input" id="searchInput" type="text" placeholder="Search for products">
+                <i class="fas fa-search"></i>
+            </div>
+        </header>
+
+        <div class="overlay"></div>
+
+        <!-- ==================Bottom-header-End============== -->
+
+        <main class="pages">
+            <div id="toys_page" class="page is-active toys">
+                <div class="banner_container">
+                    <div id="mySwiper" class="swiper mySwiper d-md-block d-none">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img loading="lazy" decoding="async" src="../img/banner4.png" alt="banner_images">
+                            </div>
+                            <div class="swiper-slide">
+                                <img loading="lazy" decoding="async" src="../img/softToyBanner1.png"
+                                    alt="banner_images">
+                            </div>
+                            <div class="swiper-slide">
+                                <img loading="lazy" decoding="async" src="../img/softToyBanner.png" alt="banner_images">
+                            </div>
+                            <div class="swiper-slide">
+                                <img loading="lazy" decoding="async" src="../img/softToyBanner2.png"
+                                    alt="banner_images">
+                            </div>
+                        </div>
+                        <div id="Left" class="swiper-button-prev">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                                fill="#fff">
+                                <path d="M0 0h24v24H0V0z" fill="none" opacity=".87" />
+                                <path
+                                    d="M16.62 2.99c-.49-.49-1.28-.49-1.77 0L6.54 11.3c-.39.39-.39 1.02 0 1.41l8.31 8.31c.49.49 1.28.49 1.77 0s.49-1.28 0-1.77L9.38 12l7.25-7.25c.48-.48.48-1.28-.01-1.76z" />
+                            </svg>
+                        </div>
+                        <div id="Right" class="swiper-button-next">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"
+                                fill="#fff">
+                                <path d="M24 24H0V0h24v24z" fill="none" opacity=".87" />
+                                <path
+                                    d="M7.38 21.01c.49.49 1.28.49 1.77 0l8.31-8.31c.39-.39.39-1.02 0-1.41L9.15 2.98c-.49-.49-1.28-.49-1.77 0s-.49 1.28 0 1.77L14.62 12l-7.25 7.25c-.48.48-.48 1.28.01 1.76z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- ==============Mobile View============= -->
+                    <div id="mySwiper2" class="swiper mySwiper d-md-none d-block">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img loading="lazy" decoding="async" src="../img/mobile_banner3.png"
+                                    alt="mobile_view_img">
+                            </div>
+                            <div class="swiper-slide">
+                                <img loading="lazy" decoding="async" src="../img/mobileSoftToy.png"
+                                    alt="mobile_view_img">
+                            </div>
+                            <div class="swiper-slide">
+                                <img loading="lazy" decoding="async" src="../img/mobileSoftToy1.png"
+                                    alt="mobile_view_img">
+                            </div>
+                            <div class="swiper-slide">
+                                <img loading="lazy" decoding="async" src="../img/mobileSoftToy2.png"
+                                    alt="mobile_view_img">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ==============Advertisement=========== -->
+                    <div class="banner_box">
+                        <img src="../img/BannerBoxToys.png" alt="banner_box_img">
+                        <video preload="auto" muted loop autoplay>
+                            <source src="../video/toys.mp4" type="video/mp4">
+                        </video>
+                        <div class="box_content">
+                            <h4>Toys 2022</h4>
+                            <p class="mb-0">Toys</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- ===================Banner-Container-End================= -->
+
+                <div class="product_card">
+                    <div id="card_section">
+                        <div class="card_container">
+                            <!-- Toys Cards -->
+                            <% toys.forEach(function(ele) { %>
+                                <div id="<%= ele.id %>" class="cards <%= ele.category %>">
+                                    <div class="card_head">
+                                        <button role="button" data-wishlist="<%= JSON.stringify(ele) %>" id="far">
+                                            <i class="far fa-heart"></i>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                            <span class="four"></span>
+                                        </button>
+                                    </div>
+                                    <div class="card_image">
+                                        <img src="<%= ele.image %>" loading="lazy" decoding="async" alt="cards_img">
+                                    </div>
+                                    <div class="card_heading">
+                                        <h5 class="mb-0">
+                                            <%= ele.title %>
+                                        </h5>
+                                        <div class="card_price">
+                                            <span>₹<%= new Intl.NumberFormat().format(ele.MRP) %></span>
+                                            <span class="pro_price">₹<%= new Intl.NumberFormat().format(ele.price) %>
+                                            </span>
+                                        </div>
+                                        <div class="card_star">
+                                            <i class="<%=
+                                    ele.rating >= 1
+                                ? 'fas fa-star'
+                                : ele.rating >= 0.5
+                                ? 'fas fa-star-half-alt'
+                                : 'far fa-star'
+                            %>
+                            "></i>
+
+                                            <i class="<%=
+                                    ele.rating >= 2
+                                ? 'fas fa-star'
+                                : ele.rating >= 1.5
+                                ? 'fas fa-star-half-alt'
+                                : 'far fa-star'
+                            %>
+                            "></i>
+
+                                            <i class="<%=
+                                    ele.rating >= 3
+                                ? 'fas fa-star'
+                                : ele.rating >= 2.5
+                                ? 'fas fa-star-half-alt'
+                                : 'far fa-star'
+                            %>
+                            "></i>
+
+                                            <i class="<%=
+                                    ele.rating >= 4
+                                ? 'fas fa-star'
+                                : ele.rating >= 3.5
+                                ? 'fas fa-star-half-alt'
+                                : 'far fa-star'
+                            %>
+                              "></i>
+
+                                            <i class="<%=
+                                    ele.rating >= 5
+                                ? 'fas fa-star'
+                                : ele.rating >= 4.5
+                                ? 'fas fa-star-half-alt'
+                                : 'far fa-star'
+                            %>
+                            "></i>
+                                        </div>
+                                    </div>
+                                    <div class="addToCart">
+                                        <div class="cards_addit">
+                                            <a href="./productdetails" target="_blank">
+                                                <div data-productid="<%= JSON.stringify(ele) %>" class="card_add">
+                                                    <i class="fa fa-plus"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div id="card_pricing_btn">
+                                        <button data-addtocart="<%= JSON.stringify(ele) %>" role="button"
+                                            class="one_btn">
+                                            <span>
+                                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <% }) %>
+                        </div>
+                    </div>
+                </div>
+                <!-- ================Product Container End=================== -->
+                <div id="banner__">
+                    <img class="deskTop" src="../img/Toys_Add.png" alt="banner-img">
+                    <img class="mobile" src="../img/Mobile_Toys_Add.png" alt="banner-img">
+                </div>
+                <!-- ===============Banner__ Container End=================== -->
+            </div>
+            <!-- data-page="3" -->
+        </main>
+
+        <!-- ================================================= -->
+
+        <% if(user) { %>
+            <div id="offers_containers">
+                <div class="offers_button">
+                    <div class="icons"></div>
+                    <div class="titles">
+                        <p>FLAT ₹400 OFF</p>
+                    </div>
+                </div>
+                <div class="offers_contents">
+                    <div class="container">
+                        <div class="wrapper">
+                            <div class="content">
+                                <div class="header"><span>AVAIL FLAT</span></div>
+                                <div class="priceOff"><span>₹400 OFF</span></div>
+                                <div class="free_shipp"><span>+ FREE SHIPPING</span></div>
+                                <div class="bottom_offers">
+                                    <span class="couponCode">Coupon Code: <span class="couponOffer">
+                                            WISHBIN400</span></span>
+                                    <span class="avail">Applicable on your first order</span>
+                                </div>
+                            </div>
+                            <div class="images">
+                                <img src="../img/footerLogo.svg" alt="images">
+                            </div>
+                        </div>
+
+                        <div class="footerContent">
+                            <div class="left_side">
+                                <span><i style="color:#0984e3;" class="fas fa-tshirt"></i> Cloths</span>
+                                <span><i style="color:#E9C799;" class="fas fa-couch"></i> Furniture</span>
+                                <span><i class="fas fa-mobile-alt"></i>Smart Phones</span>
+                                <span><i style="color:#ff4757;" class="fab fa-playstation"></i> Games</span>
+                                <span>+ more</span>
+                            </div>
+
+                            <div class="right_side">
+                                <h2>Upcoming Offers</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+
+                <!-- ====================Upcoming Offers================== -->
+
+                <!-- <div id="noty_messages">
+                    <div class="toast_container">
+                        <i class="fas fa-check"></i>
+                        <span>Product has been added to your cart</span>
+                    </div>
+                </div> -->
+</div>
+
+<!-- =====================SideBar Sections================ -->
+<div id="overlay"></div>
+
+<%- include('./common/sidebar'); %>
+
+    <%- include('./common/footer'); %>
+
+        <!-- ===================================================== -->
+        <!-- ======================Script========================= -->
+
+        <!-- =======================Swiper JS===================== -->
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+        <script src="../JS/Home.js"></script>
+        <script src="../JS/main.js"></script>
+        <script src="../JS/Cart.js"></script>
+        <script src="../JS/WishList.js"></script>
+
+        <script>
+            window.addEventListener('scroll', () => {
+                if (window.scrollY >= 40) {
+                    document.querySelector('nav.navbar').style.boxShadow =
+                        ' 0 3px 6px rgba(0, 0, 0, 0.3)';
+                    document.querySelector('nav.navbar').style.position =
+                        'sticky';
+                    document.querySelector('nav.navbar').style.top =
+                        '0';
+                } else {
+                    document.querySelector('nav.navbar').style.boxShadow = 'none';
+                    document.querySelector('nav.navbar').style.position =
+                        'none';
+                    document.querySelector('nav.navbar').style.top =
+                        '0';
+                }
+            });
+        </script>

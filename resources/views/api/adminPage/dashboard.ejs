@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="icon" href="../../../img/HeadIcons.png" type="image/jpg">
+    <!-- -----------------Jquery CDN Links------------------ -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- -----------------JVMAP CDN Links------------------ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.5/jquery-jvectormap.css">
+    <script src="https://cdn.jsdelivr.net/npm/jvectormap@2.0.4/jquery-jvectormap.min.js"></script>
+    <script src="../../../JS/jquery-jvectormap-world-mill-en.js"></script>
+    <!-- -----------------Material UI--------------- -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- -----------------Style Links--------------- -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <!-- ----------------Font Family---------------- -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            background: #161d31;
+            color: #d0d2d6;
+            font-family: 'Inter', sans-serif !important;
+            user-select: none;
+            max-width: 1366px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        body.sidebarActive {
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid px-0">
+        <%- include('../../common/adminHeader'); %>
+
+            <!-- ==================Header End================= -->
+
+            <main id="adminContainer" class="container-fluid">
+                <div class="heading">
+                    <h2 class="mb-0">Dashboard</h2>
+                </div>
+                <div class="insights">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="cards sales col">
+                                <div class="icon purples">
+                                    <span class="material-icons">shopping_cart</span>
+                                </div>
+                                <div class="content">
+                                    <h6>New Orders</h6>
+                                    <h3>
+                                        <%= orders ? orders.length : '0' %>
+                                    </h3>
+                                    <p>
+                                        <span class="material-icons">straight</span>
+                                        +2.00%
+                                        <span class="text-gray">
+                                            (30 days)
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- ------------------Sales Card End---------------- -->
+
+                            <div class="cards income col">
+                                <div class="icon success">
+                                    <span class="material-icons">attach_money</span>
+                                </div>
+                                <div class="content">
+                                    <h6>Total Income</h6>
+                                    <h3>
+                                        ₹<%= totalIncome ? new Intl.NumberFormat().format( totalIncome ) : '0' %>
+                                    </h3>
+                                    <p>
+                                        <span class="material-icons">straight</span>
+                                        +2.00%
+                                        <span class="text-gray">Increased</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- ----------------Total income End---------------- -->
+
+                            <div class="cards sales col">
+                                <div class="icon warning">
+                                    <span class="material-icons">person_outline</span>
+                                </div>
+                                <div class="content">
+                                    <h6>New User</h6>
+                                    <h3>
+                                        <%= userLength ? userLength.length : '0' %>
+                                    </h3>
+                                    <p class="expenses">
+                                        <span class="material-icons">straight</span>
+                                        -2.00%
+                                        <span class="text-gray">(30 days)</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- ------------------New User End------------------ -->
+
+                            <div class="cards expense col">
+                                <div class="icon primary">
+                                    <span class="material-icons">visibility</span>
+                                </div>
+                                <div class="content">
+                                    <h6>Total Visitors</h6>
+                                    <h3>
+                                        <%= userLength ? userLength.length : '0' %>
+                                    </h3>
+                                    <p>
+                                        <span class="material-icons">straight</span>
+                                        +2.00%
+                                        <span class="text-gray">(10 days)</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- -----------------Total Expense End---------------- -->
+                        </div>
+                    </div>
+                </div>
+                <!-- ==================Cards End=============== -->
+
+                <div class="charts container-fluid px-0">
+                    <div class="row">
+                        <div class="col-xl-7 col-12">
+                            <div class="chart-style">
+                                <div class="title d-flex align-items-center mb-3">
+                                    <div class="chart_lengend">
+                                        <h6>Yearly Stats</h6>
+                                        <h3>
+                                            ₹<%= totalIncome ? new Intl.NumberFormat().format( totalIncome ) : '0' %>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <canvas id="myChart" aria-label="chart" role="img"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-12">
+                            <div class="chart-style">
+                                <div class="title d-flex align-items-center mb-3">
+                                    <div class="chart_lengend d-flex align-items-center">
+                                        <h6 class="fw-bold">Sales/Revenue</h6>
+                                    </div>
+                                </div>
+                                <canvas id="Chart2" aria-label="chart" role="img"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ---------------Line and Bar charts End--------------- -->
+
+                <div class="doughnut_map container-fluid px-0">
+                    <div class="row">
+                        <div class="col-xl-5 col-12">
+                            <div class="chart-style">
+                                <div class="title d-flex align-items-center mb-3">
+                                    <div class="chart_lengend">
+                                        <h6>Weekly Orders</h6>
+                                        <h3>
+                                            <%= orders ? orders.length : '0' %>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <!-- <canvas id="doughnut" aria-label="chart" role="img"></canvas> -->
+                                <canvas id="pieChart1" style="width: 100%; height: 360px"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-xl-7 col-12">
+                            <div class="chart-style">
+                                <div class="title">
+                                    <div class="chart_lengend">
+                                        <h6 class="fw-bold">Sells by State</h6>
+                                    </div>
+                                    <div class="right">
+                                        <h6>Last updated: 7 days ago</h6>
+                                    </div>
+                                </div>
+                                <div id="worldMap"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- -------------doughnut and map charts End------------- -->
+
+
+                <div class="orders container-fluid px-0">
+                    <div class="row">
+                        <div class="col">
+                            <div class="order_container">
+
+                                <div class="top_container d-flex align-items-center justify-content-between">
+                                    <div class="left">
+                                        <h6 class="fw-bold">Order Compeleted</h6>
+                                    </div>
+                                </div>
+                                <!-- ---------------top_container End--------------- -->
+
+                                <div class="bottom_container">
+                                    <table id="order_table">
+                                        <thead>
+                                            <tr>
+                                                <td>
+                                                    <div class="title">
+                                                        <span>Id</span>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="title">
+                                                        <span>Name</span>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="title">
+                                                        <span>Products</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="title">
+                                                        <span>Price</span>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="title">
+                                                        <span>Price Status</span>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <div class="title">
+                                                        <span>Confirmed at</span>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <% if(orders) { %>
+                                                <% orders.forEach((list)=> { %>
+
+                                                    <% if(list.status==='completed' ) { %>
+
+                                                        <tr>
+                                                            <td>
+                                                                <div class="userId">
+                                                                    <span>
+                                                                        <%= list.customerId %>
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+
+                                                            <td>
+                                                                <div class="userName">
+                                                                    <span style="text-transform: capitalize;">
+                                                                        <%= list.name %>
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+
+                                                            <td>
+                                                                <div id="dropDownProduct" class="dropdown">
+                                                                    <div class="image">
+                                                                        <img src="../../.<%= list.items.item.image %>"
+                                                                            alt="product_image">
+                                                                    </div>
+                                                                    <div class="title">
+                                                                        <span>
+                                                                            <%= list.items.item.title %>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+
+                                                            </td>
+
+                                                            <td>
+                                                                <div class="totalprice">
+                                                                    ₹<%= new Intl.NumberFormat().format( list.totalPrice
+                                                                        ) %>
+                                                                </div>
+                                                            </td>
+
+                                                            <td>
+                                                                <div class="priceStatus">
+                                                                    <span>COD</span>
+                                                                </div>
+                                                            </td>
+
+                                                            <td>
+                                                                <span>
+                                                                    <%= moment(list.updatedAt).format('LL') %>
+                                                                </span>
+                                                            </td>
+
+                                                        </tr>
+
+                                                        <% } %>
+
+                                                            <% }) %>
+                                                                <% } %>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+    </div>
+
+    <%- include('../../common/adminFooter'); %>
+
+
+        <!-- ==================Footer End================= -->
+
+        <div id="adminSidebar">
+            <div class="navbar-logo d-flex align-items-center">
+                <a href="/api/adminPage/dashboard">
+                    <span class="logo">WB</span>
+                    WishBin
+                </a>
+                <div class="sidebar-dismiss">
+                    <div class="logo">
+                        <span class="material-icons">close</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- -----------navbar-logo and Dismiss End----------- -->
+
+            <nav class="sidebar-nav">
+                <div class="divider">
+                    <hr>
+                </div>
+                <ul>
+                    <li>
+                        <a href="/api/adminPage/dashboard" class="navLink">
+                            <div class="icon">
+                                <span class="material-icons">dashboard</span>
+                            </div>
+                            <div class="text">Dashboard</div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a id="expand_more" href="#" data-bs-toggle="collapse" data-bs-target="#page_menu"
+                            class="d-flex navLink collapsed">
+                            <div class="icon">
+                                <span class="material-icons">description</span>
+                            </div>
+                            <div class="text">
+                                Pages
+                                <span class="material-icons">expand_more</span>
+                            </div>
+                        </a>
+
+                        <ul id="page_menu" class="dropdown-nav collapse">
+                            <li>
+                                <a class="homePage" href="/" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">roofing</span>
+                                    </div>
+                                    <div class="text">Home Page</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/cartpage" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">shopping_cart</span>
+                                    </div>
+                                    <div class="text">Cart Page</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/orderpage" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">shopping_cart_checkout</span>
+                                    </div>
+                                    <div class="text">Order Page</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/wishlistpage" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">favorite</span>
+                                    </div>
+                                    <div class="text">
+                                        Wishlist Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/electronicproduct" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">dvr</span>
+                                    </div>
+                                    <div class="text">
+                                        Electronic Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/toysproducts" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">toys</span>
+                                    </div>
+                                    <div class="text">
+                                        Toys Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/mobileproducts" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">smartphone</span>
+                                    </div>
+                                    <div class="text">
+                                        Mobile Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/groceriesproducts" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">kitchen</span>
+                                    </div>
+                                    <div class="text">
+                                        Groceries Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/furnitureproducts" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">weekend</span>
+                                    </div>
+                                    <div class="text">
+                                        Furniture Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/gameproducts" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">smart_toy</span>
+                                    </div>
+                                    <div class="text">
+                                        Games Page
+                                    </div>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="/computerproducts" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">computer</span>
+                                    </div>
+                                    <div class="text">
+                                        Computer Page
+                                    </div>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="/clothproducts" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">checkroom</span>
+                                    </div>
+                                    <div class="text">
+                                        Cloth Page
+                                    </div>
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="/babyclothproducts" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">child_care</span>
+                                    </div>
+                                    <div class="text">
+                                        Baby Cloths Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/Error" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">error</span>
+                                    </div>
+                                    <div class="text">
+                                        Error Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/searchresult" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">manage_search</span>
+                                    </div>
+                                    <div class="text">
+                                        Search Page
+                                    </div>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a id="expand_more" href="#" data-bs-toggle="collapse" data-bs-target="#auth_menu"
+                            class="d-flex navLink collapsed">
+                            <div class="icon">
+                                <span class="material-icons">switch_account</span>
+                            </div>
+                            <div class="text">
+                                Auth
+                                <span class="material-icons">expand_more</span>
+                            </div>
+                        </a>
+                        <ul id="auth_menu" class="dropdown-nav collapse">
+                            <li>
+                                <a href="/login" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">verified_user</span>
+                                    </div>
+                                    <div class="text">
+                                        Login Page
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/register" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">app_registration</span>
+                                    </div>
+                                    <div class="text">
+                                        Registers Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/forgetpassword" target="_blank">
+                                    <div class="icon">
+                                        <span class="material-icons">password</span>
+                                    </div>
+                                    <div class="text">
+                                        Forget Password Page
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <div class="icon">
+                                        <span class="material-icons">lock_reset</span>
+                                    </div>
+                                    <div class="text">
+                                        Reset Password Page
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/api/adminPage/customer" class="navLink">
+                            <div class="icon">
+                                <span class="material-icons">groups</span>
+                            </div>
+                            <div class="text">Customers</div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/api/adminPage/orders" class="navLink">
+                            <div class="icon">
+                                <span class="material-icons">receipt_long</span>
+                            </div>
+                            <div class="text">Orders</div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" id="expand_more" data-bs-toggle="collapse" data-bs-target="#product_menu"
+                            class="d-flex navLink collapsed">
+                            <div class="icon">
+                                <span class="material-icons">category</span>
+                            </div>
+                            <div class="text">
+                                Products
+                                <span class="material-icons">expand_more</span>
+                            </div>
+                        </a>
+
+                        <ul id="product_menu" class="dropdown-nav collapse">
+                            <li>
+                                <a href="/api/adminPage/preview">
+                                    <div class="icon">
+                                        <span class="material-icons">visibility</span>
+                                    </div>
+                                    <div class="text">All Product</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/api/adminPage/productdetails">
+                                    <div class="icon">
+                                        <span class="material-icons">preview</span>
+                                    </div>
+                                    <div class="text">
+                                        Product Details
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/api/adminPage/userprofile" class="navLink">
+                            <div class="icon">
+                                <span class="material-icons">account_circle</span>
+                            </div>
+                            <div class="text">User Profile</div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/api/adminPage/messages" class="navLink">
+                            <div class="icon">
+                                <span class="material-icons">outgoing_mail</span>
+                            </div>
+                            <div class="text">Messages</div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="divider">
+                    <hr>
+                </div>
+            </nav>
+
+            <form id="adminLogout" action="/logout" method="POST">
+                <button class="navLink" type="submit" onclick="document.getElementById('adminLogout')">
+                    <div class="icon">
+                        <span class="material-icons">logout</span>
+                    </div>
+                    <div class="text">Logout</div>
+                </button>
+            </form>
+
+        </div>
+
+        <div id="adminOverlay"></div>
+
+        <!-- ===========================Script JS======================= -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+        <script src="../../../JS/chart.js"></script>
+        <script src="../../../JS/mainAdmin.js"></script>
+        <script src="../../../JS/dashboardHome.js"></script>
+        <script src="../../../JS/TrackOrder.js"></script>
+
+        <script>
+
+            $(function () {
+                $('#worldMap').vectorMap({
+                    map: 'world_mill_en',
+                    backgroundColor: 'transparent',
+
+                    regionStyle: {
+                        initial: {
+                            fill: '#d0d2d6',
+                            "fill-opacity": 1,
+                            // stroke: 'block',
+                            "stroke-width": 0,
+                            "stroke-opacity": 0.7,
+                            strokeHover: 'yellow',
+                            strokeColor: 'yellow'
+                        },
+
+                        selected: {
+                            fill: "red"
+                        },
+                    },
+
+
+                    // series: {
+                    //     regions: [{
+                    //         values: {
+                    //             IN: '#7367f0',
+                    //             // DK: '#000FFF',
+                    //             // KP: '#33250b',
+                    //             // IR: '#3f4114',
+                    //             // IQ: '#525252',
+                    //             // PK: '#654511',
+                    //             // UZ: '#69681c',
+                    //             // TM: '#48470d',
+                    //             // EG: '#654906',
+                    //             // AZ: '#083803',
+                    //             // TJ: '#410a0a',
+                    //             // KG: '#545353',
+                    //             // SY: '#654511',
+                    //             // JO: '#33250b',
+                    //             // KZ: '#654511',
+                    //             // LK: '#525252',
+                    //             // US: '#0000ff'
+                    //         }
+                    //     }]
+                    // },
+
+                    markersSelectable: true,
+
+                    markerStyle: {
+                        initial: {
+                            fill: '#7367f0',
+                            stroke: 'rgba(157, 148, 255,0.6)',
+                            strokeWidth: 10,
+                            strokeOpacity: 0.8,
+                        },
+                        selected: {
+                            fill: "#ff5050",
+                        },
+                    },
+
+
+                    markers: [
+                        // { latLng: [41.90, 12.45], name: 'Vatican City' },
+                        // { latLng: [43.73, 7.41], name: 'Monaco' },
+                        // { latLng: [-0.52, 166.93], name: 'Nauru' },
+                        // { latLng: [-8.51, 179.21], name: 'Tuvalu' },
+                        // { latLng: [43.93, 12.46], name: 'San Marino' },
+                        // { latLng: [47.14, 9.52], name: 'Liechtenstein' },
+                        // { latLng: [7.11, 171.06], name: 'Marshall Islands' },
+                        // { latLng: [17.3, -62.73], name: 'Saint Kitts and Nevis' },
+                        // { latLng: [3.2, 73.22], name: 'Maldives' },
+                        { latLng: [25, 78], name: 'India' },
+                        // { latLng: [19.2, 74], name: 'Current Positions' },
+                        { latLng: [65, 95], name: 'Russia', style: { fill: 'red', stroke: 'rgba(234, 84, 85,0.6)', } },
+                        { latLng: [60, -110], name: 'Canada', style: { fill: 'red', stroke: 'rgba(234, 84, 85,0.6)', } },
+                        { latLng: [40, -105], name: 'United States', style: { fill: 'red', stroke: 'rgba(234, 84, 85,0.6)', } },
+
+                        { latLng: [40.43, 74.00], name: 'New York City', style: { fill: 'red', stroke: 'rgba(234, 84, 85,0.6)', } },
+                        // { latLng: [35.88, 14.5], name: 'Malta' },
+                        // { latLng: [12.05, -61.75], name: 'Grenada' },
+                        // { latLng: [13.16, -61.23], name: 'Saint Vincent and the Grenadines' },
+                        // { latLng: [13.16, -59.55], name: 'Barbados' },
+                        // { latLng: [17.11, -61.85], name: 'Antigua and Barbuda' },
+                        // { latLng: [-4.61, 55.45], name: 'Seychelles' },
+                        // { latLng: [7.35, 134.46], name: 'Palau' },
+                        // { latLng: [42.5, 1.51], name: 'Andorra' },
+                        // { latLng: [14.01, -60.98], name: 'Saint Lucia' },
+                        // { latLng: [6.91, 158.18], name: 'Federated States of Micronesia' },
+                        { latLng: [-1, 102], name: 'Indonesia', style: { fill: 'red', stroke: 'rgba(234, 84, 85,0.6)', } },
+                        { latLng: [4.50, 102], name: 'Malaysia', style: { fill: 'red', stroke: 'rgba(234, 84, 85,0.6)', } },
+                        { latLng: [-26, 135], name: 'Australia', style: { fill: 'red', stroke: 'rgba(234, 84, 85,0.6)', } },
+                        // { latLng: [1.46, 173.03], name: 'Kiribati' },
+                        // { latLng: [-21.13, -175.2], name: 'Tonga' },
+                        // { latLng: [15.3, -61.38], name: 'Dominica' },
+                        // { latLng: [-20.2, 57.5], name: 'Mauritius' },
+                        // { latLng: [26.02, 50.55], name: 'Bahrain' },
+                        // { latLng: [0.33, 6.73], name: 'São Tomé and Príncipe' }
+                    ],
+
+                });
+            });
+        </script>
+
+</body>
+
+</html>

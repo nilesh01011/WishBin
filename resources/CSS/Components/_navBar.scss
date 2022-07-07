@@ -1,0 +1,156 @@
+@import "./roots";
+
+nav.navbar {
+    width: 100%;
+    height: 65px;
+    @extend %DisplayFlexSpaceBetween;
+    z-index: 85;
+    padding: 0.7rem 3rem;
+    background: $background_color;
+
+    & .middle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid $dark_color;
+        line-height: 40px;
+        text-align: center;
+        font-weight: 700;
+        color: $dark_color;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    & .right {
+        width: auto;
+        height: 100%;
+        font-weight: 800;
+        @extend %DisplayFlexSpaceBetween;
+        gap: 20px;
+        padding-right: 0.6rem;
+        font-family: "Plus Jakarta Sans";
+        font-weight: 800;
+        color: #121212;
+
+        & .one,
+        & .two,
+        & .three {
+            cursor: pointer;
+            position: relative;
+            @extend %DisplayFlexCenter;
+            justify-content: unset;
+            flex-direction: column;
+            transition: $CardsTransition_03;
+            color: #121212;
+
+
+            & small {
+                font-size: 10px;
+                padding-top: 5px;
+                position: relative;
+                @extend %DisplayFlexCenter;
+                font-family: "Plus Jakarta Sans";
+                font-weight: 700;
+
+                &.active::after {
+                    content: "";
+                    width: 100%;
+                    height: 3px;
+                    border-radius: 10px;
+                    background: #f16565;
+                    position: absolute;
+                    bottom: -5px;
+                }
+            }
+
+            & .count {
+                position: absolute;
+                top: -4px;
+                background: #f16565;
+                color: #fff;
+                border-radius: 50%;
+                width: 15px;
+                height: 15px;
+                font-size: 10px;
+                @extend %DisplayFlexCenter;
+                transform: scale(0);
+                transition: $CardsTransition_04;
+            }
+
+            &.active {
+                color: $dark_color;
+
+                & .count {
+                    transform: scale(1);
+                }
+            }
+        }
+
+        & .one .count {
+            left: 25px;
+        }
+
+        & .two .count {
+            left: 22px;
+        }
+
+        & .three .count {
+            left: 18px;
+        }
+    }
+}
+
+#left {
+    width: auto;
+    margin-right: 0;
+    color: $dark_color;
+    @extend %DisplayFlexCenter;
+
+    & .logo {
+        width: 28px;
+        height: 100%;
+        cursor: pointer;
+        @extend %DisplayFlexCenter;
+        flex-direction: column;
+
+        & span:nth-child(1),
+        & span:nth-child(2),
+        & span:nth-child(3) {
+            height: 4px;
+            width: 100%;
+            border-radius: 5px;
+            background: $dark_color;
+            display: block;
+            position: relative;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        & span:nth-child(2) {
+            margin: 6px 0;
+        }
+    }
+
+    & .shop {
+        width: 40px;
+        height: 40px;
+        margin-left: 0.5rem;
+
+        & a {
+            width: 100%;
+            height: 100%;
+            font-weight: 700;
+            @extend %DisplayFlexCenter;
+            flex-direction: column;
+            cursor: pointer;
+            color: $dark_color;
+
+            & i {
+                font-size: 26px;
+            }
+
+        }
+    }
+}

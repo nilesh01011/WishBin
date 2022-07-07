@@ -1,0 +1,70 @@
+#ErrorPages .error_content .images img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+#ErrorPages .error_content, #ErrorPages {
+  height: 100%;
+  width: 100%;
+}
+
+#ErrorPages .error_content .content, #ErrorPages .error_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#ErrorPages {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+#ErrorPages .error_content {
+  background: #fff;
+  border-radius: 20px;
+  padding: 1.5rem;
+  flex-direction: column;
+}
+#ErrorPages .error_content .images {
+  height: 300px;
+}
+#ErrorPages .error_content .content {
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+}
+#ErrorPages .error_content .content h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 500 !important;
+  margin-top: 3rem;
+}
+#ErrorPages .error_content .content p {
+  margin: 1.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 300;
+  text-align: center;
+  color: #96a0a5;
+}
+#ErrorPages .error_content .content a {
+  padding: 1rem 1.3rem;
+  border-radius: 10px;
+  background: #e7edef;
+  color: #000;
+  box-shadow: 0 0 1px #000;
+  transition: 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  width: 270px;
+  height: fit-content;
+  cursor: pointer;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  font-size: 14px;
+  text-align: center;
+}
+#ErrorPages .error_content .content a i {
+  margin-right: 0.5rem;
+}
+#ErrorPages .error_content .content a:hover {
+  background: #000;
+  color: #e7edef;
+}

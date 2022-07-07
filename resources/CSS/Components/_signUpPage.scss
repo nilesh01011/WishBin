@@ -1,0 +1,344 @@
+@import "./roots";
+
+@keyframes animate {
+    0% {
+        transform: scaleX(0);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes animateBack {
+    0% {
+        transform: scaleX(1);
+    }
+
+    100% {
+        transform: scaleX(0);
+    }
+}
+
+.popup_signIn_Up {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    visibility: hidden;
+    transition: $CardsTransition_04;
+
+    & .container {
+        @extend %DisplayFlexCenter;
+        @extend %WidthHeight;
+        position: relative;
+
+        &.active {
+            & .signUp {
+                opacity: 1;
+                transform: translateX(0px);
+            }
+        }
+    }
+
+    & .popup {
+        width: 400px;
+        height: max-content;
+        padding: 2rem 1.5rem;
+        background: $white;
+        border-radius: $border_radius;
+        box-sizing: border-box;
+        z-index: 80;
+        position: absolute;
+        top: -100%;
+        left: -50%;
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+        transition: opacity $CardsTransition_03, top 1s ease-in-out,
+            transform 1s ease-in-out;
+        box-shadow: 0 2px 5px 0 $RGBA_04;
+
+        & .CrossPopup {
+            width: 100%;
+            text-align: right;
+
+            & i {
+                color: $dark_color;
+                font-weight: 100;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+        }
+
+        & .signUp_form {
+            @extend %WidthHeight;
+            z-index: 6;
+            transform: translateX(0px);
+            transition: 1.1s 0.4s $CubicBerier;
+            opacity: 1;
+
+            & .progress_bar {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                margin: 10px 0;
+
+                & .step {
+                    text-align: center;
+                    position: relative;
+                    width: 100%;
+
+                    & p {
+                        font-size: 0.8rem;
+                        margin-bottom: 8px;
+                    }
+
+                    & .bullet {
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 50%;
+                        text-align: center;
+                        opacity: 0.3;
+                        background: $dark_color;
+                        color: $background_color;
+                        transition: all $CardsTransition_1;
+                        position: relative;
+                        display: inline-block;
+
+                        &.active {
+                            opacity: 1;
+                        }
+
+                        & span {
+                            line-height: 20px;
+                            font-size: 0.7rem;
+                            font-weight: 500;
+                            position: absolute;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            z-index: 2;
+                        }
+                    }
+
+                    &:not(:last-child) {
+                        & .bullet::before {
+                            content: '';
+                            position: absolute;
+                            height: 3px;
+                            width: 125px;
+                            left: 36px;
+                            bottom: 7px;
+                            border-radius: 5px;
+                            background: $dark_color;
+                            animation: animateBack 0.8s linear forwards alternate;
+                            transform: scaleX(1);
+                            transform-origin: left;
+                        }
+                    }
+
+                    & .check {
+                        display: none;
+                        font-size: 0.7rem;
+                        font-weight: 500;
+                        position: absolute;
+                        top: 70%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        color: $background_color;
+                    }
+                }
+            }
+
+            & .error {
+                width: 100%;
+                height: auto;
+                margin: 0.7rem 0;
+
+                & span {
+                    font-size: 14px;
+                    color: $countingColor;
+                    font-weight: 400;
+                }
+            }
+        }
+
+        & h1.title {
+            font-size: 2rem;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        & .form_outer {
+            width: 100%;
+            overflow: hidden;
+
+            & form {
+                display: flex;
+                width: 100%;
+
+                & .page_ {
+                    transition: $CardsTransition_1;
+                }
+
+                & .pers_deta {
+                    transform: translateX(-1000px);
+                }
+
+                & .field {
+                    height: 40px;
+                    width: 352px;
+                    margin-bottom: 15px;
+                    transition: 1.1s $CardsTransition_04;
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+
+                    & textarea,
+                    & input {
+                        @extend %WidthHeight;
+                        padding: 8px 10px;
+                        outline: none;
+                        border: 1px solid lightgray;
+                        border-radius: 10px;
+                        font-size: 0.8rem;
+                        margin: 0;
+                        transition: 0.1s $CubicBerier;
+                    }
+
+                    & textarea {
+                        resize: none;
+                    }
+
+                    & textarea:focus,
+                    & input:focus {
+                        border-color: $dark_color;
+                    }
+
+                    & textarea::placeholder,
+                    & input::placeholder {
+                        color: $light_Grey;
+                        font-weight: 500;
+                    }
+
+                    & i {
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        bottom: 0;
+                        padding: 0.8rem;
+                        cursor: pointer;
+                    }
+                }
+
+                & .btns {
+                    display: flex;
+                    width: 100%;
+
+                    & button {
+                        width: 100%;
+                        height: 40px;
+                        letter-spacing: 1px;
+                        background: $dark_color;
+                        color: $white;
+                        cursor: pointer;
+                        border-radius: $border_radius;
+                        margin-top: 10px;
+
+                        &.prev {
+                            margin-right: 10px;
+                            background: none;
+                            border: 2px solid $dark_color;
+                            color: $dark_color;
+                        }
+
+                        &:active {
+                            position: relative;
+                            top: 1px;
+                        }
+                    }
+                }
+            }
+        }
+
+        & .signUp_form .signInBtn {
+            width: 100%;
+            height: fit-content;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 15px;
+            overflow: hidden;
+
+            & h1 {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+                position: relative;
+
+                &::after {
+                    left: 115%;
+                }
+
+                &::before {
+                    right: 115%;
+                }
+
+                &::before,
+                &::after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    width: 100%;
+                    height: 1px;
+                    background: $dark_color;
+                    border-radius: 5px;
+                }
+            }
+
+            & button {
+                width: 100%;
+                height: 40px;
+                color: $dark_color;
+                cursor: pointer;
+                border-radius: $border_radius;
+                border: 2px solid $dark_color;
+                letter-spacing: 1px;
+                background: none;
+                font-weight: 900;
+
+                &:active {
+                    position: relative;
+                    top: 1px;
+                }
+            }
+        }
+    }
+
+    & .popup.nextStep {
+        & .signUp_form .progress_bar .step .bullet:before {
+            animation: animate 0.8s linear forwards alternate;
+            transform: scaleX(0);
+            transform-origin: left;
+        }
+
+        & .form_outer form .pers_deta {
+            transform: translateX(-100%);
+        }
+
+        & .form_outer form .acc_deta {
+            transform: translateX(-1000px);
+        }
+    }
+
+    &.active {
+        & .popup {
+            opacity: 1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.43, 1.19);
+        }
+    }
+}

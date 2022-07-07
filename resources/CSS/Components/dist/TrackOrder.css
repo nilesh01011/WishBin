@@ -1,0 +1,310 @@
+#orderTrackerContainer {
+  width: 100%;
+  height: 100%;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+#orderTrackerContainer #adminhr {
+  margin: 1rem 0;
+  border-color: #d6d6d6;
+}
+#orderTrackerContainer .order_contents {
+  padding-top: 20px;
+  width: 100%;
+  height: 100%;
+}
+#orderTrackerContainer .order_contents .orderTrack_heading {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+#orderTrackerContainer .order_contents .orderTrack_heading h1 {
+  font-weight: 600;
+}
+#orderTrackerContainer .order_contents .orderTrack_heading span {
+  color: #28c76f;
+  font-weight: 600;
+  background: #fff;
+  padding: 0.8rem 1rem;
+  border-radius: 20px;
+}
+#orderTrackerContainer .order_contents .mainContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+#orderTrackerContainer .order_contents .mainContainer .right, #orderTrackerContainer .order_contents .mainContainer .left {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 20px;
+}
+#orderTrackerContainer .order_contents .mainContainer .left {
+  position: sticky;
+  top: 0;
+}
+#orderTrackerContainer .order_contents .mainContainer .left ul li {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+#orderTrackerContainer .order_contents .mainContainer .left ul li:not(:last-child) {
+  padding-bottom: 30px;
+}
+#orderTrackerContainer .order_contents .mainContainer .left ul li h6 {
+  font-size: 1rem;
+  font-weight: 400;
+  position: relative;
+}
+#orderTrackerContainer .order_contents .mainContainer .left ul li h6::before {
+  content: "";
+  position: absolute;
+  margin-top: 25px;
+  top: 0;
+  left: -17px;
+  width: 2px;
+  height: 100%;
+  background: #000;
+}
+#orderTrackerContainer .order_contents .mainContainer .left ul li h6.removeLine::before {
+  display: none;
+}
+#orderTrackerContainer .order_contents .mainContainer .left ul li .icons {
+  margin-right: 20px;
+}
+#orderTrackerContainer .order_contents .mainContainer .left ul li .icons i {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #000;
+  width: 18px;
+}
+#orderTrackerContainer .order_contents .mainContainer .left ul li .icons i.fas::before, #orderTrackerContainer .order_contents .mainContainer .left ul li .icons i.fal::before, #orderTrackerContainer .order_contents .mainContainer .left ul li .icons i.fas::before, #orderTrackerContainer .order_contents .mainContainer .left ul li .icons i.far::before {
+  font-size: 18px !important;
+}
+#orderTrackerContainer .order_contents .mainContainer .left ul li span {
+  position: relative;
+  padding-left: 20px;
+  transition: all 0.5s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+#orderTrackerContainer .order_contents .mainContainer .left ul li span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -50%;
+  width: 8px;
+  height: 8px;
+  background: #000;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  box-shadow: none;
+}
+#orderTrackerContainer .order_contents .mainContainer .left ul li.step-compeleted span::after {
+  background: #aaa;
+  box-shadow: none;
+}
+#orderTrackerContainer .order_contents .mainContainer .left ul li.step-compeleted h6 {
+  color: #aaa;
+  font-weight: 600;
+}
+#orderTrackerContainer .order_contents .mainContainer .left ul li.step-compeleted h6::before {
+  background: #aaa;
+}
+#orderTrackerContainer .order_contents .mainContainer .left ul li.step-compeleted .icons i {
+  font-weight: 600;
+  color: #aaa;
+}
+#orderTrackerContainer .order_contents .mainContainer .left ul li.current-status .icons i {
+  color: #28c76f;
+}
+#orderTrackerContainer .order_contents .mainContainer .left ul li.current-status h6 {
+  color: #28c76f;
+  font-weight: 600;
+}
+#orderTrackerContainer .order_contents .mainContainer .left ul li.current-status span {
+  margin-bottom: 6px;
+}
+#orderTrackerContainer .order_contents .mainContainer .left ul li.current-status span::after {
+  background: #28c76f;
+  box-shadow: 0px 0px 0px 5px rgba(40, 199, 111, 0.4);
+  transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  animation: pulse 2s 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96) infinite;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .topInvoiceContent {
+  width: 100%;
+  height: 100%;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .topInvoiceContent .heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .topInvoiceContent .heading .icons {
+  height: 100px;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .topInvoiceContent .heading .icons img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .topInvoiceContent .heading .rightHeading .confirmOrder {
+  margin-bottom: 0.6rem;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .middleHeading {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .middleHeading .orderDate .title {
+  width: max-content;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .middleHeading .shippingAddress {
+  width: 120px;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .middleHeading .head {
+  width: max-content;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .middleHeading .head span {
+  width: max-content;
+  color: #b4b7bd;
+  font-size: 12px;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .middleHeading .title span {
+  font-size: 12px;
+  font-weight: 800;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .orderProducts .items {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .orderProducts .items:not(:last-child) {
+  margin-bottom: 1.2rem;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .orderProducts .items .orderLeft {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .orderProducts .items .orderLeft .image {
+  height: 60px;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .orderProducts .items .orderLeft .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .orderProducts .items .orderLeft .content .title {
+  margin-bottom: 0.2rem;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .orderProducts .items .orderLeft .content .title span {
+  font-size: 14px;
+  font-weight: 800;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .orderProducts .items .orderLeft .content .qty span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #b4b7bd;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .orderProducts .items .orderRight .itemPrice span {
+  font-size: 14px;
+  font-weight: 800;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .orderFooter {
+  width: 50%;
+  margin-left: auto;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .orderFooter .content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .orderFooter .content .footerOrderLeft span {
+  font-size: 14px;
+  font-weight: 800;
+  color: #aaa;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .orderFooter .content .footerOrderLeft .PaymentMode {
+  margin-bottom: 0.3rem;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .orderFooter .content .footerOrderLeft .shipping {
+  margin: 0.3em 0;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .orderFooter .content .footerOrderLeft .taxamount {
+  margin-top: 0.3rem;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .orderFooter .content .footerOrderRight {
+  text-align: right;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .orderFooter .content .footerOrderRight span {
+  font-size: 14px;
+  font-weight: 800;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .orderFooter .content .footerOrderRight .PaymentMode {
+  margin-bottom: 0.3rem;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .orderFooter .content .footerOrderRight .shipping {
+  margin: 0.3rem 0;
+  color: #28c76f;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .orderFooter .content .footerOrderRight .taxamount {
+  margin-top: 0.3rem;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .orderFooter .total {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#orderTrackerContainer .order_contents .mainContainer .right .orderFooter .total span {
+  font-weight: 800;
+  font-size: 14px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.74);
+    box-shadow: 0px 0px 0px 5px rgba(40, 199, 111, 0.3);
+    -webkit-box-shadow: 0px 0px 0px 5px rgba(40, 199, 111, 0.3);
+  }
+  50% {
+    transform: scale(0.94);
+    box-shadow: 0 0 0 4px rgba(40, 199, 111, 0.4);
+    -webkit-box-shadow: 0 0 0 4px rgba(40, 199, 111, 0.4);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 4px rgba(224, 201, 207, 0);
+    -webkit-box-shadow: 0 0 0 4px rgba(224, 201, 207, 0);
+  }
+  100% {
+    transform: scale(0.94);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+#trackLine li {
+  position: relative;
+}
+#trackLine li small.times {
+  position: absolute !important;
+  right: 0;
+  top: 0;
+  font-weight: 600;
+}
+#trackLine li small.times::after {
+  display: none;
+}

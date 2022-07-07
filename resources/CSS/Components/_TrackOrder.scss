@@ -1,0 +1,420 @@
+@import './roots';
+
+#orderTrackerContainer {
+    width: 100%;
+    height: 100%;
+    padding-left: 3rem;
+    padding-right: 3rem;
+
+    #adminhr {
+        margin: 1rem 0;
+        border-color: $light_Grey_D6;
+    }
+
+    & .order_contents {
+        padding-top: 20px;
+        width: 100%;
+        height: 100%;
+
+        & .orderTrack_heading {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+
+            & h1 {
+                font-weight: 600;
+            }
+
+            & span {
+                color: $adminSuccess;
+                font-weight: 600;
+                background: $white;
+                padding: 0.8rem 1rem;
+                border-radius: 20px;
+            }
+        }
+
+        & .mainContainer {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+
+            & .right,
+            & .left {
+                width: 100%;
+                height: 100%;
+                background: $white;
+                padding: 20px;
+                border-radius: 20px;
+            }
+
+            & .left {
+                position: sticky;
+                top: 0;
+
+                & ul {
+                    & li {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+
+                        &:not(:last-child) {
+                            padding-bottom: 30px;
+                        }
+
+                        & h6 {
+                            font-size: 1rem;
+                            font-weight: 400;
+                            position: relative;
+
+                            &::before {
+                                content: '';
+                                position: absolute;
+                                margin-top: 25px;
+                                top: 0;
+                                left: -17px;
+                                width: 2px;
+                                height: 100%;
+                                background: $dark_color;
+                            }
+
+                            &.removeLine::before {
+                                display: none;
+                            }
+
+                        }
+
+                        & .icons {
+                            margin-right: 20px;
+
+                            & i {
+                                font-size: 1.4rem;
+                                font-weight: 400;
+                                color: $dark_color;
+                                width: 18px;
+
+                                &.fas::before,
+                                &.fal::before,
+                                &.fas::before,
+                                &.far::before {
+                                    font-size: 18px !important;
+                                }
+                            }
+                        }
+
+                        & span {
+                            position: relative;
+                            padding-left: 20px;
+                            transition: all $CardsTransition_05;
+
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                left: 0;
+                                top: -50%;
+                                width: 8px;
+                                height: 8px;
+                                background: $dark_color;
+                                border-radius: 50%;
+                                transform: translateY(-50%);
+                                // box-shadow: 0px 0px 0px 5px rgba(40, 199, 111, 0.4);
+                                box-shadow: none;
+                            }
+                        }
+
+                        &.step-compeleted {
+
+                            & span::after {
+                                background: $Dark_Grey;
+                                box-shadow: none;
+                            }
+
+                            & h6 {
+                                color: $Dark_Grey;
+                                font-weight: 600;
+
+                                &::before {
+                                    background: $Dark_Grey;
+                                }
+                            }
+
+                            & .icons {
+                                & i {
+                                    font-weight: 600;
+                                    color: $Dark_Grey;
+                                }
+                            }
+                        }
+
+                        &.current-status {
+
+                            & .icons {
+                                & i {
+                                    color: $adminSuccess;
+                                }
+                            }
+
+                            & h6 {
+                                color: $adminSuccess;
+                                font-weight: 600;
+                            }
+
+                            & span {
+                                margin-bottom: 6px;
+
+                                &::after {
+                                    background: $adminSuccess;
+                                    box-shadow: 0px 0px 0px 5px rgba(40, 199, 111, 0.4);
+                                    transition: all $CardsTransition_03;
+                                    animation: pulse 2s $CardsTransition_03 infinite;
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+
+            & .right {
+                & .topInvoiceContent {
+                    width: 100%;
+                    height: 100%;
+
+                    & .heading {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        & .icons {
+                            height: 100px;
+
+                            & img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: contain;
+                            }
+                        }
+
+                        & .rightHeading {
+                            & .confirmOrder {
+                                margin-bottom: 0.6rem;
+                            }
+                        }
+                    }
+                }
+
+                & .middleHeading {
+                    width: 100%;
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: space-between;
+                    gap: 20px;
+
+                    & .orderDate {
+                        & .title {
+                            width: max-content;
+                        }
+                    }
+
+                    & .shippingAddress {
+                        width: 120px;
+                    }
+
+                    & .head {
+                        width: max-content;
+
+                        & span {
+                            width: max-content;
+                            color: $adminText-light;
+                            font-size: 12px;
+                            margin-bottom: 1rem;
+                            font-weight: 800;
+                        }
+                    }
+
+                    & .title {
+
+                        & span {
+                            font-size: 12px;
+                            font-weight: 800;
+                        }
+                    }
+                }
+
+                & .orderProducts {
+                    & .items {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        &:not(:last-child) {
+                            margin-bottom: 1.2rem;
+                        }
+
+                        & .orderLeft {
+                            display: flex;
+                            align-items: center;
+                            gap: 20px;
+
+                            & .image {
+                                height: 60px;
+
+                                & img {
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: contain;
+                                }
+                            }
+
+                            & .content {
+                                & .title {
+                                    margin-bottom: 0.2rem;
+
+                                    & span {
+                                        font-size: 14px;
+                                        font-weight: 800;
+                                    }
+                                }
+
+                                & .qty {
+                                    & span {
+                                        font-size: 14px;
+                                        font-weight: 600;
+                                        color: $adminText-light;
+                                    }
+                                }
+                            }
+                        }
+
+                        & .orderRight {
+                            & .itemPrice {
+                                & span {
+                                    font-size: 14px;
+                                    font-weight: 800;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                & .orderFooter {
+                    width: 50%;
+                    margin-left: auto;
+
+                    & .content {
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        & .footerOrderLeft {
+                            & span {
+                                font-size: 14px;
+                                font-weight: 800;
+                                color: $Dark_Grey;
+                            }
+
+                            & .PaymentMode {
+                                margin-bottom: 0.3rem;
+                            }
+
+                            & .shipping {
+                                margin: 0.3em 0;
+                            }
+
+                            & .taxamount {
+                                margin-top: 0.3rem;
+                            }
+                        }
+
+                        & .footerOrderRight {
+                            text-align: right;
+
+                            & span {
+                                font-size: 14px;
+                                font-weight: 800;
+                            }
+
+                            & .PaymentMode {
+                                margin-bottom: 0.3rem;
+                            }
+
+                            & .shipping {
+                                margin: 0.3rem 0;
+                                color: $adminSuccess;
+                            }
+
+                            & .taxamount {
+                                margin-top: 0.3rem;
+                            }
+                        }
+                    }
+
+                    & .total {
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        & span {
+                            font-weight: 800;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.74);
+        box-shadow: 0px 0px 0px 5px rgba(40, 199, 111, 0.3);
+        -webkit-box-shadow: 0px 0px 0px 5px rgba(40, 199, 111, 0.3);
+    }
+
+    50% {
+        transform: scale(0.94);
+        box-shadow: 0 0 0 4px rgba(40, 199, 111, 0.4);
+        -webkit-box-shadow: 0 0 0 4px rgba(40, 199, 111, 0.4);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 4px rgba(224, 201, 207, 0);
+        -webkit-box-shadow: 0 0 0 4px rgba(224, 201, 207, 0);
+    }
+
+    100% {
+        transform: scale(0.94);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+        -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+#trackLine {
+    & li {
+        position: relative;
+
+        & small.times {
+            position: absolute !important;
+            right: 0;
+            top: 0;
+            font-weight: 600;
+
+            &::after {
+                display: none;
+            }
+        }
+    }
+}

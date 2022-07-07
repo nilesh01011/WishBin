@@ -1,0 +1,260 @@
+@import "./roots";
+
+#WishList {
+    @extend %WidthHeight;
+    padding-left: $padding;
+    padding-right: $padding;
+
+    & .wishlist_content {
+        @extend %WidthHeight;
+        background: $white;
+        border-radius: $border_radius;
+        @extend %DisplayFlexCenter;
+        flex-direction: column;
+        padding: 1.5rem;
+
+        & .hr {
+            width: 100%;
+            border-bottom: 1px solid $light_Grey_D6;
+            margin: 1.5rem 0;
+        }
+
+        & .whishHead {
+            width: 100%;
+
+            & h1 {
+                font-size: 24px;
+                font-weight: 450;
+                font-family: 'Poppins', sans-serif;
+
+                & span {
+                    font-weight: 300;
+                    padding-left: 0.2rem;
+                }
+            }
+        }
+
+        & .wishlist_container {
+            @extend %WidthHeight;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+
+            & .empty_list {
+                @extend %WidthHeight;
+                @extend %DisplayFlexCenter;
+                flex-direction: column;
+
+
+                & .images {
+                    height: 350px;
+
+                    & img {
+                        @extend %AllImagesContain;
+                    }
+                }
+
+                & .content {
+                    text-align: center;
+
+                    & h1 {
+                        font-size: 2.5rem;
+                        font-family: 'Poppins', sans-serif;
+                        font-weight: 500;
+                        margin-top: 3rem;
+                    }
+
+                    & p {
+                        color: $light_Grey;
+                        margin-top: 1rem;
+                        margin-bottom: 1.5rem;
+                        font-size: 1.25rem;
+                        font-weight: 300;
+                        text-align: center;
+                    }
+
+                    & button {
+                        padding: 0.5rem 1.3rem;
+                        border-radius: 0.5rem;
+                        background: $background_color;
+                        color: $dark_color;
+                        box-shadow: $BoxShadow_01 $dark_color;
+                        transition: $CardsTransition_03;
+                        width: 100%;
+                        margin: 0 auto;
+                        height: 40px !important;
+                        cursor: pointer;
+                        @extend %DisplayFlexCenter;
+                        font-weight: 500;
+                        margin-bottom: 1.5rem;
+                        font-size: 14px;
+
+                        & i {
+                            margin-right: 0.5rem;
+                        }
+
+                        &:hover {
+                            background: $dark_color;
+                            color: $background_color;
+                        }
+
+                        &:active {
+                            position: relative;
+                            top: 2px;
+                        }
+                    }
+                }
+
+            }
+
+            & .wishList_card {
+                width: 255px;
+                height: 280px;
+                background: $background_color;
+                border-radius: 10px;
+                position: relative;
+                transition: $CardsTransition_03;
+                outline: 1px solid #e9e9eb;
+                box-shadow: $BoxShadow_02 $RGBA_04;
+
+                & .delete_icons {
+                    position: absolute;
+                    right: 10px;
+                    top: 10px;
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 50%;
+                    background: $dark_color;
+                    @extend %DisplayFlexCenter;
+                    cursor: pointer;
+                    box-shadow: $BoxShadow_03 $RGBA_03;
+                    transition: $CardsTransition_03;
+
+
+                    &:active {
+                        transform: scale(0.9);
+                    }
+
+
+                    & i {
+                        color: $white;
+                        font-size: 14px;
+                        font-weight: 300;
+                    }
+
+                    &:hover {
+                        background: $white;
+
+                        & i {
+                            color: $dark_color;
+                        }
+                    }
+                }
+
+                & .images {
+                    height: 56%;
+                    margin-bottom: 0;
+                    padding: 0.5rem;
+
+                    & img {
+                        @extend %AllImagesContain;
+                    }
+                }
+
+                & .content {
+                    width: 100%;
+                    height: 44%;
+                    padding: 10px;
+                    background: $white;
+                    border-radius: 10px;
+                    box-sizing: border-box;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    flex-direction: column;
+
+                    & .wish_title {
+                        width: 100%;
+
+                        & p {
+                            font-size: 16px;
+                            text-align: left;
+                            color: #000;
+                            font-weight: 500;
+                            margin-top: 0;
+                            margin-bottom: 6px;
+                        }
+                    }
+
+                    & .price {
+                        width: 100%;
+                        text-align: left;
+                        display: flex;
+                        align-items: baseline;
+                        margin-bottom: 8px;
+                        justify-content: space-between;
+
+                        & span {
+                            font-size: 15px;
+                        }
+
+                        & .prices {
+                            color: $countingColor;
+                            font-weight: 600;
+
+                            & s {
+                                color: #6c7878;
+                                padding-left: 0.5rem;
+                                font-weight: 500;
+                            }
+                        }
+
+                        & .hr {
+                            width: 1px;
+                            height: 18px;
+                            margin: auto 0;
+                            background: $light_Grey_D5;
+                        }
+
+                        & a {
+                            color: $dark_color;
+
+                            & .view_details {
+                                cursor: pointer;
+
+                                &:hover {
+                                    text-decoration: underline;
+                                    color: $countingColor;
+                                }
+                            }
+                        }
+                    }
+
+                    & .Move_bagBtn {
+                        height: 34px;
+                        width: 100%;
+
+                        & button {
+                            @extend %WidthHeight;
+                            border-radius: 4px;
+                            font-size: 12px;
+                            font-weight: 700;
+                            letter-spacing: 0.5px;
+                            background: $dark_color;
+                            color: $white;
+                            box-shadow: $BoxShadow_03 $RGBA_03;
+                            transition: $CardsTransition_03;
+                            cursor: pointer;
+
+                            & i {
+                                margin-right: 0.4rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

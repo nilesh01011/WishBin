@@ -1,0 +1,113 @@
+#SideBar .contents {
+  height: 100%;
+  width: 100%;
+}
+
+#laptops .lapContent li .list, #SideBar .contents ul li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#overlay {
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.7;
+  visibility: hidden;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+#SideBar {
+  width: fit-content;
+  height: 100vh;
+  position: fixed;
+  left: -100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  transition: left 0.5s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+#SideBar .sideBar_content {
+  width: 330px;
+  height: 100vh;
+  background: #fff;
+  z-index: 10;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+#SideBar .sideBar_content .sidebar_Cross {
+  width: 100%;
+  text-align: right;
+  padding: 1rem 1.8rem;
+}
+#SideBar .sideBar_content .sidebar_Cross i {
+  font-size: 24px;
+  cursor: pointer;
+  font-weight: 200;
+}
+#SideBar .contents {
+  overflow-y: scroll;
+  padding-bottom: 100px;
+}
+#SideBar .contents ul h5 {
+  padding: 1rem 0 1rem 2rem;
+  margin-bottom: 0;
+  user-select: none;
+  font-size: 1.2rem;
+}
+#SideBar .contents ul li a {
+  color: #96a0a5;
+  padding: 1rem 2rem;
+  width: 100%;
+  cursor: pointer;
+  font-size: 16px;
+}
+#SideBar .contents ul li a:hover {
+  color: #111;
+  background: #e3e6e7;
+}
+
+#laptops a.active {
+  color: #111 !important;
+  background: #e3e6e7;
+}
+#laptops a.active i {
+  transform: rotate(89deg);
+}
+#laptops a i {
+  transform: rotate(0deg);
+  transition: 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+}
+#laptops .lapContent {
+  width: 100%;
+  padding: 0.5rem 0;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  display: none;
+  transition: 0.5s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  background: #e3e6e7;
+}
+#laptops .lapContent li .list {
+  color: #96a0a5;
+  padding: 1rem 2rem;
+  font-size: 14px;
+  width: 100%;
+  cursor: pointer;
+}
+#laptops .lapContent li .list:hover {
+  color: #111;
+  background: #fff;
+}
