@@ -21734,7 +21734,7 @@ try {
 
   var socket;
 
-  if (io()) {
+  if (io) {
     socket = io();
   } // Join the rooms by order id
 

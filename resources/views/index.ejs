@@ -1342,32 +1342,7 @@
                         <div id="CardSwiper">
                             <div class="card_container">
                                 <!-- Products Category -->
-                                <% seeCat.forEach(function (ele) { %>
-                                    <div id="<%= ele.cards_id %>" class="card__">
-                                        <div class="cards">
-                                            <div class="card_content">
-                                                <div class="image">
-                                                    <img src="<%= ele.image %>" loading="lazy" decoding="async"
-                                                        alt="middle_img">
-                                                </div>
-                                                <div class="card_view">
-                                                    <div class="card_add_wrapp">
-                                                        <span>
-                                                            <i class="fas fa-chevron-right"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="overlay_typed">
-                                                <div class="card_name_with_overlay">
-                                                    <h4>
-                                                        <%= ele.title %>
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <% }) %>
+
                             </div>
                         </div>
                     </div>
@@ -2542,10 +2517,11 @@
 
                                 <!-- Computer Three Products -->
 
-                                <!-- =================== Products Cards End ======================== -->
                             </div>
                         </div>
                     </div>
+
+                    <!-- =================== Products Cards End ======================== -->
 
                     <!-- ==================== card_section End =================== -->
                     <div id="banner__">
@@ -2557,7 +2533,7 @@
 
                 </div>
             </div>
-            <!-- data-page="1" End -->
+
             <div id="addToCartPopup">
                 <div class="content">
                     <span>
@@ -2700,8 +2676,14 @@
                         <% } %>
 
                             <li> <a href="#">Customer Service<i class="fas fa-chevron-right"></i></a> </li>
-                            <li><a href="/login">Sign In <i class="fas fa-chevron-right"></i></a></li>
-                            <li><a href="/register">Sign Up <i class="fas fa-chevron-right"></i></a></li>
+
+                            <li> <a href="/contactus">Contact Us<i class="fas fa-chevron-right"></i></a> </li>
+
+                            <% if(!user) { %>
+                                <li><a href="/login">Sign In <i class="fas fa-chevron-right"></i></a></li>
+                                <li><a href="/register">Sign Up <i class="fas fa-chevron-right"></i></a></li>
+                                <% } %>
+
             </ul>
             <% if(admin==='admin' || admin==='super_admin' ) { %>
                 <div id="hr"></div>
@@ -2711,6 +2693,20 @@
                     </li>
                 </ul>
                 <% } %>
+
+                    <% if(user) { %>
+                        <div id="hr"></div>
+                        <ul style="padding-left:0;">
+                            <div class="buttons">
+                                <form id="logoutBtn" action="/logout" method="POST">
+                                    <button onclick="document.getElementById('logout')" type="submit">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        Logout
+                                    </button>
+                                </form>
+                            </div>
+                        </ul>
+                        <% } %>
         </div>
     </div>
 </div>

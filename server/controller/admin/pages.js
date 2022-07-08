@@ -82,7 +82,7 @@ const CustomerPage = async (req, res) => {
 const OrderPage = async (req, res) => {
   try {
     const messages = await Messages.find().limit(3);
-    const AllMessages = await Messages.find();
+    const AllMessages = await Messages.find({});
 
     const adminUser = req.user;
 

@@ -210,12 +210,139 @@ for (let i = 0; i < borderWish.length; i++) {
 
 // ===============================================================
 
+import axios from 'axios'; // its allowed to make HTTP request to both POST and GET request
+
 let SeeMoreCatCard = document.querySelector('#SeeMore .buttons');
 let seeMoreContainer = document.querySelector('#SeeMore');
+let SeeMoreCategory = document.querySelector(
+  '#product_json #CardSwiper .card_container'
+);
+
+function seemoreCategory_Product() {
+  axios
+    .post('/seemorecategory_product')
+    .then((resp) => {
+      let SeemoreCategoryData = resp.data.getCategory;
+
+      SeemoreCategoryData.forEach((ele) => {
+        SeeMoreCategory.innerHTML += `
+        <div id="${ele.cards_id}" class="card__">
+          <div class="cards">
+              <div class="card_content">
+                  <div class="image">
+                      <img src="${ele.image}" loading="lazy" decoding="async"
+                          alt="middle_img">
+                  </div>
+                  <div class="card_view">
+                      <div class="card_add_wrapp">
+                          <span>
+                              <i class="fas fa-chevron-right"></i>
+                          </span>
+                      </div>
+                  </div>
+              </div>
+              <div class="overlay_typed">
+                  <div class="card_name_with_overlay">
+                      <h4>
+                          ${ele.title}
+                      </h4>
+                  </div>
+              </div>
+          </div>
+        </div>
+        `;
+      });
+
+      CategoryLinks();
+
+      // ======Category End
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
+function CategoryLinks() {
+  let card_game = document.querySelectorAll('#card_games');
+
+  card_game.forEach((ele) => {
+    ele.addEventListener('click', () => {
+      window.open('./gameproducts', '_blank');
+    });
+  });
+
+  let card_cloths = document.querySelectorAll('#card_cloths');
+
+  card_cloths.forEach((ele) => {
+    ele.addEventListener('click', () => {
+      window.open('./clothproducts', '_blank');
+    });
+  });
+
+  let card_groceries = document.querySelectorAll('#card_groceries');
+
+  card_groceries.forEach((ele) => {
+    ele.addEventListener('click', () => {
+      window.open('./groceriesproducts', '_blank');
+    });
+  });
+
+  let card_furniture = document.querySelectorAll('#card_furniture');
+
+  card_furniture.forEach((ele) => {
+    ele.addEventListener('click', () => {
+      window.open('./furnitureproducts', '_blank');
+    });
+  });
+
+  let card_mobiles = document.querySelectorAll('#card_mobiles');
+
+  card_mobiles.forEach((ele) => {
+    ele.addEventListener('click', () => {
+      window.open('./mobileproducts', '_blank');
+    });
+  });
+
+  let card_computer = document.querySelectorAll('#card_computer');
+
+  card_computer.forEach((ele) => {
+    ele.addEventListener('click', () => {
+      window.open('./computerproducts', '_blank');
+    });
+  });
+
+  let card_electronic = document.querySelectorAll('#card_electronic');
+
+  card_electronic.forEach((ele) => {
+    ele.addEventListener('click', () => {
+      window.open('./electronicproduct', '_blank');
+    });
+  });
+
+  let card_toys = document.querySelectorAll('#card_toys');
+
+  card_toys.forEach((ele) => {
+    ele.addEventListener('click', () => {
+      window.open('./toysproducts', '_blank');
+    });
+  });
+
+  let card_baby = document.querySelectorAll('#card_baby');
+
+  card_baby.forEach((ele) => {
+    ele.addEventListener('click', () => {
+      window.open('./babyclothproducts', '_blank');
+    });
+  });
+}
+
+// ========================Category Links End=============================
 
 if (SeeMoreCatCard) {
   SeeMoreCatCard.addEventListener('click', () => {
     let loading = SeeMoreCatCard.querySelector('#SeeMore button');
+
+    seemoreCategory_Product();
 
     if (SeeMoreCatCard) {
       setInterval(() => {
@@ -229,8 +356,6 @@ if (SeeMoreCatCard) {
 }
 
 // =========================Search Data===========================
-
-import axios from 'axios'; // its allowed to make HTTP request to both POST and GET request
 
 let searchInput = document.querySelector('#searchInput');
 

@@ -67,10 +67,6 @@ const homeIndex = async (req, res) => {
   const AsusLap = await Products.findOne({ title: 'ASUS ROG Laptop' });
 
   // SeeMore Category and Products
-  const SeeMoreCategory = await SeeMoreModel.find();
-
-  // Category End
-  // ===============
 
   const seemoreProToys = await Products.findOne({ title: 'Pikachu SoftToy' });
   const seemoreProElec = await Products.findOne({ title: 'Washing Machine' });
@@ -130,10 +126,6 @@ const homeIndex = async (req, res) => {
     dellap: DellLap,
     // asusLap
     asuslap: AsusLap,
-
-    // SeeMore
-    seeCat: SeeMoreCategory,
-    // Category End
 
     seemoretoy: seemoreProToys,
     seemoreelc: seemoreProElec,
@@ -286,9 +278,20 @@ const SearchDateController = async (req, res) => {
   res.send({ session: searchData });
 };
 
+const seemoreData = async (req, res) => {
+  try {
+    let getCategory = await SeeMoreModel.find();
+
+    res.json({ getCategory });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   homeIndex,
   wishlistAddController,
   SearchDateController,
   SearchPageController,
+  seemoreData,
 };

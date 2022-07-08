@@ -211,6 +211,23 @@ footer,
     }
 }
 
+#logoutBtn {
+    padding: 1rem 2rem;
+    width: 100%;
+
+    & button {
+        width: fit-content;
+        color: $adminDanger;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 1rem;
+
+        & i {
+            margin-right: 0.5rem;
+        }
+    }
+}
+
 
 @import "./Components/WhishList";
 @import "./Components/CartPage";

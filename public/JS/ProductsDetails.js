@@ -4886,6 +4886,7 @@ ATC.addEventListener('click', function () {
   ATC.style.backgroundColor = 'rgb(16, 172, 112)';
   proATC(setData);
   ATC.disabled = true;
+  noty_messages_Toast();
 });
 var BuyNow = document.querySelector('#buyOrAtc .buyNow');
 
@@ -4902,6 +4903,20 @@ BuyNow.addEventListener('click', function () {
   BuyProducts(BuyPro);
   window.location = '/paymentpage';
 });
+var addToCartPopup = document.querySelector('#addToCartPopup');
+
+function noty_messages_Toast() {
+  addToCartPopup.classList.add('active');
+  setTimeout(function () {
+    addToCartPopup.classList.remove('active');
+  }, 3000);
+}
+
+if (addToCartPopup) {
+  addToCartPopup.addEventListener('click', function () {
+    addToCartPopup.classList.remove('active');
+  });
+}
 })();
 
 /******/ })()

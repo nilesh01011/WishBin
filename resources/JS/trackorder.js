@@ -56,7 +56,7 @@ try {
 
   let socket;
 
-  if (io()) {
+  if (io) {
     socket = io();
   }
 

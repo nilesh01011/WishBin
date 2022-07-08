@@ -2652,12 +2652,86 @@ for (var _i = 0; _i < borderWish.length; _i++) {
 } // ===============================================================
 
 
+ // its allowed to make HTTP request to both POST and GET request
+
 var SeeMoreCatCard = document.querySelector('#SeeMore .buttons');
 var seeMoreContainer = document.querySelector('#SeeMore');
+var SeeMoreCategory = document.querySelector('#product_json #CardSwiper .card_container');
+
+function seemoreCategory_Product() {
+  axios__WEBPACK_IMPORTED_MODULE_0___default().post('/seemorecategory_product').then(function (resp) {
+    var SeemoreCategoryData = resp.data.getCategory;
+    SeemoreCategoryData.forEach(function (ele) {
+      SeeMoreCategory.innerHTML += "\n        <div id=\"".concat(ele.cards_id, "\" class=\"card__\">\n          <div class=\"cards\">\n              <div class=\"card_content\">\n                  <div class=\"image\">\n                      <img src=\"").concat(ele.image, "\" loading=\"lazy\" decoding=\"async\"\n                          alt=\"middle_img\">\n                  </div>\n                  <div class=\"card_view\">\n                      <div class=\"card_add_wrapp\">\n                          <span>\n                              <i class=\"fas fa-chevron-right\"></i>\n                          </span>\n                      </div>\n                  </div>\n              </div>\n              <div class=\"overlay_typed\">\n                  <div class=\"card_name_with_overlay\">\n                      <h4>\n                          ").concat(ele.title, "\n                      </h4>\n                  </div>\n              </div>\n          </div>\n        </div>\n        ");
+    });
+    CategoryLinks(); // ======Category End
+  })["catch"](function (err) {
+    console.log(err);
+  });
+}
+
+function CategoryLinks() {
+  var card_game = document.querySelectorAll('#card_games');
+  card_game.forEach(function (ele) {
+    ele.addEventListener('click', function () {
+      window.open('./gameproducts', '_blank');
+    });
+  });
+  var card_cloths = document.querySelectorAll('#card_cloths');
+  card_cloths.forEach(function (ele) {
+    ele.addEventListener('click', function () {
+      window.open('./clothproducts', '_blank');
+    });
+  });
+  var card_groceries = document.querySelectorAll('#card_groceries');
+  card_groceries.forEach(function (ele) {
+    ele.addEventListener('click', function () {
+      window.open('./groceriesproducts', '_blank');
+    });
+  });
+  var card_furniture = document.querySelectorAll('#card_furniture');
+  card_furniture.forEach(function (ele) {
+    ele.addEventListener('click', function () {
+      window.open('./furnitureproducts', '_blank');
+    });
+  });
+  var card_mobiles = document.querySelectorAll('#card_mobiles');
+  card_mobiles.forEach(function (ele) {
+    ele.addEventListener('click', function () {
+      window.open('./mobileproducts', '_blank');
+    });
+  });
+  var card_computer = document.querySelectorAll('#card_computer');
+  card_computer.forEach(function (ele) {
+    ele.addEventListener('click', function () {
+      window.open('./computerproducts', '_blank');
+    });
+  });
+  var card_electronic = document.querySelectorAll('#card_electronic');
+  card_electronic.forEach(function (ele) {
+    ele.addEventListener('click', function () {
+      window.open('./electronicproduct', '_blank');
+    });
+  });
+  var card_toys = document.querySelectorAll('#card_toys');
+  card_toys.forEach(function (ele) {
+    ele.addEventListener('click', function () {
+      window.open('./toysproducts', '_blank');
+    });
+  });
+  var card_baby = document.querySelectorAll('#card_baby');
+  card_baby.forEach(function (ele) {
+    ele.addEventListener('click', function () {
+      window.open('./babyclothproducts', '_blank');
+    });
+  });
+} // ========================Category Links End=============================
+
 
 if (SeeMoreCatCard) {
   SeeMoreCatCard.addEventListener('click', function () {
     var loading = SeeMoreCatCard.querySelector('#SeeMore button');
+    seemoreCategory_Product();
 
     if (SeeMoreCatCard) {
       setInterval(function () {
@@ -2669,8 +2743,6 @@ if (SeeMoreCatCard) {
   });
 } // =========================Search Data===========================
 
-
- // its allowed to make HTTP request to both POST and GET request
 
 var searchInput = document.querySelector('#searchInput');
 

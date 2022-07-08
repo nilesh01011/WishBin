@@ -19,7 +19,9 @@
                             class="dropdown-toggle d-flex align-items-center justify-content-center position-relative">
                             <span class="material-icons">mail_outline</span>
                             <span class="count">
-                                <%= allMsg.length %>
+                                <% if(allMsg) { %>
+                                    <%= allMsg.length %>
+                                        <% } %>
                             </span>
                         </button>
 

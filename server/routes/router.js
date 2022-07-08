@@ -86,6 +86,8 @@ function initRoutes(app) {
 
   app.get('/', home.homeIndex);
 
+  app.post('/seemorecategory_product', home.seemoreData);
+
   app.get('/electronicproduct', Pages.ElectronicPage);
 
   app.get('/toysproducts', Pages.ToysPage);

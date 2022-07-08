@@ -77,8 +77,11 @@
                         <% } %>
 
                             <li> <a href="#">Customer Service<i class="fas fa-chevron-right"></i></a> </li>
-                            <li><a href="/login">Sign In <i class="fas fa-chevron-right"></i></a></li>
-                            <li><a href="/register">Sign Up <i class="fas fa-chevron-right"></i></a></li>
+                            <li> <a href="/contactus">Contact Us<i class="fas fa-chevron-right"></i></a> </li>
+                            <% if(!user) { %>
+                                <li><a href="/login">Sign In <i class="fas fa-chevron-right"></i></a></li>
+                                <li><a href="/register">Sign Up <i class="fas fa-chevron-right"></i></a></li>
+                                <% } %>
             </ul>
 
             <% if(admin==='admin' || admin==='super_admin' ) { %>
@@ -88,6 +91,20 @@
                     <li> <a href="/api/adminPage/dashboard">Admin Dashboard<i class="fas fa-chevron-right"></i></a></li>
                 </ul>
                 <% } %>
+
+                    <% if(user) { %>
+                        <div id="hr"></div>
+                        <ul style="padding-left:0;">
+                            <div class="buttons">
+                                <form id="logoutBtn" action="/logout" method="POST">
+                                    <button onclick="document.getElementById('logout')" type="submit">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        Logout
+                                    </button>
+                                </form>
+                            </div>
+                        </ul>
+                        <% } %>
 
         </div>
     </div>
