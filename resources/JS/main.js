@@ -1,5 +1,15 @@
 'use strict';
 
+let preloader = document.querySelector('#preloader');
+
+if (preloader) {
+  window.addEventListener('load', () => {
+    preloader.style.display = 'none';
+  });
+}
+
+// Preloader End
+
 let SideBar_btn = document.querySelector('#left .logo'),
   SideBar = document.querySelector('#SideBar'),
   SideBar_Close = document.querySelector('#SideBar .sidebar_Cross i'),

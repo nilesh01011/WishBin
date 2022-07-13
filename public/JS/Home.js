@@ -67,8 +67,6 @@ if (OfferBtn) {
       offers_containers.classList.add('is-active');
     }
   });
-} else {
-  console.log('Please Login or Registers');
 } // =========================Category Products Links============================
 
 

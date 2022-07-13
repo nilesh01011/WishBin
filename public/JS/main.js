@@ -2476,6 +2476,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
 
+var preloader = document.querySelector('#preloader');
+
+if (preloader) {
+  window.addEventListener('load', function () {
+    preloader.style.display = 'none';
+  });
+} // Preloader End
+
+
 var SideBar_btn = document.querySelector('#left .logo'),
     SideBar = document.querySelector('#SideBar'),
     SideBar_Close = document.querySelector('#SideBar .sidebar_Cross i'),

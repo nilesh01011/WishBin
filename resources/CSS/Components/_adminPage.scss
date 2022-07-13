@@ -348,10 +348,11 @@ main.container-fluid {
             & button.dropdown-toggle {
 
                 background: rgba(47, 53, 70, 0.2);
-                border: 1px solid #2f3546;
+                border: 1px solid #161d31;
                 border-radius: 10px;
                 height: 46px;
                 width: 46px;
+                box-shadow: $BoxShadow_02 $RGBA_02;
 
 
                 &::after {
@@ -376,6 +377,7 @@ main.container-fluid {
                     right: -6px;
                     font-size: 12px;
                     font-weight: 500;
+                    box-shadow: $BoxShadow_02 $RGBA_02;
                 }
             }
 
@@ -391,6 +393,7 @@ main.container-fluid {
                 opacity: 0;
                 border-radius: 10px;
                 background: #2f3546;
+                box-shadow: $BoxShadow_02 $RGBA_02;
 
                 & li {
                     padding: 3px 0;
@@ -416,7 +419,7 @@ main.container-fluid {
                                 height: 35px;
                                 line-height: 30px;
                                 text-align: center;
-                                border: 2px solid $adminLine;
+                                border: 1px solid $adminLine;
                                 border-radius: 50%;
                             }
                         }
@@ -445,6 +448,7 @@ main.container-fluid {
 
                     &:hover a {
                         background: $adminPageBackground;
+                        box-shadow: $BoxShadow_02 $RGBA_02;
                     }
                 }
 
@@ -487,14 +491,15 @@ main.container-fluid {
                     }
 
                     & .image {
-                        height: 42px;
-                        width: 42px;
+                        height: 45px;
+                        width: 45px;
                         border-radius: 50%;
                         margin-left: 1rem;
-                        border: 1px solid $adminLine;
+                        border: 1px solid #161d31;
                         display: flex;
                         align-items: center;
                         justify-content: center;
+                        box-shadow: $BoxShadow_02 $RGBA_02;
                     }
                 }
             }
@@ -558,6 +563,7 @@ main.container-fluid {
             align-items: center;
             border: 1px solid $adminLine;
             gap: 20px;
+            box-shadow: $BoxShadow_04 $RGBA_04;
 
             & .icon {
                 width: 46px;
@@ -567,6 +573,7 @@ main.container-fluid {
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                box-shadow: $BoxShadow_02 $RGBA_02;
 
                 & span {
                     font-size: 24px;

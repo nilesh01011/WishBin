@@ -78,6 +78,10 @@ h6 {
   font-weight: 800;
 }
 
+ul {
+  padding-left: 0;
+}
+
 ul li {
   list-style: none;
 }
@@ -86,6 +90,52 @@ a {
   text-decoration: none;
 }
 
+#preloader {
+  width: 100%;
+  height: 100vh;
+  background: #f16565;
+  background: linear-gradient(77deg, rgb(234, 84, 85) 30%, rgb(241, 101, 101) 100%);
+  position: fixed;
+  top: 0;
+  z-index: 9999999;
+  display: none;
+}
+#preloader .loading_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+#preloader .loading_container span {
+  display: block;
+  height: 60px;
+  width: 60px;
+  background: #fff;
+  border-radius: 50%;
+  -webkit-animation: zoomInOut_01 1s ease infinite;
+          animation: zoomInOut_01 1s ease infinite;
+}
+
+@-webkit-keyframes zoomInOut_01 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes zoomInOut_01 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
 body,
 footer,
 #Container {
@@ -225,6 +275,9 @@ nav.navbar .right .three .count {
   width: auto;
   margin-right: 0;
   color: #000;
+}
+#left .navbar-brand {
+  margin-right: 0 !important;
 }
 #left .logo {
   width: 28px;
@@ -1807,10 +1860,11 @@ main.container-fluid .heading {
 }
 .adminHeader .header-right .header-message-box button.dropdown-toggle {
   background: rgba(47, 53, 70, 0.2);
-  border: 1px solid #2f3546;
+  border: 1px solid #161d31;
   border-radius: 10px;
   height: 46px;
   width: 46px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
 .adminHeader .header-right .header-message-box button.dropdown-toggle::after {
   display: none !important;
@@ -1832,6 +1886,7 @@ main.container-fluid .heading {
   right: -6px;
   font-size: 12px;
   font-weight: 500;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
 .adminHeader .header-right .header-message-box .dropdown-menu {
   width: 350px;
@@ -1845,6 +1900,7 @@ main.container-fluid .heading {
   opacity: 0;
   border-radius: 10px;
   background: #2f3546;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
 .adminHeader .header-right .header-message-box .dropdown-menu li {
   padding: 3px 0;
@@ -1869,7 +1925,7 @@ main.container-fluid .heading {
   height: 35px;
   line-height: 30px;
   text-align: center;
-  border: 2px solid #3b4253;
+  border: 1px solid #3b4253;
   border-radius: 50%;
 }
 .adminHeader .header-right .header-message-box .dropdown-menu li a .content {
@@ -1891,6 +1947,7 @@ main.container-fluid .heading {
 }
 .adminHeader .header-right .header-message-box .dropdown-menu li:hover a {
   background: #161d31;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
 .adminHeader .header-right .header-message-box .dropdown-menu.show {
   visibility: visible;
@@ -1925,14 +1982,15 @@ main.container-fluid .heading {
   font-family: "Inter", sans-serif !important;
 }
 .adminHeader .header-right .profile-box .profile-info .info .image {
-  height: 42px;
-  width: 42px;
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
   margin-left: 1rem;
-  border: 1px solid #3b4253;
+  border: 1px solid #161d31;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
 
 #myChart {
@@ -1979,6 +2037,7 @@ main.container-fluid .heading {
   align-items: center;
   border: 1px solid #3b4253;
   gap: 20px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
 }
 #adminContainer .insights .cards .icon {
   width: 46px;
@@ -1988,6 +2047,7 @@ main.container-fluid .heading {
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
 }
 #adminContainer .insights .cards .icon span {
   font-size: 24px;
@@ -3874,7 +3934,7 @@ main.container-fluid .heading {
   width: 100%;
 }
 #WishList .wishlist_content .whishHead h1 {
-  font-size: 24px;
+  font-size: 1.8rem;
   font-weight: 450;
   font-family: "Poppins", sans-serif;
 }
@@ -6736,9 +6796,12 @@ main.container-fluid .heading {
   gap: 15px;
 }
 #UserPages .user_container .bottom_container .contents ul li .collapse_content .content i {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   transition: 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
   color: #96a0a5;
+}
+#UserPages .user_container .bottom_container .contents ul li .collapse_content .content i:after {
+  font-weight: 700;
 }
 #UserPages .user_container .bottom_container .contents ul li .collapse_content .content .text {
   width: -webkit-fit-content;
@@ -6752,13 +6815,14 @@ main.container-fluid .heading {
           user-select: none;
 }
 #UserPages .user_container .bottom_container .contents ul li .collapse_content .content .text span.title {
-  font-weight: 600;
+  font-weight: 800;
   color: #000;
+  font-size: 1.1rem;
 }
 #UserPages .user_container .bottom_container .contents ul li .collapse_content .content .text span.para {
   font-weight: 400;
   color: #94969F;
-  font-size: 12px;
+  font-size: 0.9rem;
   padding-top: 0.3rem;
 }
 #UserPages .user_container .bottom_container .contents ul li .collapse_content i.arrow {
@@ -6789,7 +6853,8 @@ main.container-fluid .heading {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 #UserPages .user_container .bottom_container .contents ul li .collapse .order_details h5 span {
   font-weight: 800;
@@ -6804,7 +6869,7 @@ main.container-fluid .heading {
   vertical-align: middle;
 }
 #UserPages .user_container .bottom_container .contents ul li .collapse .order_details a {
-  font-size: 14px;
+  font-size: 0.9rem;
   color: #000;
   -webkit-user-select: none;
      -moz-user-select: none;

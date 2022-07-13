@@ -2,7 +2,7 @@ const Products = require('../../model/productsModel');
 const orders = require('../../model/ordersModel');
 const moment = require('moment');
 const User = require('../../model/user');
-// const Messages = require('../../model/userContactUs');
+const Messages = require('../../model/userContactUs');
 
 const orderStatus = async (req, res) => {
   try {
@@ -14,7 +14,7 @@ const orderStatus = async (req, res) => {
         { status: req.body.status },
         (err, data) => {
           if (err) {
-            res.render('/api/adminPage/orders');
+            res.redirect('/api/adminPage/orders');
           }
 
           // Emitter emit event
@@ -25,7 +25,7 @@ const orderStatus = async (req, res) => {
             status: req.body.status,
           });
 
-          res.render('/api/adminPage/orders');
+          res.redirect('/api/adminPage/orders');
         }
       );
     } catch (error) {
@@ -36,9 +36,14 @@ const orderStatus = async (req, res) => {
       sort: { createdAt: -1 },
     });
 
-    res.render('api/adminPage/orders', {
+    const messages = await Messages.find().limit(3);
+    const AllMessages = await Messages.find({});
+
+    res.redirect(200, '/api/adminPage/orders', {
       orders: userOrders,
       moment: moment,
+      msg: messages,
+      allMsg: AllMessages,
     });
   } catch (error) {
     console.log(error);

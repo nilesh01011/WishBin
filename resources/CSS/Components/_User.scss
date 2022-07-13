@@ -151,9 +151,13 @@
                                 gap: 15px;
 
                                 & i {
-                                    font-size: 1.2rem;
+                                    font-size: 1.4rem;
                                     transition: $CardsTransition_03;
                                     color: #96a0a5;
+
+                                    &:after {
+                                        font-weight: 700;
+                                    }
                                 }
 
                                 & .text {
@@ -163,15 +167,15 @@
                                     user-select: none;
 
                                     & span.title {
-                                        font-weight: 600;
+                                        font-weight: 800;
                                         color: $dark_color;
-
+                                        font-size: 1.1rem;
                                     }
 
                                     & span.para {
                                         font-weight: 400;
                                         color: #94969F;
-                                        font-size: 12px;
+                                        font-size: 0.9rem;
                                         padding-top: 0.3rem;
                                     }
                                 }
@@ -206,7 +210,8 @@
 
                                 & h5 {
                                     user-select: none;
-                                    font-weight: 500;
+                                    font-weight: 600;
+                                    font-size: 0.9rem;
 
                                     & span {
                                         font-weight: 800;
@@ -225,7 +230,7 @@
 
 
                                 & a {
-                                    font-size: 14px;
+                                    font-size: 0.9rem;
                                     color: $dark_color;
                                     user-select: none;
                                     position: relative;

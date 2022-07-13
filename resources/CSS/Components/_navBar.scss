@@ -106,6 +106,10 @@ nav.navbar {
     color: $dark_color;
     @extend %DisplayFlexCenter;
 
+    & .navbar-brand {
+        margin-right: 0 !important;
+    }
+
     & .logo {
         width: 28px;
         height: 100%;
