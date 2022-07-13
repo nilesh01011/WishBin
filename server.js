@@ -7,7 +7,7 @@ const expressLayouts = require('express-ejs-layouts');
 
 const path = require('path');
 
-const PORT = process.env.PORT || 8080;
+const port = process.env.PORT || 8080;
 
 const connectDB = require('./server/dataBase/connection');
 
@@ -39,7 +39,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: MongoDBStore.create({
-      mongoUrl: 'mongodb://localhost:27017/ECommerce',
+      mongoUrl: process.env.DB,
     }),
     cookie: { maxAge: 1000 * 60 * 60 * 24 }, // cookies store for 24 hours only
   })
@@ -90,8 +90,8 @@ require('./server/routes/router')(app);
 
 // =============================================================
 
-const server = app.listen(PORT, () => {
-  console.log(`Server Listening to port on http://localhost:${PORT}`);
+const server = app.listen(port, () => {
+  console.log(`Server Listening to port on http://localhost:${port}`);
 });
 
 connectDB();
