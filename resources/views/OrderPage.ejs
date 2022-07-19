@@ -1,234 +1,242 @@
-<body>
-
-    <div id="Container">
-        <nav class="navbar">
-            <div id="left">
-                <div class="navbar-brand">
-                    <div class="logo">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
+<div id="Container">
+    <nav class="navbar">
+        <div id="left">
+            <div class="navbar-brand">
+                <div class="logo">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
-                <% if(user) { %>
+            </div>
+            <% if(user) { %>
 
-                    <div id="userData" class="shop">
-                        <a href="./userprofile">
+                <div id="userData" class="shop">
+                    <a href="./userprofile">
+                        <i class="fas fa-user-secret"></i>
+                    </a>
+                </div>
+
+                <% } else { %>
+
+                    <div id="userRegisters" class="shop">
+                        <a href="./register">
                             <i class="fas fa-user-secret"></i>
                         </a>
                     </div>
 
-                    <% } else { %>
+                    <% } %>
+        </div>
+        <!-- ===========Left Section End============ -->
+        <div id="logo" class="middle">WB</div>
+        <!-- ===============Logo End================ -->
 
-                        <div id="userRegisters" class="shop">
-                            <a href="./register">
-                                <i class="fas fa-user-secret"></i>
-                            </a>
-                        </div>
-
-                        <% } %>
-            </div>
-            <!-- ===========Left Section End============ -->
-            <div id="logo" class="middle">WB</div>
-            <!-- ===============Logo End================ -->
-
-            <div class="right">
-                <% if(wishlist && wishlist.length !=0){ %>
-                    <a href="/wishlistpage" id="wish_btn" class="one active">
-                        <div class="count">
-                            <%= wishlist.length %>
-                        </div>
+        <div class="right">
+            <% if(wishlist && wishlist.length !=0){ %>
+                <a href="/wishlistpage" id="wish_btn" class="one active">
+                    <div class="count">
+                        <%= wishlist.length %>
+                    </div>
+                    <i class="far fa-heart"></i>
+                    <small>Wishlist</small>
+                </a>
+                <% }else { %>
+                    <a href="/wishlistpage" id="wish_btn" class="one">
+                        <div class="count">0</div>
                         <i class="far fa-heart"></i>
                         <small>Wishlist</small>
                     </a>
-                    <% }else { %>
-                        <a href="/wishlistpage" id="wish_btn" class="one">
-                            <div class="count">0</div>
-                            <i class="far fa-heart"></i>
-                            <small>Wishlist</small>
+                    <% } %>
+
+                        <a href="/orderpage" id="OrderBtn" class="two active">
+                            <div class="count">
+                                <%= orders ? orders.length : '0' %>
+                            </div>
+                            <i class="fas fa-shipping-fast"></i>
+                            <small>Orders</small>
                         </a>
-                        <% } %>
 
-                            <a href="/orderpage" id="OrderBtn" class="two active">
+                        <% if(cart && cart.totalQTY !=0) { %>
+                            <a href="/cartpage" class="three active" id="CartBtn">
                                 <div class="count">
-                                    <%= orders ? orders.length : '0' %>
+                                    <!-- if cartSession is there then put a value init-->
+                                    <%= cart.totalQTY %>
                                 </div>
-                                <i class="fas fa-shipping-fast"></i>
-                                <small>Orders</small>
+                                <i class="far fa-shopping-cart"></i>
+                                <small>Cart</small>
                             </a>
-
-                            <% if(cart && cart.totalQTY !=0) { %>
-                                <a href="/cartpage" class="three active" id="CartBtn">
+                            <% } else { %>
+                                <a href="/cartpage" class="three" id="CartBtn">
                                     <div class="count">
-                                        <!-- if cartSession is there then put a value init-->
-                                        <%= cart.totalQTY %>
+                                        0
                                     </div>
                                     <i class="far fa-shopping-cart"></i>
                                     <small>Cart</small>
                                 </a>
-                                <% } else { %>
-                                    <a href="/cartpage" class="three" id="CartBtn">
-                                        <div class="count">
-                                            0
-                                        </div>
-                                        <i class="far fa-shopping-cart"></i>
-                                        <small>Cart</small>
-                                    </a>
-                                    <% } %>
-            </div>
-        </nav>
-        <!-- ==================Top-header-End================= -->
-        <!-- ================Pages container End===================== -->
-        <div id="OrderPage">
-            <div class="Order_content">
+                                <% } %>
+        </div>
+    </nav>
+    <!-- ==================Top-header-End================= -->
+    <!-- ================Pages container End===================== -->
+    <div id="OrderPage">
+        <div class="Order_content">
 
-                <% if(orders.length) { %>
-                    <div class="order_wrapper">
-                        <div class="top_head">
-                            <h1>Your Orders</h1>
-                        </div>
-                        <hr>
-                        <% orders.forEach((ele)=> { %>
-                            <div class="order_details">
-                                <div class="orders_list">
-                                    <div class="order_list_head">
-                                        <div class="order_head_left">
-                                            <div class="order_date">
-                                                <span>order placed :</span>
-                                                <span>
-                                                    <!-- Times -->
-                                                    <%= moment(ele.createdAt).format('LL') %>
-                                                </span>
+            <% if(orders.length) { %>
+                <div class="order_wrapper">
+                    <div class="top_head">
+                        <h1>Your Orders</h1>
+                    </div>
+                    <hr>
+                    <% orders.forEach((ele)=> { %>
+                        <div class="order_details">
+                            <div class="orders_list">
+                                <div class="order_list_head">
+                                    <div class="order_head_left">
+                                        <div class="order_date">
+                                            <span>order placed :</span>
+                                            <span>
+                                                <!-- Times -->
+                                                <%= moment(ele.createdAt).format('LL') %>
+                                            </span>
+                                        </div>
+                                        <div class="order_total">
+                                            <span>Total :</span>
+                                            <span>
+                                                ₹<%= new Intl.NumberFormat().format( ele.totalPrice ) %>
+                                            </span>
+                                        </div>
+                                        <div class="order_shiptoname">
+                                            <span>Ship To :</span>
+                                            <span>
+                                                <%= users.name %>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="order_head_right">
+                                        <div class="orderID">
+                                            <span>Order ID :</span>
+                                            <!-- Order Id -->
+                                            <span class="id">
+                                                #<%= ele._id %>
+                                            </span>
+                                        </div>
+
+                                        <div class="orderTrack">
+                                            <a href="/ordertrack?orderId=<%= ele._id %>" target="_blank"
+                                                data-ordertrack="<%= JSON.stringify(ele._id) %>">
+                                                Track Order
+                                                <i class="fad fa-angle-double-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="order_main_content">
+
+                                    <div class="orders_items">
+                                        <div class="left_content">
+                                            <div class="image">
+                                                <img loading="lazy" decoding="async" src="<%= ele.items.item.image %>"
+                                                    alt="order-images">
                                             </div>
-                                            <div class="order_total">
-                                                <span>Total :</span>
+                                            <div class="description">
                                                 <span>
-                                                    ₹<%= new Intl.NumberFormat().format( ele.totalPrice ) %>
+                                                    <%= ele.items.item.descriptions %>
                                                 </span>
-                                            </div>
-                                            <div class="order_shiptoname">
-                                                <span>Ship To :</span>
-                                                <span>
-                                                    <%= users.name %>
-                                                </span>
+
+                                                <div class="price_QTY">
+                                                    <span>
+                                                        Price: ₹<%= new Intl.NumberFormat().format( ele.items.item.price
+                                                            ) %>
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="order_head_right">
-                                            <div class="orderID">
-                                                <span>Order ID :</span>
-                                                <!-- Order Id -->
-                                                <span class="id">
-                                                    #<%= ele._id %>
-                                                </span>
-                                            </div>
+                                        <div class="right_content" id="right_content_order">
+                                            <div class="button">
+                                                <a href="./productdetails" class="viewProduct" target="_blank"
+                                                    data-productid="<%= JSON.stringify(ele.items.item) %>" type="button"
+                                                    class="view_details">
+                                                    <i class="fas fa-eye"></i>
+                                                    view
+                                                    product
+                                                </a>
 
-                                            <div class="orderTrack">
-                                                <a href="/ordertrack?orderId=<%= ele._id %>" target="_blank"
-                                                    data-ordertrack="<%= JSON.stringify(ele._id) %>">
-                                                    Track Order
-                                                    <i class="fad fa-angle-double-right"></i>
+                                                <a href="/orderpage" class="cancleOrder"
+                                                    data-cancleorderproduct="<%= JSON.stringify(ele._id) %>">
+                                                    <i class="far fa-trash-alt"></i> Cancle Order
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="order_main_content">
 
-                                        <div class="orders_items">
-                                            <div class="left_content">
-                                                <div class="image">
-                                                    <img loading="lazy" decoding="async"
-                                                        src="<%= ele.items.item.image %>" alt="order-images">
-                                                </div>
-                                                <div class="description">
-                                                    <span>
-                                                        <%= ele.items.item.descriptions %>
-                                                    </span>
-
-                                                    <div class="price_QTY">
-                                                        <span>
-                                                            Price: ₹<%= new Intl.NumberFormat().format(
-                                                                ele.items.item.price ) %>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="right_content" id="right_content_order">
-                                                <div class="button">
-                                                    <a href="./productdetails" class="viewProduct" target="_blank"
-                                                        data-productid="<%= JSON.stringify(ele.items.item) %>"
-                                                        type="button" class="view_details">
-                                                        <i class="fas fa-eye"></i>
-                                                        view
-                                                        product
-                                                    </a>
-
-                                                    <a href="/orderpage" class="cancleOrder"
-                                                        data-cancleorderproduct="<%= JSON.stringify(ele._id) %>">
-                                                        <i class="far fa-trash-alt"></i> Cancle Order
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
                                 </div>
                             </div>
-                            <% }) %>
-                    </div>
-
-                    <% }else{ %>
-                        <div class="empty_order">
-                            <div class="fav_img">
-                                <img src="../img/favList.png" alt="images">
-                            </div>
-                            <div class="addOrder_content">
-                                <h1>No orders found!</h1>
-                                <p>Explore more and shortlist some items</p>
-                                <button role="button" id="Start_shop">
-                                    <i class="fas fa-plus"></i> Buy Some Items
-                                </button>
-                            </div>
                         </div>
-                        <% } %>
-            </div>
+                        <% }) %>
+                </div>
+
+                <% }else{ %>
+                    <div class="empty_order">
+                        <div class="fav_img">
+                            <img src="../img/favList.png" alt="images">
+                        </div>
+                        <div class="addOrder_content">
+                            <h1>No orders found!</h1>
+                            <p>Explore more and shortlist some items</p>
+                            <button role="button" id="Start_shop">
+                                <i class="fas fa-plus"></i> Buy Some Items
+                            </button>
+                        </div>
+                    </div>
+                    <% } %>
         </div>
-        <!-- ==================OrderPage Page End==================== -->
     </div>
+    <!-- ==================OrderPage Page End==================== -->
+</div>
 
-    <!-- ==================== Container End=================== -->
+<!-- ==========Container End======== -->
 
-    <!-- =====================SideBar Sections================ -->
-    <div id="overlay"></div>
+<div id="preloader">
+    <div class="loading_container">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
 
-    <%- include('./common/sidebar'); %>
+<!-- ==================== Container End=================== -->
 
-        <%- include('./common/footer'); %>
+<!-- =====================SideBar Sections================ -->
+<div id="overlay"></div>
 
-            <!-- ===================================================== -->
-            <!-- ======================Script========================= -->
-            <!-- =======================Main CDN====================== -->
+<%- include('./common/sidebar'); %>
 
-            <script src="../JS/main.js"></script>
-            <script src="../JS/Cart.js"></script>
-            <script src="../JS/Orders.js"></script>
-            <script src="/socket.io/socket.io.js"></script>
-            <script src="../JS/trackorder.js"></script>
+    <%- include('./common/footer'); %>
 
-            <script>
-                window.addEventListener('scroll', () => {
-                    if (window.scrollY >= 40) {
-                        document.querySelector('nav.navbar').style.boxShadow =
-                            ' 0 3px 6px rgba(0, 0, 0, 0.3)';
-                        document.querySelector('nav.navbar').style.position =
-                            'sticky';
-                        document.querySelector('nav.navbar').style.top =
-                            '0';
-                    } else {
-                        document.querySelector('nav.navbar').style.boxShadow = 'none';
-                        document.querySelector('nav.navbar').style.position =
-                            'none';
-                        document.querySelector('nav.navbar').style.top =
-                            '0';
-                    }
-                });
-            </script>
+        <!-- ===================================================== -->
+        <!-- ======================Script========================= -->
+        <!-- =======================Main CDN====================== -->
+
+        <script src="../JS/main.js"></script>
+        <script src="../JS/Cart.js"></script>
+        <script src="../JS/Orders.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="../JS/trackorder.js"></script>
+
+        <script>
+            window.addEventListener('scroll', () => {
+                if (window.scrollY >= 40) {
+                    document.querySelector('nav.navbar').style.boxShadow =
+                        ' 0 3px 6px rgba(0, 0, 0, 0.3)';
+                    document.querySelector('nav.navbar').style.position =
+                        'sticky';
+                    document.querySelector('nav.navbar').style.top =
+                        '0';
+                } else {
+                    document.querySelector('nav.navbar').style.boxShadow = 'none';
+                    document.querySelector('nav.navbar').style.position =
+                        'none';
+                    document.querySelector('nav.navbar').style.top =
+                        '0';
+                }
+            });
+        </script>

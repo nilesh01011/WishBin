@@ -98,7 +98,6 @@ a {
   position: fixed;
   top: 0;
   z-index: 9999999;
-  display: none;
 }
 #preloader .loading_container {
   display: flex;
@@ -1278,7 +1277,8 @@ nav.navbar .right .three .count {
 }
 #SideBar .contents {
   overflow-y: scroll;
-  padding-bottom: 100px;
+  padding-bottom: 60px;
+  display: block;
 }
 #SideBar .contents ul h5 {
   padding: 1rem 0 1rem 2rem;
@@ -1299,6 +1299,10 @@ nav.navbar .right .three .count {
 #SideBar .contents ul li a:hover {
   color: #111;
   background: #e3e6e7;
+}
+#SideBar .contents .space-30 {
+  margin: 1rem 0;
+  height: 10px;
 }
 
 #laptops a.active {
@@ -1335,6 +1339,11 @@ nav.navbar .right .three .count {
   background: #fff;
 }
 
+@media screen and (max-width: 576px) {
+  #SideBar .contents {
+    padding-bottom: 100px;
+  }
+}
 #searching .emptySearch .emptyContainer .images img, #UserPages .user_container .top_container .leftTopContainer .images img, #products_details .details_containes .content .images img, #OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content .orders_items .left_content .image img, #OrderPage .Order_content .empty_order .fav_img img, #ErrorPages .error_content .images img, #CartPage .cart_contents .left_cart_content .products_contents .product_images img, #CartPage .cart_contents .left_cart_content .cart_wrapper .empty_cartPage .images img, #WishList .wishlist_content .wishlist_container .wishList_card .images img, #WishList .wishlist_content .wishlist_container .empty_list .images img, #banner__ img, #mySwiper, #mySwiper .swiper-slide img, #mySwiper2 .swiper-slide img, #CardSwiper .card_container .card__ .cards .image img, #card_section .card_container .cards .card_image img {
   height: 100%;
   width: 100%;
@@ -1840,8 +1849,12 @@ main.container-fluid .heading {
 
 .adminHeader {
   padding: calc(2rem - 2px) 0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   background: #262d3f;
   font-family: "Inter", sans-serif !important;
+  z-index: 50;
 }
 .adminHeader .container-fluid {
   padding: 0 40px;
@@ -1849,8 +1862,9 @@ main.container-fluid .heading {
 .adminHeader button {
   color: #b4b7bd;
 }
-.adminHeader .header-left h2 {
+.adminHeader .header-left h5 {
   font-family: "Inter", sans-serif !important;
+  font-weight: 600;
 }
 .adminHeader .header-left button {
   font-size: 1rem;
@@ -1936,6 +1950,7 @@ main.container-fluid .heading {
   font-size: 14px;
   margin-bottom: 5px;
   font-weight: 600;
+  text-transform: capitalize;
 }
 .adminHeader .header-right .header-message-box .dropdown-menu li a .content p {
   font-size: 12px;
@@ -2040,8 +2055,8 @@ main.container-fluid .heading {
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
 }
 #adminContainer .insights .cards .icon {
-  width: 46px;
-  height: 46px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   font-weight: 700;
   display: flex;
@@ -2594,33 +2609,28 @@ main.container-fluid .heading {
   margin-bottom: 1rem;
 }
 
-.adminFooter {
+footer .adminFooter {
   display: flex;
   align-items: center;
   justify-content: center;
   padding-bottom: 20px;
+  height: 100%;
 }
-.adminFooter span {
+footer .adminFooter p {
   font-weight: 400;
   color: #d0d2d6;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  height: 100%;
   font-size: 11px;
+  margin-bottom: 0;
 }
-.adminFooter span a {
+footer .adminFooter p a {
   color: #d0d2d6;
-  text-decoration: none;
+  -webkit-text-decoration: underline #f16565 2px;
+          text-decoration: underline #f16565 2px;
   font-size: 11px;
-}
-.adminFooter span a span.logo {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 2px solid #f16565;
-  padding: 4px;
-  font-size: 9px;
-  font-weight: 600;
+  margin: 0 3px;
+  border-radius: 5px;
+  font-weight: 550;
 }
 
 #adminCardContainer {
@@ -3612,6 +3622,13 @@ main.container-fluid .heading {
   }
 }
 @media screen and (max-width: 576px) {
+  .adminHeader {
+    padding: calc(1.5rem - 2px) 0;
+  }
+
+  #adminContainer {
+    margin-bottom: 30px;
+  }
   #adminContainer .insights .cards {
     flex: none !important;
     padding: 20px;
@@ -3647,6 +3664,9 @@ main.container-fluid .heading {
 
   #worldMap {
     height: 270px !important;
+  }
+  #worldMap .jvectormap-zoomin, #worldMap .jvectormap-zoomout {
+    left: 0 !important;
   }
 
   #cardsContainer .button {
@@ -4295,12 +4315,21 @@ main.container-fluid .heading {
   background: #d5d5d5;
   display: block;
 }
+#CartPage .cart_contents .left_cart_content .products_contents .product_container .product_bottom_part button {
+  display: flex;
+  align-items: center;
+}
 #CartPage .cart_contents .left_cart_content .products_contents .product_container .product_bottom_part button i {
-  margin-right: 0.2rem;
+  margin-right: 0.3rem;
 }
 #CartPage .cart_contents .left_cart_content .products_contents .product_container .product_bottom_part .product_last_part button {
   background: none;
+  display: flex;
+  align-items: center;
   cursor: pointer;
+}
+#CartPage .cart_contents .left_cart_content .products_contents .product_container .product_bottom_part .product_last_part button i {
+  margin-right: 0.3rem;
 }
 #CartPage .cart_contents .left_cart_content .products_contents .product_container .product_bottom_part .product_last_part button:hover {
   color: #f16565;
@@ -8960,6 +8989,12 @@ nav.navbar {
     font-size: 1.5rem;
     margin-top: 2rem;
   }
+  #CartPage .cart_contents .left_cart_content .cart_wrapper .products_contents .product_container .product_bottom_part {
+    gap: 15px;
+  }
+  #CartPage .cart_contents .left_cart_content .cart_wrapper .products_contents .product_container .product_bottom_part button {
+    flex-direction: column;
+  }
 
   /* =============CartPage Cards End============= */
   #WishList .wishlist_content .wishlist_container .empty_list .images {
@@ -9261,9 +9296,6 @@ nav.navbar {
 @media screen and (max-width: 480px) {
   #CartPage .cart_contents .left_cart_content .cart_wrapper .empty_cartPage .content {
     width: 100%;
-  }
-  #CartPage .cart_contents .left_cart_content .cart_wrapper .products_contents .product_container .product_bottom_part button {
-    font-size: 11px;
   }
 
   /* ========================CartPage section End==================== */
@@ -9718,6 +9750,9 @@ nav.navbar {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
+  flex-direction: column;
+  gap: 15px;
+  visibility: hidden;
 }
 #addToCartPopup .content {
   width: -webkit-fit-content;
@@ -9731,6 +9766,7 @@ nav.navbar {
   transform: translateX(100%);
   transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
   visibility: hidden;
+  cursor: pointer;
 }
 #addToCartPopup .content span {
   font-weight: 600;
@@ -9742,6 +9778,9 @@ nav.navbar {
 }
 #addToCartPopup .content span i {
   margin-right: 0.5rem;
+}
+#addToCartPopup.active {
+  visibility: visible;
 }
 #addToCartPopup.active .content {
   transform: translateX(0%);

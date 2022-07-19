@@ -1943,6 +1943,18 @@
                             }
                         }
                     }
+
+                    & .products_contents {
+                        & .product_container {
+                            & .product_bottom_part {
+                                gap: 15px;
+
+                                & button {
+                                    flex-direction: column;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -2463,15 +2475,16 @@
 
                     //  Empty CartPages End
 
-                    & .products_contents {
-                        & .product_container {
-                            & .product_bottom_part {
-                                & button {
-                                    font-size: 11px;
-                                }
-                            }
-                        }
-                    }
+                    // & .products_contents {
+                    //     & .product_container {
+                    //         & .product_bottom_part {
+                    //             & button {
+                    //                 // font-size: 11px;
+                    //                 flex-direction: column;
+                    //             }
+                    //         }
+                    //     }
+                    // }
                 }
             }
         }

@@ -1,136 +1,143 @@
-<body>
-    <div id="Container">
-        <%- include('./common/navbar'); %>
+<div id="Container">
+    <%- include('./common/navbar'); %>
 
-            <!-- ==================Top-header-End================= -->
+        <!-- ==================Top-header-End================= -->
 
-            <div id="UserDataUpdate">
-                <div class="updateContainer">
-                    <form method="POST" id="updateUserData">
-                        <div class="heading">
-                            <h3>Edit Details</h3>
+        <div id="UserDataUpdate">
+            <div class="updateContainer">
+                <form method="POST" id="updateUserData">
+                    <div class="heading">
+                        <h3>Edit Details</h3>
+                    </div>
+
+                    <div class="hr"></div>
+
+                    <div class="bottomDataDetails">
+                        <div class="input_content">
+                            <label>User Name</label>
+                            <input type="text" value="<%= userData.name %>" name="name" placeholder="Your Name">
                         </div>
-
-                        <div class="hr"></div>
-
-                        <div class="bottomDataDetails">
-                            <div class="input_content">
-                                <label>User Name</label>
-                                <input type="text" value="<%= userData.name %>" name="name" placeholder="Your Name">
-                            </div>
-                            <div class="input_content">
-                                <label>Email Id</label>
-                                <input type="email" value="<%= userData.email %>" disabled placeholder="Your Email"
-                                    name="email">
-                            </div>
-                            <div class="input_content">
-                                <label>Phone Number</label>
-                                <input type="text" value="<%= userData.phone %>" type="phone" name="phone"
-                                    placeholder="Phone Number" maxlength="10">
-                            </div>
-                            <div class="input_content pass">
-                                <label>Old Password</label>
-                                <div class="field">
-                                    <div class="inputContent">
-                                        <input type="password" name="password" value="" placeholder="Old Password">
-                                        <i id="eye_lock" class="far fa-eye-slash"></i>
-                                    </div>
-                                    <span style="font-size: 12px; color:#ea5455;">
-                                        <%= messages.invalidpassword %>
-                                    </span>
+                        <div class="input_content">
+                            <label>Email Id</label>
+                            <input type="email" value="<%= userData.email %>" disabled placeholder="Your Email"
+                                name="email">
+                        </div>
+                        <div class="input_content">
+                            <label>Phone Number</label>
+                            <input type="text" value="<%= userData.phone %>" type="phone" name="phone"
+                                placeholder="Phone Number" maxlength="10">
+                        </div>
+                        <div class="input_content pass">
+                            <label>Old Password</label>
+                            <div class="field">
+                                <div class="inputContent">
+                                    <input type="password" name="password" value="" placeholder="Old Password">
+                                    <i id="eye_lock" class="far fa-eye-slash"></i>
                                 </div>
-
+                                <span style="font-size: 12px; color:#ea5455;">
+                                    <%= messages.invalidpassword %>
+                                </span>
                             </div>
 
-                            <div class="input_content pass">
-                                <label>New Password</label>
-                                <div class="field">
-                                    <div class="inputContent">
-                                        <input type="password" name="newpassword" value="" placeholder="New Password">
-                                        <i id="eye_lock" class="far fa-eye-slash"></i>
-                                    </div>
-                                    <span style="font-size: 12px; color:#ea5455;">
-                                        <%= messages.emptypassword %>
-                                    </span>
+                        </div>
+
+                        <div class="input_content pass">
+                            <label>New Password</label>
+                            <div class="field">
+                                <div class="inputContent">
+                                    <input type="password" name="newpassword" value="" placeholder="New Password">
+                                    <i id="eye_lock" class="far fa-eye-slash"></i>
                                 </div>
+                                <span style="font-size: 12px; color:#ea5455;">
+                                    <%= messages.emptypassword %>
+                                </span>
                             </div>
-
-                            <div class="input_content">
-                                <label>Addressess</label>
-                                <input type="text" value="<%= userData.address %>" name="address"
-                                    placeholder="Your Address">
-                            </div>
-
                         </div>
 
-                        <div class="hr_2"></div>
-
-                        <div class="buttons">
-                            <input type="hidden"
-                                name="<%= admin==='admin' || admin==='super_admin' ? 'adminPage' : '' %>" id="user">
-                            <button id="cancleUpdateBtn" class="cancle" type="button">CANCLE</button>
-
-                            <button class="submit" type="submit">SAVE DETAILS</button>
+                        <div class="input_content">
+                            <label>Addressess</label>
+                            <input type="text" value="<%= userData.address %>" name="address"
+                                placeholder="Your Address">
                         </div>
-                    </form>
-                </div>
+
+                    </div>
+
+                    <div class="hr_2"></div>
+
+                    <div class="buttons">
+                        <input type="hidden" name="<%= admin==='admin' || admin==='super_admin' ? 'adminPage' : '' %>"
+                            id="user">
+                        <button id="cancleUpdateBtn" class="cancle" type="button">CANCLE</button>
+
+                        <button class="submit" type="submit">SAVE DETAILS</button>
+                    </div>
+                </form>
             </div>
+        </div>
+</div>
+<!-- ==================Container End================= -->
+
+<div id="preloader">
+    <div class="loading_container">
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
-    <!-- ==================Container End================= -->
+</div>
 
-    <!-- =====================SideBar Sections================ -->
-    <div id="overlay"></div>
+<!-- =====================SideBar Sections================ -->
+<div id="overlay"></div>
 
-    <%- include('./common/sidebar'); %>
+<%- include('./common/sidebar'); %>
 
-        <%- include('./common/footer'); %>
+    <%- include('./common/footer'); %>
 
-            <!-- ===================================================== -->
-            <!-- ======================Script========================= -->
-            <!-- =======================Main CDN====================== -->
-            <script src="../JS/main.js"></script>
-            <script src="../JS/Cart.js"></script>
-            <script src="../JS/WishList.js"></script>
-            <script src="../JS/UpdateUserData.js"></script>
+        <!-- ===================================================== -->
+        <!-- ======================Script========================= -->
+        <!-- =======================Main CDN====================== -->
+        <script src="../JS/main.js"></script>
+        <script src="../JS/Cart.js"></script>
+        <script src="../JS/WishList.js"></script>
+        <script src="../JS/UpdateUserData.js"></script>
 
-            <script>
-                window.addEventListener('scroll', () => {
-                    if (window.scrollY >= 40) {
-                        document.querySelector('nav.navbar').style.boxShadow =
-                            ' 0 3px 6px rgba(0, 0, 0, 0.3)';
-                        document.querySelector('nav.navbar').style.position =
-                            'sticky';
-                        document.querySelector('nav.navbar').style.top =
-                            '0';
+        <script>
+            window.addEventListener('scroll', () => {
+                if (window.scrollY >= 40) {
+                    document.querySelector('nav.navbar').style.boxShadow =
+                        ' 0 3px 6px rgba(0, 0, 0, 0.3)';
+                    document.querySelector('nav.navbar').style.position =
+                        'sticky';
+                    document.querySelector('nav.navbar').style.top =
+                        '0';
+                } else {
+                    document.querySelector('nav.navbar').style.boxShadow = 'none';
+                    document.querySelector('nav.navbar').style.position =
+                        'none';
+                    document.querySelector('nav.navbar').style.top =
+                        '0';
+                }
+            });
+
+            let eye_lock = document.querySelectorAll('#eye_lock'),
+                passInput = document.querySelectorAll("#updateUserData .bottomDataDetails .input_content.pass .field input");
+
+
+            for (let i = 0; i < eye_lock.length; i++) {
+                eye_lock[i].addEventListener('click', () => {
+                    if (passInput[i].type === 'password') {
+                        passInput[i].type = 'text';
+                        eye_lock[i].classList.add('fa-eye');
+                        eye_lock[i].classList.remove('fa-eye-slash');
                     } else {
-                        document.querySelector('nav.navbar').style.boxShadow = 'none';
-                        document.querySelector('nav.navbar').style.position =
-                            'none';
-                        document.querySelector('nav.navbar').style.top =
-                            '0';
+                        passInput[i].type = 'password';
+                        eye_lock[i].classList.remove('fa-eye');
+                        eye_lock[i].classList.add('fa-eye-slash');
                     }
                 });
+            }
 
-                let eye_lock = document.querySelectorAll('#eye_lock'),
-                    passInput = document.querySelectorAll("#updateUserData .bottomDataDetails .input_content.pass .field input");
+        </script>
 
+        </body>
 
-                for (let i = 0; i < eye_lock.length; i++) {
-                    eye_lock[i].addEventListener('click', () => {
-                        if (passInput[i].type === 'password') {
-                            passInput[i].type = 'text';
-                            eye_lock[i].classList.add('fa-eye');
-                            eye_lock[i].classList.remove('fa-eye-slash');
-                        } else {
-                            passInput[i].type = 'password';
-                            eye_lock[i].classList.remove('fa-eye');
-                            eye_lock[i].classList.add('fa-eye-slash');
-                        }
-                    });
-                }
-
-            </script>
-
-</body>
-
-</html>
+        </html>

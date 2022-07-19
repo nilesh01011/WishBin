@@ -93,7 +93,12 @@
                                 <div class="product_container">
                                     <div class="product_des">
                                         <p>
-                                            <%= product.item.descriptions %>
+
+                                            <% if(product.item.descriptions.length < 80){ %>
+                                                <%= product.item.descriptions %>
+                                                    <% }else{ %>
+                                                        <%= product.item.descriptions.slice(0, 90).trim() + '...' %>
+                                                            <% } %>
                                         </p>
                                     </div>
                                     <div class="product_bottom_part">
@@ -179,6 +184,15 @@
 </div>
 
 <!-- ==================Container End================= -->
+
+
+<div id="preloader">
+    <div class="loading_container">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
 
 <!-- =====================SideBar Sections================ -->
 <div id="overlay"></div>

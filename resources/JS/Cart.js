@@ -2,8 +2,26 @@ import axios from 'axios'; // its allowed to make HTTP request to both POST and 
 
 let addToCartPopup = document.querySelector('#addToCartPopup');
 
+function addToCartContainerAdd() {
+  let createDivRow = document.createElement('div');
+
+  createDivRow.className = 'content';
+
+  addToCartPopup.appendChild(createDivRow);
+
+  let createSpan = document.createElement('span');
+
+  createDivRow.appendChild(createSpan);
+
+  createSpan.innerHTML = `
+  <i class="fas fa-check"></i>
+  Successfull added to cart
+  `;
+}
+
 function noty_messages_Toast() {
   addToCartPopup.classList.add('active');
+  // addToCartContainerAdd();
 
   setTimeout(() => {
     addToCartPopup.classList.remove('active');
@@ -157,3 +175,5 @@ addWishlist.forEach((ele) => {
     window.location = '/wishlistpage';
   });
 });
+
+// ==============WishList End==============

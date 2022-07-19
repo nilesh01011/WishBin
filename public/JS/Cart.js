@@ -4823,8 +4823,18 @@ __webpack_require__.r(__webpack_exports__);
 
 var addToCartPopup = document.querySelector('#addToCartPopup');
 
+function addToCartContainerAdd() {
+  var createDivRow = document.createElement('div');
+  createDivRow.className = 'content';
+  addToCartPopup.appendChild(createDivRow);
+  var createSpan = document.createElement('span');
+  createDivRow.appendChild(createSpan);
+  createSpan.innerHTML = "\n  <i class=\"fas fa-check\"></i>\n  Successfull added to cart\n  ";
+}
+
 function noty_messages_Toast() {
-  addToCartPopup.classList.add('active');
+  addToCartPopup.classList.add('active'); // addToCartContainerAdd();
+
   setTimeout(function () {
     addToCartPopup.classList.remove('active');
   }, 3000);
@@ -4940,7 +4950,7 @@ addWishlist.forEach(function (ele) {
     WishlistAdd(getID);
     window.location = '/wishlistpage';
   });
-});
+}); // ==============WishList End==============
 })();
 
 /******/ })()

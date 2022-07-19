@@ -1,225 +1,201 @@
-<body>
-    <div id="Container">
-        <%- include('./common/navbar'); %>
+<div id="Container">
+    <%- include('./common/navbar'); %>
 
-            <!-- ==================Top-header-End================= -->
-            <div id="UserPages">
-                <div class="user_container">
-                    <div class="top_container">
-                        <div class="leftTopContainer">
-                            <div class="images">
-                                <% if(userProfile) { %>
+        <!-- ==================Top-header-End================= -->
+        <div id="UserPages">
+            <div class="user_container">
+                <div class="top_container">
+                    <div class="leftTopContainer">
+                        <div class="images">
+                            <% if(userProfile) { %>
 
-                                    <img src="../UserImgUpload/<%= userProfile %>" alt="user_images">
-                                    <% }else { %>
-                                        <img src="../img/user-secret-solid.svg" alt="user_images">
-                                        <% } %>
-
-                                            <!-- <div class="button" id="uploadImageBtn">
-                                                <button type="button">
-                                                    <i class="fas fa-camera"></i>
-                                                </button>
-                                            </div> -->
-                            </div>
-                            <div class="UserContent">
-                                <div class="UserName">
-                                    <h1>
-                                        <%= userData ? userData.name : "Your Name" %>
-                                    </h1>
-                                </div>
-                                <div id="hr"></div>
-                                <div class="details">
-                                    <div class="emailDetails">
-                                        <h3>
-                                            Email : <span>
-                                                <%= userData ? userData.email : "Email ID" %>
-                                            </span>
-                                        </h3>
-                                    </div>
-                                    <div class="numberDetails">
-                                        <h3>
-                                            Phone number :
-                                            <span>
-                                                <%= userData ? userData.phone : "Phone number" %>
-                                            </span>
-                                        </h3>
-                                    </div>
-                                </div>
-                            </div>
+                                <img src="../UserImgUpload/<%= userProfile %>" alt="user_images">
+                                <% }else { %>
+                                    <img src="../img/user-secret-solid.svg" alt="user_images">
+                                    <% } %>
                         </div>
-                        <div class="rightTopContainer">
-                            <div class="button">
-                                <button id="EditUserData" type="button">Edit</button>
+                        <div class="UserContent">
+                            <div class="UserName">
+                                <h1>
+                                    <%= userData ? userData.name : "Your Name" %>
+                                </h1>
+                            </div>
+                            <div id="hr"></div>
+                            <div class="details">
+                                <div class="emailDetails">
+                                    <h3>
+                                        Email : <span>
+                                            <%= userData ? userData.email : "Email ID" %>
+                                        </span>
+                                    </h3>
+                                </div>
+                                <div class="numberDetails">
+                                    <h3>
+                                        Phone number :
+                                        <span>
+                                            <%= userData ? userData.phone : "Phone number" %>
+                                        </span>
+                                    </h3>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- ======================Top Containers End==================== -->
-                    <div class="bottom_container">
-                        <div class="contents">
-                            <ul>
-                                <li>
-                                    <div class="collapse_content">
-                                        <div class="content">
-                                            <i class="fas fa-heart"></i>
-                                            <div class="text">
-                                                <span class="title">Wishlist</span>
-                                                <span class="para">All your product collection</span>
-                                            </div>
-                                        </div>
-                                        <i class="arrow fas fa-chevron-right"></i>
-                                    </div>
-                                    <div class="collapse">
-                                        <div class="content">
-                                            <div class="order_details">
-                                                <h5>Wishlist items : <span>
-                                                        <%= wishlist ? wishlist.length : '0' %>
-                                                    </span></h5>
-                                                <div class="hr"></div>
-                                                <a type="button" href="/wishlistpage" target="_blank">View Wishlist
-                                                    <span></span></a>
-                                            </div>
+                    <div class="rightTopContainer">
+                        <div class="button">
+                            <button id="EditUserData" type="button">Edit</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- ======================Top Containers End==================== -->
+                <div class="bottom_container">
+                    <div class="contents">
+                        <ul>
+                            <li>
+                                <div class="collapse_content">
+                                    <div class="content">
+                                        <i class="fas fa-heart"></i>
+                                        <div class="text">
+                                            <span class="title">Wishlist</span>
+                                            <span class="para">All your product collection</span>
                                         </div>
                                     </div>
-                                </li>
-                                <li>
-                                    <div class="collapse_content">
-                                        <div class="content">
-                                            <i class="fas fa-shipping-fast"></i>
-                                            <div class="text">
-                                                <span class="title">Orders</span>
-                                                <span class="para">Check your order status</span>
-                                            </div>
-                                        </div>
-                                        <i class="arrow fas fa-chevron-right"></i>
-                                    </div>
-                                    <div class="collapse">
+                                    <i class="arrow fas fa-chevron-right"></i>
+                                </div>
+                                <div class="collapse">
+                                    <div class="content">
                                         <div class="order_details">
-                                            <h5>Order : <span>
-                                                    <%= orders ? orders.length : '0' %>
+                                            <h5>Wishlist items : <span>
+                                                    <%= wishlist ? wishlist.length : '0' %>
                                                 </span></h5>
                                             <div class="hr"></div>
-                                            <a type="button" href="/orderpage" target="_blank">Show Orders
+                                            <a type="button" href="/wishlistpage" target="_blank">View Wishlist
                                                 <span></span></a>
                                         </div>
                                     </div>
-                                </li>
-                                <li>
-                                    <div class="collapse_content">
-                                        <div class="content">
-                                            <i class="fas fa-shopping-cart"></i>
-                                            <div class="text">
-                                                <span class="title">Products Cart</span>
-                                                <span class="para">Check your carts for faster checkout</span>
-                                            </div>
-                                        </div>
-                                        <i class="arrow fas fa-chevron-right"></i>
-                                    </div>
-                                    <div class="collapse">
-                                        <div class="order_details">
-                                            <h5>Product in cart :
-                                                <span>
-                                                    <%= cart ? cart.totalQTY : "0" %>
-                                                </span>
-                                            </h5>
-                                            <div class="hr"></div>
-                                            <a type="button" href="/cartpage">View Cart Items <span></span></a>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="collapse_content">
-                                        <div class="content">
-                                            <i class="fas fa-street-view"></i>
-                                            <div class="text">
-                                                <span class="title">Addressess</span>
-                                                <span class="para">Save addresses for a hassle-free checkout</span>
-                                            </div>
-                                        </div>
-                                        <i class="arrow fas fa-chevron-right"></i>
-                                    </div>
-                                    <div class="collapse">
-                                        <div class="order_details">
-                                            <h5>Your address :
-                                                <span>
-                                                    <%= userData ? userData.address : "Your-address" %>
-                                                </span>
-                                            </h5>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <div class="buttons">
-                                    <form id="logout" action="/logout" method="POST">
-                                        <button id="LogoutBtn" onclick="document.getElementById('logout')"
-                                            type="submit">
-                                            <i class="fas fa-trash-alt"></i>
-                                            Logout
-                                        </button>
-                                    </form>
                                 </div>
-                            </ul>
-                        </div>
+                            </li>
+                            <li>
+                                <div class="collapse_content">
+                                    <div class="content">
+                                        <i class="fas fa-shipping-fast"></i>
+                                        <div class="text">
+                                            <span class="title">Orders</span>
+                                            <span class="para">Check your order status</span>
+                                        </div>
+                                    </div>
+                                    <i class="arrow fas fa-chevron-right"></i>
+                                </div>
+                                <div class="collapse">
+                                    <div class="order_details">
+                                        <h5>Order : <span>
+                                                <%= orders ? orders.length : '0' %>
+                                            </span></h5>
+                                        <div class="hr"></div>
+                                        <a type="button" href="/orderpage" target="_blank">Show Orders
+                                            <span></span></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapse_content">
+                                    <div class="content">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <div class="text">
+                                            <span class="title">Products Cart</span>
+                                            <span class="para">Check your carts for faster checkout</span>
+                                        </div>
+                                    </div>
+                                    <i class="arrow fas fa-chevron-right"></i>
+                                </div>
+                                <div class="collapse">
+                                    <div class="order_details">
+                                        <h5>Product in cart :
+                                            <span>
+                                                <%= cart ? cart.totalQTY : "0" %>
+                                            </span>
+                                        </h5>
+                                        <div class="hr"></div>
+                                        <a type="button" href="/cartpage">View Cart Items <span></span></a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="collapse_content">
+                                    <div class="content">
+                                        <i class="fas fa-street-view"></i>
+                                        <div class="text">
+                                            <span class="title">Addressess</span>
+                                            <span class="para">Save addresses for a hassle-free checkout</span>
+                                        </div>
+                                    </div>
+                                    <i class="arrow fas fa-chevron-right"></i>
+                                </div>
+                                <div class="collapse">
+                                    <div class="order_details">
+                                        <h5>Your address :
+                                            <span>
+                                                <%= userData ? userData.address : "Your-address" %>
+                                            </span>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <div class="buttons">
+                                <form id="logout" action="/logout" method="POST">
+                                    <button id="LogoutBtn" onclick="document.getElementById('logout')" type="submit">
+                                        <i class="fas fa-trash-alt"></i>
+                                        Logout
+                                    </button>
+                                </form>
+                            </div>
+                        </ul>
                     </div>
                 </div>
             </div>
+        </div>
+</div>
 
-            <!-- <div id="UploadImage">
+<!-- ==========Container End======== -->
 
-                <div class="container">
-                    <div class="overlay"></div>
-                    <div class="container_wrapper">
-                        <div class="dismiss">
-                            <i class="fas fa-times"></i>
-                        </div>
-                        <div class="contents">
-                            <div class="images">
-                                <img src="../img/upload_image_icons.png" alt="upload-image-icons">
-                            </div>
-                            <div class="heading">
-                                Drop your image here , or <span id="uploadImageBrowser">browser</span>
-                                <input type="file" id="uploadImageInput" name="file" hidden>
-                            </div>
-                        </div>
-
-                        <div class="buttons">
-                            <a href="/userprofile">Submit</a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+<div id="preloader">
+    <div class="loading_container">
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
-    <!-- ==================Container End================= -->
+</div>
 
-    <!-- =====================SideBar Sections================ -->
-    <div id="overlay"></div>
+<!-- =====================SideBar Sections================ -->
+<div id="overlay"></div>
 
-    <%- include('./common/sidebar'); %>
+<%- include('./common/sidebar'); %>
 
-        <%- include('./common/footer'); %>
+    <%- include('./common/footer'); %>
 
-            <!-- ===================================================== -->
-            <!-- ======================Script========================= -->
-            <!-- =======================Main CDN====================== -->
-            <script src="../JS/main.js"></script>
-            <script src="../JS/Cart.js"></script>
-            <script src="../JS/WishList.js"></script>
+        <!-- ===================================================== -->
+        <!-- ======================Script========================= -->
+        <!-- =======================Main CDN====================== -->
+        <script src="../JS/main.js"></script>
+        <script src="../JS/Cart.js"></script>
+        <script src="../JS/WishList.js"></script>
 
-            <script>
-                window.addEventListener('scroll', () => {
-                    if (window.scrollY >= 40) {
-                        document.querySelector('nav.navbar').style.boxShadow =
-                            ' 0 3px 6px rgba(0, 0, 0, 0.3)';
-                        document.querySelector('nav.navbar').style.position =
-                            'sticky';
-                        document.querySelector('nav.navbar').style.top =
-                            '0';
-                    } else {
-                        document.querySelector('nav.navbar').style.boxShadow = 'none';
-                        document.querySelector('nav.navbar').style.position =
-                            'none';
-                        document.querySelector('nav.navbar').style.top =
-                            '0';
-                    }
-                });
-            </script>
+        <script>
+            window.addEventListener('scroll', () => {
+                if (window.scrollY >= 40) {
+                    document.querySelector('nav.navbar').style.boxShadow =
+                        ' 0 3px 6px rgba(0, 0, 0, 0.3)';
+                    document.querySelector('nav.navbar').style.position =
+                        'sticky';
+                    document.querySelector('nav.navbar').style.top =
+                        '0';
+                } else {
+                    document.querySelector('nav.navbar').style.boxShadow = 'none';
+                    document.querySelector('nav.navbar').style.position =
+                        'none';
+                    document.querySelector('nav.navbar').style.top =
+                        '0';
+                }
+            });
+        </script>

@@ -72,7 +72,6 @@ a {
     position: fixed;
     top: 0;
     z-index: 9999999;
-    display: none;
 
     & .loading_container {
         display: flex;
@@ -713,6 +712,9 @@ footer,
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
+    flex-direction: column;
+    gap: 15px;
+    visibility: hidden;
 
     & .content {
         width: fit-content;
@@ -724,6 +726,7 @@ footer,
         transform: translateX(100%);
         transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
         visibility: hidden;
+        cursor: pointer;
 
         & span {
             font-weight: 600;
@@ -740,6 +743,8 @@ footer,
     }
 
     &.active {
+        visibility: visible;
+
         & .content {
             transform: translateX(0%);
             visibility: visible;

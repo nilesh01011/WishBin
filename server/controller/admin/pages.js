@@ -13,6 +13,7 @@ function sumOfAll(arr) {
 const Page = async (req, res) => {
   try {
     const AllMessages = await Messages.find();
+
     const messages = await Messages.find().limit(3);
 
     // user orders

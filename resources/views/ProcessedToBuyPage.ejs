@@ -1,122 +1,120 @@
-<body>
-    <div id="payment_page_container">
-        <div class="payment_container">
-            <div class="top_logo">
-                <a href="/cartpage">
-                    WB
-                </a>
-            </div>
-
-            <div class="payment_wrapper">
-                <div class="heading_pay">
-                    <h1>Shipping to: <span>
-                            <%= userData.name %>
-                        </span> </h1>
-                </div>
-                <div class="payment_bottom">
-                    <form action="/orders" method="POST" class="payment_content">
-                        <div class="input_wrapper">
-                            <div class="input_contents name_input">
-                                <label>Your name</label>
-                                <input disabled="disabled" id="payment_name" name="name" type="text"
-                                    value="<%= userData.name %>" placeholder="Your Name">
-
-                                <input id="payment_name" name="name" type="hidden" value="<%= userData.name %>"
-                                    placeholder="Your Name">
-
-                            </div>
-                            <div class="input_contents number_input">
-                                <label>Mobile number</label>
-                                <input id="payment_number" maxlength="10" type="number" name="phone"
-                                    value="<%= userData.phone ? userData.phone : '' %>" placeholder="Your Phone Number">
-                                <span id="error">
-                                    <%= messages.paymenterror %>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="input_wrapper">
-                            <div class="input_contents email_input">
-                                <label>Email Address</label>
-                                <input disabled="disabled" id="payment_email" type="email"
-                                    value="<%= userData.email %>">
-                            </div>
-                            <div class="input_contents card_number_input">
-                                <label>Address</label>
-                                <input id="payment_address" type="address" name="address"
-                                    value="<%= userData.address ? userData.address : '' %>" placeholder="Your Address">
-                                <span id="error">
-                                    <%= messages.paymenterror %>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="input_wrapper">
-                            <div class="input_contents email_input">
-                                <label>Card number</label>
-                                <input autocomplete="off" id="card_number" type="tel" maxlength="16"
-                                    placeholder="xxxx xxxx xxxx 0000" name="cardnumber">
-                                <span id="error">
-                                    <% if(messages.paymenterror){ %>
-                                        <%= messages.paymenterror %>
-                                            <% }else if(messages.cardnumber) { %>
-                                                <%= messages.cardnumber %>
-
-                                                    <% } %>
-                                </span>
-                            </div>
-                            <div class="input_contents card_number_input">
-                                <div class="input_contents email_input">
-                                    <label>Expiration Date</label>
-                                    <input autocomplete="off" id="payment_expire" type="tel" maxlength="5"
-                                        placeholder="04/28" name="cardexpdate">
-                                    <span id="error">
-                                        <!-- !Your Expiration Number invalid -->
-                                        <%= messages.paymenterror %>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="input_wrapper">
-                            <div class="input_contents card_number_input">
-                                <label>CVV</label>
-                                <input autocomplete="off" id="payment_cvv" type="tel" maxlength="3" placeholder="123"
-                                    name="cardcvv">
-                                <span id="error">
-                                    <!-- !Your CVV invalid -->
-                                    <%= messages.paymenterror %>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="hr-2"></div>
-
-                        <div class="bottom_payment_wrapper">
-                            <div class="bottom_checkout">
-                                <h2>Total Amount : <span id="price_order">
-                                        ₹ <%= new Intl.NumberFormat().format( cart.totalPrice ) %>
-                                    </span></h2>
-
-                                <a href="/cartpage">
-                                    <span>
-                                        Cancel process
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="payment_button">
-                                <button type="submit" id="payment_Btn">Place Your
-                                    order</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<div id="payment_page_container">
+    <div class="payment_container">
+        <div class="top_logo">
+            <a href="/cartpage">
+                WB
+            </a>
         </div>
 
-        <!-- ====================Success Popup==================== -->
+        <div class="payment_wrapper">
+            <div class="heading_pay">
+                <h1>Shipping to: <span>
+                        <%= userData.name %>
+                    </span> </h1>
+            </div>
+            <div class="payment_bottom">
+                <form action="/orders" method="POST" class="payment_content">
+                    <div class="input_wrapper">
+                        <div class="input_contents name_input">
+                            <label>Your name</label>
+                            <input disabled="disabled" id="payment_name" name="name" type="text"
+                                value="<%= userData.name %>" placeholder="Your Name">
+
+                            <input id="payment_name" name="name" type="hidden" value="<%= userData.name %>"
+                                placeholder="Your Name">
+
+                        </div>
+                        <div class="input_contents number_input">
+                            <label>Mobile number</label>
+                            <input id="payment_number" maxlength="10" type="number" name="phone"
+                                value="<%= userData.phone ? userData.phone : '' %>" placeholder="Your Phone Number">
+                            <span id="error">
+                                <%= messages.paymenterror %>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="input_wrapper">
+                        <div class="input_contents email_input">
+                            <label>Email Address</label>
+                            <input disabled="disabled" id="payment_email" type="email" value="<%= userData.email %>">
+                        </div>
+                        <div class="input_contents card_number_input">
+                            <label>Address</label>
+                            <input id="payment_address" type="address" name="address"
+                                value="<%= userData.address ? userData.address : '' %>" placeholder="Your Address">
+                            <span id="error">
+                                <%= messages.paymenterror %>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="input_wrapper">
+                        <div class="input_contents email_input">
+                            <label>Card number</label>
+                            <input autocomplete="off" id="card_number" type="tel" maxlength="16"
+                                placeholder="xxxx xxxx xxxx 0000" name="cardnumber">
+                            <span id="error">
+                                <% if(messages.paymenterror){ %>
+                                    <%= messages.paymenterror %>
+                                        <% }else if(messages.cardnumber) { %>
+                                            <%= messages.cardnumber %>
+
+                                                <% } %>
+                            </span>
+                        </div>
+                        <div class="input_contents card_number_input">
+                            <div class="input_contents email_input">
+                                <label>Expiration Date</label>
+                                <input autocomplete="off" id="payment_expire" type="tel" maxlength="5"
+                                    placeholder="04/28" name="cardexpdate">
+                                <span id="error">
+                                    <!-- !Your Expiration Number invalid -->
+                                    <%= messages.paymenterror %>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input_wrapper">
+                        <div class="input_contents card_number_input">
+                            <label>CVV</label>
+                            <input autocomplete="off" id="payment_cvv" type="tel" maxlength="3" placeholder="123"
+                                name="cardcvv">
+                            <span id="error">
+                                <!-- !Your CVV invalid -->
+                                <%= messages.paymenterror %>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="hr-2"></div>
+
+                    <div class="bottom_payment_wrapper">
+                        <div class="bottom_checkout">
+                            <h2>Total Amount : <span id="price_order">
+                                    ₹ <%= new Intl.NumberFormat().format( cart.totalPrice ) %>
+                                </span></h2>
+
+                            <a href="/cartpage">
+                                <span>
+                                    Cancel process
+                                </span>
+                            </a>
+                        </div>
+                        <div class="payment_button">
+                            <button type="submit" id="payment_Btn">Place Your
+                                order</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================Success Popup==================== -->
 
 
-        <!-- <div class="popup_container">
+    <!-- <div class="popup_container">
                     <div class="popup active center">
                         <div class="icon">
                             <i class="fa fa-check"></i>
@@ -139,17 +137,35 @@
                     </div>
                 </div> -->
 
+</div>
+
+<div id="overlays_payment"></div>
+
+<!-- ==========Container End======== -->
+
+<div id="preloader">
+    <div class="loading_container">
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
+</div>
 
-    <div id="overlays_payment"></div>
+<!-- ===================================================== -->
+<!-- ======================Script========================= -->
+<!-- =======================Main CDN====================== -->
 
-    <!-- ===================================================== -->
-    <!-- ======================Script========================= -->
-    <!-- =======================Main CDN====================== -->
+<script src="../JS/Cart.js"></script>
+<script src="../JS/PaymentOrders.js"></script>
+<script>
+    let preloader = document.querySelector('#preloader');
 
-    <script src="../JS/Cart.js"></script>
-    <script src="../JS/PaymentOrders.js"></script>
-
+    if (preloader) {
+        window.addEventListener('load', () => {
+            preloader.style.display = 'none';
+        });
+    }
+</script>
 
 </body>
 

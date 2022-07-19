@@ -91,10 +91,28 @@
         </div>
     </div>
 
+    <!-- ==========Container End======== -->
+
+    <div id="preloader">
+        <div class="loading_container">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
     <!-- ==================================================== -->
     <!-- =====================JS Script====================== -->
 
     <script>
+        let preloader = document.querySelector('#preloader');
+
+        if (preloader) {
+            window.addEventListener('load', () => {
+                preloader.style.display = 'none';
+            });
+        }
+
         let SignInPage = document.querySelector('.popup_signIn_Up'),
             UserSecret = document.querySelector('#left .shop i'),
             container = document.querySelector('.popup_signIn_Up .popup'),

@@ -4819,11 +4819,29 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var preloader = document.querySelector('#preloader');
+
+if (preloader) {
+  window.addEventListener('load', function () {
+    preloader.style.display = 'none';
+  });
+} // Preloader End
+
+
+var navbar = document.querySelector('.adminHeader');
+window.addEventListener('scroll', function () {
+  if (window.scrollY >= 105) {
+    navbar.style.boxShadow = '0 0 3px rgba(0, 0, 0, 0.3)';
+  } else {
+    navbar.style.boxShadow = 'none';
+  }
+});
 var sidebar = document.querySelector('#adminSidebar');
 var sidebarBtn = document.querySelector('#sidebarBtn');
 var overlay = document.querySelector('#adminOverlay');
 var sidebarDismissBtn = document.querySelector('#adminSidebar .navbar-logo .sidebar-dismiss .logo span');
-var sidebarLinks = document.querySelectorAll('#adminSidebar .sidebar-nav ul li a.navLink');
 var body = document.querySelector('body');
 
 if (sidebarBtn) {
@@ -4846,22 +4864,6 @@ function sidebarDismiss() {
   sidebar.classList.remove('active');
   overlay.classList.remove('active');
   body.classList.remove('sidebarActive');
-}
-
-if (sidebarLinks) {
-  sidebarLinks.forEach(function (ele) {
-    ele.addEventListener('click', function () {
-      var active = document.querySelector('#adminSidebar .sidebar-nav ul li a.active');
-
-      if (active) {
-        active.classList.remove('active');
-      }
-
-      if (ele) {
-        ele.classList.add('active');
-      }
-    });
-  });
 }
 
 var expand_more = document.querySelectorAll('#expand_more');

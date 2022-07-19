@@ -181,18 +181,6 @@
                         align-items: center;
                         gap: 20px;
 
-                        // & .QTY {
-                        //     & span {
-                        //         font-size: 13px;
-                        //         color: $dark_color;
-                        //         font-weight: 550;
-
-                        //         & b {
-                        //             font-weight: 800;
-                        //         }
-                        //     }
-                        // }
-
                         & .Qty {
                             margin: 0;
                             border: none;
@@ -210,8 +198,11 @@
                         }
 
                         & button {
+                            display: flex;
+                            align-items: center;
+
                             & i {
-                                margin-right: 0.2rem;
+                                margin-right: 0.3rem;
                             }
                         }
 
@@ -219,7 +210,13 @@
 
                             & button {
                                 background: none;
+                                display: flex;
+                                align-items: center;
                                 cursor: pointer;
+
+                                & i {
+                                    margin-right: 0.3rem;
+                                }
 
                                 &:hover {
                                     color: $countingColor;
