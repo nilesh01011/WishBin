@@ -30,6 +30,8 @@ const forgetPassword = require('../controller/UsersData/resetPassword');
 
 const Message = require('../model/userContactUs');
 
+// ===== inits Routes ====
+
 function initRoutes(app) {
   // Admin Dashboard
   app.get('/api/adminPage/dashboard', admin, adminPage.Page);
@@ -106,8 +108,6 @@ function initRoutes(app) {
 
   app.get('/computerproducts', Pages.ComputerPage);
 
-  // DB = mongodb://localhost:27017/ECommerce
-
   // ===========================WishList Details=========================
 
   app.get('/wishlistpage', auth, wishlistController.wishlistPageController);
@@ -146,6 +146,7 @@ function initRoutes(app) {
 
     try {
       const fetchOrder = await orders.findByIdAndDelete({ _id: DeleteOrder });
+      return req.flash('removeorders', 'remove order');
     } catch (error) {
       console.log(error);
     }

@@ -2558,11 +2558,7 @@ var user = document.querySelector('#user');
 
 if (cancleUpdateBtn) {
   cancleUpdateBtn.addEventListener('click', function () {
-    if (user.name) {
-      window.location = '/api/adminPage/userprofile';
-    } else {
-      window.location = '/userprofile';
-    }
+    window.location = '/userprofile';
   });
 } // ============================ User Page End ======================================
 // =================================================================================
@@ -2637,29 +2633,32 @@ ATP.forEach(function (ele) {
   });
 }); // ============================ Add Wishlist icons =================================
 
-var borderWish = document.querySelectorAll('[data-wishlist]'),
-    icons = document.querySelectorAll('#far i.far');
-var WishIcons = document.querySelector('#wish_btn');
+function wishlistAddIcons() {
+  var borderWish = document.querySelectorAll('[data-wishlist]'),
+      icons = document.querySelectorAll('#far i.far');
+  var WishIcons = document.querySelector('#wish_btn');
 
-var _loop = function _loop(_i) {
-  borderWish[_i].addEventListener('click', function () {
-    var bw = borderWish[_i];
-    var GetWishListID = bw.dataset.wishlist;
+  var _loop = function _loop(_i) {
+    borderWish[_i].addEventListener('click', function () {
+      var bw = borderWish[_i];
+      var GetWishListID = bw.dataset.wishlist;
 
-    if (icons[_i].classList.contains('far')) {
-      icons[_i].classList.add('fas');
+      if (icons[_i].classList.contains('far')) {
+        icons[_i].classList.add('fas');
 
-      icons[_i].classList.remove('far');
-    }
+        icons[_i].classList.remove('far');
+      }
 
-    WishIcons.classList.add('active');
-  });
-};
+      WishIcons.classList.add('active');
+    });
+  };
 
-for (var _i = 0; _i < borderWish.length; _i++) {
-  _loop(_i);
-} // ===============================================================
+  for (var _i = 0; _i < borderWish.length; _i++) {
+    _loop(_i);
+  }
+}
 
+wishlistAddIcons(); // ===============================================================
 
  // its allowed to make HTTP request to both POST and GET request
 
@@ -2669,11 +2668,9 @@ var SeeMoreCategory = document.querySelector('#product_json #CardSwiper .card_co
 
 function seemoreCategory_Product() {
   axios__WEBPACK_IMPORTED_MODULE_0___default().post('/seemorecategory_product').then(function (resp) {
-    var SeemoreCategoryData = resp.data.getCategory;
-    SeemoreCategoryData.forEach(function (ele) {
-      SeeMoreCategory.innerHTML += "\n        <div id=\"".concat(ele.cards_id, "\" class=\"card__\">\n          <div class=\"cards\">\n              <div class=\"card_content\">\n                  <div class=\"image\">\n                      <img src=\"").concat(ele.image, "\" loading=\"lazy\" decoding=\"async\"\n                          alt=\"middle_img\">\n                  </div>\n                  <div class=\"card_view\">\n                      <div class=\"card_add_wrapp\">\n                          <span>\n                              <i class=\"fas fa-chevron-right\"></i>\n                          </span>\n                      </div>\n                  </div>\n              </div>\n              <div class=\"overlay_typed\">\n                  <div class=\"card_name_with_overlay\">\n                      <h4>\n                          ").concat(ele.title, "\n                      </h4>\n                  </div>\n              </div>\n          </div>\n        </div>\n        ");
-    });
-    CategoryLinks(); // ======Category End
+    SeeMoreDatas(resp); // ======SeeMore Data End
+
+    CategoryLinks();
   })["catch"](function (err) {
     console.log(err);
   });
@@ -2733,6 +2730,13 @@ function CategoryLinks() {
     ele.addEventListener('click', function () {
       window.open('./babyclothproducts', '_blank');
     });
+  });
+}
+
+function SeeMoreDatas(datas) {
+  var SeemoreCategoryData = datas.data.getCategory;
+  SeemoreCategoryData.forEach(function (ele) {
+    SeeMoreCategory.innerHTML += "\n    <div id=\"".concat(ele.cards_id, "\" class=\"card__\">\n      <div class=\"cards\">\n          <div class=\"card_content\">\n              <div class=\"image\">\n                  <img src=\"").concat(ele.image, "\" loading=\"lazy\" decoding=\"async\"\n                      alt=\"middle_img\">\n              </div>\n              <div class=\"card_view\">\n                  <div class=\"card_add_wrapp\">\n                      <span>\n                          <i class=\"fas fa-chevron-right\"></i>\n                      </span>\n                  </div>\n              </div>\n          </div>\n          <div class=\"overlay_typed\">\n              <div class=\"card_name_with_overlay\">\n                  <h4>\n                      ").concat(ele.title, "\n                  </h4>\n              </div>\n          </div>\n      </div>\n    </div>\n    ");
   });
 } // ========================Category Links End=============================
 

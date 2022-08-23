@@ -1,13 +1,15 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 var __webpack_exports__ = {};
 /*!***************************************!*\
   !*** ./resources/JS/dashboardHome.js ***!
   \***************************************/
+ // ===================charts===================
+
 var _tooltips;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-// ===================charts===================
 var ctx = document.getElementById('myChart').getContext('2d');
 var gradientBg = ctx.createLinearGradient(0, 0, 0, 300);
 gradientBg.addColorStop(0, 'rgba(157, 148, 255,0.6)');
@@ -223,5 +225,23 @@ var pieChart1 = new Chart(ctxPieChart1, {
     }
   }
 }); // ========= chart polarChart1 end ==========
+
+var orderListContainer = document.querySelector('#loadMoreTr');
+var orderListBtn = document.querySelector('#loadMoreTr button');
+var currentOrderList = 4;
+orderListBtn.addEventListener('click', function () {
+  var orderList = document.querySelectorAll('#order_table tbody tr'); // tr table show
+
+  for (var i = currentOrderList; i < currentOrderList + 3; i++) {
+    orderList[i].style.display = 'table-row';
+  }
+
+  currentOrderList += 4;
+
+  if (currentOrderList > orderList.length) {
+    orderListContainer.style.display = 'none';
+    orderListBtn.style.display = 'none';
+  }
+});
 /******/ })()
 ;

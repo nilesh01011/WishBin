@@ -59,17 +59,14 @@ const UserRegis = async (req, res) => {
       req.flash('error', 'Something went wrong!');
       return res.render('RegisterPage');
     });
-
-  // res.render('RegisterPage');
 };
 
 const UserLogin = async (req, res, next) => {
-  // res.render('LoginPage');
-
   const { email, password } = req.body;
 
   if (!email || !password) {
     req.flash('error', 'All fields are required');
+    req.flash('email', email);
 
     return res.redirect('/login');
   }
@@ -84,11 +81,15 @@ const UserLogin = async (req, res, next) => {
       return next(err);
     }
 
+    // if user not found
+
     if (!user) {
       req.flash('error', info.message);
 
       return res.redirect('/login');
     }
+
+    // successfull user login
 
     req.logIn(user, (err) => {
       if (err) {
@@ -104,7 +105,7 @@ const UserLogin = async (req, res, next) => {
 const UserLogout = async (req, res, next) => {
   req.logout(); // passport logout function
 
-  return res.redirect('/');
+  return res.redirect('/login');
 };
 
 module.exports = {

@@ -4819,6 +4819,8 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+
  // its allowed to make HTTP request to both POST and GET request
 
 var wishListBtn = document.querySelectorAll('[data-wishlist]');
@@ -4831,10 +4833,14 @@ function WishlistAdd(data) {
   });
 }
 
+var wish_btn = document.querySelector('#wish_btn .count');
 wishListBtn.forEach(function (ele) {
   ele.addEventListener('click', function () {
     var getID = JSON.parse(ele.dataset.wishlist);
-    ele.disabled = true;
+    ele.disabled = true; // let previousCounter = wish_btn.innerText;
+    // let result = parseInt(previousCounter) + 1;
+    // wish_btn.innerHTML = `${parseInt(result)}`;
+
     WishlistAdd(getID);
     window.location = '/wishlistpage';
   });
@@ -4856,7 +4862,6 @@ DeleteFromWishList.forEach(function (del) {
   del.addEventListener('click', function () {
     var getDelId = del.dataset.deletewishlist;
     DeleteWishList(getDelId);
-    noty_messages_Toast();
   });
 }); // ==================ATC WishList========================
 
@@ -4879,19 +4884,7 @@ function proATC(getID, deleteProID) {
   })["catch"](function (err) {
     console.log(err);
   });
-} // function Delete_ATC(deleteProID) {
-//   axios
-//     .delete(`/wishlist-delete/${deleteProID}`, {
-//       WishListItemsID: deleteProID,
-//     })
-//     .then((resp) => {
-//       console.log(resp);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// }
-
+}
 
 ATC.forEach(function (ele) {
   ele.addEventListener('click', function () {

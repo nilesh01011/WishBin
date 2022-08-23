@@ -1,8 +1,10 @@
+require('dotenv').config();
 const Products = require('../../model/productsModel');
 const orders = require('../../model/ordersModel');
 const moment = require('moment');
 const User = require('../../model/user');
 const Messages = require('../../model/userContactUs');
+const db = process.env.DB;
 
 function sumOfAll(arr) {
   let sum = 0;
@@ -20,7 +22,7 @@ const Page = async (req, res) => {
     const adminUser = req.user;
 
     let userOrders = await orders.find({}, null, {
-      sort: { createdAt: -1 },
+      sort: { updatedAt: -1 },
     });
 
     // totalIncome Amount
@@ -53,9 +55,11 @@ const Page = async (req, res) => {
 
 const CustomerPage = async (req, res) => {
   try {
+    // all messages
     const messages = await Messages.find().limit(3);
     const AllMessages = await Messages.find();
 
+    // super admins only
     let superAdmin;
     const adminUser = req.user;
 
@@ -65,7 +69,8 @@ const CustomerPage = async (req, res) => {
       superAdmin = FindAdmin.role;
     }
 
-    const AllUser = await User.find({});
+    // all users but not current super admin or admin display
+    const AllUser = await User.find({ _id: { $ne: req.user._id } });
 
     res.render('api/adminPage/customer', {
       admin: superAdmin,

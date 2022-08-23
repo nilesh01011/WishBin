@@ -33,7 +33,9 @@ const homeIndex = async (req, res) => {
   const MainCategory = await CategoryPro.find();
   // Category End
   // ===============
-  const productToys = await Products.findOne({ category: 'Toys' });
+  const productToys = await Products.findOne({
+    title: 'Elephant SoftToy',
+  });
   const productElec = await Products.findOne({ category: 'Electronics' });
   const productElecTwo = await Products.findOne({
     title: 'Razer PS5 Headphone',
@@ -41,14 +43,29 @@ const homeIndex = async (req, res) => {
   const productElecThree = await Products.findOne({
     title: 'Sony Bravia 4K 49Inch',
   });
-  const productFur = await Products.findOne({ category: 'Furniture' });
-  const productCloth = await Products.findOne({ category: 'Cloths' });
+  const productFur = await Products.findOne({ title: 'Coffee Table' });
+  const productCloth = await Products.findOne({ title: 'Sarees Mall' });
   const productClothTwo = await Products.findOne({ title: 'Woolen Sweater' });
   const productBabyCloth = await Products.findOne({ category: 'BabyCloths' });
   const productGroc = await Products.findOne({ category: 'Groceries' });
   const productGame = await Products.findOne({ category: 'Games' });
   const productCompu = await Products.findOne({ category: 'Computer' });
   const productMobile = await Products.findOne({ title: 'Samsung Galaxy S21' });
+
+  const displayProducts = [
+    productToys,
+    productElec,
+    productElecTwo,
+    productElecThree,
+    productFur,
+    productCloth,
+    productClothTwo,
+    productBabyCloth,
+    productGroc,
+    productGame,
+    productCompu,
+    productMobile,
+  ];
 
   // Carta sessions
 
@@ -85,6 +102,21 @@ const homeIndex = async (req, res) => {
     title: 'Dell Alienware',
   });
 
+  const displayseemoremainpro = [
+    seemoreProToys,
+    seemoreProElec,
+    seemoreProCloth,
+    seemoreProBabyCloth,
+    seemoreProGro,
+    seemoreProMobile,
+    seemoreProComp,
+    seemoreProMobileTwo,
+    seemoreProFur,
+    seemoreProCompTwo,
+    seemoreProGroTwo,
+    seemoreProCompThree,
+  ];
+
   // SeeMore Product and Category End
   // ====================================
 
@@ -107,18 +139,19 @@ const homeIndex = async (req, res) => {
 
     cate: MainCategory,
     // Category End
-    pto: productToys,
-    pel: productElec,
-    pfur: productFur,
-    pclo: productCloth,
-    pbc: productBabyCloth,
-    pco: productCompu,
-    pgo: productGroc,
-    pga: productGame,
-    pmo: productMobile,
-    pcloTwo: productClothTwo,
-    pelTwo: productElecTwo,
-    pelThree: productElecThree,
+    mainpro: displayProducts,
+    // pto: productToys,
+    // pel: productElec,
+    // pfur: productFur,
+    // pclo: productCloth,
+    // pbc: productBabyCloth,
+    // pco: productCompu,
+    // pgo: productGroc,
+    // pga: productGame,
+    // pmo: productMobile,
+    // pcloTwo: productClothTwo,
+    // pelTwo: productElecTwo,
+    // pelThree: productElecThree,
 
     // Fire TV ID
     TV: FireTV,
@@ -127,18 +160,20 @@ const homeIndex = async (req, res) => {
     // asusLap
     asuslap: AsusLap,
 
-    seemoretoy: seemoreProToys,
-    seemoreelc: seemoreProElec,
-    seemorecloth: seemoreProCloth,
-    seemorebabycloth: seemoreProBabyCloth,
-    seemoremob: seemoreProMobile,
-    seemorecom: seemoreProComp,
-    seemoregro: seemoreProGro,
-    seemoremobtwo: seemoreProMobileTwo,
-    seemorefur: seemoreProFur,
-    seemorecomtwo: seemoreProCompTwo,
-    seemoregrotwo: seemoreProGroTwo,
-    seemorecomthree: seemoreProCompThree,
+    seemoremainpro: displayseemoremainpro,
+
+    // seemoretoy: seemoreProToys,
+    // seemoreelc: seemoreProElec,
+    // seemorecloth: seemoreProCloth,
+    // seemorebabycloth: seemoreProBabyCloth,
+    // seemoremob: seemoreProMobile,
+    // seemorecom: seemoreProComp,
+    // seemoregro: seemoreProGro,
+    // seemoremobtwo: seemoreProMobileTwo,
+    // seemorefur: seemoreProFur,
+    // seemorecomtwo: seemoreProCompTwo,
+    // seemoregrotwo: seemoreProGroTwo,
+    // seemorecomthree: seemoreProCompThree,
 
     // SeeMore Sections End
 

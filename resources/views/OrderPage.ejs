@@ -120,13 +120,21 @@
                                             </span>
                                         </div>
 
-                                        <div class="orderTrack">
-                                            <a href="/ordertrack?orderId=<%= ele._id %>" target="_blank"
-                                                data-ordertrack="<%= JSON.stringify(ele._id) %>">
-                                                Track Order
-                                                <i class="fad fa-angle-double-right"></i>
-                                            </a>
-                                        </div>
+                                        <% if(ele.status !="completed" ) { %>
+
+                                            <div class="orderTrack">
+                                                <a href="/ordertrack?orderId=<%= ele._id %>" target="_blank"
+                                                    data-ordertrack="<%= JSON.stringify(ele._id) %>">
+                                                    Track Order
+                                                    <i class="fad fa-angle-double-right"></i>
+                                                </a>
+                                            </div>
+                                            <% } else { %>
+                                                <div class="order_Complete">
+                                                    <span>Order Completed</span>
+                                                </div>
+                                                <% } %>
+
                                     </div>
                                 </div>
                                 <div class="order_main_content">
@@ -139,7 +147,12 @@
                                             </div>
                                             <div class="description">
                                                 <span>
-                                                    <%= ele.items.item.descriptions %>
+                                                    <% if(ele.items.item.descriptions.length < 100){ %>
+                                                        <%= ele.items.item.descriptions %>
+                                                            <% }else{ %>
+                                                                <%= ele.items.item.descriptions.slice(0, 90).trim()
+                                                                    + '...' %>
+                                                                    <% } %>
                                                 </span>
 
                                                 <div class="price_QTY">
@@ -160,10 +173,14 @@
                                                     product
                                                 </a>
 
-                                                <a href="/orderpage" class="cancleOrder"
-                                                    data-cancleorderproduct="<%= JSON.stringify(ele._id) %>">
-                                                    <i class="far fa-trash-alt"></i> Cancle Order
-                                                </a>
+                                                <% if(ele.status !="completed" ) { %>
+
+                                                    <a href="/orderpage" class="cancleOrder"
+                                                        data-cancleorderproduct="<%= JSON.stringify(ele._id) %>">
+                                                        <i class="far fa-trash-alt"></i> Cancle Order
+                                                    </a>
+
+                                                    <% } %>
                                             </div>
                                         </div>
                                     </div>
@@ -189,8 +206,23 @@
                     </div>
                     <% } %>
         </div>
+
+        <!-- orders Content End -->
+
+        <% if(messages.removeorders) { %>
+            <div id="removeToOrderPopup" class="active">
+                <div class="content">
+                    <span>
+                        <i class="fas fa-check"></i>
+                        Your order removed
+                    </span>
+                </div>
+            </div>
+            <% } %>
+
     </div>
     <!-- ==================OrderPage Page End==================== -->
+
 </div>
 
 <!-- ==========Container End======== -->
@@ -239,4 +271,21 @@
                         '0';
                 }
             });
+
+            // Navbar scroll
+
+            let messages = document.querySelector("#removeToOrderPopup");
+
+            if (messages) {
+
+                setTimeout(() => {
+                    messages.style.visibility = 'hidden'
+                    messages.classList.remove('active');
+
+                }, 3000);
+
+                messages.addEventListener('click', () => {
+                    messages.classList.remove('active');
+                });
+            }
         </script>

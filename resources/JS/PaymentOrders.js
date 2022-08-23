@@ -4,10 +4,7 @@ let popupContainer = document.querySelector(
     '#payment_page_container .popup_container .popup'
   ),
   overlays_payment = document.querySelector('#overlays_payment'),
-  payment_Btn = document.querySelector('#payment_Btn'),
-  dismiss_btn = document.querySelector(
-    '#payment_page_container .popup_container .popup .dismiss-btn .dismiss'
-  );
+  payment_Btn = document.querySelector('#payment_Btn');
 
 payment_Btn.addEventListener('click', (e) => {
   // e.preventDefault();
@@ -22,13 +19,3 @@ payment_Btn.addEventListener('click', (e) => {
       console.log(err);
     });
 });
-
-// dismiss_btn.addEventListener('click', () => {
-//   popupContainer.classList.remove('active');
-//   overlays_payment.style.display = 'none';
-//   setInterval(anim, 700);
-// });
-
-// function anim() {
-//   window.location = '/orderpage';
-// }

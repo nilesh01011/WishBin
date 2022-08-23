@@ -4840,12 +4840,12 @@ var _loop = function _loop(i) {
 
 for (var i = 0; i < eye_lock.length; i++) {
   _loop(i);
-}
+} // let buttons = document.querySelector('#submit');
 
-var buttons = document.querySelector('#submit');
+
 var forms = document.querySelector('form');
-var feild = document.querySelectorAll('form .feild');
-var error = document.querySelector('#error');
+var feild = document.querySelectorAll('form .feild'); // let error = document.querySelector('#error');
+
 var password = document.querySelector('#input .password');
 var Cpassword = document.querySelector('#input .Cpassword');
 var FormStatus = false;
@@ -4906,7 +4906,6 @@ function chechValidation() {
 
   if (password.value && Cpassword.value) {
     if (password.value == Cpassword.value) {
-      // e.currentTarget.submit();
       FormStatus = true;
     } else {
       console.log('its not match', Cpassword.value, password.value);

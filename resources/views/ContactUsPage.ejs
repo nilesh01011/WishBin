@@ -72,6 +72,7 @@
                                 <div class="input_wrapper">
                                     <label for="name">Full name</label>
                                     <input name="name" type="text"
+                                        class="<%= messages.emptycontactusmessage ? 'emptyField' : '' %>"
                                         value="<%= messages.previousname ? messages.previousname : '' %>"
                                         placeholder="What's your full name" autocomplete="off">
                                     <div id="error">
@@ -81,6 +82,7 @@
                                 <div class="input_wrapper">
                                     <label for="email">Email address</label>
                                     <input name="email" type="text"
+                                        class="<%= messages.emptycontactusmessage ? 'emptyField' : '' %>"
                                         value="<%= messages.previouemail ? messages.previouemail : '' %>"
                                         placeholder="example@gmail.com" autocomplete="off">
                                     <div id="error">
@@ -90,6 +92,7 @@
                                 <div class="input_wrapper">
                                     <label for="name">Message</label>
                                     <textarea name="message"
+                                        class="<%= messages.emptycontactusmessage ? 'emptyField' : '' %>"
                                         value="<%= messages.previousmessage ? messages.previousmessage : '' %>"
                                         placeholder="Write your message here"></textarea>
                                     <div id="error">

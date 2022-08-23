@@ -86,9 +86,7 @@ const contactUsMessage = async (req, res) => {
     userContactUs
       .save()
       .then((result) => {
-        console.log(result);
-
-        req.flash('successfullsend', 'Your messages has been send');
+        req.flash('successfullsend', 'Your messages has been sended');
 
         return res.redirect('/contactus');
       })

@@ -15,6 +15,7 @@
         @extend %WidthHeight;
         @extend %DisplayFlexSpaceBetween;
         row-gap: 60px;
+        column-gap: 30px;
         flex-wrap: wrap;
 
         & .card__ {
@@ -298,6 +299,14 @@
                 background-clip: text;
                 -webkit-background-clip: text;
             }
+        }
+    }
+}
+
+@media screen and (max-width:1038px) {
+    #CardSwiper {
+        & .card_container {
+            column-gap: 0;
         }
     }
 }

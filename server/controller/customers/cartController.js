@@ -174,6 +174,8 @@ const removeitems = (req, res) => {
   for (let id of Object.values(GetID)) {
     delete GetID[DeleteThisID];
 
+    req.flash('removetocartpopup', 'Removed from cart');
+
     if (id.item._id === DeleteThisID) {
       if (id.qty > 1 && id.item.QTY > id.qty) {
         cartSession.totalQTY = cartSession.totalQTY - 1;
@@ -191,8 +193,8 @@ const removeitems = (req, res) => {
 };
 
 module.exports = {
-  cart,
-  AddToCart,
-  UpdateCart,
-  removeitems,
+  cart, // Read
+  AddToCart, // Create
+  UpdateCart, // Update
+  removeitems, // Delete
 };

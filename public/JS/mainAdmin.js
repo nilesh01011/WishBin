@@ -4914,11 +4914,7 @@ ATC.forEach(function (ele) {
     AddToCart(getId);
     window.open('/cartpage', '_blank');
   });
-}); // Socket and Emit
-// socket.on('orderPlaced', (order) => {
-//   console.log(order);
-// });
-// /===============Messages================
+}); // /===============Messages================
 
 var messagesDelete = document.querySelectorAll('[data-deletemsg]');
 

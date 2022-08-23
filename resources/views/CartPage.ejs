@@ -179,6 +179,23 @@
                 </div>
             </div>
         </div>
+
+        <!-- cart container End -->
+
+
+        <% if(messages.removetocartpopup) { %>
+
+            <div id="removeToCartPopup" class="active">
+                <div class="content">
+                    <span>
+                        <i class="fas fa-check"></i>
+                        Removed from cart
+                    </span>
+                </div>
+            </div>
+
+            <% } %>
+
     </div>
     <!-- ======================Cart Page End========================== -->
 </div>
@@ -224,4 +241,21 @@
                         '0';
                 }
             });
+
+            // Navbar scroll
+
+            let messages = document.querySelector("#removeToCartPopup");
+
+            if (messages) {
+
+                setTimeout(() => {
+                    messages.style.visibility = 'hidden'
+                    messages.classList.remove('active');
+
+                }, 3000);
+
+                messages.addEventListener('click', () => {
+                    messages.classList.remove('active');
+                });
+            }
         </script>

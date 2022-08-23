@@ -939,11 +939,9 @@
 
             & .right_cart_content {
                 width: 100%;
-                // order: 1;
             }
 
             & .left_cart_content {
-                // order: 2;
 
                 & .cart_wrapper {
                     & .empty_cartPage {
@@ -1014,6 +1012,13 @@
 
                             & .order_head_right {
                                 text-align: left;
+                                border-top: 1px solid #d6d6d6;
+                                padding-top: 0.4rem;
+
+                                & .orderID {
+                                    justify-content: space-between;
+                                    padding-top: 0.2rem;
+                                }
                             }
                         }
 
@@ -2472,25 +2477,33 @@
                             width: 100%;
                         }
                     }
-
-                    //  Empty CartPages End
-
-                    // & .products_contents {
-                    //     & .product_container {
-                    //         & .product_bottom_part {
-                    //             & button {
-                    //                 // font-size: 11px;
-                    //                 flex-direction: column;
-                    //             }
-                    //         }
-                    //     }
-                    // }
                 }
             }
         }
     }
 
     /* ========================CartPage section End==================== */
+
+    #OrderPage {
+        & .Order_content {
+            & .order_wrapper {
+                & .order_details {
+                    & .orders_list {
+                        & .order_list_head {
+                            & .order_head_right {
+                                & .orderID {
+                                    flex-direction: column;
+                                    align-items: flex-start;
+                                    gap: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 @media screen and (max-width: 430px) {

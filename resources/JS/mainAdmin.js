@@ -117,12 +117,6 @@ ATC.forEach((ele) => {
   });
 });
 
-// Socket and Emit
-
-// socket.on('orderPlaced', (order) => {
-//   console.log(order);
-// });
-
 // /===============Messages================
 
 let messagesDelete = document.querySelectorAll('[data-deletemsg]');

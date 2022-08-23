@@ -1,3 +1,5 @@
+'use strict';
+
 import axios from 'axios'; // its allowed to make HTTP request to both POST and GET request
 
 let wishListBtn = document.querySelectorAll('[data-wishlist]');
@@ -13,11 +15,18 @@ function WishlistAdd(data) {
     });
 }
 
+let wish_btn = document.querySelector('#wish_btn .count');
+
 wishListBtn.forEach((ele) => {
   ele.addEventListener('click', () => {
     let getID = JSON.parse(ele.dataset.wishlist);
 
     ele.disabled = true;
+
+    // let previousCounter = wish_btn.innerText;
+    // let result = parseInt(previousCounter) + 1;
+
+    // wish_btn.innerHTML = `${parseInt(result)}`;
 
     WishlistAdd(getID);
 
@@ -46,7 +55,6 @@ DeleteFromWishList.forEach((del) => {
     let getDelId = del.dataset.deletewishlist;
 
     DeleteWishList(getDelId);
-    noty_messages_Toast();
   });
 });
 
@@ -83,19 +91,6 @@ function proATC(getID, deleteProID) {
       console.log(err);
     });
 }
-
-// function Delete_ATC(deleteProID) {
-//   axios
-//     .delete(`/wishlist-delete/${deleteProID}`, {
-//       WishListItemsID: deleteProID,
-//     })
-//     .then((resp) => {
-//       console.log(resp);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// }
 
 ATC.forEach((ele) => {
   ele.addEventListener('click', () => {

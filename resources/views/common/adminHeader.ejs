@@ -12,17 +12,17 @@
 
             <!-- ---------------Left Side End------------- -->
 
-            <div class="col-lg-7 col-md-7 col-8">
+            <div class="col-lg-7 col-md-7 col-8 ps-sm-auto ps-0">
                 <div class="header-right d-flex justify-content-end">
                     <div class="header-message-box ml-15 d-none d-md-flex">
                         <button id="messageBox" data-bs-toggle="dropdown"
                             class="dropdown-toggle d-flex align-items-center justify-content-center position-relative">
                             <span class="material-icons">mail_outline</span>
-                            <span class="count">
-                                <% if(allMsg) { %>
+                            <% if(allMsg.length !=0) { %>
+                                <span class="count">
                                     <%= allMsg.length %>
-                                        <% } %>
-                            </span>
+                                </span>
+                                <% } %>
                         </button>
 
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="message">

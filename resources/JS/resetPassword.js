@@ -17,10 +17,10 @@ for (let i = 0; i < eye_lock.length; i++) {
   });
 }
 
-let buttons = document.querySelector('#submit');
+// let buttons = document.querySelector('#submit');
 let forms = document.querySelector('form');
 let feild = document.querySelectorAll('form .feild');
-let error = document.querySelector('#error');
+// let error = document.querySelector('#error');
 let password = document.querySelector('#input .password');
 let Cpassword = document.querySelector('#input .Cpassword');
 
@@ -96,8 +96,6 @@ function chechValidation() {
 
   if (password.value && Cpassword.value) {
     if (password.value == Cpassword.value) {
-      // e.currentTarget.submit();
-
       FormStatus = true;
     } else {
       console.log('its not match', Cpassword.value, password.value);

@@ -71,6 +71,7 @@ a {
     background: linear-gradient(77deg, rgba(234, 84, 85, 1) 30%, rgba(241, 101, 101, 1) 100%);
     position: fixed;
     top: 0;
+    left: 0;
     z-index: 9999999;
 
     & .loading_container {
@@ -336,6 +337,7 @@ footer,
     height: 100vh;
     padding: 2rem;
     position: relative;
+    box-shadow: $BoxShadow_2_6 $RGBA_04;
 
     & .wrapper {
         @extend %DisplayFlexCenter;
@@ -448,7 +450,7 @@ footer,
                 margin-top: 1rem;
                 margin-bottom: 1.5rem;
                 font-size: 1.25rem;
-                font-weight: 300;
+                font-weight: 400;
                 text-align: center;
                 line-height: 30px;
                 width: 70%;
@@ -701,12 +703,15 @@ footer,
     }
 }
 
+#registerError,
+#loginError,
+#removeToOrderPopup,
+#removeToCartPopup,
 #addToCartPopup {
     width: 320px;
     height: auto;
     z-index: 1000;
     position: fixed;
-    top: 135px;
     right: 0;
     overflow: hidden;
     display: flex;
@@ -721,8 +726,6 @@ footer,
         height: 100%;
         padding: 10px 20px;
         border-radius: 20px;
-        background: #2ecc71;
-        border: 2px solid #27ae60;
         transform: translateX(100%);
         transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
         visibility: hidden;
@@ -748,6 +751,40 @@ footer,
         & .content {
             transform: translateX(0%);
             visibility: visible;
+        }
+    }
+}
+
+#addToCartPopup {
+    top: 135px;
+
+    & .content {
+        background: #2ecc71;
+        border: 2px solid #27ae60;
+    }
+}
+
+#removeToOrderPopup,
+#removeToCartPopup {
+    top: 80px;
+
+    & .content {
+        background: #ff7675;
+        border: 2px solid #d63031;
+    }
+}
+
+#registerError,
+#loginError {
+    top: 80px;
+
+    & .content {
+
+        background: #e74c3c;
+        border: 2px solid #d63031;
+
+        & span {
+            font-weight: 500;
         }
     }
 }

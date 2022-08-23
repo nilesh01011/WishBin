@@ -1,3 +1,5 @@
+'use strict';
+
 // ===================charts===================
 
 const ctx = document.getElementById('myChart').getContext('2d');
@@ -292,3 +294,23 @@ const pieChart1 = new Chart(ctxPieChart1, {
   },
 });
 // ========= chart polarChart1 end ==========
+
+let orderListContainer = document.querySelector('#loadMoreTr');
+let orderListBtn = document.querySelector('#loadMoreTr button');
+let currentOrderList = 4;
+
+orderListBtn.addEventListener('click', () => {
+  let orderList = document.querySelectorAll('#order_table tbody tr');
+  // tr table show
+
+  for (let i = currentOrderList; i < currentOrderList + 3; i++) {
+    orderList[i].style.display = 'table-row';
+  }
+
+  currentOrderList += 4;
+
+  if (currentOrderList > orderList.length) {
+    orderListContainer.style.display = 'none';
+    orderListBtn.style.display = 'none';
+  }
+});

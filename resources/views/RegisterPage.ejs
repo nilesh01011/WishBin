@@ -36,7 +36,7 @@
 
 <!-- Poppus -->
 
-<div class="popup_signIn_Up">
+<div class="popup_signIn_Up" id="registers">
     <div class="container">
         <div class="popup">
             <div class="CrossPopup">
@@ -78,18 +78,24 @@
                                 <div class="page_ acc_deta">
                                     <div class="field">
                                         <input type="email" value="<%= messages.email %>" name="email"
-                                            placeholder="Email" autocomplete="off">
+                                            placeholder="Email address" autocomplete="off"
+                                            class="<%= messages.error ? 'errorMessages' : '' %>">
                                     </div>
                                     <div class="field">
-                                        <input class="input" value="<%= messages.password %>" name="password"
-                                            type="password" placeholder="Password" autocomplete="off">
+                                        <input id="passwordCheck"
+                                            class="input <%= messages.error ? 'errorMessages' : '' %>"
+                                            value="<%= messages.password %>" name="password" type="password"
+                                            placeholder="Password" autocomplete="off">
                                         <i id="eye_lock" class="far fa-eye-slash"></i>
                                     </div>
                                     <div class="field">
-                                        <input class="input" value="<%= messages.Cpassword %>" name="Cpassword"
-                                            type="password" placeholder="Confirm Password" autocomplete="off">
+                                        <input id="ConPasswordCheck"
+                                            class="input <%= messages.error ? 'errorMessages' : '' %>"
+                                            value="<%= messages.Cpassword %>" name="Cpassword" type="password"
+                                            placeholder="Confirm password" autocomplete="off">
                                         <i id="eye_lock" class="far fa-eye-slash"></i>
                                     </div>
+
                                     <div class="btns">
                                         <button class="next" type="button" role="button">Next</button>
                                     </div>
@@ -98,17 +104,20 @@
                                 <div class="page_ pers_deta">
                                     <div class="field">
                                         <input type="text" name="name" value="<%= messages.name %>"
-                                            placeholder="Your Name" autocomplete="off">
+                                            placeholder="Your name" autocomplete="off"
+                                            class="<%= messages.error ? 'errorMessages' : '' %>">
                                     </div>
                                     <div class="field">
                                         <input type="phone" name="phone" maxlength="10" value="<%= messages.phone %>"
-                                            placeholder="Phone Number" autocomplete="off">
+                                            placeholder="Phone number" autocomplete="off"
+                                            class="<%= messages.error ? 'errorMessages' : '' %>">
                                     </div>
                                     <div class="field">
-                                        <textarea name="address" placeholder="Your Address"></textarea>
+                                        <textarea name="address" placeholder="Your home address  [option]"></textarea>
                                     </div>
                                     <div class="btns">
-                                        <button class="prev" type="button" role="button">Previous</button>
+                                        <button style="margin-top: 10px;" class="prev" type="button"
+                                            role="button">Previous</button>
                                         <button type="submit" id="signUp_Submit" role="button">Submit</button>
                                     </div>
                                 </div>
@@ -125,107 +134,133 @@
 
 <!-- ==========Container End======== -->
 
-<div id="preloader">
-    <div class="loading_container">
-        <span></span>
-        <span></span>
-        <span></span>
+<% if(messages.error){ %>
+
+    <div id="registerError" class="active">
+        <div class="content">
+            <span>
+                <i class="fas fa-exclamation"></i>
+                <%= messages.error %>
+            </span>
+        </div>
     </div>
-</div>
 
-<!-- ============================================================= -->
-<!-- ===========================JS Script========================= -->
+    <% } %>
 
-<script>
+        <div id="preloader">
+            <div class="loading_container">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
 
-    let preloader = document.querySelector('#preloader');
+        <!-- ============================================================= -->
+        <!-- ===========================JS Script========================= -->
 
-    if (preloader) {
-        window.addEventListener('load', () => {
-            preloader.style.display = 'none';
-        });
-    }
+        <script>
 
-    let SignInPage = document.querySelector('.popup_signIn_Up'),
-        UserSecret = document.querySelector('#left .shop i'),
-        container = document.querySelector('.popup_signIn_Up .popup'),
-        container_add = document.querySelector('.popup_signIn_Up .container'),
-        body = document.querySelector('body'),
-        Overlay = document.querySelector('#overlayPopup'),
-        signIn = document.querySelector('#signIn'),
-        CrossPopup = document.querySelector('.popup_signIn_Up .popup .CrossPopup i'),
-        check = document.querySelector(
-            '.popup_signIn_Up .popup .progress_bar .check_add .check'
-        ),
-        check_number = document.querySelector(
-            '.popup_signIn_Up .popup .progress_bar .check_add .bullet.active span'
-        ),
-        progressBar = document.querySelector(
-            '.popup_signIn_Up .popup .progress_bar .step .per_deta_add'
-        ),
-        nextStep = document.querySelector(
-            '.popup_signIn_Up .popup .form_outer .page_ .next'
-        ),
-        prevStep = document.querySelector(
-            '.popup_signIn_Up .popup .form_outer .page_ .prev'
-        ),
-        eye_lock = document.querySelectorAll('#eye_lock'),
-        input = document.querySelectorAll('form .field input.input'),
-        Login_submit = document.querySelector('#submit'),
-        SignUp_submit = document.querySelector('#signUp_Submit'),
-        SignUpBUTTONS = document.querySelector('#popupBtn');
+            let preloader = document.querySelector('#preloader');
 
-    for (let i = 0; i < eye_lock.length; i++) {
-        eye_lock[i].addEventListener('click', () => {
-            if (input[i].type === 'password') {
-                input[i].type = 'text';
-                eye_lock[i].classList.add('fa-eye');
-                eye_lock[i].classList.remove('fa-eye-slash');
-            } else {
-                input[i].type = 'password';
-                eye_lock[i].classList.remove('fa-eye');
-                eye_lock[i].classList.add('fa-eye-slash');
+            if (preloader) {
+                window.addEventListener('load', () => {
+                    preloader.style.display = 'none';
+                });
             }
-        });
-    }
 
-    SignUpBUTTONS.addEventListener('click', () => {
-        SignInPage.classList.add('active');
-        container.style.visibility = 'visible';
-        Overlay.classList.add('active');
-        body.classList.add('overflow-hidden');
-    });
+            let SignInPage = document.querySelector('.popup_signIn_Up'),
+                UserSecret = document.querySelector('#left .shop i'),
+                container = document.querySelector('.popup_signIn_Up .popup'),
+                container_add = document.querySelector('.popup_signIn_Up .container'),
+                body = document.querySelector('body'),
+                Overlay = document.querySelector('#overlayPopup'),
+                signIn = document.querySelector('#signIn'),
+                CrossPopup = document.querySelector('.popup_signIn_Up .popup .CrossPopup i'),
+                check = document.querySelector(
+                    '.popup_signIn_Up .popup .progress_bar .check_add .check'
+                ),
+                check_number = document.querySelector(
+                    '.popup_signIn_Up .popup .progress_bar .check_add .bullet.active span'
+                ),
+                progressBar = document.querySelector(
+                    '.popup_signIn_Up .popup .progress_bar .step .per_deta_add'
+                ),
+                nextStep = document.querySelector(
+                    '.popup_signIn_Up .popup .form_outer .page_ .next'
+                ),
+                prevStep = document.querySelector(
+                    '.popup_signIn_Up .popup .form_outer .page_ .prev'
+                ),
+                eye_lock = document.querySelectorAll('#eye_lock'),
+                input = document.querySelectorAll('form .field input.input'),
+                Login_submit = document.querySelector('#submit'),
+                SignUp_submit = document.querySelector('#signUp_Submit'),
+                SignUpBUTTONS = document.querySelector('#popupBtn');
 
-    CrossPopup.addEventListener('click', Cross_Overlay, false);
+            for (let i = 0; i < eye_lock.length; i++) {
+                eye_lock[i].addEventListener('click', () => {
+                    if (input[i].type === 'password') {
+                        input[i].type = 'text';
+                        eye_lock[i].classList.add('fa-eye');
+                        eye_lock[i].classList.remove('fa-eye-slash');
+                    } else {
+                        input[i].type = 'password';
+                        eye_lock[i].classList.remove('fa-eye');
+                        eye_lock[i].classList.add('fa-eye-slash');
+                    }
+                });
+            }
 
-    Overlay.addEventListener('click', Cross_Overlay, false);
+            SignUpBUTTONS.addEventListener('click', () => {
+                SignInPage.classList.add('active');
+                container.style.visibility = 'visible';
+                Overlay.classList.add('active');
+                body.classList.add('overflow-hidden');
+            });
 
-    function Cross_Overlay() {
-        container.style.visibility = 'hidden';
-        SignInPage.classList.remove('active');
-        Overlay.classList.remove('active')
-        body.classList.remove('overflow-hidden');
-    }
+            CrossPopup.addEventListener('click', Cross_Overlay, false);
 
-    nextStep.addEventListener('click', () => {
-        container.classList.add('nextStep');
-        progressBar.classList.add('active');
-        check.style.display = 'block';
-        check_number.style.display = 'none';
-    });
+            Overlay.addEventListener('click', Cross_Overlay, false);
 
-    prevStep.addEventListener('click', () => {
-        container.classList.remove('nextStep');
-        progressBar.classList.remove('active');
-        check.style.display = 'none';
-        check_number.style.display = 'block';
-    });
+            function Cross_Overlay() {
+                container.style.visibility = 'hidden';
+                SignInPage.classList.remove('active');
+                Overlay.classList.remove('active')
+                body.classList.remove('overflow-hidden');
+            }
 
-    signIn.addEventListener("click", () => {
-        window.location = "./login"
-    })
+            nextStep.addEventListener('click', () => {
+                container.classList.add('nextStep');
+                progressBar.classList.add('active');
+                check.style.display = 'block';
+                check_number.style.display = 'none';
+            });
 
-</script>
-</body>
+            prevStep.addEventListener('click', () => {
+                container.classList.remove('nextStep');
+                progressBar.classList.remove('active');
+                check.style.display = 'none';
+                check_number.style.display = 'block';
+            });
 
-</html>
+            signIn.addEventListener("click", () => {
+                window.location = "./login"
+            })
+
+            // Popup validation End
+
+            let messages = document.querySelector("#registerError");
+
+            if (messages) {
+
+                setTimeout(() => {
+                    messages.style.visibility = 'hidden'
+                    messages.classList.remove('active');
+
+                }, 3000);
+
+                messages.addEventListener('click', () => {
+                    messages.classList.remove('active');
+                });
+            }
+        </script>

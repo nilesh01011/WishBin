@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="icon" href="../../../img/HeadIcons.png" type="image/jpg">
+    <title>WishBin - Dashboard</title>
+    <link rel="icon" href="../../img/AdminHeadIcons.png" type="image/png">
     <!-- -----------------Jquery CDN Links------------------ -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- -----------------JVMAP CDN Links------------------ -->
@@ -15,7 +15,7 @@
     <script src="../../../JS/jquery-jvectormap-world-mill-en.js"></script>
     <!-- -----------------Material UI--------------- -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <!-- -----------------Style Links--------------- -->
+    <!-- -----------------Style and Bootstrap Links--------------- -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./CSS/style.css">
@@ -181,7 +181,7 @@
                                         </h6>
                                     </div>
                                 </div>
-                                <canvas id="pieChart1" style="width: 100%; height: 360px"></canvas>
+                                <canvas id="pieChart1" style="width: 100%; height: 365px"></canvas>
                             </div>
                         </div>
                         <div class="col-xl-7 col-12">
@@ -205,141 +205,138 @@
 
 
                 <% if(orders) { %>
-                    <% orders.forEach((list)=> { %>
 
-                        <% if(list.status==='completed' ) { %>
-                            <div class="orders container-fluid px-0">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="order_container">
+                    <div class="orders container-fluid px-0">
+                        <div class="row">
+                            <div class="col">
+                                <div class="order_container">
 
-                                            <div
-                                                class="top_container d-flex align-items-center justify-content-between">
-                                                <div class="left">
-                                                    <h6 class="fw-bold">Order Compeleted</h6>
-                                                </div>
-                                            </div>
-                                            <!-- ---------------top_container End--------------- -->
+                                    <div class="top_container d-flex align-items-center justify-content-between">
+                                        <div class="left">
+                                            <h6 class="fw-bold">Order Compeleted</h6>
+                                        </div>
+                                    </div>
+                                    <!-- ---------------top_container End--------------- -->
 
-                                            <div class="bottom_container">
-                                                <table id="order_table">
-                                                    <thead>
-                                                        <tr>
-                                                            <td>
-                                                                <div class="title">
-                                                                    <span>Id</span>
-                                                                </div>
-                                                            </td>
+                                    <div class="bottom_container">
+                                        <table id="order_table">
+                                            <thead>
+                                                <tr>
+                                                    <td>
+                                                        <div class="title">
+                                                            <span>Id</span>
+                                                        </div>
+                                                    </td>
 
-                                                            <td>
-                                                                <div class="title">
-                                                                    <span>Name</span>
-                                                                </div>
-                                                            </td>
+                                                    <td>
+                                                        <div class="title">
+                                                            <span>Name</span>
+                                                        </div>
+                                                    </td>
 
-                                                            <td>
-                                                                <div class="title">
-                                                                    <span>Products</span>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="title">
-                                                                    <span>Price</span>
-                                                                </div>
-                                                            </td>
+                                                    <td>
+                                                        <div class="title">
+                                                            <span>Products</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="title">
+                                                            <span>Price</span>
+                                                        </div>
+                                                    </td>
 
-                                                            <td>
-                                                                <div class="title">
-                                                                    <span>Price Status</span>
-                                                                </div>
-                                                            </td>
+                                                    <td>
+                                                        <div class="title">
+                                                            <span>Price Status</span>
+                                                        </div>
+                                                    </td>
 
-                                                            <td>
-                                                                <div class="title">
-                                                                    <span>Confirmed at</span>
-                                                                </div>
-                                                            </td>
+                                                    <td>
+                                                        <div class="title">
+                                                            <span>Completed at</span>
+                                                        </div>
+                                                    </td>
 
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                                                        <!-- <% if(orders) { %>
-                                    <% orders.forEach((list)=> { %>
+                                                <% if(orders) { %>
+                                                    <% orders.forEach((list)=> { %>
 
-                                        <% if(list.status==='completed' ) { %> -->
+                                                        <% if(list.status==='completed' ) { %>
 
-                                                        <tr>
-                                                            <td>
-                                                                <div class="userId">
-                                                                    <span>
-                                                                        <%= list.customerId %>
-                                                                    </span>
-                                                                </div>
-                                                            </td>
-
-                                                            <td>
-                                                                <div class="userName">
-                                                                    <span style="text-transform: capitalize;">
-                                                                        <%= list.name %>
-                                                                    </span>
-                                                                </div>
-                                                            </td>
-
-                                                            <td>
-                                                                <div id="dropDownProduct" class="dropdown">
-                                                                    <div class="image">
-                                                                        <img src="../../.<%= list.items.item.image %>"
-                                                                            alt="product_image">
-                                                                    </div>
-                                                                    <div class="title">
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="userId">
                                                                         <span>
-                                                                            <%= list.items.item.title %>
+                                                                            <%= list.items.item._id %>
                                                                         </span>
                                                                     </div>
-                                                                </div>
+                                                                </td>
 
-                                                            </td>
+                                                                <td>
+                                                                    <div class="userName">
+                                                                        <span style="text-transform: capitalize;">
+                                                                            <%= list.name %>
+                                                                        </span>
+                                                                    </div>
+                                                                </td>
 
-                                                            <td>
-                                                                <div class="totalprice">
-                                                                    ₹<%= new Intl.NumberFormat().format( list.totalPrice
-                                                                        ) %>
-                                                                </div>
-                                                            </td>
+                                                                <td>
+                                                                    <div id="dropDownProduct" class="dropdown">
+                                                                        <div class="image">
+                                                                            <img src="../../.<%= list.items.item.image %>"
+                                                                                alt="product_image">
+                                                                        </div>
+                                                                        <div class="title">
+                                                                            <span>
+                                                                                <%= list.items.item.title %>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
 
-                                                            <td>
-                                                                <div class="priceStatus">
-                                                                    <span>COD</span>
-                                                                </div>
-                                                            </td>
+                                                                </td>
 
-                                                            <td>
-                                                                <span>
-                                                                    <%= moment(list.updatedAt).format('LL') %>
-                                                                </span>
-                                                            </td>
+                                                                <td>
+                                                                    <div class="totalprice">
+                                                                        ₹<%= new Intl.NumberFormat().format(
+                                                                            list.totalPrice ) %>
+                                                                    </div>
+                                                                </td>
 
-                                                        </tr>
+                                                                <td>
+                                                                    <div class="priceStatus">
+                                                                        <span>COD</span>
+                                                                    </div>
+                                                                </td>
 
-                                                        <!-- <% } %>
+                                                                <td>
+                                                                    <span>
+                                                                        <%= moment(list.updatedAt).format('LL') %>
+                                                                    </span>
+                                                                </td>
 
-                                                <% }) %>
-                                                    <% } %> -->
+                                                            </tr>
 
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
+                                                            <% } %>
+
+                                                                <% }) %>
+                                                                    <% } %>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div id="loadMoreTr" method="post">
+                                        <button>Load more</button>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
 
-                            <% } %>
-
-                                <% }) %>
-
-                                    <% } %>
+                    <% } %>
 
             </main>
     </div>
@@ -725,7 +722,6 @@
                         initial: {
                             fill: '#d0d2d6',
                             "fill-opacity": 1,
-                            // stroke: 'block',
                             "stroke-width": 0,
                             "stroke-opacity": 0.7,
                             strokeHover: 'yellow',
@@ -736,31 +732,6 @@
                             fill: "red"
                         },
                     },
-
-
-                    // series: {
-                    //     regions: [{
-                    //         values: {
-                    //             IN: '#7367f0',
-                    //             // DK: '#000FFF',
-                    //             // KP: '#33250b',
-                    //             // IR: '#3f4114',
-                    //             // IQ: '#525252',
-                    //             // PK: '#654511',
-                    //             // UZ: '#69681c',
-                    //             // TM: '#48470d',
-                    //             // EG: '#654906',
-                    //             // AZ: '#083803',
-                    //             // TJ: '#410a0a',
-                    //             // KG: '#545353',
-                    //             // SY: '#654511',
-                    //             // JO: '#33250b',
-                    //             // KZ: '#654511',
-                    //             // LK: '#525252',
-                    //             // US: '#0000ff'
-                    //         }
-                    //     }]
-                    // },
 
                     markersSelectable: true,
 
@@ -778,41 +749,14 @@
 
 
                     markers: [
-                        // { latLng: [41.90, 12.45], name: 'Vatican City' },
-                        // { latLng: [43.73, 7.41], name: 'Monaco' },
-                        // { latLng: [-0.52, 166.93], name: 'Nauru' },
-                        // { latLng: [-8.51, 179.21], name: 'Tuvalu' },
-                        // { latLng: [43.93, 12.46], name: 'San Marino' },
-                        // { latLng: [47.14, 9.52], name: 'Liechtenstein' },
-                        // { latLng: [7.11, 171.06], name: 'Marshall Islands' },
-                        // { latLng: [17.3, -62.73], name: 'Saint Kitts and Nevis' },
-                        // { latLng: [3.2, 73.22], name: 'Maldives' },
                         { latLng: [25, 78], name: 'India' },
-                        // { latLng: [19.2, 74], name: 'Current Positions' },
                         { latLng: [65, 95], name: 'Russia', style: { fill: 'red', stroke: 'rgba(234, 84, 85,0.6)', } },
                         { latLng: [60, -110], name: 'Canada', style: { fill: 'red', stroke: 'rgba(234, 84, 85,0.6)', } },
                         { latLng: [40, -105], name: 'United States', style: { fill: 'red', stroke: 'rgba(234, 84, 85,0.6)', } },
-
                         { latLng: [40.43, 74.00], name: 'New York City', style: { fill: 'red', stroke: 'rgba(234, 84, 85,0.6)', } },
-                        // { latLng: [35.88, 14.5], name: 'Malta' },
-                        // { latLng: [12.05, -61.75], name: 'Grenada' },
-                        // { latLng: [13.16, -61.23], name: 'Saint Vincent and the Grenadines' },
-                        // { latLng: [13.16, -59.55], name: 'Barbados' },
-                        // { latLng: [17.11, -61.85], name: 'Antigua and Barbuda' },
-                        // { latLng: [-4.61, 55.45], name: 'Seychelles' },
-                        // { latLng: [7.35, 134.46], name: 'Palau' },
-                        // { latLng: [42.5, 1.51], name: 'Andorra' },
-                        // { latLng: [14.01, -60.98], name: 'Saint Lucia' },
-                        // { latLng: [6.91, 158.18], name: 'Federated States of Micronesia' },
                         { latLng: [-1, 102], name: 'Indonesia', style: { fill: 'red', stroke: 'rgba(234, 84, 85,0.6)', } },
                         { latLng: [4.50, 102], name: 'Malaysia', style: { fill: 'red', stroke: 'rgba(234, 84, 85,0.6)', } },
                         { latLng: [-26, 135], name: 'Australia', style: { fill: 'red', stroke: 'rgba(234, 84, 85,0.6)', } },
-                        // { latLng: [1.46, 173.03], name: 'Kiribati' },
-                        // { latLng: [-21.13, -175.2], name: 'Tonga' },
-                        // { latLng: [15.3, -61.38], name: 'Dominica' },
-                        // { latLng: [-20.2, 57.5], name: 'Mauritius' },
-                        // { latLng: [26.02, 50.55], name: 'Bahrain' },
-                        // { latLng: [0.33, 6.73], name: 'São Tomé and Príncipe' }
                     ],
 
                 });

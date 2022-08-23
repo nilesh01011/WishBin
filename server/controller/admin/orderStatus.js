@@ -31,20 +31,6 @@ const orderStatus = async (req, res) => {
     } catch (error) {
       console.log(error);
     }
-
-    let userOrders = await orders.find({}, null, {
-      sort: { createdAt: -1 },
-    });
-
-    const messages = await Messages.find().limit(3);
-    const AllMessages = await Messages.find({});
-
-    res.redirect(200, '/api/adminPage/orders', {
-      orders: userOrders,
-      moment: moment,
-      msg: messages,
-      allMsg: AllMessages,
-    });
   } catch (error) {
     console.log(error);
   }

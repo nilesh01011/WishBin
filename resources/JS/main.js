@@ -95,11 +95,7 @@ const user = document.querySelector('#user');
 
 if (cancleUpdateBtn) {
   cancleUpdateBtn.addEventListener('click', () => {
-    if (user.name) {
-      window.location = '/api/adminPage/userprofile';
-    } else {
-      window.location = '/userprofile';
-    }
+    window.location = '/userprofile';
   });
 }
 
@@ -201,22 +197,26 @@ ATP.forEach((ele) => {
 
 // ============================ Add Wishlist icons =================================
 
-let borderWish = document.querySelectorAll('[data-wishlist]'),
-  icons = document.querySelectorAll('#far i.far');
-let WishIcons = document.querySelector('#wish_btn');
-for (let i = 0; i < borderWish.length; i++) {
-  borderWish[i].addEventListener('click', () => {
-    let bw = borderWish[i];
-    let GetWishListID = bw.dataset.wishlist;
+function wishlistAddIcons() {
+  let borderWish = document.querySelectorAll('[data-wishlist]'),
+    icons = document.querySelectorAll('#far i.far');
+  let WishIcons = document.querySelector('#wish_btn');
+  for (let i = 0; i < borderWish.length; i++) {
+    borderWish[i].addEventListener('click', () => {
+      let bw = borderWish[i];
+      let GetWishListID = bw.dataset.wishlist;
 
-    if (icons[i].classList.contains('far')) {
-      icons[i].classList.add('fas');
-      icons[i].classList.remove('far');
-    }
+      if (icons[i].classList.contains('far')) {
+        icons[i].classList.add('fas');
+        icons[i].classList.remove('far');
+      }
 
-    WishIcons.classList.add('active');
-  });
+      WishIcons.classList.add('active');
+    });
+  }
 }
+
+wishlistAddIcons();
 
 // ===============================================================
 
@@ -232,40 +232,11 @@ function seemoreCategory_Product() {
   axios
     .post('/seemorecategory_product')
     .then((resp) => {
-      let SeemoreCategoryData = resp.data.getCategory;
+      SeeMoreDatas(resp);
 
-      SeemoreCategoryData.forEach((ele) => {
-        SeeMoreCategory.innerHTML += `
-        <div id="${ele.cards_id}" class="card__">
-          <div class="cards">
-              <div class="card_content">
-                  <div class="image">
-                      <img src="${ele.image}" loading="lazy" decoding="async"
-                          alt="middle_img">
-                  </div>
-                  <div class="card_view">
-                      <div class="card_add_wrapp">
-                          <span>
-                              <i class="fas fa-chevron-right"></i>
-                          </span>
-                      </div>
-                  </div>
-              </div>
-              <div class="overlay_typed">
-                  <div class="card_name_with_overlay">
-                      <h4>
-                          ${ele.title}
-                      </h4>
-                  </div>
-              </div>
-          </div>
-        </div>
-        `;
-      });
+      // ======SeeMore Data End
 
       CategoryLinks();
-
-      // ======Category End
     })
     .catch((err) => {
       console.log(err);
@@ -343,6 +314,39 @@ function CategoryLinks() {
     ele.addEventListener('click', () => {
       window.open('./babyclothproducts', '_blank');
     });
+  });
+}
+
+function SeeMoreDatas(datas) {
+  let SeemoreCategoryData = datas.data.getCategory;
+
+  SeemoreCategoryData.forEach((ele) => {
+    SeeMoreCategory.innerHTML += `
+    <div id="${ele.cards_id}" class="card__">
+      <div class="cards">
+          <div class="card_content">
+              <div class="image">
+                  <img src="${ele.image}" loading="lazy" decoding="async"
+                      alt="middle_img">
+              </div>
+              <div class="card_view">
+                  <div class="card_add_wrapp">
+                      <span>
+                          <i class="fas fa-chevron-right"></i>
+                      </span>
+                  </div>
+              </div>
+          </div>
+          <div class="overlay_typed">
+              <div class="card_name_with_overlay">
+                  <h4>
+                      ${ele.title}
+                  </h4>
+              </div>
+          </div>
+      </div>
+    </div>
+    `;
   });
 }
 
