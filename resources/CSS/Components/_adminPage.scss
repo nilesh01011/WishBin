@@ -1354,7 +1354,7 @@ footer {
             display: flex;
             flex-direction: column;
             transition: $CardsTransition_03;
-            user-select: none;
+            // user-select: none;
             width: 250px;
             height: 300px;
             background: $adminCard;
@@ -1755,7 +1755,7 @@ footer {
             cursor: pointer;
             font-weight: 500;
             font-size: 13px;
-            user-select: none;
+            // user-select: none;
             transition: $CubicBerier;
             box-shadow: $BoxShadow_2_4 $RGBA_03;
             text-shadow: 1px 1px #000;

@@ -362,7 +362,7 @@ footer,
                 line-height: 45px;
                 font-weight: 700;
                 color: $white;
-                user-select: none;
+                // user-select: none;
                 font-size: 1.1rem;
             }
         }
@@ -456,7 +456,7 @@ footer,
                 width: 70%;
                 color: rgba(255, 255, 255, 0.8);
                 letter-spacing: 0.2px;
-                user-select: none;
+                // user-select: none;
 
                 & span {
                     color: $dark_color;

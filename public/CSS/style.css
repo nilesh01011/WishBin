@@ -903,10 +903,6 @@ nav.navbar .right .three .count {
   flex-direction: column;
   border-radius: 20px;
   transition: 0.5s cubic-bezier(0.46, 0.03, 0.52, 0.96);
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
 }
 #card_section .card_container .cards::after {
   content: "";
@@ -2700,10 +2696,6 @@ footer .adminFooter p a {
   display: flex;
   flex-direction: column;
   transition: 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
   width: 250px;
   height: 300px;
   background: #283046;
@@ -3040,10 +3032,6 @@ footer .adminFooter p a {
   cursor: pointer;
   font-weight: 500;
   font-size: 13px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
   transition: cubic-bezier(0.46, 0.03, 0.52, 0.96);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   text-shadow: 1px 1px #000;
@@ -9551,10 +9539,6 @@ nav.navbar {
   line-height: 45px;
   font-weight: 700;
   color: #fff;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
   font-size: 1.1rem;
 }
 #loginPage .wrapper .buttons,
@@ -9643,10 +9627,6 @@ nav.navbar {
   width: 70%;
   color: rgba(255, 255, 255, 0.8);
   letter-spacing: 0.2px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
 }
 #loginPage .wrapper .contents p span,
 #registersPage .wrapper .contents p span {

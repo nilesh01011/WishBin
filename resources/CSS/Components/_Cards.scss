@@ -23,7 +23,7 @@
             flex-direction: column;
             border-radius: $border_radius;
             transition: $CardsTransition_05;
-            user-select: none;
+            // user-select: none;
 
             &::after {
                 content: '';
