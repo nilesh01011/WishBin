@@ -166,26 +166,28 @@ function proATC(setData) {
     });
 }
 
-ATC.addEventListener('click', () => {
-  let setData = data;
+if (ATC) {
+  ATC.addEventListener('click', () => {
+    let setData = data;
 
-  let icons = ATC;
+    let icons = ATC;
 
-  icons.innerHTML = `
-    <i class="far fa-check"></i>
-    Added
-    `;
+    icons.innerHTML = `
+      <i class="far fa-check"></i>
+      Added
+      `;
 
-  icons.style.transition = '0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96)';
+    icons.style.transition = '0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96)';
 
-  ATC.style.backgroundColor = 'rgb(16, 172, 112)';
+    ATC.style.backgroundColor = 'rgb(16, 172, 112)';
 
-  proATC(setData);
+    proATC(setData);
 
-  ATC.disabled = true;
+    ATC.disabled = true;
 
-  window.open('/cartpage', '_blank');
-});
+    window.open('/cartpage', '_blank');
+  });
+}
 
 let BuyNow = document.querySelector('#buyOrAtc .buyNow');
 
@@ -200,10 +202,12 @@ function BuyProducts(setData) {
     });
 }
 
-BuyNow.addEventListener('click', () => {
-  let BuyPro = data;
+if (BuyNow) {
+  BuyNow.addEventListener('click', () => {
+    let BuyPro = data;
 
-  BuyProducts(BuyPro);
+    BuyProducts(BuyPro);
 
-  window.open('/paymentpage', '_blank');
-});
+    window.open('/paymentpage', '_blank');
+  });
+}

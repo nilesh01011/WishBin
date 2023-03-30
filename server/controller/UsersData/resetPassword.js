@@ -48,7 +48,7 @@ const forgetPasswordPost = async (req, res) => {
       html:
         ' <div style="height:120px;"> <h4 style="text-transform: capitalize; margin-bottom:8px;"> Hii, ' +
         name +
-        ' </h4> <p style="margin-bottom:8px;">Please click here to : </p> <a style=" margin-top:0.5rem; display:flex; width: fit-content; border-radius: 30px; padding: 0.8rem 1.3rem; background: #f16565; color: #fff; font-weight: 700; letter-spacing: 0.4px; text-decoration: none; " href="https://wishbin-store.herokuapp.com/resetpassword?token=' +
+        ' </h4> <p style="margin-bottom:8px;">Please click here to : </p> <a style=" margin-top:0.5rem; display:flex; width: fit-content; border-radius: 30px; padding: 0.8rem 1.3rem; background: #f16565; color: #fff; font-weight: 700; letter-spacing: 0.4px; text-decoration: none; " href="http://localhost:5000/resetpassword?token=' +
         token +
         '">Reset Your Password</a> </div>',
     };
