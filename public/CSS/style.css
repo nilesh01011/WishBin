@@ -113,18 +113,7 @@ a {
   width: 60px;
   background: #fff;
   border-radius: 50%;
-  -webkit-animation: zoomInOut_01 1s ease infinite;
-          animation: zoomInOut_01 1s ease infinite;
-}
-
-@-webkit-keyframes zoomInOut_01 {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0;
-  }
+  animation: zoomInOut_01 1s ease infinite;
 }
 
 @keyframes zoomInOut_01 {
@@ -206,7 +195,6 @@ nav.navbar .middle {
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 nav.navbar .right {
@@ -379,9 +367,6 @@ nav.navbar .right .three .count {
 #header .search .search_input::-moz-placeholder {
   color: #96a0a5;
 }
-#header .search .search_input:-ms-input-placeholder {
-  color: #96a0a5;
-}
 #header .search .search_input::placeholder {
   color: #96a0a5;
 }
@@ -411,7 +396,6 @@ nav.navbar .right .three .count {
   order: 1;
 }
 #HeaderSwiper .swiper-wrapper .swiper-slide {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   height: 100%;
@@ -425,7 +409,6 @@ nav.navbar .right .three .count {
   font-size: 14px;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 #HeaderSwiper .swiper-wrapper .swiper-slide i {
@@ -504,7 +487,6 @@ nav.navbar .right .three .count {
   left: 0;
   right: 0;
   width: 100%;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   border-radius: 0 0 20px 20px;
@@ -882,7 +864,6 @@ nav.navbar .right .three .count {
 
 #card_section {
   width: 100%;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   padding-top: 20px;
@@ -969,8 +950,7 @@ nav.navbar .right .three .count {
   margin-bottom: 60px;
 }
 #card_section .card_container .cards:hover a .card_add {
-  -webkit-animation: pulse_01 2s ease infinite;
-          animation: pulse_01 2s ease infinite;
+  animation: pulse_01 2s ease infinite;
 }
 #card_section .card_container .cards .card_image {
   width: 100%;
@@ -1036,24 +1016,6 @@ nav.navbar .right .three .count {
 #card_section .card_container .cards_addit a .card_add i {
   font-size: 1rem;
   color: #000;
-}
-
-@-webkit-keyframes pulse_01 {
-  0% {
-    transform: scale(0.94);
-    box-shadow: 0 0 0 0 rgba(161, 158, 159, 0.7);
-    -webkit-box-shadow: 0 0 0 0 rgba(161, 158, 159, 0.7);
-  }
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 12px rgba(224, 201, 207, 0);
-    -webkit-box-shadow: 0 0 0 12px rgba(224, 201, 207, 0);
-  }
-  100% {
-    transform: scale(0.94);
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-    -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-  }
 }
 
 @keyframes pulse_01 {
@@ -1183,7 +1145,6 @@ nav.navbar .right .three .count {
 #card_pricing_btn button span {
   color: #fff;
   font-weight: 700;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   display: flex;
@@ -1246,7 +1207,6 @@ nav.navbar .right .three .count {
 }
 
 #SideBar {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   height: 100vh;
@@ -1289,7 +1249,6 @@ nav.navbar .right .three .count {
   margin-bottom: 0;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   font-size: 1.2rem;
 }
@@ -1411,7 +1370,6 @@ nav.navbar .right .three .count {
   border-bottom: 13px solid transparent;
 }
 #offers_containers .offers_button .titles {
-  -ms-writing-mode: tb-rl;
   writing-mode: vertical-rl;
   transform: rotate(-180deg);
   height: 200px;
@@ -1423,7 +1381,6 @@ nav.navbar .right .three .count {
   letter-spacing: 2px;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 #offers_containers.is-active {
@@ -1470,21 +1427,18 @@ nav.navbar .right .three .count {
 #offers_containers .offers_contents .container .wrapper .content .header span {
   font-weight: 500;
   font-size: 12px;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
 #offers_containers .offers_contents .container .wrapper .content .priceOff span {
   font-size: 2.5rem;
   font-weight: 700;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
 #offers_containers .offers_contents .container .wrapper .content .free_shipp span {
   font-size: 1.8rem;
   font-weight: 500;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
@@ -1497,20 +1451,17 @@ nav.navbar .right .three .count {
 #offers_containers .offers_contents .container .wrapper .content .bottom_offers span {
   font-size: 13px;
   font-weight: 500;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
 #offers_containers .offers_contents .container .wrapper .content .bottom_offers .couponCode .couponOffer {
   font-weight: 700;
   padding-left: 0.3rem;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
 #offers_containers .offers_contents .container .wrapper .content .bottom_offers .avail {
   font-size: 10px;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
@@ -1538,7 +1489,6 @@ nav.navbar .right .three .count {
   flex-direction: column;
   align-items: center;
   line-height: 22px;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
@@ -1828,7 +1778,6 @@ main.container-fluid .heading {
   width: 100%;
 }
 #adminSidebar #adminLogout button {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   height: 45px;
@@ -1853,7 +1802,6 @@ main.container-fluid .heading {
 
 .adminHeader {
   padding: calc(2rem - 2px) 0;
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   background: #262d3f;
@@ -2148,13 +2096,11 @@ main.container-fluid .heading {
 }
 #adminContainer .orders .order_container th, #adminContainer .orders .order_container td {
   padding: 10px 5px;
-  width: -webkit-max-content !important;
   width: -moz-max-content !important;
   width: max-content !important;
   font-family: "Inter", sans-serif !important;
 }
 #adminContainer .orders .order_container td .title {
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
 }
@@ -2250,14 +2196,12 @@ main.container-fluid .heading {
   font-weight: 500;
 }
 #order_table tbody tr td .status {
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
 }
 #order_table tbody tr td .status span {
   padding: 10px 20px;
   border-radius: 30px;
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
 }
@@ -2397,18 +2341,15 @@ main.container-fluid .heading {
 }
 #customer li {
   list-style: none;
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
 }
 #customer th, #customer td {
   padding: 10px 5px;
-  width: -webkit-max-content !important;
   width: -moz-max-content !important;
   width: max-content !important;
 }
 #customer td .title {
-  width: -webkit-max-content !important;
   width: -moz-max-content !important;
   width: max-content !important;
 }
@@ -2438,7 +2379,6 @@ main.container-fluid .heading {
 }
 #customer tbody tr td .userId {
   font-weight: 500;
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
 }
@@ -2469,7 +2409,6 @@ main.container-fluid .heading {
   display: flex;
   align-items: center;
   gap: 5px;
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   text-transform: capitalize;
@@ -2479,7 +2418,6 @@ main.container-fluid .heading {
   align-items: center;
 }
 #customer tbody tr td .username {
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
 }
@@ -2487,7 +2425,6 @@ main.container-fluid .heading {
 #customer_selected .selectBox {
   position: relative;
   transition: 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
 }
@@ -2544,10 +2481,6 @@ main.container-fluid .heading {
   color: #676d7d;
   font-size: 15px;
   font-weight: 450;
-}
-#cardsContainer .input_feild input[type=file]::-webkit-file-upload-button {
-  background: #7367f0;
-  color: #fff;
 }
 #cardsContainer .input_feild input[type=file]::file-selector-button {
   background: #7367f0;
@@ -2771,8 +2704,7 @@ footer .adminFooter p a {
   margin-bottom: 70px;
 }
 #adminCardContainer .row .cards:hover .card_add {
-  -webkit-animation: pulse_01 2s ease infinite;
-          animation: pulse_01 2s ease infinite;
+  animation: pulse_01 2s ease infinite;
 }
 #adminCardContainer .row .cards:hover #card_pricing_btn button {
   bottom: 95px;
@@ -2988,7 +2920,6 @@ footer .adminFooter p a {
 #card_pricing_btn button span {
   color: #fff;
   font-weight: 700;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   display: flex;
@@ -3020,7 +2951,6 @@ footer .adminFooter p a {
   height: 100%;
 }
 #adminHeaderSwiper .swiper-wrapper .swiper-slide {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   height: 100%;
@@ -3064,7 +2994,6 @@ footer .adminFooter p a {
 #adminProducts_details .details_containes .content .images {
   height: 300px;
   width: 40%;
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   text-align: center;
@@ -3166,7 +3095,6 @@ footer .adminFooter p a {
 #adminProducts_details .details_containes .buying_Content {
   height: 100%;
   min-width: 295px;
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   display: flex;
@@ -3455,7 +3383,6 @@ footer .adminFooter p a {
 #userMessages table td, #userMessages table th {
   font-size: 14px;
   padding: 10px 5px;
-  width: -webkit-max-content !important;
   width: -moz-max-content !important;
   width: max-content !important;
 }
@@ -3464,7 +3391,6 @@ footer .adminFooter p a {
   font-weight: bolder;
 }
 #userMessages table td .title {
-  width: -webkit-max-content !important;
   width: -moz-max-content !important;
   width: max-content !important;
 }
@@ -3494,7 +3420,6 @@ footer .adminFooter p a {
   font-size: 1rem !important;
 }
 #userMessages table td .username {
-  width: -webkit-max-content !important;
   width: -moz-max-content !important;
   width: max-content !important;
 }
@@ -3527,20 +3452,16 @@ footer .adminFooter p a {
   }
   #adminContainer .orders .order_container .bottom_container tbody tr td .placeAt span, #adminContainer .orders .order_container .bottom_container tbody tr td .userName span {
     display: flex;
-    width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
   }
-
   #worldMap {
     height: 350px !important;
   }
-
   #pieChart1 {
     width: 100%;
     height: 300px !important;
   }
-
   #adminCardContainer .row {
     -moz-column-gap: 20px;
          column-gap: 20px;
@@ -3549,14 +3470,12 @@ footer .adminFooter p a {
     right: -5px !important;
     bottom: -30px !important;
   }
-
   #adminProducts_details .details_containes .content .product_info span.title {
     font-size: 24px !important;
   }
   #adminProducts_details .details_containes .content .product_info .mrp_price span {
     font-size: 0.8rem !important;
   }
-
   /* ======================Product Sections End====================== */
   #userMessages {
     overflow-x: scroll;
@@ -3566,7 +3485,6 @@ footer .adminFooter p a {
   #adminContainer .customer {
     overflow-x: scroll;
   }
-
   #adminProducts_details .details_containes .content {
     flex-direction: column !important;
     gap: 0;
@@ -3589,7 +3507,6 @@ footer .adminFooter p a {
     margin-left: 0;
     margin-top: 20px;
   }
-
   /* ====================Product Details End====================== */
 }
 @media screen and (max-width: 880px) {
@@ -3603,27 +3520,23 @@ footer .adminFooter p a {
   #adminProducts_details .details_containes .buying_Content .products_buying_sections .buttons_buying_addToCart button.buyNow {
     margin-top: 1.5rem !important;
   }
-
   /* ==================Product Details End================== */
 }
 @media screen and (max-width: 756px) {
   #adminContainer .container-fluid,
-.adminHeader .container-fluid {
+  .adminHeader .container-fluid {
     padding: 0 20px;
   }
-
   #adminContainer.container-fluid {
     padding: 0 20px;
   }
   #adminContainer .insights .container-fluid {
     padding: 0 12px;
   }
-
   #worldMap,
-#pieChart1 {
+  #pieChart1 {
     height: 300px !important;
   }
-
   #adminCardContainer .row .cards::before {
     clip-path: circle(103% at 100% 100%) !important;
     -webkit-clip-path: circle(103% at 100% 100%) !important;
@@ -3660,15 +3573,13 @@ footer .adminFooter p a {
     opacity: 1 !important;
   }
   #adminCardContainer .row .cards .card_add {
-    -webkit-animation: pulse_01 2s ease infinite !important;
-            animation: pulse_01 2s ease infinite !important;
+    animation: pulse_01 2s ease infinite !important;
   }
 }
 @media screen and (max-width: 576px) {
   .adminHeader {
     padding: calc(1.5rem - 2px) 0;
   }
-
   #adminContainer {
     margin-bottom: 30px;
   }
@@ -3696,27 +3607,22 @@ footer .adminFooter p a {
   #adminContainer .doughnut_map .chart-style .title h3 {
     font-size: 1rem;
   }
-
   #myChart {
     height: 150px !important;
   }
-
   #Chart2 {
     height: 200px !important;
   }
-
   #worldMap {
     height: 270px !important;
   }
   #worldMap .jvectormap-zoomin, #worldMap .jvectormap-zoomout {
     left: 0 !important;
   }
-
   #cardsContainer .button {
     flex-direction: column;
     height: auto !important;
   }
-
   #adminCardContainer .row .cards {
     width: 175px !important;
     padding: 15px !important;
@@ -3754,7 +3660,6 @@ footer .adminFooter p a {
   #adminCardContainer .row .cards .cards_addit a .card_add i {
     font-size: 12px;
   }
-
   #adminProducts_details {
     padding-bottom: 0;
   }
@@ -3770,24 +3675,19 @@ footer .adminFooter p a {
   #adminProducts_details .descriptions p {
     padding-left: 0 !important;
   }
-
   #product_tabel td, #product_tabel th {
-    width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
   }
-
   /* ==============Product details=============== */
 }
 @media screen and (max-width: 480px) {
   #adminContainer .container-fluid {
     padding: 0 10px;
   }
-
   #adminContainer.cardsContainer {
     padding: 0 18px;
   }
-
   #adminCardContainer .row {
     -moz-column-gap: 0;
          column-gap: 0;
@@ -3808,18 +3708,15 @@ footer .adminFooter p a {
   #adminCardContainer .row .cards .card_heading .card_star i {
     font-size: 11px !important;
   }
-
   #worldMap {
     height: 200px !important;
   }
-
   #pieChart1 {
     height: 200px !important;
   }
 }
 #banner__ {
   width: 100%;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   margin-bottom: 15px;
@@ -3830,15 +3727,6 @@ footer .adminFooter p a {
 }
 #banner__ .mobile {
   display: none;
-}
-
-@-webkit-keyframes load3 {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 @keyframes load3 {
@@ -3894,8 +3782,7 @@ footer .adminFooter p a {
   background: #ffffff;
   background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
   position: relative;
-  -webkit-animation: load3 1.4s infinite linear;
-          animation: load3 1.4s infinite linear;
+  animation: load3 1.4s infinite linear;
   transform: translateZ(0);
 }
 #SeeMore button .loader:before {
@@ -3933,7 +3820,6 @@ footer .adminFooter p a {
   width: 100%;
 }
 #logoutBtn button {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   color: #ea5455;
@@ -4132,12 +4018,10 @@ footer .adminFooter p a {
   margin-bottom: 8px;
   justify-content: space-between;
 }
-#WishList .wishlist_content .wishlist_container .wishList_card .content .price span {
-  font-size: 15px;
-}
 #WishList .wishlist_content .wishlist_container .wishList_card .content .price .prices {
   color: #f16565;
   font-weight: 600;
+  font-size: 14px;
 }
 #WishList .wishlist_content .wishlist_container .wishList_card .content .price .prices s {
   color: #6c7878;
@@ -4155,6 +4039,7 @@ footer .adminFooter p a {
 }
 #WishList .wishlist_content .wishlist_container .wishList_card .content .price a .view_details {
   cursor: pointer;
+  font-size: 12px;
 }
 #WishList .wishlist_content .wishlist_container .wishList_card .content .price a .view_details:hover {
   text-decoration: underline;
@@ -4382,7 +4267,6 @@ footer .adminFooter p a {
   text-align: right;
 }
 #CartPage .cart_contents .left_cart_content .products_contents .products_totalPrices span {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   font-size: 1rem;
@@ -4477,7 +4361,6 @@ footer .adminFooter p a {
   box-shadow: 0 0 1px #000;
   transition: 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
   width: 270px;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   cursor: pointer;
@@ -4660,8 +4543,7 @@ footer .adminFooter p a {
   margin-left: 0.3rem;
   color: #ea5455;
   transition: 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
-  -webkit-animation: onOff 2s ease infinite;
-          animation: onOff 2s ease infinite;
+  animation: onOff 2s ease infinite;
 }
 #OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content {
   outline: 1px #D5D9D9 solid;
@@ -4752,21 +4634,6 @@ footer .adminFooter p a {
 #OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content .orders_items .right_content .button .cancleOrder i {
   margin-right: 0.5rem;
   position: relative;
-}
-
-@-webkit-keyframes onOff {
-  0% {
-    color: #565959;
-  }
-  40% {
-    color: #f16565;
-  }
-  80% {
-    color: #565959;
-  }
-  100% {
-    color: #f16565;
-  }
 }
 
 @keyframes onOff {
@@ -4864,7 +4731,6 @@ footer .adminFooter p a {
   border-radius: 20px;
 }
 #orderTrackerContainer .order_contents .mainContainer .left {
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
 }
@@ -4953,8 +4819,7 @@ footer .adminFooter p a {
   background: #28c76f;
   box-shadow: 0px 0px 0px 5px rgba(40, 199, 111, 0.4);
   transition: all 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
-  -webkit-animation: pulse 2s 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96) infinite;
-          animation: pulse 2s 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96) infinite;
+  animation: pulse 2s 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96) infinite;
 }
 #orderTrackerContainer .order_contents .mainContainer .right .topInvoiceContent {
   width: 100%;
@@ -4985,7 +4850,6 @@ footer .adminFooter p a {
   gap: 20px;
 }
 #orderTrackerContainer .order_contents .mainContainer .right .middleHeading .orderDate .title {
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
 }
@@ -4993,12 +4857,10 @@ footer .adminFooter p a {
   width: 120px;
 }
 #orderTrackerContainer .order_contents .mainContainer .right .middleHeading .head {
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
 }
 #orderTrackerContainer .order_contents .mainContainer .right .middleHeading .head span {
-  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   color: #b4b7bd;
@@ -5102,29 +4964,6 @@ footer .adminFooter p a {
   font-size: 14px;
 }
 
-@-webkit-keyframes pulse {
-  0% {
-    transform: scale(0.74);
-    box-shadow: 0px 0px 0px 5px rgba(40, 199, 111, 0.3);
-    -webkit-box-shadow: 0px 0px 0px 5px rgba(40, 199, 111, 0.3);
-  }
-  50% {
-    transform: scale(0.94);
-    box-shadow: 0 0 0 4px rgba(40, 199, 111, 0.4);
-    -webkit-box-shadow: 0 0 0 4px rgba(40, 199, 111, 0.4);
-  }
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 4px rgba(224, 201, 207, 0);
-    -webkit-box-shadow: 0 0 0 4px rgba(224, 201, 207, 0);
-  }
-  100% {
-    transform: scale(0.94);
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-    -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-  }
-}
-
 @keyframes pulse {
   0% {
     transform: scale(0.74);
@@ -5213,7 +5052,6 @@ footer .adminFooter p a {
 #products_details .details_containes .content .images {
   height: 300px;
   width: 40%;
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   text-align: center;
@@ -5307,7 +5145,6 @@ footer .adminFooter p a {
 #products_details .details_containes .buying_Content {
   height: 100%;
   min-width: 295px;
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   display: flex;
@@ -5483,29 +5320,12 @@ footer .adminFooter p a {
   align-items: center;
 }
 
-@-webkit-keyframes animate {
-  0% {
-    transform: scaleX(0);
-  }
-  100% {
-    transform: scaleX(1);
-  }
-}
-
 @keyframes animate {
   0% {
     transform: scaleX(0);
   }
   100% {
     transform: scaleX(1);
-  }
-}
-@-webkit-keyframes animateBack {
-  0% {
-    transform: scaleX(1);
-  }
-  100% {
-    transform: scaleX(0);
   }
 }
 @keyframes animateBack {
@@ -5535,7 +5355,6 @@ footer .adminFooter p a {
 }
 .popup_signIn_Up .popup {
   width: 400px;
-  height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
   padding: 2rem 1.5rem;
@@ -5615,8 +5434,7 @@ footer .adminFooter p a {
   bottom: 7px;
   border-radius: 5px;
   background: #000;
-  -webkit-animation: animateBack 0.8s linear forwards alternate;
-          animation: animateBack 0.8s linear forwards alternate;
+  animation: animateBack 0.8s linear forwards alternate;
   transform: scaleX(1);
   transform-origin: left;
 }
@@ -5690,10 +5508,6 @@ footer .adminFooter p a {
   color: #96a0a5;
   font-weight: 500;
 }
-.popup_signIn_Up .popup .form_outer form .field textarea:-ms-input-placeholder, .popup_signIn_Up .popup .form_outer form .field input:-ms-input-placeholder {
-  color: #96a0a5;
-  font-weight: 500;
-}
 .popup_signIn_Up .popup .form_outer form .field textarea::placeholder, .popup_signIn_Up .popup .form_outer form .field input::placeholder {
   color: #96a0a5;
   font-weight: 500;
@@ -5732,7 +5546,6 @@ footer .adminFooter p a {
 }
 .popup_signIn_Up .popup .signUp_form .signInBtn {
   width: 100%;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   display: flex;
@@ -5778,8 +5591,7 @@ footer .adminFooter p a {
   top: 1px;
 }
 .popup_signIn_Up .popup.nextStep .signUp_form .progress_bar .step .bullet:before {
-  -webkit-animation: animate 0.8s linear forwards alternate;
-          animation: animate 0.8s linear forwards alternate;
+  animation: animate 0.8s linear forwards alternate;
   transform: scaleX(0);
   transform-origin: left;
 }
@@ -5865,7 +5677,6 @@ footer .adminFooter p a {
 }
 .popup_signIn_Up .popup {
   width: 400px;
-  height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
   padding: 2rem 1.5rem;
@@ -5947,10 +5758,6 @@ footer .adminFooter p a {
   border-color: #000;
 }
 .popup_signIn_Up .popup .form_outer form .field .inputContent input::-moz-placeholder {
-  color: #96a0a5;
-  font-weight: 500;
-}
-.popup_signIn_Up .popup .form_outer form .field .inputContent input:-ms-input-placeholder {
   color: #96a0a5;
   font-weight: 500;
 }
@@ -6208,11 +6015,6 @@ footer .adminFooter p a {
   font-weight: 500;
   font-size: 14px;
 }
-#forgetPasswordContainer .rightSide .forms form .feild input:-ms-input-placeholder {
-  color: #eee;
-  font-weight: 500;
-  font-size: 14px;
-}
 #forgetPasswordContainer .rightSide .forms form .feild input::placeholder {
   color: #eee;
   font-weight: 500;
@@ -6262,8 +6064,7 @@ footer .adminFooter p a {
   background: #ffffff;
   background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
   position: relative;
-  -webkit-animation: load3 1.4s infinite linear;
-          animation: load3 1.4s infinite linear;
+  animation: load3 1.4s infinite linear;
   transform: translateZ(0);
   transition: 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
 }
@@ -6452,11 +6253,6 @@ footer .adminFooter p a {
   color: #eee;
   font-size: 14px;
 }
-#resetPasswordBody .rightSide .forms form .feild .inputContent input:-ms-input-placeholder {
-  font-weight: 500;
-  color: #eee;
-  font-size: 14px;
-}
 #resetPasswordBody .rightSide .forms form .feild .inputContent input::placeholder {
   font-weight: 500;
   color: #eee;
@@ -6640,7 +6436,6 @@ footer .adminFooter p a {
 .footer .footer_container .footer_ .bottom_container ul h2 {
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   margin-bottom: 1rem;
   color: #fcfdfd;
@@ -6649,7 +6444,6 @@ footer .adminFooter p a {
 .footer .footer_container .footer_ .bottom_container ul li {
   list-style: none;
   font-size: 14px;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
@@ -6657,7 +6451,6 @@ footer .adminFooter p a {
   color: #fcfdfd;
 }
 .footer .footer_container .footer_ .bottom_container ul li a {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   color: #96a0a5;
@@ -6665,7 +6458,6 @@ footer .adminFooter p a {
   transition: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 .footer .footer_container .footer_ .bottom_container ul li a i {
@@ -6694,7 +6486,6 @@ footer .adminFooter p a {
           text-decoration: underline #f16565;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 .footer .footer_container .footer_ .footer_images h1 span {
@@ -6718,7 +6509,6 @@ footer .adminFooter p a {
   font-size: 11px;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 .footer .main_footer span .link {
@@ -6837,7 +6627,6 @@ footer .adminFooter p a {
   padding-top: 0.3rem;
 }
 #UserPages .user_container .top_container .rightTopContainer {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   height: 100%;
@@ -6884,14 +6673,12 @@ footer .adminFooter p a {
   font-weight: 700;
 }
 #UserPages .user_container .bottom_container .contents ul li .collapse_content .content .text {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   display: flex;
   flex-direction: column;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 #UserPages .user_container .bottom_container .contents ul li .collapse_content .content .text span.title {
@@ -6931,7 +6718,6 @@ footer .adminFooter p a {
 #UserPages .user_container .bottom_container .contents ul li .collapse .order_details h5 {
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   font-weight: 600;
   font-size: 0.9rem;
@@ -6953,7 +6739,6 @@ footer .adminFooter p a {
   color: #000;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   position: relative;
 }
@@ -7076,7 +6861,6 @@ body {
   color: #000;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   font-size: 1.1rem;
 }
@@ -7127,9 +6911,6 @@ body {
   outline: none;
 }
 #payment_page_container .payment_container .payment_wrapper .input_wrapper .input_contents input::-moz-placeholder {
-  color: #c6cbd6;
-}
-#payment_page_container .payment_container .payment_wrapper .input_wrapper .input_contents input:-ms-input-placeholder {
   color: #c6cbd6;
 }
 #payment_page_container .payment_container .payment_wrapper .input_wrapper .input_contents input::placeholder {
@@ -7323,10 +7104,6 @@ body {
   text-transform: capitalize;
 }
 
-#payment_name:-ms-input-placeholder {
-  text-transform: capitalize;
-}
-
 #payment_name::placeholder {
   text-transform: capitalize;
 }
@@ -7341,16 +7118,14 @@ body {
   #payment_page_container .payment_wrapper .payment_bottom .input_wrapper {
     flex-direction: column;
   }
-
   #payment_page_container .payment_wrapper .payment_bottom .bottom_payment_wrapper {
     flex-direction: column;
   }
   #payment_page_container .payment_wrapper .payment_bottom .bottom_payment_wrapper .payment_button, #payment_page_container .payment_wrapper .payment_bottom .bottom_payment_wrapper .bottom_checkout {
     width: 100%;
   }
-
   #payment_page_container .payment_wrapper .payment_bottom .input_wrapper .card_number_input,
-#payment_page_container .payment_wrapper .payment_bottom .input_wrapper .number_input {
+  #payment_page_container .payment_wrapper .payment_bottom .input_wrapper .number_input {
     margin-bottom: 1rem;
   }
 }
@@ -7543,14 +7318,12 @@ nav.navbar, nav.navbar .right, #header, .banner_container .banner_box, #CardSwip
   top: 0;
   width: 6400px;
   height: 200px;
-  -webkit-animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
-          animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
   transform: translate3d(0, 0, 0);
 }
 #contactUs .container .wrapper .mainContent .wave:nth-of-type(2) {
   top: 0;
-  -webkit-animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite, swell 7s ease -1.25s infinite;
-          animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite, swell 7s ease -1.25s infinite;
+  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite, swell 7s ease -1.25s infinite;
   opacity: 1;
 }
 
@@ -7583,28 +7356,12 @@ nav.navbar, nav.navbar .right, #header, .banner_container .banner_box, #CardSwip
     font-size: 14px;
   }
 }
-@-webkit-keyframes wave {
-  0% {
-    margin-left: 0;
-  }
-  100% {
-    margin-left: -1600px;
-  }
-}
 @keyframes wave {
   0% {
     margin-left: 0;
   }
   100% {
     margin-left: -1600px;
-  }
-}
-@-webkit-keyframes swell {
-  0%, 100% {
-    transform: translate3d(0, -25px, 0);
-  }
-  50% {
-    transform: translate3d(0, 5px, 0);
   }
 }
 @keyframes swell {
@@ -7789,32 +7546,29 @@ nav.navbar, nav.navbar .right, #header, .banner_container .banner_box, #CardSwip
   #forgetPasswordContainer .rightSide .successfullMsg span {
     font-size: 12px;
   }
-
   #contactUs .container .wrapper .wrapper_container .left {
     margin: 0 auto;
   }
   #contactUs .container .wrapper .wrapper_container .right {
     display: none;
   }
-
   #contactUs,
-#orderTrackerContainer,
-#UserDataUpdate,
-#UserPages,
-#ErrorPages,
-#products_details,
-#OrderPage,
-#CartPage,
-#WishList,
-#card_section,
-.banner_container,
-.section,
-#header,
-nav.navbar {
+  #orderTrackerContainer,
+  #UserDataUpdate,
+  #UserPages,
+  #ErrorPages,
+  #products_details,
+  #OrderPage,
+  #CartPage,
+  #WishList,
+  #card_section,
+  .banner_container,
+  .section,
+  #header,
+  nav.navbar {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
-
   .banner_container {
     height: 240px;
   }
@@ -7827,21 +7581,17 @@ nav.navbar {
   .banner_container .banner_box .box_content p {
     font-size: 11px;
   }
-
   #banner__ {
     margin-bottom: 10px;
     margin-top: 15px;
   }
-
   /* ====================banner Section End=================== */
   .section {
     padding-top: 25px;
   }
-
   #card_section .card_container .cards_addit {
     right: -13px;
   }
-
   /* ======================Products Card End======================== */
   .footer .footer_container {
     padding: 1.6rem;
@@ -7861,7 +7611,6 @@ nav.navbar {
   .footer .footer_container .footer_ .bottom_container {
     width: 100%;
   }
-
   /* ======================Footer End========================= */
   #products_details .details_containes .content .product_info .offer span {
     font-size: 1.4rem;
@@ -7869,7 +7618,6 @@ nav.navbar {
   #products_details .details_containes .content .product_info .mrp_price span {
     font-size: 0.8rem;
   }
-
   /* ======================Product Sections End====================== */
   #CartPage .cart_contents .left_cart_content .cart_wrapper .empty_cartPage {
     flex-direction: column;
@@ -7883,22 +7631,18 @@ nav.navbar {
   #CartPage .cart_contents .left_cart_content .products_contents .product_container .product_bottom_part .hr {
     height: 20px;
   }
-
   /* ==========================CartPage End========================= */
   #ErrorPages .error_content .content h1 {
     font-size: 2.3rem;
   }
-
   /* ==========================errorPage End========================= */
   #WishList .wishlist_content .wishlist_container .empty_list .content h1 {
     font-size: 2.3rem;
   }
-
   /* ==========================WishListPage End========================= */
   #OrderPage .Order_content .empty_order .addOrder_content h1 {
     font-size: 2.3rem;
   }
-
   /* ==========================OrderPagePage End========================= */
   #forgetPasswordContainer .rightSide {
     width: 320px;
@@ -7907,14 +7651,12 @@ nav.navbar {
   #forgetPasswordContainer .rightSide .heading h2 {
     font-size: 1.9rem;
   }
-
   #orderTrackerContainer .order_contents .mainContainer {
     flex-direction: column;
   }
   #orderTrackerContainer .order_contents .mainContainer .left {
     position: unset;
   }
-
   #resetPasswordBody .rightSide {
     width: 500px;
   }
@@ -7923,13 +7665,10 @@ nav.navbar {
   #Container {
     padding-bottom: 5.5rem;
   }
-
   #SeeMore {
     margin-top: 10px;
   }
-
   .banner_container {
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     margin: 10px 0;
@@ -7937,16 +7676,13 @@ nav.navbar {
   .banner_container .banner_box video, .banner_container .banner_box {
     display: none;
   }
-
   #banner__ {
     margin-bottom: 0;
   }
-
   /* ====================banner Section End=================== */
   .section {
     padding-top: 15px;
   }
-
   #CardSwiper .card_container .card__ {
     width: 210px;
   }
@@ -7956,7 +7692,6 @@ nav.navbar {
   #CardSwiper .cards .image, #CardSwiper .cards .card_content {
     height: 150px;
   }
-
   /* ====================Card Categary End=================== */
   #card_section .card_container {
     -moz-column-gap: 20px;
@@ -8002,7 +7737,6 @@ nav.navbar {
   #card_section #card_pricing_btn span {
     font-size: 13px;
   }
-
   /* ======================Product Card End==================== */
   #products_details .details_containes .content {
     flex-direction: column;
@@ -8030,7 +7764,6 @@ nav.navbar {
   #products_details .descriptions {
     margin-top: 1.3rem;
   }
-
   /* ====================Product Details End====================== */
   #CartPage .cart_contents .left_cart_content .products_contents {
     width: 100%;
@@ -8048,7 +7781,6 @@ nav.navbar {
     width: 100%;
   }
   #CartPage .cart_contents .left_cart_content .products_contents .products_totalPrices {
-    width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
   }
@@ -8062,20 +7794,17 @@ nav.navbar {
   #CartPage .cart_contents .left_cart_content .cart_wrapper .empty_cartPage .content p {
     font-size: 1.15rem;
   }
-
   /* ====================CartPage Details End====================== */
   #UserPages .user_container .top_container .leftTopContainer .UserContent .details {
     flex-direction: column;
     gap: 0;
   }
-
   .footer .footer_container .top_container {
     top: -7%;
   }
   .footer .footer_container .footer_ .bottom_container {
     width: 100%;
   }
-
   #ErrorPages .error_content .content {
     width: 75%;
     margin: 0 auto;
@@ -8086,7 +7815,6 @@ nav.navbar {
   #ErrorPages .error_content .content p {
     font-size: 1.15rem;
   }
-
   #WishList .wishlist_content .wishlist_container .empty_list .content {
     width: 75%;
     margin: 0 auto;
@@ -8097,7 +7825,6 @@ nav.navbar {
   #WishList .wishlist_content .wishlist_container .empty_list .content p {
     font-size: 1.15rem;
   }
-
   #OrderPage .Order_content .empty_order .addOrder_content {
     width: 75%;
     margin: 0 auto;
@@ -8111,7 +7838,6 @@ nav.navbar {
   #OrderPage .Order_content .order_wrapper .order_details .orders_list .order_list_head .order_head_left {
     width: 50%;
   }
-
   /* ==========================OrderPagePage End========================= */
 }
 @media screen and (max-width: 768px) {
@@ -8121,7 +7847,6 @@ nav.navbar {
   #Container .overlay {
     top: 115px;
   }
-
   #header {
     gap: 0;
     -webkit-gap: 0;
@@ -8133,25 +7858,20 @@ nav.navbar {
     margin-bottom: 1rem;
     order: 1;
   }
-
   #HeaderSwiper {
     order: 2;
   }
-
   /* ====================Header Section End========================== */
   .banner_container {
     margin: 20px 0;
     height: 350px;
   }
-
   #mySwiper {
     display: none;
   }
-
   #mySwiper2 {
     display: block;
   }
-
   #banner__ {
     margin: 15px 0;
     height: 240px;
@@ -8162,7 +7882,6 @@ nav.navbar {
   #banner__ .mobile {
     display: block;
   }
-
   /* ======================Banner section end========================== */
   #CardSwiper .card_container .card__ {
     width: 200px;
@@ -8322,7 +8041,6 @@ nav.navbar {
     background-clip: text;
     -webkit-background-clip: text;
   }
-
   /* ======================Categary Products End==================== */
   #card_section {
     padding-bottom: 30px;
@@ -8374,7 +8092,6 @@ nav.navbar {
   #card_section #card_pricing_btn span {
     font-size: 11px;
   }
-
   /* ======================== Card Products Ebd===================== */
   #CartPage .cart_contents {
     flex-direction: column;
@@ -8397,7 +8114,6 @@ nav.navbar {
   #CartPage .cart_contents .left_cart_content .products_contents .product_container .product_des p {
     font-size: 0.9rem;
   }
-
   /* ==========================Cart Page End======================== */
   #OrderPage .Order_content .empty_order .addOrder_content .fav_img {
     height: 250px;
@@ -8440,7 +8156,6 @@ nav.navbar {
   #OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content .cancleOrder .button {
     width: 100%;
   }
-
   /* ==================favouritPage Page End================== */
   #WishList .wishlist_content .wishlist_container .empty_list .images {
     height: 250px;
@@ -8451,7 +8166,6 @@ nav.navbar {
   #WishList .wishlist_content .wishlist_container .empty_list .content p {
     font-size: 1.15rem;
   }
-
   /* ==========================WishListPage End========================= */
   #products_details .details_containes {
     flex-direction: column;
@@ -8480,7 +8194,6 @@ nav.navbar {
   #products_details .details_containes .buying_Content .social_media {
     order: 2;
   }
-
   /* ==================Products Details End==================== */
   .footer .footer_container .top_container {
     padding: 2rem;
@@ -8518,12 +8231,10 @@ nav.navbar {
     height: 180px;
     display: none;
   }
-
   /* ====================footer section end==================== */
   #CartPage .cart_contents .left_cart_content .cart_wrapper .content {
     width: 350px;
   }
-
   /* ===================CartPage section end=================== */
   #UserPages .user_container .top_container {
     flex-direction: column;
@@ -8552,12 +8263,10 @@ nav.navbar {
   #UserPages .user_container .bottom_container .contents ul li .collapse .order_details a {
     font-size: 12px;
   }
-
   /* =====================User Profile end===================== */
   #UserDataUpdate .updateContainer {
     padding: 2rem;
   }
-
   #updateUserData .buttons {
     flex-direction: column;
   }
@@ -8567,12 +8276,10 @@ nav.navbar {
   #updateUserData .buttons .cancle {
     order: 2;
   }
-
   /* ==================User Profile Update end================== */
   #forgetPasswordContainer .rightSide .heading .title {
     font-size: 13px;
   }
-
   #orderTrackerContainer .order_contents .orderTrack_heading h1 {
     font-size: 1.4rem;
   }
@@ -8592,7 +8299,6 @@ nav.navbar {
     flex-wrap: wrap;
     gap: 7px;
   }
-
   #resetPasswordBody .rightSide {
     width: 100%;
   }
@@ -8601,7 +8307,6 @@ nav.navbar {
   .banner_container {
     margin: 15px 0;
   }
-
   /* ==========================Banner End==================== */
   #CardSwiper .card_container {
     row-gap: 45px;
@@ -8630,7 +8335,6 @@ nav.navbar {
   #CardSwiper .card_container .card__ .overlay_typed {
     height: 60px;
   }
-
   /* ==========================Product Cards==================== */
   #card_section .card_container {
     gap: 0;
@@ -8653,11 +8357,9 @@ nav.navbar {
   #card_section .card_container .cards:hover #card_pricing_btn button, #card_section .card_container .cards #card_pricing_btn button {
     bottom: 65px;
   }
-
   #far i {
     font-size: 18px;
   }
-
   #card_section .addToCart .cards_addit {
     width: 55px;
     height: 55px;
@@ -8672,7 +8374,6 @@ nav.navbar {
   #card_section .addToCart .cards_addit a .card_add i {
     font-weight: 400;
   }
-
   /* ====================Product Card End=================== */
   #products_details .details_containes .buying_Content .products_buying_sections .buttons_buying_addToCart {
     flex-direction: column;
@@ -8682,7 +8383,6 @@ nav.navbar {
   #products_details .details_containes .buying_Content .products_buying_sections .buttons_buying_addToCart button.buyNow {
     margin-top: 0.8rem;
   }
-
   /* ==================Product Details End================== */
   #WishList .wishlist_content .wishList_card {
     width: 200px;
@@ -8698,7 +8398,6 @@ nav.navbar {
   #WishList .wishlist_content .wishList_card .content .price .prices {
     font-size: 14px;
   }
-
   /* ==================Wishlist Section End================== */
   #offers_containers {
     height: 260px;
@@ -8742,7 +8441,6 @@ nav.navbar {
     padding: 0.8rem 1.4rem;
     font-size: 1rem;
   }
-
   #header {
     flex-direction: column !important;
   }
@@ -8753,31 +8451,26 @@ nav.navbar {
   #header .search input {
     font-size: 16px;
   }
-
   #left .shop {
     margin-left: 20px;
   }
-
   .banner_container {
     height: 400px;
   }
-
   #card_section .card_container .cards,
-#CardSwiper .card_container .card__ {
+  #CardSwiper .card_container .card__ {
     margin-bottom: 45px;
     -webkit-margin-bottom: 45px;
   }
-
   #card_section .card_container .cards:nth-child(10),
-#card_section .card_container .cards:nth-child(11),
-#card_section .card_container .cards:nth-child(12),
-#CardSwiper .card_container .card__:nth-child(12),
-#CardSwiper .card_container .card__:nth-child(11),
-#CardSwiper .card_container .card__:nth-child(10) {
+  #card_section .card_container .cards:nth-child(11),
+  #card_section .card_container .cards:nth-child(12),
+  #CardSwiper .card_container .card__:nth-child(12),
+  #CardSwiper .card_container .card__:nth-child(11),
+  #CardSwiper .card_container .card__:nth-child(10) {
     margin-bottom: 0;
     -webkit-margin-bottom: 0;
   }
-
   #card_section .card_container .cards:hover #card_pricing_btn button {
     bottom: 95px;
   }
@@ -8787,21 +8480,17 @@ nav.navbar {
   #card_section .card_container .cards .card_head button span {
     display: none;
   }
-
   #CartPage .cart_contents .right_cart_content {
     margin-top: 20px;
   }
-
   #CartPage .cart_contents .right_cart_content .subtotal p,
-#CartPage .cart_contents .left_cart_content .cart_wrapper .content span {
+  #CartPage .cart_contents .left_cart_content .cart_wrapper .content span {
     font-size: 1.5rem;
   }
-
   #CartPage .cart_contents .buy_btn button,
-#CartPage .cart_contents .left_cart_content .cart_wrapper .content button {
+  #CartPage .cart_contents .left_cart_content .cart_wrapper .content button {
     font-size: 1rem;
   }
-
   #products_details .details_containes .buying_Content {
     margin-bottom: 20px;
   }
@@ -8817,15 +8506,12 @@ nav.navbar {
   #products_details .details_containes .products_buying_sections .buttons_buying_addToCart button.buyNow {
     margin-left: 20px;
   }
-
   #product_options {
     width: 60px;
   }
-
   .footer .footer_container .top_container .button button {
     font-size: 1rem;
   }
-
   /* ==========================Footer End========================== */
   #WishList .wishlist_content .content span {
     font-size: 1.6rem;
@@ -8833,7 +8519,6 @@ nav.navbar {
   #WishList .wishlist_content .content button {
     font-size: 1rem;
   }
-
   /* ===================WishList Section End======================== */
 }
 /* Landscape == height */
@@ -8842,7 +8527,6 @@ nav.navbar {
     width: 100%;
     margin-bottom: 15px;
   }
-
   main .banner_container {
     margin: 15px 0;
   }
@@ -8853,7 +8537,6 @@ nav.navbar {
   main .banner_container .banner_box .box_content {
     padding: 20px 20px 0 20px;
   }
-
   #CartPage .cart_contents {
     flex-direction: column;
   }
@@ -8867,17 +8550,14 @@ nav.navbar {
   #CartPage .cart_contents .left_cart_content .cart_wrapper .content {
     margin-top: 1.5rem;
   }
-
   #CartPage .cart_contents .right_cart_content .subtotal p,
-#CartPage .cart_contents .left_cart_content .cart_wrapper .content span {
+  #CartPage .cart_contents .left_cart_content .cart_wrapper .content span {
     font-size: 1.5rem;
   }
-
   #CartPage .cart_contents .buy_btn button,
-#CartPage .cart_contents .left_cart_content .cart_wrapper .content button {
+  #CartPage .cart_contents .left_cart_content .cart_wrapper .content button {
     font-size: 1rem;
   }
-
   /* ========================= CartPage Section End ========================== */
   .footer .footer_container .top_container .button button {
     font-size: 1rem;
@@ -8888,58 +8568,48 @@ nav.navbar {
   #resetPasswordBody .rightSide {
     padding: 0;
   }
-
   #Container {
     padding-bottom: 6.5rem;
   }
-
   #banner__ {
     margin: 10px 0;
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
   }
-
   #contactUs,
-#orderTrackerContainer,
-#searching .emptySearch,
-#UserDataUpdate,
-#UserPages,
-#ErrorPages,
-#products_details,
-#OrderPage,
-#CartPage,
-#WishList,
-#card_section,
-.banner_container,
-.section,
-#header,
-nav.navbar {
+  #orderTrackerContainer,
+  #searching .emptySearch,
+  #UserDataUpdate,
+  #UserPages,
+  #ErrorPages,
+  #products_details,
+  #OrderPage,
+  #CartPage,
+  #WishList,
+  #card_section,
+  .banner_container,
+  .section,
+  #header,
+  nav.navbar {
     padding-left: 1rem;
     padding-right: 1rem;
   }
-
   nav.navbar .right {
     gap: 10px;
   }
-
   #header {
     margin-top: 0.2rem;
   }
-
   main .banner_container {
     height: 260px;
     margin: 10px 0 15px 0;
   }
-
   #SideBar .sideBar_content {
     width: 300px;
   }
-
   .section {
     padding-top: 15px;
   }
-
   /* ==============Card Categary============== */
   #CardSwiper .card_container {
     row-gap: 50px;
@@ -8978,7 +8648,6 @@ nav.navbar {
   #CardSwiper .card_container .card__:hover .image img, #CardSwiper .card_container .card__ .image img {
     margin-top: -25px;
   }
-
   /* ===============Product Cards============= */
   #card_section {
     padding-bottom: 28px;
@@ -8996,8 +8665,7 @@ nav.navbar {
     bottom: -24px;
   }
   #card_section .card_container .cards .addToCart .cards_addit a .card_add {
-    -webkit-animation: pulse_01 2s ease infinite;
-            animation: pulse_01 2s ease infinite;
+    animation: pulse_01 2s ease infinite;
   }
   #card_section .card_container .cards .card_head button span {
     display: none;
@@ -9018,7 +8686,6 @@ nav.navbar {
   #card_section .card_container:hover #card_pricing_btn button, #card_section .card_container #card_pricing_btn button {
     bottom: 60px !important;
   }
-
   #card_pricing_btn span {
     font-size: 10px;
   }
@@ -9029,7 +8696,6 @@ nav.navbar {
   #card_pricing_btn button span {
     color: #fff;
   }
-
   /* =============Product Cards End============= */
   #CartPage .cart_contents {
     gap: 25px;
@@ -9057,7 +8723,6 @@ nav.navbar {
   #CartPage .cart_contents .left_cart_content .cart_wrapper .products_contents .product_container .product_bottom_part button {
     flex-direction: column;
   }
-
   /* =============CartPage Cards End============= */
   #WishList .wishlist_content .wishlist_container .empty_list .images {
     height: 200px;
@@ -9073,7 +8738,6 @@ nav.navbar {
     font-size: 1.5rem;
     margin-top: 2rem;
   }
-
   /* ============WishList Section End============ */
   .footer .footer_container {
     padding: 1.2rem;
@@ -9113,7 +8777,6 @@ nav.navbar {
   .footer .footer_container .footer_ .footer_images img {
     height: 180px;
   }
-
   /* =============Footer Section End============= */
   #products_details {
     padding-bottom: 0;
@@ -9130,22 +8793,17 @@ nav.navbar {
   #products_details .descriptions p {
     padding-left: 0;
   }
-
   #product_tabel td, #product_tabel th {
-    width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
   }
-
   /* ==============Product details=============== */
   #SeeMore {
     margin-top: 20px;
   }
-
   #SeeMore button {
     font-size: 1rem;
   }
-
   /* ============See More Buttons End============== */
   .popup_signIn_Up .popup {
     width: 320px;
@@ -9163,7 +8821,6 @@ nav.navbar {
   .popup_signIn_Up .popup .signUp_form .progress_bar .step:not(:last-child) .bullet::before {
     width: 93px;
   }
-
   #OrderPage .Order_content .empty_order .fav_img {
     height: 200px;
   }
@@ -9194,14 +8851,12 @@ nav.navbar {
   #OrderPage .Order_content .order_wrapper .order_details .orders_list .order_main_content.orders_items .left_content .description {
     text-align: left;
   }
-
   #right_content_order {
     width: 100%;
   }
   #right_content_order .button {
     width: 100% !important;
   }
-
   /* ===================OrderPage Section Edn==================== */
   #offers_containers {
     margin-left: 1rem;
@@ -9221,7 +8876,6 @@ nav.navbar {
   #offers_containers .offers_contents .container .wrapper .images {
     width: 120px;
   }
-
   #UserPages .user_container .top_container .leftTopContainer {
     flex-direction: column;
     gap: 15px;
@@ -9241,11 +8895,9 @@ nav.navbar {
   #UserPages .user_container .bottom_container .contents .buttons button {
     width: 100%;
   }
-
   #UserDataUpdate .updateContainer {
     padding: 2rem 1.2rem;
   }
-
   /* ==================User Profile Update end================== */
   #ErrorPages .error_content .images {
     height: 200px;
@@ -9260,7 +8912,6 @@ nav.navbar {
     margin-top: 0;
     font-size: 1.5rem;
   }
-
   #orderTrackerContainer .order_contents .orderTrack_heading {
     flex-direction: column;
     align-items: flex-start;
@@ -9275,13 +8926,11 @@ nav.navbar {
   .banner_container {
     height: 260px;
   }
-
   #WishList .wishlist_content .wishlist_container .empty_list .content span,
-#CartPage .cart_contents .right_cart_content .subtotal p,
-.footer .footer_container .top_container .content span {
+  #CartPage .cart_contents .right_cart_content .subtotal p,
+  .footer .footer_container .top_container .content span {
     font-size: 1.2rem;
   }
-
   /* =====================Product Categary======================= */
   #CardSwiper .card_container {
     row-gap: 38px;
@@ -9303,19 +8952,16 @@ nav.navbar {
   #CardSwiper .card_container .card__ .cards .image img {
     margin-top: -15px;
   }
-
   /* ============================================================ */
   /* ====Product Cards===== */
   /* ============================================================ */
   #card_section .card_container .cards {
     width: 155px;
   }
-
   /* =======================Product Cards End==================== */
   .footer .footer_container .main_hr {
     margin-top: 5.5rem;
   }
-
   /* ====================Footer Section Edn====================== */
   #WishList .wishlist_content .wishlist_container {
     justify-content: center;
@@ -9337,7 +8983,6 @@ nav.navbar {
   #WishList .wishlist_content .wishlist_container .wishList_card .content .Move_bagBtn {
     height: 40px;
   }
-
   /* ====================WishList Section end====================== */
   #offers_containers .offers_contents .container .wrapper .content .priceOff span {
     font-size: 1.5rem;
@@ -9359,7 +9004,6 @@ nav.navbar {
   #CartPage .cart_contents .left_cart_content .cart_wrapper .empty_cartPage .content {
     width: 100%;
   }
-
   /* ========================CartPage section End==================== */
   #OrderPage .Order_content .order_wrapper .order_details .orders_list .order_list_head .order_head_right .orderID {
     flex-direction: column;
@@ -9371,7 +9015,6 @@ nav.navbar {
   #CartPage .cart_contents .left_cart_content .cart_wrapper .empty_cartPage .content {
     margin-top: 1rem;
   }
-
   #offers_containers {
     display: none;
   }
@@ -9380,20 +9023,16 @@ nav.navbar {
   #left .shop {
     margin-left: 0.3rem;
   }
-
   #SideBar .sideBar_content {
     width: 260px;
   }
-
   .section {
     padding-top: 0;
     padding-bottom: 0;
   }
-
   #product_json {
     padding-top: 0 !important;
   }
-
   #CardSwiper {
     margin-bottom: 10px;
   }
@@ -9429,7 +9068,6 @@ nav.navbar {
   #CardSwiper .card_container .card__ .overlay_typed {
     height: 60px;
   }
-
   #card_section {
     padding-top: 0;
     padding-bottom: 0;
@@ -9453,16 +9091,13 @@ nav.navbar {
   #card_section .card_container .cards {
     width: 180px;
   }
-
   #card_section .card_container .cards .card_heading .card_star,
-#card_section .card_container .cards .card_heading .card_price {
+  #card_section .card_container .cards .card_heading .card_price {
     font-size: 13px;
   }
-
   #card_section .card_container .cards .card_heading h5 {
     font-size: 14px;
   }
-
   .popup_signIn_Up .container .popup {
     width: 300px;
   }
@@ -9475,7 +9110,6 @@ nav.navbar {
   .popup_signIn_Up .container .popup .signUp_form .progress_bar .step p {
     font-size: 0.7rem;
   }
-
   #products_details .details_containes .buying_Content {
     width: 100%;
   }
@@ -9684,26 +9318,26 @@ nav.navbar {
 
 @media screen and (max-width: 992px) {
   #loginPage,
-#registersPage {
+  #registersPage {
     overflow: hidden;
   }
   #loginPage .wrapper .images,
-#registersPage .wrapper .images {
+  #registersPage .wrapper .images {
     display: none;
     margin-right: 0;
   }
   #loginPage .wrapper .buttons,
-#registersPage .wrapper .buttons {
+  #registersPage .wrapper .buttons {
     order: 2;
   }
   #loginPage .wrapper .contents,
-#registersPage .wrapper .contents {
+  #registersPage .wrapper .contents {
     position: relative;
     top: 7%;
     order: 1;
   }
   #loginPage .wrapper .bgImg,
-#registersPage .wrapper .bgImg {
+  #registersPage .wrapper .bgImg {
     display: block;
     z-index: 1;
   }
@@ -9822,7 +9456,6 @@ nav.navbar {
 #removeToOrderPopup .content,
 #removeToCartPopup .content,
 #addToCartPopup .content {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   height: 100%;

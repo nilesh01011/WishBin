@@ -4,12 +4,14 @@ var __webpack_exports__ = {};
 /*!***************************************!*\
   !*** ./resources/JS/dashboardHome.js ***!
   \***************************************/
- // ===================charts===================
 
+
+// ===================charts===================
 var _tooltips;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 var ctx = document.getElementById('myChart').getContext('2d');
 var gradientBg = ctx.createLinearGradient(0, 0, 0, 300);
 gradientBg.addColorStop(0, 'rgba(157, 148, 255,0.6)');
@@ -19,6 +21,7 @@ var chart = new Chart(ctx, {
   // The type of chart we want to create
   type: 'line',
   // also try bar or other graph types
+
   // The data for our dataset
   data: {
     labels: ['Jan', 'Fab', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -34,6 +37,7 @@ var chart = new Chart(ctx, {
       // pointHoverBackgroundColor: '#7367f0',
       pointBorderColor: 'transparent',
       // pointBorderColor: '#283046',
+
       pointHoverBorderColor: '#d0d2d6',
       pointHoverBorderWidth: 5,
       pointRadius: 5,
@@ -87,7 +91,9 @@ var chart = new Chart(ctx, {
       }]
     }
   }
-}); // =========== chart one end ================
+});
+
+// =========== chart one end ================
 
 var ctx2 = document.getElementById('Chart2').getContext('2d');
 var chart2 = new Chart(ctx2, {
@@ -158,7 +164,8 @@ var chart2 = new Chart(ctx2, {
       }]
     }
   }
-}); // =========== chart two end ================
+});
+// =========== chart two end ================
 
 var ctxPieChart1 = document.getElementById('pieChart1').getContext('2d');
 var pieChart1 = new Chart(ctxPieChart1, {
@@ -179,6 +186,7 @@ var pieChart1 = new Chart(ctxPieChart1, {
     }]
   },
   // Configuration options
+
   options: {
     tooltips: {
       backgroundColor: '#F3F6F8',
@@ -224,20 +232,20 @@ var pieChart1 = new Chart(ctxPieChart1, {
       }]
     }
   }
-}); // ========= chart polarChart1 end ==========
+});
+// ========= chart polarChart1 end ==========
 
 var orderListContainer = document.querySelector('#loadMoreTr');
 var orderListBtn = document.querySelector('#loadMoreTr button');
 var currentOrderList = 4;
 orderListBtn.addEventListener('click', function () {
-  var orderList = document.querySelectorAll('#order_table tbody tr'); // tr table show
+  var orderList = document.querySelectorAll('#order_table tbody tr');
+  // tr table show
 
   for (var i = currentOrderList; i < currentOrderList + 3; i++) {
     orderList[i].style.display = 'table-row';
   }
-
   currentOrderList += 4;
-
   if (currentOrderList > orderList.length) {
     orderListContainer.style.display = 'none';
     orderListBtn.style.display = 'none';

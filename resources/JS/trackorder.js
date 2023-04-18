@@ -11,7 +11,7 @@ try {
 
   timeStatus.className = 'times';
 
-  let currentArriving = document.querySelector('#currentArriving h3 span');
+  // let currentArriving = document.querySelector('#currentArriving h3 span');
 
   function updateStatus(order) {
     trackOrders.forEach((data) => {
@@ -33,13 +33,13 @@ try {
         // timeStatus.innerText = moment(order.updatedAt).format('hh:mm A');
         timeStatus.innerText = moment(order.updatedAt).format('llll');
 
-        if (order.status === 'delivered') {
-          currentArriving.innerText = moment().calendar();
-        } else {
-          currentArriving.innerText = moment(order.createdAt)
-            .add(3, 'days')
-            .format('MMMM Do YYYY');
-        }
+        // if (order.status === 'delivered') {
+        //   currentArriving.innerText = moment().calendar();
+        // } else {
+        //   currentArriving.innerText = moment(order.createdAt)
+        //     .add(3, 'days')
+        //     .format('MMMM Do YYYY');
+        // }
 
         ele.appendChild(timeStatus);
 

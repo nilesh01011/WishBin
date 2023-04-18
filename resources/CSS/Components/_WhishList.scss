@@ -195,13 +195,10 @@
                         margin-bottom: 8px;
                         justify-content: space-between;
 
-                        & span {
-                            font-size: 15px;
-                        }
-
                         & .prices {
                             color: $countingColor;
                             font-weight: 600;
+                            font-size: 14px;
 
                             & s {
                                 color: #6c7878;
@@ -222,6 +219,7 @@
 
                             & .view_details {
                                 cursor: pointer;
+                                font-size: 12px;
 
                                 &:hover {
                                     text-decoration: underline;

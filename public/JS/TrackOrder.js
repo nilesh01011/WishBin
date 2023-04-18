@@ -15904,7 +15904,7 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 
 /* module decorator */ module = __webpack_require__.nmd(module);
 //! moment.js
-//! version : 2.29.3
+//! version : 2.29.4
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
 //! license : MIT
 //! momentjs.com
@@ -18358,7 +18358,7 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
     function preprocessRFC2822(s) {
         // Remove comments and folding whitespace and replace multiple-spaces with a single space
         return s
-            .replace(/\([^)]*\)|[\n\t]/g, ' ')
+            .replace(/\([^()]*\)|[\n\t]/g, ' ')
             .replace(/(\s\s+)/g, ' ')
             .replace(/^\s\s*/, '')
             .replace(/\s\s*$/, '');
@@ -21539,7 +21539,7 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 
     //! moment.js
 
-    hooks.version = '2.29.3';
+    hooks.version = '2.29.4';
 
     setHookCallback(createLocal);
 
@@ -21681,15 +21681,15 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 
 try {
+  // let currentArriving = document.querySelector('#currentArriving h3 span');
   var updateStatus = function updateStatus(order) {
     trackOrders.forEach(function (data) {
       data.classList.remove('step-compeleted');
@@ -21698,61 +21698,65 @@ try {
     var stepCompelete = true;
     trackOrders.forEach(function (ele) {
       var getStatus = ele.dataset.status;
-
       if (stepCompelete) {
         ele.classList.add('step-compeleted');
       }
-
       if (getStatus === order.status) {
-        stepCompelete = false; // timeStatus.innerText = moment(order.updatedAt).format('hh:mm A');
+        stepCompelete = false;
 
+        // timeStatus.innerText = moment(order.updatedAt).format('hh:mm A');
         timeStatus.innerText = moment__WEBPACK_IMPORTED_MODULE_0___default()(order.updatedAt).format('llll');
 
-        if (order.status === 'delivered') {
-          currentArriving.innerText = moment__WEBPACK_IMPORTED_MODULE_0___default()().calendar();
-        } else {
-          currentArriving.innerText = moment__WEBPACK_IMPORTED_MODULE_0___default()(order.createdAt).add(3, 'days').format('MMMM Do YYYY');
-        }
+        // if (order.status === 'delivered') {
+        //   currentArriving.innerText = moment().calendar();
+        // } else {
+        //   currentArriving.innerText = moment(order.createdAt)
+        //     .add(3, 'days')
+        //     .format('MMMM Do YYYY');
+        // }
 
         ele.appendChild(timeStatus);
-
         if (ele.nextElementSibling) {
           ele.nextElementSibling.classList.add('current-status');
         }
       }
     });
   };
-
   var trackOrders = document.querySelectorAll('[data-status]');
   var hiddenInput = document.querySelector('#hiddenInput');
   var order = hiddenInput ? hiddenInput.value : null;
   order = JSON.parse(order);
   var timeStatus = document.createElement('small');
   timeStatus.className = 'times';
-  var currentArriving = document.querySelector('#currentArriving h3 span');
-  updateStatus(order); // socket io
+  updateStatus(order);
+
+  // socket io
 
   var socket;
-
   if (io) {
     socket = io();
-  } // Join the rooms by order id
+  }
 
+  // Join the rooms by order id
 
   if (order) {
     socket.emit('join', "order_".concat(order._id));
-  } // let adminAreaPath = window.location.pathname;
+  }
+
+  // let adminAreaPath = window.location.pathname;
+
   // console.log(adminAreaPath);
+
   // if (adminAreaPath.includes('adminPage')) {
   //   socket.emit('join', 'adminRoom');
   // }
+
   //  order_ and _idbcbvbbbvebqknqwkdnwqnd like this
 
-
   socket.on('orderUpdated', function (data) {
-    var updatedOrder = _objectSpread({}, order); // updatedOrder.updatedAt = moment().format();
+    var updatedOrder = _objectSpread({}, order);
 
-
+    // updatedOrder.updatedAt = moment().format();
     updatedOrder.updatedAt = moment__WEBPACK_IMPORTED_MODULE_0___default()().format('llll');
     updatedOrder.status = data.status;
     updateStatus(updatedOrder);

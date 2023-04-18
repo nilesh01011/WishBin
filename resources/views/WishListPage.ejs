@@ -109,8 +109,8 @@
                                 </div>
                                 <div class="price">
                                     <span class="prices">
-                                        ₹<%= ele.wishlistItems.price %>
-                                            <s>₹<%= ele.wishlistItems.MRP %></s>
+                                        ₹<%= new Intl.NumberFormat().format(ele.wishlistItems.price) %>
+                                            <s>₹<%= new Intl.NumberFormat().format(ele.wishlistItems.MRP) %></s>
                                     </span>
 
                                     <div class="hr"></div>

@@ -32,12 +32,14 @@ var swiper_Two = new Swiper('#mySwiper2', {
 var HeaderSwiper = new Swiper('#HeaderSwiper', {
   slidesPerView: 'auto',
   spaceBetween: 20
-}); // =========================Swiper JS End================================
+});
+
+// =========================Swiper JS End================================
 
 var SearchOverlay = document.querySelector('#Container .overlay'),
-    Search = document.querySelector('#header .search'),
-    SearchIcons = document.querySelector('#header .search i'),
-    body = document.querySelector('body');
+  Search = document.querySelector('#header .search'),
+  SearchIcons = document.querySelector('#header .search i'),
+  body = document.querySelector('body');
 Search.addEventListener('click', function () {
   SearchOverlay.style.display = 'block';
   body.classList.add('overflow-hidden');
@@ -49,16 +51,16 @@ SearchOverlay.addEventListener('click', function () {
   body.classList.remove('overflow-hidden');
   SearchIcons.style.color = '#96a0a5';
   Search.style.boxShadow = 'none';
-}); // =========================Search Section End============================
+});
+
+// =========================Search Section End============================
 
 var offers_containers = document.querySelector('#offers_containers');
 var OfferBtn = document.querySelector('#offers_containers .offers_button');
 var offers_contents = document.querySelector('#offers_containers .offers_contents');
-
 if (OfferBtn) {
   OfferBtn.addEventListener('click', function () {
     offers_containers.style.width = 'auto';
-
     if (offers_contents.classList.contains('active') && offers_containers.classList.contains('is-active')) {
       offers_contents.classList.remove('active');
       offers_containers.classList.remove('is-active');
@@ -67,8 +69,9 @@ if (OfferBtn) {
       offers_containers.classList.add('is-active');
     }
   });
-} // =========================Category Products Links============================
+}
 
+// =========================Category Products Links============================
 
 var card_game = document.querySelectorAll('#card_games');
 card_game.forEach(function (ele) {
