@@ -9502,7 +9502,7 @@ nav.navbar, nav.navbar .right, #header, .banner_container .banner_box, #CardSwip
 }
 
 #addToCartPopup {
-  top: 135px;
+  top: 75px;
 }
 #addToCartPopup .content {
   background: #2ecc71;
